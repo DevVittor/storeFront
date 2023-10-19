@@ -1,0 +1,47 @@
+header{
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    border-bottom: 1px solid #ddd;
+    background: white;
+}
+.container-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+}
+.box-logo a{
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
+}
+.box-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+.box-urls ul{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.box-urls a{
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+}
+.box-acesso{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.box-acesso a{
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    padding: 3px 10px;
+    border-radius: 3px;
+}

@@ -1,0 +1,40 @@
+.container-card{
+    height: auto;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.box-card {
+    background: black;
+    height: auto;
+    width: 300px;
+}
+.box-img{
+    height: 400px;
+    width: 100%;
+}
+.box-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+.box-name{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
+.box-name h2{
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+.box-name h3{
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}

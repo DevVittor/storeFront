@@ -1,0 +1,32 @@
+.container-cadastrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+    flex-direction: column;
+}
+.form-cadastrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 400px;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+.form-cadastrar form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form-cadastrar input{
+    padding: 5px 10px;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+.form-cadastrar input[type="submit"]{
+    cursor: pointer;
+}
