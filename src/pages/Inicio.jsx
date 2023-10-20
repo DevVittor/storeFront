@@ -4,19 +4,37 @@ import '../styles/inicio.css';
 import { Link } from 'react-router-dom';
 
 export default function Inicio() {
+    const [ordem, setOrdem] = useState('ASC'); // Valor inicial do estado do select
     const [data, setData] = useState([]);
     const [imagem,setImagem] = useState("")
+
     useEffect(() => {
-        axios.get("http://localhost:5000/")
+        fetchData(ordem); // Inicialmente, busca os produtos em ordem ascendente
+    }, [ordem]);
+
+    const fetchData = (ordem) => {
+        axios.get(`http://localhost:5000/?ordem=${ordem}`)
             .then(res => {
                 setData(res.data.resultado);
                 setImagem(res.data.localImg);
             })
             .catch(error => console.error(`Deu ruim aqui ${error}`));
-    }, []);
+    };
+
+    const handleOrdemChange = (e) => {
+        setOrdem(e.target.value);
+    };
 
     return (
         <main>
+            <section>
+                <form>
+                    <select name="ordem" value={ordem} onChange={handleOrdemChange}>
+                        <option value="ASC">Ascendente</option>
+                        <option value="DESC">Decrescente</option>
+                    </select>
+                </form>
+            </section>
             <section>
                 <div className='container-card'>
                     {data.map(item=>(
