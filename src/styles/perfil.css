@@ -1,0 +1,14 @@
+.container-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+.box-profile{
+    height: 600px;
+    width: 350px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}

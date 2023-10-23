@@ -4,17 +4,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     flex-wrap: wrap;
-    padding: 10px;
+    gap: 5px;
+    padding: 5px;
 }
 .box-card {
     background: black;
     height: auto;
-    width: 300px;
+    width: 234px;
 }
 .box-img{
-    height: 400px;
+    height: 340px;
     width: 100%;
 }
 .box-img img{
