@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 export default function Produto() {
+  document.title = "Produto";
   const [file, setFile] = useState(null);
   const [marca, setMarca] = useState('');
   const [preco, setPreco] = useState('');

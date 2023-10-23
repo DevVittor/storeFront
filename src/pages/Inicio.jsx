@@ -4,6 +4,7 @@ import '../styles/inicio.css';
 import { Link } from 'react-router-dom';
 
 export default function Inicio() {
+    document.title = "Inicio";
     const [ordem, setOrdem] = useState('ASC'); // Valor inicial do estado do select
     const [data, setData] = useState([]);
     const [imagem,setImagem] = useState("")

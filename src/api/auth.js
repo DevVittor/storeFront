@@ -7,7 +7,7 @@ function ProtectedRoute({ children }) {
     return children;
   } else {
     // O token não existe, redirecione para a página de login
-    return window.location.href = "http://localhost:5173/";
+    return window.location.href = "/";
   }
 }
 
