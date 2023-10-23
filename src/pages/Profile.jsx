@@ -8,7 +8,7 @@ export default function Profile() {
   useEffect(()=>{
     axios.get(`http://localhost:5000/${id}`)
     .then(res=>{
-      document.title = res.data.infoData[0].marca;
+      document.title = res.data.infoData[0].marca || "Abrime";
       setData(res.data.infoData);
     }).catch(error=>{
       console.error(error);

@@ -1,17 +1,15 @@
 .container-card{
     height: auto;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(234px, auto));
     gap: 5px;
     padding: 5px;
 }
 .box-card {
     background: black;
     height: auto;
-    width: 234px;
+    width: 100%;
 }
 .box-img{
     height: 340px;
