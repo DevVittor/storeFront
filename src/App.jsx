@@ -12,9 +12,7 @@ import RegisterProfile from './pages/registerProfile';
 import Error404 from './pages/Error404';
 import Auth from './api/auth';
 
-
 export default function App() {
-
   return (
     <>
       <BrowserRouter>
