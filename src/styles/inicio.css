@@ -2,7 +2,7 @@
     height: auto;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(234px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(234px, 1fr));
     gap: 5px;
     padding: 5px;
 }
@@ -37,4 +37,22 @@
     color: white;
     font-size: 14px;
     font-weight: 500;
+}
+@media screen and (max-width:497px){
+    .container-card{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .box-img{
+        height: 350px;
+    }
+}
+@media screen and (max-width:429px){
+    .box-img{
+        height: 550px;
+    }
+}
+@media screen and (max-width:375px){
+    .box-img{
+        height: 480px;
+    }
 }
