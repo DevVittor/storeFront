@@ -30,7 +30,7 @@ export default function Produto() {
     formData.append('preco', preco);
 
     try {
-      const response = await axios.post('http://localhost:5000/produto', formData);
+      const response = await axios.post('http://localhost:8080/produto', formData);
       console.log('Produto cadastrado com sucesso', response.data);
     } catch (error) {
       console.error('Erro ao cadastrar o produto', error);

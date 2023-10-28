@@ -14,7 +14,7 @@ export default function Inicio() {
     }, [ordem]);
 
     const fetchData = (ordem) => {
-        axios.get(`http://localhost:5000/?ordem=${ordem}`)
+        axios.get(`http://localhost:8080/?ordem=${ordem}`)
             .then(res => {
                 setData(res.data.resultado);
                 setImagem(res.data.localImg);

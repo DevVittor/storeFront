@@ -6,7 +6,7 @@ export default function Profile() {
   const [data,setData] = useState([]);
 
   useEffect(()=>{
-    axios.get(`http://localhost:5000/${id}`)
+    axios.get(`http://localhost:8080/${id}`)
     .then(res=>{
       document.title = res.data.infoData[0].marca || "Abrime";
       setData(res.data.infoData);
@@ -18,7 +18,7 @@ export default function Profile() {
     <div>
       {data.map(info=>(
           <div key={info.id}>
-            <img src={`http://localhost:5000/upload/${info.logo}`} alt="" />
+            <img src={`http://localhost:8080/upload/${info.logo}`} alt="" />
             <h2>Marca: {info.marca}</h2>
             <h3>Preço: R$ {info.preco}</h3>
           </div>

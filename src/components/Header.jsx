@@ -9,6 +9,7 @@ export default function Header(){
     '/categoria': 'Categoria',
     '/sobre': 'Sobre',
     '/contato': 'Contato',
+    '/assinatura': 'Assinatura',
   };
 
   // Obtém o nome da classe correspondente à rota atual
@@ -27,6 +28,7 @@ export default function Header(){
                                 <li><Link to="/categoria" className={currentRouteClass === 'Categoria' ? 'url-atual' : 'urls'}>Categoria</Link></li>
                                 <li><Link to="/sobre" className={currentRouteClass === 'Sobre' ? 'url-atual' : 'urls'}>Sobre</Link></li>
                                 <li><Link to="/contato" className={currentRouteClass === 'Contato' ? 'url-atual' : 'urls'}>Contato</Link></li>
+                                <li><Link to="/assinatura" className={currentRouteClass === 'Assinatura' ? 'url-atual' : 'urls'}>Assinatura</Link></li>
                             </ul>
                         </nav>
                     </div>
