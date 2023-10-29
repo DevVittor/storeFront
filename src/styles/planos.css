@@ -1,0 +1,143 @@
+.container-planos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 847px;
+    height: auto;
+    padding: 40px;
+}
+.btn-toggle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.toggle{
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px;
+    border-radius: 100px;
+    height: auto;
+    width: 50px;
+    background: black;
+}
+.modeToggle{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: white;
+}
+.modeToggle:hover{
+    cursor: pointer;
+}
+.box-planos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.card-planos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.planoA{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    min-height: 400px;
+    height: auto;
+    gap: 20px;
+    height: auto;
+    width: 250px;
+    padding: 20px 10px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 12px;
+    transition: all ease-out .3s;
+}
+.planoA:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    transition: linear .3s;
+}
+.plano-price{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.plano-price h1{
+    display: flex;
+    align-items: flex-end;
+    font-size: 32px;
+    font-weight: 600;
+}
+.plano-price h2{
+    font-size: 16px;
+    font-weight: 500;
+    color: #212121;
+    position: relative;
+    top: -20px;
+}
+.plano-price h4{
+    font-size: 14px;
+    font-weight: 400;
+    color: #212121;
+    position: relative;
+    left: -2px;
+}
+.plano-price h3{
+    font-size: 20px;
+    font-weight: 500;
+}
+.plano-price i{
+    padding-right: 5px;
+    color: red;
+}
+.plano-vantagens ul{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.plano-vantagens li{
+    font-size: 18px;
+}
+.plano-vantagens i{
+    padding-right: 5px;
+    color: #03C988;
+}
+.plano-assinar button{
+    background: #000;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 5px 20px;
+    border: none;
+    outline: none;
+}
+.plano-assinar button:hover{
+    cursor: pointer;
+}
+.plano-assinar i{
+    padding-left: 5px;
+    color: white;
+}
+.box-continuar a{
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+.box-continuar a:hover{
+    border-bottom: 1px solid #212121;
+    padding-bottom: 5px;
+}
+.box-continuar i{
+    padding-left: 8px;
+}
