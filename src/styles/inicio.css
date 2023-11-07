@@ -1,4 +1,33 @@
-.container-card{
+.container-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: auto;
+    width: 100%;
+}
+
+.box-slider {
+    width: 80%;
+    overflow: hidden;
+    /* 100% da largura do elemento pai (container-slider) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 5px;
+}
+
+
+.card-slider img {
+    height: 400px;
+    width: 250px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+
+.container-card {
     height: auto;
     width: 100%;
     display: grid;
@@ -6,53 +35,63 @@
     gap: 5px;
     padding: 5px;
 }
+
 .box-card {
     background: black;
     height: auto;
     width: 100%;
 }
-.box-img{
+
+.box-img {
     height: 400px;
     width: 100%;
 }
-.box-img img{
+
+.box-img img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     pointer-events: none;
 }
-.box-name{
+
+.box-name {
     display: flex;
     justify-content: center;
     flex-direction: column;
     gap: 8px;
     padding: 10px;
 }
-.box-name h2{
+
+.box-name h2 {
     color: white;
     font-size: 18px;
     font-weight: 600;
 }
-.box-name h3{
+
+.box-name h3 {
     color: white;
     font-size: 14px;
     font-weight: 500;
 }
-@media screen and (max-width:497px){
-    .container-card{
+
+@media screen and (max-width:497px) {
+    .container-card {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-    .box-img{
+
+    .box-img {
         height: 350px;
     }
 }
-@media screen and (max-width:429px){
-    .box-img{
+
+@media screen and (max-width:429px) {
+    .box-img {
         height: 550px;
     }
 }
-@media screen and (max-width:375px){
-    .box-img{
+
+@media screen and (max-width:375px) {
+    .box-img {
         height: 480px;
     }
 }
