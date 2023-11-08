@@ -1,6 +1,7 @@
 //import axios from "axios";
 import { useEffect, useState } from "react";
 import "../styles/planos.css";
+import CardPlanos from "../components/CardPlanos";
 import { Link } from "react-router-dom";
 export default function Assinatura() {
   document.title = "Assinaturas";
@@ -48,134 +49,51 @@ export default function Assinatura() {
               <span>Anual</span>
             </div>
             <div className="card-planos">
-              <div className="planoA">
-                <div className="plano-price">
-                  <h3>
-                    <i className="ri-flashlight-fill"></i>Destaque
-                  </h3>
-                  <h1>
-                    <h2>R$</h2> 4,97/<h4>mês</h4>
-                  </h1>
-                </div>
-                <div className="plano-vantagens">
-                  <nav>
-                    <ul>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 7 dias
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 7 dias
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 7 dias
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 7 dias
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 7 dias
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 7 dias
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <div className="plano-assinar">
-                  <button>
-                    Selecionar<i className="ri-checkbox-circle-fill"></i>
-                  </button>
-                </div>
-              </div>
-              <div className="planoA">
-                <div className="plano-price">
-                  <h3>
-                    <i className="ri-shield-check-fill"></i>Profissional
-                  </h3>
-                  <h1>
-                    <h2>R$</h2> 49,97/<h4>mês</h4>
-                  </h1>
-                </div>
-                <div className="plano-vantagens">
-                  <nav>
-                    <ul>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 30 dias
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Grupo Vip Telegram
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Selo de Verificado
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Selo de Profissional
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Selo de Destaque
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Slider nas páginas
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Borda Destacada
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Post no Instagram
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <div className="renovar">
-                  <span>
-                    <i className="ri-checkbox-line"></i>Renovação Automática
-                  </span>
-                </div>
-                <div className="plano-assinar">
-                  <button>
-                    Selecionar<i className="ri-checkbox-circle-fill"></i>
-                  </button>
-                </div>
-              </div>
-              <div className="planoA">
-                <div className="plano-price">
-                  <h3>
-                    <i className="ri-verified-badge-fill"></i>Verificada
-                  </h3>
-                  <h1>
-                    <h2>R$</h2> 9,97/<h4>mês</h4>
-                  </h1>
-                </div>
-                <div className="plano-vantagens">
-                  <nav>
-                    <ul>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 30 dias
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 7 dias
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 7 dias
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 7 dias
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 7 dias
-                      </li>
-                      <li>
-                        <i className="ri-check-fill"></i>Destaque por 7 dias
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <div className="plano-assinar">
-                  <button>
-                    Selecionar<i className="ri-checkbox-circle-fill"></i>
-                  </button>
-                </div>
-              </div>
+              <CardPlanos
+                emblema="ri-verified-badge-fill"
+                planos="Verificada"
+                price="4,97"
+                icon={[
+                  "ri-close-line",
+                  "ri-check-fill",
+                  "ri-check-fill",
+                  "ri-close-line",
+                  "ri-close-line",
+                  "ri-close-line",
+                  "ri-close-line",
+                  "ri-close-line",
+                ]}
+              />
+              <CardPlanos
+                emblema="ri-shield-check-fill"
+                planos="Profissional"
+                price="49,97"
+                icon={[
+                  "ri-check-fill",
+                  "ri-check-fill",
+                  "ri-check-fill",
+                  "ri-check-fill",
+                  "ri-check-fill",
+                  "ri-check-fill",
+                  "ri-check-fill",
+                  "ri-check-fill",
+                ]}
+              />
+              <CardPlanos
+                emblema="ri-flashlight-fill"
+                planos="Destaque"
+                price="9,97"
+                icon={[
+                  "ri-check-fill",
+                  "ri-close-line",
+                  "ri-close-line",
+                  "ri-close-line",
+                  "ri-check-fill",
+                  "ri-check-fill",
+                  "ri-check-fill",
+                  "ri-close-line",
+                ]}
+              />
             </div>
             <div className="box-continuar">
               {timer === 0 ? (
