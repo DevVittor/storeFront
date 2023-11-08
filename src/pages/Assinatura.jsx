@@ -4,6 +4,7 @@ import "../styles/planos.css";
 import CardPlanos from "../components/CardPlanos";
 import { Link } from "react-router-dom";
 export default function Assinatura() {
+  const [toggle, setToggle] = useState(false);
   document.title = "Assinaturas";
   const [timer, setTimer] = useState(5);
   useEffect(() => {
@@ -36,26 +37,39 @@ export default function Assinatura() {
         <form onSubmit={pegarReq}>
           <input type="submit" value="Checkout" />
         </form>*/
+
+  function alterToggle() {
+    setToggle(!toggle);
+  }
+
   return (
     <main>
       <section>
         <div className="container-planos">
           <div className="box-planos">
+            <div className="box-title">
+              <h1>Escolha um dos nossos planos</h1>
+              <h3>faça o seu perfil se destacar e passar confiança</h3>
+            </div>
             <div className="btn-toggle">
               <span>Mensal</span>
-              <div className="toggle">
-                <div className="modeToggle"></div>
+              <div className={toggle ? "endToggle" : "toggle"}>
+                <div className="modeToggle" onClick={alterToggle}></div>
               </div>
               <span>Anual</span>
+            </div>
+            <div>
+              <span>Obs: Assinatura Anual tem 30% de desconto</span>
             </div>
             <div className="card-planos">
               <CardPlanos
                 emblema="ri-verified-badge-fill"
                 planos="Verificada"
-                price="4,97"
+                price={toggle ? "41,74" : "4,97"}
+                tempo={toggle ? "ano" : "mês"}
                 icon={[
                   "ri-close-line",
-                  "ri-check-fill",
+                  "ri-close-line",
                   "ri-check-fill",
                   "ri-close-line",
                   "ri-close-line",
@@ -67,7 +81,8 @@ export default function Assinatura() {
               <CardPlanos
                 emblema="ri-shield-check-fill"
                 planos="Profissional"
-                price="49,97"
+                price={toggle ? "419,74" : "49,97"}
+                tempo={toggle ? "ano" : "mês"}
                 icon={[
                   "ri-check-fill",
                   "ri-check-fill",
@@ -82,16 +97,17 @@ export default function Assinatura() {
               <CardPlanos
                 emblema="ri-flashlight-fill"
                 planos="Destaque"
-                price="9,97"
+                price={toggle ? "83,74" : "9,97"}
+                tempo={toggle ? "ano" : "mês"}
                 icon={[
                   "ri-check-fill",
                   "ri-close-line",
                   "ri-close-line",
                   "ri-close-line",
                   "ri-check-fill",
-                  "ri-check-fill",
-                  "ri-check-fill",
                   "ri-close-line",
+                  "ri-check-fill",
+                  "ri-check-fill",
                 ]}
               />
             </div>

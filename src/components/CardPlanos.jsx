@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "../styles/cardPlanos.css";
 export default function CardPlanos(props) {
   return (
     <div className="planoA">
@@ -8,7 +9,7 @@ export default function CardPlanos(props) {
           {props.planos}
         </h3>
         <h1>
-          <h2>R$</h2> {props.price}/<h4>mês</h4>
+          <h2>R$</h2> {props.price}/<h4>{props.tempo}</h4>
         </h1>
       </div>
       <div className="plano-vantagens">
@@ -33,10 +34,10 @@ export default function CardPlanos(props) {
               <i className={props.icon[5]}></i>Slider nas páginas
             </li>
             <li>
-              <i className={props.icon[6]}></i>Borda Destacada
+              <i className={props.icon[6]}></i>Lista de Destaques
             </li>
             <li>
-              <i className={props.icon[7]}></i>Post no Instagram
+              <i className={props.icon[7]}></i>Banner de Destaques
             </li>
           </ul>
         </nav>
@@ -48,7 +49,8 @@ export default function CardPlanos(props) {
       </div>
       <div className="plano-assinar">
         <button>
-          Selecionar<i className="ri-checkbox-circle-fill"></i>
+          <input type="hidden" name="" />
+          Assinar<i className="ri-checkbox-circle-fill"></i>
         </button>
       </div>
     </div>
@@ -58,5 +60,6 @@ CardPlanos.propTypes = {
   emblema: PropTypes.string.isRequired,
   planos: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  tempo: PropTypes.string.isRequired,
   icon: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

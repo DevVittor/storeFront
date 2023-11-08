@@ -8,11 +8,35 @@
     padding: 40px;
 }
 
+.box-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.box-title h1 {
+    font-size: 44px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 2.8rem;
+}
+
+.box-title h3 {
+    font-size: 17px;
+    font-weight: 300;
+    color: #212121;
+    text-align: center;
+    line-height: 1.4rem;
+}
+
 .btn-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    transition: linear .3s;
 }
 
 .toggle {
@@ -22,14 +46,26 @@
     border-radius: 100px;
     height: auto;
     width: 50px;
-    background: black;
+    background: #1F1717;
+    transition: linear .3s;
+}
+
+.endToggle {
+    display: flex;
+    justify-content: flex-end;
+    transition: linear .3s;
+    padding: 5px;
+    border-radius: 100px;
+    height: auto;
+    width: 50px;
+    background: #1F1717;
 }
 
 .modeToggle {
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    background: white;
+    background: #fff;
 }
 
 .modeToggle:hover {
@@ -50,6 +86,10 @@
     align-items: flex-end;
     flex-wrap: wrap;
     gap: 10px;
+}
+
+.plano-popular {
+    border: 5px solid #0D0D0D !important;
 }
 
 .planoA {
@@ -81,6 +121,7 @@
     gap: 10px;
 }
 
+
 .plano-price h1 {
     display: flex;
     align-items: flex-end;
@@ -111,7 +152,6 @@
 
 .plano-price i {
     padding-right: 5px;
-    color: red;
 }
 
 .plano-vantagens ul {

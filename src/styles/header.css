@@ -3,6 +3,7 @@ header {
     top: 0;
     z-index: 9999;
     background: #F8F8F8;
+    border-bottom: 1px solid #ddd;
 }
 
 .container-header {
@@ -15,7 +16,6 @@ header {
 .container-logo-menu {
     display: flex;
     align-items: center;
-
     gap: 20px;
 }
 
