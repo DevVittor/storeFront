@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/inicio.css";
 import { Link } from "react-router-dom";
-import Destaques from "../components/Destaques";
 
 export default function Inicio() {
   document.title = "Inicio";
@@ -30,7 +29,6 @@ export default function Inicio() {
 
   return (
     <main>
-      <Destaques />
       <section>
         <form>
           <select name="ordem" value={ordem} onChange={handleOrdemChange}>

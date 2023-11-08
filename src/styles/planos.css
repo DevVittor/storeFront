@@ -1,4 +1,4 @@
-.container-planos{
+.container-planos {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,13 +7,15 @@
     height: auto;
     padding: 40px;
 }
-.btn-toggle{
+
+.btn-toggle {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
-.toggle{
+
+.toggle {
     display: flex;
     justify-content: flex-start;
     padding: 5px;
@@ -22,30 +24,35 @@
     width: 50px;
     background: black;
 }
-.modeToggle{
+
+.modeToggle {
     height: 15px;
     width: 15px;
     border-radius: 50%;
     background: white;
 }
-.modeToggle:hover{
+
+.modeToggle:hover {
     cursor: pointer;
 }
-.box-planos{
+
+.box-planos {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 20px;
 }
-.card-planos{
+
+.card-planos {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
 }
-.planoA{
+
+.planoA {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,58 +68,69 @@
     border-radius: 12px;
     transition: all ease-out .3s;
 }
-.planoA:hover{
+
+.planoA:hover {
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     transition: linear .3s;
 }
-.plano-price{
+
+.plano-price {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.plano-price h1{
+
+.plano-price h1 {
     display: flex;
     align-items: flex-end;
     font-size: 32px;
     font-weight: 600;
 }
-.plano-price h2{
+
+.plano-price h2 {
     font-size: 16px;
     font-weight: 500;
     color: #212121;
     position: relative;
     top: -20px;
 }
-.plano-price h4{
+
+.plano-price h4 {
     font-size: 14px;
     font-weight: 400;
     color: #212121;
     position: relative;
     left: -2px;
 }
-.plano-price h3{
+
+.plano-price h3 {
     font-size: 20px;
     font-weight: 500;
 }
-.plano-price i{
+
+.plano-price i {
     padding-right: 5px;
     color: red;
 }
-.plano-vantagens ul{
+
+.plano-vantagens ul {
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 5px;
 }
-.plano-vantagens li{
+
+.plano-vantagens li {
     font-size: 18px;
 }
-.plano-vantagens i{
+
+.plano-vantagens i {
     padding-right: 5px;
     color: #03C988;
 }
-.plano-assinar button{
+
+.plano-assinar button {
     background: #000;
     color: white;
     font-size: 18px;
@@ -122,22 +140,43 @@
     border: none;
     outline: none;
 }
-.plano-assinar button:hover{
+
+.plano-assinar button:hover {
     cursor: pointer;
 }
-.plano-assinar i{
+
+.plano-assinar i {
     padding-left: 5px;
     color: white;
 }
-.box-continuar a{
+
+.renovar span {
+    font-size: 12px;
+    font-weight: 400;
+    color: gray;
+}
+
+.renovar i {
+    padding-right: 5px;
+}
+
+.box-continuar a {
     color: black;
     font-size: 18px;
     font-weight: 500;
 }
-.box-continuar a:hover{
+
+.box-continuar a:hover {
     border-bottom: 1px solid #212121;
     padding-bottom: 5px;
 }
-.box-continuar i{
+
+.box-continuar i {
     padding-left: 8px;
+}
+
+@media screen and (max-width:640px) {
+    .container-planos {
+        padding: 20px 10px;
+    }
 }
