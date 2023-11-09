@@ -5,7 +5,7 @@ import CardPlanos from "../components/CardPlanos";
 import { Link } from "react-router-dom";
 export default function Assinatura() {
   const [toggle, setToggle] = useState(false);
-  document.title = "Assinaturas";
+  document.title = "Planos";
   const [timer, setTimer] = useState(5);
   useEffect(() => {
     const countdown = setInterval(() => {
@@ -18,25 +18,6 @@ export default function Assinatura() {
       clearInterval(countdown);
     };
   }, [timer, setTimer]); // Adicione setTimer ao array de dependências
-
-  /* function pegarReq(event) {
-    event.preventDefault();
-    const data = {
-      priceId: "price_1NFK9rIbcEgeFqaqxYcwn244", // Substitua pelo valor correto
-    };
-
-    axios
-      .post("http://localhost:8080/checkstripe", data)
-      .then((res) => {
-        console.log(res.data);
-        window.location.href = res.data.url;
-      })
-      .catch((error) => console.error(`Deu ruim ${error}`));
-  }
-  
-        <form onSubmit={pegarReq}>
-          <input type="submit" value="Checkout" />
-        </form>*/
 
   function alterToggle() {
     setToggle(!toggle);
@@ -58,7 +39,7 @@ export default function Assinatura() {
               </div>
               <span>Anual</span>
             </div>
-            <div>
+            <div className="box-desconto">
               <span>Obs: Assinatura Anual tem 30% de desconto</span>
             </div>
             <div className="card-planos">
@@ -77,6 +58,11 @@ export default function Assinatura() {
                   "ri-close-line",
                   "ri-close-line",
                 ]}
+                priceId={
+                  toggle
+                    ? "price_1OAKkKIbcEgeFqaq4A1X8GBe"
+                    : "price_1OAKhZIbcEgeFqaq9B9XK5SR"
+                }
               />
               <CardPlanos
                 emblema="ri-shield-check-fill"
@@ -93,6 +79,11 @@ export default function Assinatura() {
                   "ri-check-fill",
                   "ri-check-fill",
                 ]}
+                priceId={
+                  toggle
+                    ? "price_1OAKlTIbcEgeFqaqqt7qVFtA"
+                    : "price_1OAKgoIbcEgeFqaqfEzxcfFU"
+                }
               />
               <CardPlanos
                 emblema="ri-flashlight-fill"
@@ -109,6 +100,11 @@ export default function Assinatura() {
                   "ri-check-fill",
                   "ri-check-fill",
                 ]}
+                priceId={
+                  toggle
+                    ? "price_1OAKl1IbcEgeFqaqfaaD1KDF"
+                    : "price_1OAKhCIbcEgeFqaq2HKROx4f"
+                }
               />
             </div>
             <div className="box-continuar">

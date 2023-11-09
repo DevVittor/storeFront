@@ -80,6 +80,10 @@
     gap: 20px;
 }
 
+.box-desconto {
+    text-align: center;
+}
+
 .card-planos {
     display: flex;
     justify-content: center;
