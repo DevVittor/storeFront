@@ -1,0 +1,58 @@
+.etapas {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+}
+
+.etapa-um {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+    background: black;
+    border-radius: 12px;
+}
+
+.etapa-dois {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+    background: black;
+    border-radius: 12px;
+}
+
+.etapa-tres {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+    background: black;
+    border-radius: 12px;
+}
+
+.etapa-quatro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+    background: black;
+    border-radius: 12px;
+}
+
+.etapas h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+
+.etapas button {
+    height: 40px;
+    background: red;
+}

@@ -1,3 +1,8 @@
+import Etapas from "../components/Etapas";
 export default function Perfil() {
-  return <div>Perfil</div>;
+  return (
+    <main>
+      <Etapas />
+    </main>
+  );
 }
