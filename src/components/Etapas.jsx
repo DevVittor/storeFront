@@ -2,8 +2,11 @@ import { useState } from "react";
 import "../styles/etapas.css";
 import Card from "./Card";
 import Etapa01 from "../components/Etapa01";
+import Etapa02 from "./Etapa02";
+import Etapa03 from "./Etapa03";
+import Etapa04 from "./Etapa04";
+import Etapa05 from "./Etapa05";
 export default function Etapas() {
-  document.title = "Cadastro ${}";
   const [content, setContent] = useState(1);
   document.title = `Etapa ${content}`;
   function alterContent() {
@@ -17,31 +20,40 @@ export default function Etapas() {
     }
   }
 
+  //Cada etapa vai ser um form que vai enviar os dados para o objeto dados que vai receber
+  //cada valor de input e armazenar assim podendo ser trocado e enviado tudo junto corretamente
+  //sempre precisar respeitar uma ordem.
+
   function renderContent() {
     switch (content) {
       case 1:
         return (
           <div className="etapa-um">
-            <h1>Etapa 1</h1>
             <Etapa01 />
           </div>
         );
       case 2:
         return (
           <div className="etapa-dois">
-            <h1>Etapa 2</h1>
+            <Etapa02 />
           </div>
         );
       case 3:
         return (
           <div className="etapa-tres">
-            <h1>Etapa 3</h1>
+            <Etapa03 />
           </div>
         );
       case 4:
         return (
           <div className="etapa-quatro">
-            <h1>Etapa 4</h1>
+            <Etapa04 />
+          </div>
+        );
+      case 5:
+        return (
+          <div className="etapa-cinco">
+            <Etapa05 />
           </div>
         );
       default:
