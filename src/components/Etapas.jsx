@@ -6,6 +6,7 @@ import Etapa02 from "./Etapa02";
 import Etapa03 from "./Etapa03";
 import Etapa04 from "./Etapa04";
 import Etapa05 from "./Etapa05";
+import Etapa06 from "./Etapa06";
 export default function Etapas() {
   const [content, setContent] = useState(1);
   document.title = `Etapa ${content}`;
@@ -56,6 +57,12 @@ export default function Etapas() {
             <Etapa05 />
           </div>
         );
+      case 6:
+        return (
+          <div className="etapa-cinco">
+            <Etapa06 />
+          </div>
+        );
       default:
         return <Card />;
     }
@@ -68,7 +75,7 @@ export default function Etapas() {
       </section>
       <section>
         {content > 1 ? <button onClick={backContent}>Voltar</button> : ""}
-        {content > 4 ? (
+        {content > 6 ? (
           <button>Finalizar</button>
         ) : (
           <button onClick={alterContent}>Avançar</button>
