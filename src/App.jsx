@@ -66,14 +66,7 @@ export default function App() {
                 </Auth>
               }
             />
-            <Route
-              path="produto"
-              element={
-                <Auth>
-                  <Produto />
-                </Auth>
-              }
-            />
+            <Route path="produto" element={<Produto />} />
             <Route path="/:id" element={<Profile />} />
             <Route path="*" element={<Error404 />} />
           </Route>

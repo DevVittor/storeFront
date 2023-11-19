@@ -44,6 +44,7 @@ export default function Assinatura() {
             </div>
             <div className="card-planos">
               <CardPlanos
+                id="CardA"
                 emblema="ri-verified-badge-fill"
                 planos="Verificada"
                 price={toggle ? "41,74" : "4,97"}
@@ -65,6 +66,7 @@ export default function Assinatura() {
                 }
               />
               <CardPlanos
+                id="CardB"
                 emblema="ri-shield-check-fill"
                 planos="Profissional"
                 price={toggle ? "419,74" : "49,97"}
@@ -86,6 +88,7 @@ export default function Assinatura() {
                 }
               />
               <CardPlanos
+                id="CardC"
                 emblema="ri-flashlight-fill"
                 planos="Destaque"
                 price={toggle ? "83,74" : "9,97"}

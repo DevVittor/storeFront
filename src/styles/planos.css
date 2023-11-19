@@ -5,7 +5,7 @@
     flex-direction: column;
     min-height: 847px;
     height: auto;
-    padding: 40px;
+    padding: 40px 20px;
 }
 
 .box-title {
@@ -78,6 +78,7 @@
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 
 .box-desconto {
@@ -90,10 +91,12 @@
     align-items: flex-end;
     flex-wrap: wrap;
     gap: 10px;
+    width: 100%;
 }
 
 .plano-popular {
     border: 5px solid #0D0D0D !important;
+
 }
 
 .planoA {
@@ -218,6 +221,7 @@
 .box-continuar i {
     padding-left: 8px;
 }
+
 
 @media screen and (max-width:640px) {
     .container-planos {

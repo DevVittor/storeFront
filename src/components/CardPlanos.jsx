@@ -19,7 +19,7 @@ export default function CardPlanos(props) {
 
   return (
     <form onSubmit={pegarReq}>
-      <div className="planoA">
+      <div className="planoA" id={props.id}>
         <div className="plano-price">
           <h3>
             <i className={props.emblema}></i>
@@ -76,6 +76,7 @@ export default function CardPlanos(props) {
 CardPlanos.propTypes = {
   emblema: PropTypes.string.isRequired,
   planos: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   tempo: PropTypes.string.isRequired,
   icon: PropTypes.arrayOf(PropTypes.string).isRequired,

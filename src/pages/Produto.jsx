@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState } from "react";
+import axios from "axios";
 
 export default function Produto() {
   document.title = "Produto";
   const [file, setFile] = useState(null);
-  const [marca, setMarca] = useState('');
-  const [preco, setPreco] = useState('');
+  const [marca, setMarca] = useState("");
+  const [preco, setPreco] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -18,24 +19,37 @@ export default function Produto() {
   const handlePrecoChange = (e) => {
     setPreco(e.target.value);
   };
+  const resetValue = () => {
+    setFile(null);
+    setMarca("");
+    setPreco("");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('logo', file);
+    formData.append("logo", file);
 
     // Adicione outras informações ao FormData, se necessário
-    formData.append('marca', marca);
-    formData.append('preco', preco);
+    formData.append("marca", marca);
+    formData.append("preco", preco);
 
     try {
-      const response = await axios.post('http://localhost:8080/produto', formData);
-      console.log('Produto cadastrado com sucesso', response.data);
+      const response = await axios.post(
+        "http://localhost:8080/produto",
+        formData
+      );
+      resetValue();
+      console.log(response.data);
+      setMessage(`Produto ${marca} cadastrado com sucesso`);
     } catch (error) {
-      console.error('Erro ao cadastrar o produto', error);
+      console.error(error);
+      setMessage(
+        `Não foi possível cadastrar o produto ${marca} por causa do error ${error}`
+      );
     }
-  }
+  };
 
   return (
     <main>
@@ -65,6 +79,7 @@ export default function Produto() {
             />
             <input type="submit" value="Cadastrar Produto" />
           </form>
+          <span>{message}</span>
         </div>
       </section>
     </main>

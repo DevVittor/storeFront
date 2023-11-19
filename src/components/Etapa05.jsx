@@ -47,7 +47,7 @@ export default function Etapa05() {
     "Gorda",
   ];
   const optionCorpo = gerarArray(estiloCorpo);
-
+4
   function carregarGen(event) {
     setGenero(event.target.value);
     // Se o gênero for "Trans", redefina o estado de operado

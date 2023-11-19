@@ -18,14 +18,12 @@
     gap: 5px;
 }
 
-
 .card-slider img {
     height: 400px;
     width: 250px;
     object-fit: cover;
     cursor: pointer;
 }
-
 
 .container-card {
     height: auto;
