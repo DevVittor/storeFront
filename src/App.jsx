@@ -14,6 +14,7 @@ import Assinatura from "./pages/Assinatura";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
 import Perfil from "./pages/Perfil";
+import AreaRestrita from "./pages/AreaRestrita";
 
 export default function App() {
   return (
@@ -69,6 +70,7 @@ export default function App() {
             <Route path="produto" element={<Produto />} />
             <Route path="/:id" element={<Profile />} />
             <Route path="*" element={<Error404 />} />
+            <Route path="/restrito" element={<AreaRestrita />} />
           </Route>
         </Routes>
       </BrowserRouter>

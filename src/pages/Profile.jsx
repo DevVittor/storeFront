@@ -2,8 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/profile.css";
-import Services from "../components/Services";
-import ImageSlider from "../components/ImageSlider";
+//import Services from "../components/Services";
+//import ImageSlider from "../components/ImageSlider";
 export default function Profile() {
   const { id } = useParams();
   const [data, setData] = useState([]);
@@ -33,89 +33,42 @@ export default function Profile() {
       {data.map((info) => (
         <div className="container-profile" key={info.id}>
           <div className="container-info-profile ">
-            <div className="box-info-profile">
-              <nav>
-                <ul className="">
-                  <li>
-                    <i className="text-blue-500 ri-verified-badge-fill"></i>
-                    Profissional
-                  </li>
-                  <li>
-                    <i className="text-red-500 text-[20px] pr-1.5 ri-flashlight-fill"></i>
-                    Destaque
-                  </li>
-                  <li>
-                    <i className="text-green-500 ri-shield-check-fill"></i>
-                    Perfil Verificado
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <div className="container-local-phone">
-              <h4 className="">Rio de Janeiro, Rj</h4>
-              <hr className="" />
-              <h4 className="">(21) 998742-102</h4>
-            </div>
-            <div className="container-name-gen-age">
-              <div className="container-name">
-                <h2 className="">{info.marca}</h2>
-              </div>
-              <div className="container-gen-age">
-                <h4 className="">Mulher</h4>
-                <hr className="" />
-                <h4 className="">32 anos</h4>
-              </div>
-            </div>
-            <div className="container-description">
-              <p className="">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Perspiciatis placeat hic error, veniam natus ipsum labore vitae
-                facilis aliquam harum cumque illum consectetur in. Quibusdam,
-                est iure! Dolorum, molestiae quasi!
-              </p>
-            </div>
-            <div className="container-price-horarios-pagamentos ">
-              <div className="container-price">
-                <h2 className="">
-                  R$ {info.preco}/<span className="">Hora</span>
-                </h2>
-              </div>
-              <div className="container-horarios">
-                <p className="">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Labore, quam?
-                </p>
-              </div>
-              <div className="container-pagamentos">
+            <div className="box-avatar">
+              <img src={`http://localhost:8080/upload/${info.logo}`} alt="" />
+              <div className="box-selo">
                 <nav>
                   <ul className="">
                     <li>
-                      <i className="fa-solid fa-money-bill"></i>Dinheiro
+                      <i className=" ri-verified-badge-fill"></i>
                     </li>
                     <li>
-                      <i className="fa-brands fa-pix"></i>Pix
+                      <i className=" ri-flashlight-fill"></i>
                     </li>
                     <li>
-                      <i className="fa-regular fa-credit-card"></i>Cartão de
-                      Crédito
+                      <i className="ri-shield-check-fill"></i>
                     </li>
                   </ul>
                 </nav>
               </div>
             </div>
-            <div className="container-patrocinadores">
-              <h2 className="">Anunciante</h2>
+            <div className="container-name">
+              <div className="box-name">
+                <h2 className="">{info.marca}</h2>
+              </div>
             </div>
-          </div>
-          <div className="container-image-profile">
-            <Services />
-            <div className="box-image-profile">
-              <ImageSlider />
+            <div className="detalhes">
+              <details>
+                <summary>
+                  <h3>Serviços</h3>
+                  <i className="ri-add-circle-line"></i>
+                </summary>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
+                  placeat totam. Perspiciatis fuga assumenda atque provident
+                  ipsa, facere dolorem doloremque?
+                </p>
+              </details>
             </div>
-            <button>
-              <i className="ri-play-circle-line"></i>Assistir o Vídeo
-            </button>
-            <Services />
           </div>
         </div>
       ))}

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 function ProtectedRoute({ children }) {
   const userToken = localStorage.getItem("Token");
 
@@ -7,7 +8,7 @@ function ProtectedRoute({ children }) {
     return children;
   } else {
     // O token não existe, redirecione para a página de login
-    return window.location.href = "/";
+    return window.location.href = "/restrito";
   }
 }
 

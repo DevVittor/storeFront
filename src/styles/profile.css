@@ -12,17 +12,30 @@
     justify-content: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
     height: 100%;
-    width: 30%;
-    padding: 20px 5px;
+    width: 300px;
+    padding: 20px 10px;
     border-right: 1px solid #ddd;
 }
 
+.box-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 300px;
+    width: 250px;
+}
+
+.box-avatar img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
 .box-info-profile {
-    background: #0d0d0d;
     padding: 5px 15px;
-    border-radius: 3px;
 }
 
 .box-info-profile ul {
@@ -31,7 +44,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 5px;
-    color: white;
+    color: #0d0d0d;
     border-radius: 5px;
 }
 
@@ -42,7 +55,21 @@
 .box-info-profile i {
     font-size: 20px;
     padding-right: 5px;
+    font-size: 20px;
 }
+
+.ri-verified-badge-fill {
+    color: #2192FF;
+}
+
+.ri-flashlight-fill {
+    color: #FE0000;
+}
+
+.ri-shield-check-fill {
+    color: #38E54D;
+}
+
 
 .container-image-profile {
     display: flex;
@@ -50,7 +77,7 @@
     align-items: center;
     flex-direction: column;
     height: 100%;
-    width: 100%;
+    width: auto;
     gap: 10px;
 }
 
@@ -79,11 +106,44 @@
     gap: 10px;
 }
 
-.container-name h2 {
-    font-size: 64px;
-    line-height: 60px;
+.container-name {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 10px;
+    gap: 5px;
+}
+
+
+.box-name {
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+}
+
+.box-name h2 {
+    font-size: 24px;
     font-weight: 700;
-    text-align: left;
+    color: #0d0d0d;
+}
+
+.box-selo {
+    position: absolute;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 3px 10px;
+    border-radius: 3px;
+}
+
+.box-selo ul {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.box-selo i {
+    font-size: 22px;
 }
 
 .container-price-horarios-pagamentos {
@@ -97,6 +157,29 @@
     padding: 15px 30px;
     width: 100%;
     border-radius: 5px;
+}
+
+.detalhes {
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+
+.detalhes summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+
+.detalhes i {
+    font-size: 20px;
+}
+
+.detalhes p {
+    border-top: 1px solid #ddd;
+    padding: 10px;
 }
 
 .container-gen-age {

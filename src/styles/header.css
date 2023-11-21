@@ -2,37 +2,56 @@ header {
     position: sticky;
     top: 0;
     z-index: 9999;
-    background: #F8F8F8;
-    border-bottom: 1px solid #ddd;
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    height: 100vh;
 }
 
 .container-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 50px;
+    padding: 40px 20px;
+    flex-direction: column;
+    height: 100%;
+    width: 300px;
 }
 
-.container-logo-menu {
+.container-logo {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
+    flex-direction: column;
 }
 
-.box-logo a {
-    color: black;
+.container-logo a {
+    color: #0d0d0d;
     font-size: 20px;
     font-weight: 600;
+}
+
+.container-logo b {
+    color: #EE1D52;
+}
+
+.container-logo span {
+    margin-top: -5px;
+    color: #5c5c5c;
 }
 
 .box-urls ul {
     display: flex;
     align-items: center;
+    flex-direction: column;
     gap: 10px;
 }
 
-.url-atual {
-    color: #FE0000;
+.box-urls a {
+    color: #333333;
+}
+
+.box-urls .url-atual {
+    color: #EE1D52;
     font-weight: 500;
 }
 
@@ -59,7 +78,7 @@ header {
     font-weight: 600;
     font-size: 16px;
     color: white;
-    background: #FE0000;
+    background: #EE1D52;
     padding: 6px 12px;
     border-radius: 3px;
 }
@@ -79,21 +98,32 @@ header {
 }
 
 @media screen and (max-width:800px) {
-    .container-header {
-        flex-direction: column;
-        gap: 10px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #ddd;
+    header {
+        height: auto;
+        width: 100%;
     }
 
-    .container-logo-menu {
+    .container-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 30px;
+    }
+
+    .container-logo {
         flex-direction: column;
         gap: 0px;
     }
 
     .box-urls ul {
+        display: flex;
         justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: row;
         gap: 10px;
     }
 

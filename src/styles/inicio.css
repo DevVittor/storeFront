@@ -32,7 +32,7 @@
     grid-template-columns: repeat(auto-fit, minmax(234px, 1fr));
     gap: 5px;
     padding: 5px;
-    margin-bottom: 40px;
+    background: #ffffff;
 }
 
 .box-card {

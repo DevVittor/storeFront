@@ -3,9 +3,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 847px;
-    height: auto;
+    height: 100vh;
     padding: 40px 20px;
+    background: #EE1D52;
 }
 
 .box-title {
@@ -21,12 +21,13 @@
     text-align: center;
     font-weight: 700;
     line-height: 2.8rem;
+    color: #fff;
 }
 
 .box-title h3 {
     font-size: 17px;
     font-weight: 300;
-    color: #212121;
+    color: #fff;
     text-align: center;
     line-height: 1.4rem;
 }
@@ -39,6 +40,10 @@
     transition: linear .3s;
 }
 
+.btn-toggle span {
+    color: #fff;
+}
+
 .toggle {
     display: flex;
     justify-content: flex-start;
@@ -46,7 +51,7 @@
     border-radius: 100px;
     height: auto;
     width: 50px;
-    background: #1F1717;
+    background: #FFF;
     transition: linear .3s;
 }
 
@@ -58,18 +63,22 @@
     border-radius: 100px;
     height: auto;
     width: 50px;
-    background: #1F1717;
+    background: #fff;
 }
 
 .modeToggle {
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    background: #fff;
+    background: #0d0d0d;
 }
 
 .modeToggle:hover {
     cursor: pointer;
+}
+
+.box-desconto span {
+    color: #fff;
 }
 
 .box-planos {
@@ -208,13 +217,13 @@
 }
 
 .box-continuar a {
-    color: black;
+    color: #fff;
     font-size: 18px;
     font-weight: 500;
 }
 
 .box-continuar a:hover {
-    border-bottom: 1px solid #212121;
+    border-bottom: 1px solid #fff;
     padding-bottom: 5px;
 }
 
@@ -222,6 +231,12 @@
     padding-left: 8px;
 }
 
+@media screen and (max-width:800px) {
+    .container-planos {
+        height: auto;
+        padding: 20px;
+    }
+}
 
 @media screen and (max-width:640px) {
     .container-planos {
