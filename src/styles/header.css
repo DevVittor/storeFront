@@ -2,9 +2,9 @@ header {
     position: sticky;
     top: 0;
     z-index: 9999;
-    background: #ffffff;
-    border-right: 1px solid #ddd;
     height: 100vh;
+    background: var(--bg-400);
+    border-right: 1px solid var(--text-300);
 }
 
 .container-header {
@@ -25,18 +25,18 @@ header {
 }
 
 .container-logo a {
-    color: #0d0d0d;
+    color: var(--text-300);
     font-size: 20px;
     font-weight: 600;
 }
 
 .container-logo b {
-    color: #EE1D52;
+    color: var(--primary-100);
 }
 
 .container-logo span {
     margin-top: -5px;
-    color: #5c5c5c;
+    color: var(--bg-100);
 }
 
 .box-urls ul {
@@ -47,24 +47,24 @@ header {
 }
 
 .box-urls a {
-    color: #333333;
+    color: var(--text-300);
 }
 
 .box-urls .url-atual {
-    color: #EE1D52;
+    color: var(--primary-100);
     font-weight: 500;
 }
 
 .urls {
-    color: #212121;
+    color: var(--text-300);
     font-weight: 500;
     font-size: 16px;
 }
 
 .urls:hover {
-    border-bottom: 2px solid #212121;
+    border-bottom: 2px solid var(--primary-100);
     padding-bottom: 5px;
-    color: #212121;
+    color: var(--primary-100);
     transition: linear .2s;
 }
 
@@ -77,16 +77,16 @@ header {
 .box-acesso a:first-child {
     font-weight: 600;
     font-size: 16px;
-    color: white;
-    background: #EE1D52;
+    color: var(--text-300);
+    background: var(--primary-100);
     padding: 6px 12px;
     border-radius: 3px;
 }
 
 .box-acesso a:last-child {
-    color: white;
-    background: black;
-    font-weight: 400;
+    color: var(--text-300);
+    background: var(--primary-100);
+    font-weight: 600;
     font-size: 16px;
     padding: 6px 12px;
     border-radius: 3px;

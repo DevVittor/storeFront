@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 858px;
-    width: 100%;
+    height: auto;
+    width: 20%;
 }
 
 .container-info-profile {
@@ -11,12 +11,11 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    flex-wrap: wrap;
+    overflow-y: auto;
     gap: 5px;
     height: 100%;
     width: 300px;
     padding: 20px 10px;
-    border-right: 1px solid #ddd;
 }
 
 .box-avatar {
@@ -106,26 +105,44 @@
     gap: 10px;
 }
 
-.container-name {
+.profile-descript p {
+    color: var(--bg-100);
+    font-weight: 500;
+    font-size: 16px;
+    text-wrap: pretty;
+}
+
+.profile-name {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    padding: 0 10px;
-    gap: 5px;
 }
 
-
-.box-name {
-    display: flex;
-    flex-wrap: wrap;
-    width: 250px;
-}
-
-.box-name h2 {
+.profile-name h2 {
     font-size: 24px;
     font-weight: 700;
-    color: #0d0d0d;
+    color: var(--text-300);
+    text-transform: capitalize;
+}
+
+.profile-local-gen {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.profile-local h4 {
+    color: var(--text-300);
+}
+
+.profile-local i {
+    color: var(--text-red);
+    padding-right: 5px;
+}
+
+.profile-gen h4 {
+    color: var(--bg-100);
 }
 
 .box-selo {
@@ -159,11 +176,18 @@
     border-radius: 5px;
 }
 
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
 .detalhes {
     width: 100%;
     border: 1px solid #ddd;
 }
-
 
 .detalhes summary {
     display: flex;
@@ -171,6 +195,7 @@
     justify-content: space-between;
     padding: 4px 10px;
     cursor: pointer;
+    color: var(--bg-100);
 }
 
 .detalhes i {
@@ -180,6 +205,7 @@
 .detalhes p {
     border-top: 1px solid #ddd;
     padding: 10px;
+    color: var(--bg-100);
 }
 
 .container-gen-age {
@@ -297,6 +323,31 @@
 
 .box-image-profile i {
     padding-right: 5px;
+}
+
+.container-profile-gallery {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+}
+
+.profile-service {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: white;
+}
+
+.profile-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 @media screen and (max-width:640px) {

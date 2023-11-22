@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/inicio.css";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function Inicio() {
   document.title = "Inicio";
@@ -44,16 +45,32 @@ export default function Inicio() {
               <div className="box-card">
                 <div className="box-img">
                   <img src={`${imagem}${item.logo}`} alt="" />
+                  <div className="card-price-selo">
+                    <nav>
+                      <ul className="">
+                        <li>
+                          <i className=" ri-verified-badge-fill"></i>
+                        </li>
+                        <li>
+                          <i className=" ri-flashlight-fill"></i>
+                        </li>
+                        <li>
+                          <i className="ri-shield-check-fill"></i>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
                 </div>
                 <div className="box-name">
                   <h2>{item.marca}</h2>
-                  <h3>R$ {item.preco}</h3>
+                  <h3>R$ {item.preco}/H</h3>
                 </div>
               </div>
             </Link>
           ))}
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

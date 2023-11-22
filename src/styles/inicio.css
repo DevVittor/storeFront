@@ -26,24 +26,29 @@
 }
 
 .container-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(261px, 1fr));
+    flex-wrap: wrap;
     height: auto;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(234px, 1fr));
     gap: 5px;
     padding: 5px;
-    background: #ffffff;
 }
 
 .box-card {
+    display: flex;
+    flex-direction: column;
     background: black;
     height: auto;
-    width: 100%;
+    width: 261px;
 }
 
 .box-img {
-    height: 400px;
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 380px;
+    width: 261px;
 }
 
 .box-img img {
@@ -51,6 +56,27 @@
     width: 100%;
     object-fit: cover;
     pointer-events: none;
+}
+
+.card-price-selo {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    padding: 5px;
+}
+
+.card-price-selo ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-price-selo i {
+    font-size: 20px;
 }
 
 .box-name {
@@ -65,6 +91,7 @@
     color: white;
     font-size: 18px;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .box-name h3 {

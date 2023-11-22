@@ -1,5 +1,6 @@
 .container-slider {
     width: 100%;
+    background: var(--bg-400);
 }
 
 .slider {
@@ -12,7 +13,7 @@
     padding: 10px 0;
     width: 100%;
     margin: auto;
-    background: white;
+    background: var(--bg-400);
 }
 
 .slider-track {
@@ -34,6 +35,7 @@
     max-width: 300px;
     text-align: center;
     pointer-events: none;
+    color: var(--text-300);
 }
 
 div:hover {

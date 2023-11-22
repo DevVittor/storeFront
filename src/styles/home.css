@@ -3,7 +3,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #050505;
 }
 
 .boxOne {
@@ -13,7 +12,6 @@
     flex-direction: column;
     height: 100%;
     width: 300px;
-    border-right: 1px solid #0d0d0d;
     padding: 40px;
 }
 

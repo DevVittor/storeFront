@@ -10,14 +10,24 @@
 }
 
 body {
-  background: #ffffff;
+  background: var(--bg-400);
 }
 
 #root {
   display: flex;
+  width: 100%;
 }
 
 main {
+  display: flex;
+  width: 100%;
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: auto;
   width: 100%;
 }
 
@@ -29,9 +39,12 @@ main {
   --accent-200: #916400;
   --text-100: #333333;
   --text-200: #5c5c5c;
+  --text-300: #FFFFFF;
+  --text-red: #FE0000;
   --bg-100: #F7F7F7;
   --bg-200: #ededed;
   --bg-300: #c4c4c4;
+  --bg-400: #050505;
 
 }
 
