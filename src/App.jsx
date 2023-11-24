@@ -7,7 +7,7 @@ import Contato from "./pages/Contato";
 import Cadastrar from "./pages/Cadastrar";
 import Acessar from "./pages/Acessar";
 import Produto from "./pages/Produto";
-import Profile from "./pages/Profile";
+import Profile from "./pages/Usuario";
 import Error404 from "./pages/Error404";
 import Auth from "./api/auth";
 import Assinatura from "./pages/Assinatura";

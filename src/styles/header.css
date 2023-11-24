@@ -2,19 +2,17 @@ header {
     position: sticky;
     top: 0;
     z-index: 9999;
-    height: 100vh;
+    width: 100%;
     background: var(--bg-400);
-    border-right: 1px solid var(--text-300);
+    border-bottom: 1px solid var(--text-100);
 }
 
 .container-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 20px;
-    flex-direction: column;
-    height: 100%;
-    width: 300px;
+    padding: 5px 20px;
+    width: 100%;
 }
 
 .container-logo {
@@ -42,7 +40,6 @@ header {
 .box-urls ul {
     display: flex;
     align-items: center;
-    flex-direction: column;
     gap: 10px;
 }
 

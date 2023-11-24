@@ -26,8 +26,7 @@
 }
 
 .container-card {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(261px, 1fr));
+    display: flex;
     flex-wrap: wrap;
     height: auto;
     width: 100%;
@@ -78,6 +77,18 @@
 .card-price-selo i {
     font-size: 20px;
 }
+
+/*.ri-verified-badge-fill {
+    color: var(--bg-500);
+}
+
+.ri-flashlight-fill {
+    color: var(--bg-700);
+}
+
+.ri-shield-check-fill {
+    color: var(--bg-600);
+}*/
 
 .box-name {
     display: flex;

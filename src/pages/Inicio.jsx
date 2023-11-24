@@ -49,10 +49,10 @@ export default function Inicio() {
                     <nav>
                       <ul className="">
                         <li>
-                          <i className=" ri-verified-badge-fill"></i>
+                          <i className="ri-verified-badge-fill"></i>
                         </li>
                         <li>
-                          <i className=" ri-flashlight-fill"></i>
+                          <i className="ri-flashlight-fill"></i>
                         </li>
                         <li>
                           <i className="ri-shield-check-fill"></i>

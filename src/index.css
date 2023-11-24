@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
 
 * {
   margin: 0;
@@ -6,29 +6,11 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inconsolata', monospace;
 }
 
 body {
   background: var(--bg-400);
-}
-
-#root {
-  display: flex;
-  width: 100%;
-}
-
-main {
-  display: flex;
-  width: 100%;
-}
-
-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  height: auto;
-  width: 100%;
 }
 
 :root {
@@ -45,7 +27,9 @@ section {
   --bg-200: #ededed;
   --bg-300: #c4c4c4;
   --bg-400: #050505;
-
+  --bg-500: #0079FF;
+  --bg-600: #00DFA2;
+  --bg-700: #FF0060;
 }
 
 @media screen and (max-width:800px) {

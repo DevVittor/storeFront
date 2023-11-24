@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
+import "../styles/imageSlider.css";
+
 export default function ImageSlider() {
   const [arrayImage] = useState([
     "https://images.pexels.com/photos/17140100/pexels-photo-17140100/free-photo-of-desfiladeiro-canion-deserto-formacoes-rochosas.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

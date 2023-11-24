@@ -31,6 +31,9 @@ export default function Profile() {
           </div>
         ))}
       </div>*/}
+        <div className="profile-service">
+          <Services />
+        </div>
         {data.map((info) => (
           <div className="container-profile" key={info.id}>
             <div className="container-info-profile ">
@@ -167,16 +170,13 @@ export default function Profile() {
                 </div>
               </div>
             </div>
+            <div className="container-profile-gallery">
+              <div className="profile-slider">
+                <ImageSlider />
+              </div>
+            </div>
           </div>
         ))}
-        <div className="container-profile-gallery">
-          <div className="profile-service">
-            <Services />
-          </div>
-          <div className="profile-slider">
-            <ImageSlider />
-          </div>
-        </div>
       </section>
     </main>
   );

@@ -1,9 +1,14 @@
+.profile-service {
+    position: sticky;
+    top: 0;
+}
+
 .container-profile {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: auto;
-    width: 20%;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
 }
 
 .container-info-profile {
@@ -14,8 +19,8 @@
     overflow-y: auto;
     gap: 5px;
     height: 100%;
-    width: 300px;
-    padding: 20px 10px;
+    width: 350px;
+    padding: 0px 10px;
 }
 
 .box-avatar {
@@ -326,28 +331,21 @@
 }
 
 .container-profile-gallery {
-    position: sticky;
-    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 80%;
-}
-
-.profile-service {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 92.8vh;
     width: 100%;
-    background: white;
 }
 
 .profile-slider {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    max-height: 600px;
+    min-width: 400px;
+    max-width: 800px;
 }
 
 @media screen and (max-width:640px) {
