@@ -60,12 +60,6 @@
     color: white;
 }
 
-.usuario-name-selo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .usuario-selo i {
     color: var(--bg-400);
     font-size: 18px;
@@ -168,6 +162,7 @@
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 5px;
     padding: 5px;
+    background: var(--bg-400);
 }
 
 .usuario-status {
@@ -243,6 +238,10 @@
         justify-content: center;
         align-items: center;
         gap: 15px;
+    }
+
+    .usuario-avatar-selo {
+        flex-direction: column-reverse;
     }
 
     .box-info {

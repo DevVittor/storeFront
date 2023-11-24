@@ -7,34 +7,34 @@ export default function Usuario() {
       <section>
         <div className="container-usuario">
           <div className="box-usuario">
-            <div className="usuario-avatar">
-              <img
-                loading="lazy"
-                src="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt=""
-              />
+            <div className="usuario-avatar-selo">
+              <div className="usuario-avatar">
+                <img
+                  loading="lazy"
+                  src="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  alt=""
+                />
+              </div>
+              <div className="usuario-selo">
+                <nav>
+                  <ul className="">
+                    <li>
+                      <i className="ri-verified-badge-fill"></i>
+                    </li>
+                    <li>
+                      <i className="ri-flashlight-fill"></i>
+                    </li>
+                    <li>
+                      <i className="ri-shield-check-fill"></i>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
             </div>
             <div className="usuario-info">
               <div className="box-info">
-                <div className="usuario-name-selo">
-                  <div className="usuario-name">
-                    <h2>Jéssica Gomes | 35 anos</h2>
-                  </div>
-                  <div className="usuario-selo">
-                    <nav>
-                      <ul className="">
-                        <li>
-                          <i className="ri-verified-badge-fill"></i>
-                        </li>
-                        <li>
-                          <i className="ri-flashlight-fill"></i>
-                        </li>
-                        <li>
-                          <i className="ri-shield-check-fill"></i>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
+                <div className="usuario-name">
+                  <h2>Jéssica Gomes | 35 anos</h2>
                 </div>
                 <div className="price-share">
                   <div className="usuario-follow">
