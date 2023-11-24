@@ -14,13 +14,20 @@
     height: auto;
 }
 
-.usuario-photo {
+.usuario-avatar-selo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.usuario-avatar {
     height: 160px;
     width: 160px;
     border-radius: 50%;
 }
 
-.usuario-photo img {
+.usuario-avatar img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -36,24 +43,20 @@
     gap: 5px;
 }
 
-.usuario-selo i {
-    font-size: 20px;
-    color: var(--text-300);
-}
 
 .usuario-info {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     width: auto;
-    max-width: 400px;
+    max-width: 500px;
 }
 
 .box-info {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
     color: white;
 }
 
@@ -64,7 +67,7 @@
 }
 
 .usuario-selo i {
-    color: var(--text-300);
+    color: var(--bg-400);
     font-size: 18px;
 }
 
@@ -72,12 +75,12 @@
     border-radius: 3px;
     font-size: 18px;
     font-weight: 500;
-    color: white;
+    color: var(--bg-400);
 }
 
 .price-share {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     align-items: center;
 }
 
@@ -85,7 +88,7 @@
     background: #1877F2;
     color: white;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     padding: 5px 10px;
     border-radius: 3px;
     border: none;
@@ -97,23 +100,44 @@
 }
 
 .usuario-share button {
-    background: black;
-    color: #F5F7F8;
-    font-size: 18px;
-    font-weight: 500;
+    background: var(--text-red);
+    color: var(--text-300);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
     border: none;
     outline: none;
-}
-
-.usuario-share button:hover {
     cursor: pointer;
 }
 
+.usuario-share i {
+    padding-right: 5px;
+}
+
+.usuario-local-gen ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.usuario-local-gen i {
+    padding-right: 5px;
+}
+
 .usuario-descript p {
-    color: white;
-    font-size: 15px;
+    color: var(--bg-400);
+    font-size: 16px;
     font-weight: 400;
     text-wrap: pretty;
+}
+
+.usuario-social-contato {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .usuario-social ul {
@@ -124,7 +148,19 @@
 
 .usuario-social a {
     font-size: 20px;
-    color: white;
+    color: var(--bg-400);
+}
+
+.usuario-contato a {
+    font-size: 20px;
+    color: var(--text-300);
+    padding: 4px 10px;
+    background: var(--bg-400);
+    border-radius: 3px;
+}
+
+.usuario-contato i {
+    padding-right: 5px;
 }
 
 .usuario-card {
@@ -146,6 +182,8 @@
 
 .box-status {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 5px;
 }
@@ -159,6 +197,7 @@
     font-weight: 400;
     color: black;
     padding: 4px 12px;
+    border: 1px solid #ddd;
     border-radius: 3px;
     background: white;
 }

@@ -10,7 +10,7 @@
 }
 
 body {
-  background: var(--bg-400);
+  background: var(--text-300);
 }
 
 :root {

@@ -19,11 +19,8 @@ export default function Header() {
       <div className="container-header">
         <div className="container-logo">
           <Link to="/">
-            <h1>
-              A<b>BR</b>IME
-            </h1>
+            <h1>ABRIME</h1>
           </Link>
-          <span>Acompanhantes</span>
         </div>
         <div className="box-urls">
           <nav>

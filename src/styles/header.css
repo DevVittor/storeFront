@@ -3,15 +3,15 @@ header {
     top: 0;
     z-index: 9999;
     width: 100%;
-    background: var(--bg-400);
-    border-bottom: 1px solid var(--text-100);
+    background: var(--text-300);
+    border-bottom: 1px solid #ddd;
 }
 
 .container-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 20px;
+    padding: 10px 50px;
     width: 100%;
 }
 
@@ -23,18 +23,9 @@ header {
 }
 
 .container-logo a {
-    color: var(--text-300);
+    color: var(--bg-400);
     font-size: 20px;
     font-weight: 600;
-}
-
-.container-logo b {
-    color: var(--primary-100);
-}
-
-.container-logo span {
-    margin-top: -5px;
-    color: var(--bg-100);
 }
 
 .box-urls ul {
@@ -44,7 +35,7 @@ header {
 }
 
 .box-urls a {
-    color: var(--text-300);
+    color: var(--bg-400);
 }
 
 .box-urls .url-atual {
