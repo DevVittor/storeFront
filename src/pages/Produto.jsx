@@ -43,6 +43,15 @@ export default function Produto() {
   const [descricao, setDescricao] = useState("");
   const [message, setMessage] = useState("");
 
+  //Serviços
+  const [anal, setAnal] = useState(false);
+  const [boquete, setBoquete] = useState(false);
+  const [beijo, setBeijo] = useState(false);
+
+  //Serviços Especiais
+  const [massagem, setMassagem] = useState(false);
+  const [chuvaDourada, setChuvaDourada] = useState(false);
+
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
@@ -83,6 +92,12 @@ export default function Produto() {
     formData.append("dinheiro", dinheiro);
     formData.append("cartaoCredito", cartaoCredito);
     formData.append("cartaoDebito", cartaoDebito);
+
+    formData.append("anal", anal);
+    formData.append("boquete", boquete);
+    formData.append("beijo", beijo);
+    formData.append("massagem", massagem);
+    formData.append("chuvaDourada", chuvaDourada);
 
     try {
       const response = await axios.post(
@@ -154,6 +169,32 @@ export default function Produto() {
               <input type="number" name="altura" placeholder="Altura" value={altura} id="" onChange={(e) => setAltura(e.target.value)} />
               <input type="number" name="peso" placeholder="Peso" value={peso} id="" onChange={(e) => setPeso(e.target.value)} />
               <input type="text" name="descricao" placeholder="Descrição" value={descricao} id="" onChange={(e) => setDescricao(e.target.value)} />
+              <div>
+                <h2>Serviços</h2>
+                <label>
+                  <input type="checkbox" checked={anal} name="anal" id="" onChange={(e) => setAnal(e.target.checked)} />
+                  anal
+                </label>
+                <label>
+                  <input type="checkbox" checked={boquete} name="boquete" id="" onChange={(e) => setBoquete(e.target.checked)} />
+                  Boquete
+                </label>
+                <label>
+                  <input type="checkbox" checked={beijo} name="beijo" id="" onChange={(e) => setBeijo(e.target.checked)} />
+                  Beijo
+                </label>
+              </div>
+              <div>
+                <h2>Serviços Especiais</h2>
+                <label>
+                  <input type="checkbox" checked={chuvaDourada} name="chuvaDourada" id="" onChange={(e) => setChuvaDourada(e.target.checked)} />
+                  Chuva dourada
+                </label>
+                <label>
+                  <input type="checkbox" checked={massagem} name="massagem" id="" onChange={(e) => setMassagem(e.target.checked)} />
+                  massagem
+                </label>
+              </div>
               <input type="submit" value="Cadastrar Produto" />
             </form>
             <span>{message}</span>

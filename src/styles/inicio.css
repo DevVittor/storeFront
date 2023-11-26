@@ -27,11 +27,13 @@
 
 .container-card {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     height: auto;
     width: 100%;
     gap: 5px;
-    padding: 5px;
+    padding: 20px;
 }
 
 .box-card {
@@ -39,15 +41,15 @@
     flex-direction: column;
     background: black;
     height: auto;
-    width: 261px;
+    width: 250px;
 }
 
 .box-img {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: 380px;
-    width: 261px;
+    height: 350px;
+    width: 250px;
 }
 
 .box-img img {
@@ -109,26 +111,4 @@
     color: white;
     font-size: 14px;
     font-weight: 500;
-}
-
-@media screen and (max-width:497px) {
-    .container-card {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .box-img {
-        height: 350px;
-    }
-}
-
-@media screen and (max-width:429px) {
-    .box-img {
-        height: 550px;
-    }
-}
-
-@media screen and (max-width:375px) {
-    .box-img {
-        height: 480px;
-    }
 }

@@ -1,6 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import "../styles/header.css";
 export default function Header() {
+
+  const idClient = localStorage.getItem("userId");
+
   const location = useLocation();
 
   const pathToClassName = {
@@ -80,7 +83,7 @@ export default function Header() {
         </div>
         <div className="box-acesso">
           {token ? (
-            <Link to="/perfil">Perfil</Link>
+            <Link to={`/${idClient}`}>Perfil</Link>
           ) : (
             <>
               <Link to="/cadastrar">Cadastrar</Link>
