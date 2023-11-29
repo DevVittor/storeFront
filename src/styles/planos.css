@@ -3,9 +3,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 908px;
+    height: 854px;
     padding: 40px 20px;
-    background: #EE1D52;
 }
 
 .box-title {
@@ -17,17 +16,32 @@
 }
 
 .box-title h1 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-size: 44px;
     text-align: center;
     font-weight: 700;
     line-height: 2.8rem;
-    color: #fff;
+    color: var(--bg-400);
+}
+
+.box-title .ri-verified-badge-fill {
+    color: var(--bg-500);
+}
+
+.box-title .ri-fire-fill {
+    color: var(--text-red);
+}
+
+.box-title i {
+    color: var(--primary-100);
 }
 
 .box-title h3 {
     font-size: 17px;
     font-weight: 300;
-    color: #fff;
+    color: #475569;
     text-align: center;
     line-height: 1.4rem;
 }
@@ -41,7 +55,7 @@
 }
 
 .btn-toggle span {
-    color: #fff;
+    color: #475569;
 }
 
 .toggle {
@@ -51,7 +65,7 @@
     border-radius: 100px;
     height: auto;
     width: 50px;
-    background: #FFF;
+    background: #E2E8F0;
     transition: linear .3s;
 }
 
@@ -63,14 +77,56 @@
     border-radius: 100px;
     height: auto;
     width: 50px;
-    background: #fff;
+    background: #E2E8F0;
 }
 
 .modeToggle {
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    background: #0d0d0d;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: auto;
+    padding: 5px;
+    background: #E2E8F0;
+    border-radius: 5px;
+}
+
+.modeToggle button {
+    cursor: pointer;
+}
+
+.onToggle {
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    background: var(--text-450);
+    gap: 5px;
+}
+
+.offToggle {
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    background: #E2E8F0;
+    gap: 5px;
+}
+
+.modeToggle b {
+    background: var(--bg-400);
+    padding: 3px 8px;
+    border-radius: 5px;
+    color: var(--text-450);
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .modeToggle:hover {
@@ -78,7 +134,7 @@
 }
 
 .box-desconto span {
-    color: #fff;
+    color: #475569;
 }
 
 .box-planos {
@@ -86,7 +142,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     width: 100%;
 }
 
@@ -97,7 +153,7 @@
 .card-planos {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     flex-wrap: wrap;
     gap: 10px;
     width: 100%;
@@ -110,17 +166,16 @@
 
 .planoA {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 400px;
     height: auto;
     gap: 20px;
     height: auto;
-    width: 250px;
-    padding: 20px 10px;
+    width: 300px;
+    padding: 40px 10px;
     border: 1px solid #ddd;
-    background: white;
+    background: var(--text-250);
     border-radius: 12px;
     transition: all ease-out .3s;
 }
@@ -133,6 +188,7 @@
 
 .plano-price {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 10px;
 }
@@ -141,7 +197,7 @@
 .plano-price h1 {
     display: flex;
     align-items: flex-end;
-    font-size: 32px;
+    font-size: 44px;
     font-weight: 600;
 }
 
@@ -150,7 +206,7 @@
     font-weight: 500;
     color: #212121;
     position: relative;
-    top: -20px;
+    top: -30px;
 }
 
 .plano-price h4 {
@@ -162,8 +218,8 @@
 }
 
 .plano-price h3 {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .plano-price i {
@@ -178,7 +234,8 @@
 }
 
 .plano-vantagens li {
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .plano-vantagens i {

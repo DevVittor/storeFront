@@ -1,16 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Inicio from "./pages/Inicio";
-import Categoria from "./pages/Categoria";
+import Acompanhantes from "./pages/Acompanhantes";
 import Sobre from "./pages/Sobre";
-import Contato from "./pages/Contato";
 import Cadastrar from "./pages/Cadastrar";
 import Acessar from "./pages/Acessar";
 import Produto from "./pages/Produto";
 import Profile from "./pages/Usuario";
 import Error404 from "./pages/Error404";
 import Auth from "./api/auth";
-import Assinatura from "./pages/Assinatura";
+import Planos from "./pages/Planos";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
 import Perfil from "./pages/Perfil";
@@ -23,7 +22,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<NavBar />}>
             <Route index element={<Inicio />} />
-            <Route path="categoria" element={<Categoria />} />
+            <Route path="acompanhantes" element={<Acompanhantes />} />
             <Route
               path="sobre"
               element={
@@ -32,14 +31,13 @@ export default function App() {
                 </Auth>
               }
             />
-            <Route path="contato" element={<Contato />} />
             <Route path="cadastrar" element={<Cadastrar />} />
             <Route path="acessar" element={<Acessar />} />
             <Route
-              path="assinatura"
+              path="planos"
               element={
                 <Auth>
-                  <Assinatura />
+                  <Planos />
                 </Auth>
               }
             />

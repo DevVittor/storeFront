@@ -29,6 +29,11 @@ export default function CardPlanos(props) {
             <h2>R$</h2> {props.price}/<h4>{props.tempo}</h4>
           </h1>
         </div>
+        <div className="plano-assinar">
+          <button type="submit">
+            Selecione
+          </button>
+        </div>
         <div className="plano-vantagens">
           <nav>
             <ul>
@@ -64,11 +69,7 @@ export default function CardPlanos(props) {
             <i className="ri-checkbox-line"></i>Renovação Automática
           </span>
         </div>
-        <div className="plano-assinar">
-          <button type="submit">
-            Assinar<i className="ri-checkbox-circle-fill"></i>
-          </button>
-        </div>
+
       </div>
     </form>
   );

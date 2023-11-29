@@ -14,26 +14,17 @@
     height: auto;
 }
 
-.usuario-avatar-selo {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    align-items: center;
-}
-
 .usuario-avatar {
-    height: 160px;
-    width: 160px;
-    border-radius: 50%;
+    height: 200px;
+    width: 130px;
 }
 
 .usuario-avatar img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #ddd;
     pointer-events: none;
+    border-radius: 3px;
     cursor: pointer;
 }
 
@@ -43,6 +34,13 @@
     gap: 5px;
 }
 
+.usuario-selo .ri-verified-badge-fill {
+    color: var(--bg-500);
+}
+
+.usuario-selo .ri-flashlight-fill {
+    color: var(--text-red);
+}
 
 .usuario-info {
     display: flex;
@@ -63,6 +61,12 @@
 .usuario-selo i {
     color: var(--bg-400);
     font-size: 18px;
+}
+
+.usuario-name {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .usuario-name h2 {

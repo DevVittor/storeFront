@@ -9,13 +9,9 @@
 }
 
 .plano-price .ri-verified-badge-fill {
-    color: #2192FF;
+    color: var(--bg-500);
 }
 
-.plano-price .ri-shield-check-fill {
-    color: #38E54D;
-}
-
-.plano-price .ri-flashlight-fill {
-    color: #FE0000;
+.plano-price .ri-fire-fill {
+    color: var(--text-red);
 }

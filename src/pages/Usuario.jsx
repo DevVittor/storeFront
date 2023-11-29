@@ -12,7 +12,6 @@ export default function Usuario() {
   useEffect(() => {
     axios.get(`http://localhost:8080/${id}`)
       .then((res) => {
-        console.log(res);
         document.title = res.data.infoData[0].nome;
         setData(res.data.infoData);
       }).catch(error => console.error(`Deu erro na hora de buscar dados no perfil ${error}`))
@@ -25,34 +24,34 @@ export default function Usuario() {
         {data.map((item, index) => (
           <div className="container-usuario" key={index}>
             <div className="box-usuario">
-              <div className="usuario-avatar-selo">
-                <div className="usuario-avatar">
-                  <img
-                    loading="lazy"
-                    src={`http://localhost:8080/upload/${item.avatar}`}
-                    alt=""
-                  />
-                </div>
-                <div className="usuario-selo">
-                  <nav>
-                    <ul className="">
-                      <li>
-                        <i className="ri-verified-badge-fill"></i>
-                      </li>
-                      <li>
-                        <i className="ri-flashlight-fill"></i>
-                      </li>
-                      <li>
-                        <i className="ri-shield-check-fill"></i>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
+              <div className="usuario-avatar">
+                <img
+                  loading="lazy"
+                  src={`http://localhost:8080/upload/${item.avatar}`}
+                  alt=""
+                />
               </div>
               <div className="usuario-info">
                 <div className="box-info">
                   <div className="usuario-name">
-                    <h2>{item.nome} | {item.idade} anos</h2>
+                    <div className="">
+                      <h2>{item.nome}</h2>
+                    </div>
+                    <div className="usuario-selo">
+                      <nav>
+                        <ul className="">
+                          <li>
+                            <i className="ri-verified-badge-fill"></i>
+                          </li>
+                          <li>
+                            <i className="ri-flashlight-fill"></i>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                    <div className="">
+                      <h2>| {item.idade} anos</h2>
+                    </div>
                   </div>
                   <div className="price-share">
                     <div className="usuario-follow">
@@ -103,10 +102,10 @@ export default function Usuario() {
                   <div className="usuario-social">
                     <nav>
                       <ul>
-                        {item.pix && <li>Pix |</li>}
-                        {item.dinheiro && <li>Dinheiro |</li>}
-                        {item.cartaoCredito && <li>Cartão de Crédito</li>}
-                        {item.cartaoDebito && <li>Cartão de Debito</li>}
+                        {item.pix && <li>Pix</li>}
+                        {item.dinheiro && <li>| Dinheiro</li>}
+                        {item.cartaoCredito && <li>| Cartão de Crédito</li>}
+                        {item.cartaoDebito && <li>| Cartão de Debito</li>}
                       </ul>
                     </nav>
                   </div>

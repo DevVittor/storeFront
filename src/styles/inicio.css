@@ -1,11 +1,137 @@
-.container-slider {
+.container-inicio {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    width: 100%;
+}
+
+.box-filter {
+    background: black;
+    height: 100vh;
+    width: 300px;
+}
+
+.box-card-acomp {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+    padding: 0px 5px;
+    gap: 5px;
     height: auto;
     width: 100%;
 }
+
+.card-acomp {
+    height: 475px;
+    width: 268px;
+    background: red;
+}
+
+.acomp-img {
+    display: flex;
+    justify-content: center;
+    height: 420px;
+    width: 268px;
+}
+
+.acomp-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.acomp-detalhes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    background: var(--bg-100);
+    width: 250px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    margin-top: 8px;
+}
+
+.acomp-selos ul {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.acomp-selos .ri-verified-badge-fill {
+    color: var(--bg-500);
+}
+
+.acomp-selos .ri-fire-fill {
+    color: var(--text-red);
+}
+
+.acomp-selos i {
+    font-size: 18px;
+}
+
+.acomp-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--bg-400);
+}
+
+.acomp-price h3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.acomp-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    padding: 5px 10px;
+    height: 55px;
+    width: 268px;
+    background: var(--text-300);
+}
+
+.acomp-name-local {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.acomp-name h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #212121;
+}
+
+.acomp-local span {
+    font-size: 16px;
+    font-weight: 300;
+    color: #212121;
+}
+
+.acomp-url i {
+    font-size: 18px;
+    color: var(--text-300);
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    background: var(--bg-400);
+}
+
+.acomp-url i:hover {
+    font-size: 18px;
+    color: var(--bg-400);
+    cursor: pointer;
+    border: 1px solid var(--bg-400);
+    padding: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    background: var(--text-300);
+    transition: linear .3s;
+}
+
+
 
 .box-slider {
     width: 80%;
@@ -27,29 +153,35 @@
 
 .container-card {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     height: auto;
     width: 100%;
-    gap: 5px;
-    padding: 20px;
+    gap: 4px;
 }
 
 .box-card {
     display: flex;
     flex-direction: column;
     background: black;
-    height: auto;
-    width: 250px;
+    width: 200px;
+}
+
+.box-card-profile {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: blue;
 }
 
 .box-img {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: 350px;
-    width: 250px;
+    height: 309px;
+    width: 309px;
 }
 
 .box-img img {

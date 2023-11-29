@@ -3,15 +3,14 @@ header {
     top: 0;
     z-index: 9999;
     width: 100%;
-    background: var(--text-300);
-    border-bottom: 1px solid #ddd;
+    background: var(--text-400);
 }
 
 .container-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 50px;
+    padding: 10px 30px;
     width: 100%;
 }
 

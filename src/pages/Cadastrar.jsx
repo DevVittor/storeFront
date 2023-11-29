@@ -20,8 +20,10 @@ export default function Cadastrar() {
     axios
       .post("http://localhost:8080/cadastrar", dadosLogin)
       .then((res) => {
+        const userId = res.data.useId;
         const token = res.data.token;
         localStorage.setItem("Token", token);
+        localStorage.setItem("userId", userId);
         navigate("/");
       })
       .catch((error) => console.error(`Deu error ${error}`));

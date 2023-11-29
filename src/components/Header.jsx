@@ -8,10 +8,9 @@ export default function Header() {
 
   const pathToClassName = {
     "/": "Inicio",
-    "/categoria": "Categoria",
+    "/acompanhantes": "Acompanhantes",
     "/sobre": "Sobre",
-    "/contato": "Contato",
-    "/assinatura": "Assinatura",
+    "/planos": "Planos",
   };
 
   const token = localStorage.getItem("Token");
@@ -40,12 +39,22 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  to="/categoria"
+                  to="/acompanhantes"
                   className={
-                    currentRouteClass === "Categoria" ? "url-atual" : "urls"
+                    currentRouteClass === "Acompanhantes" ? "url-atual" : "urls"
                   }
                 >
-                  Categoria
+                  Acompanhantes
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/planos"
+                  className={
+                    currentRouteClass === "Planos" ? "url-atual" : "urls"
+                  }
+                >
+                  Planos
                 </Link>
               </li>
               <li>
@@ -56,26 +65,6 @@ export default function Header() {
                   }
                 >
                   Sobre
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contato"
-                  className={
-                    currentRouteClass === "Contato" ? "url-atual" : "urls"
-                  }
-                >
-                  Contato
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/assinatura"
-                  className={
-                    currentRouteClass === "Assinatura" ? "url-atual" : "urls"
-                  }
-                >
-                  Assinatura
                 </Link>
               </li>
             </ul>

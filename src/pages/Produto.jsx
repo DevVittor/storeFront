@@ -122,7 +122,6 @@ export default function Produto() {
           <div className="">
             <form onSubmit={handleSubmit} encType="multipart/form-data">
               <input type="hidden" name="idClient" value={idClient} />
-              {idClient}
               <input
                 type="file"
                 name="avatar" // Nome do campo deve ser "logo"
