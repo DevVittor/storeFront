@@ -15,8 +15,7 @@ export default function Usuario() {
         document.title = res.data.infoData[0].nome;
         setData(res.data.infoData);
       }).catch(error => console.error(`Deu erro na hora de buscar dados no perfil ${error}`))
-  }, [id])
-
+  }, [id]);
 
   return (
     <main>

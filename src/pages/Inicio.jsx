@@ -9,14 +9,16 @@ export default function Inicio() {
   const [inputBusca, setInputBusca] = useState("");
   const [data, setData] = useState([]);
   const [imagem, setImagem] = useState("");
+  const [precoMin, setPrecoMin] = useState("");
+  const [precoMax, setPrecoMax] = useState("");
 
   useEffect(() => {
-    fetchData(ordem, inputBusca); // Inicialmente, busca os produtos com base nos valores iniciais
-  }, [ordem, inputBusca]);
+    fetchData(ordem, inputBusca, precoMin, precoMax); // Inicialmente, busca os produtos com base nos valores iniciais
+  }, [ordem, inputBusca, precoMin, precoMax]);
 
-  const fetchData = (ordem, inputBusca) => {
+  const fetchData = (ordem, inputBusca, precoMin, precoMax) => {
     axios
-      .get(`http://localhost:8080/?ordem=${ordem}&inputBusca=${inputBusca}`)
+      .get(`http://localhost:8080/?ordem=${ordem}&inputBusca=${inputBusca}&precoMin=${precoMin}&precoMax=${precoMax}`)
       .then((res) => {
         setData(res.data.resultado);
         setImagem(res.data.localImg);
@@ -30,6 +32,20 @@ export default function Inicio() {
 
   const handleInputChange = (e) => {
     setInputBusca(e.target.value);
+  };
+
+  const handlePrecoMinChange = (e) => {
+    const value = parseFloat(e.target.value);
+    if (!isNaN(value)) {
+      setPrecoMin(value);
+    }
+  };
+
+  const handlePrecoMaxChange = (e) => {
+    const value = parseFloat(e.target.value);
+    if (!isNaN(value)) {
+      setPrecoMax(value);
+    }
   };
 
   return (
@@ -50,11 +66,33 @@ export default function Inicio() {
               id=""
               onChange={handleInputChange} />
           </div>
+          <div className="filter-price">
+            <input
+              type="number"
+              name="precoMin"
+              min={0}
+              value={precoMin}
+              id=""
+              onChange={handlePrecoMinChange}
+              placeholder="Preço Minimo"
+            />
+            <input
+              type="number"
+              name="precoMax"
+              min={0}
+              value={precoMax}
+              id=""
+              onChange={handlePrecoMaxChange}
+              placeholder="Preço Máximo"
+            />
+          </div>
         </form>
       </section>
       <section>
         <div className="container-inicio">
-          <div className="box-filter"></div>
+          <div className="box-filter">
+
+          </div>
           <div className="box-card-acomp">
             {data.map((item, index) => (
               <div className="card-acomp" key={index}>

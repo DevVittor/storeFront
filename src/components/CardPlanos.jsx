@@ -25,9 +25,11 @@ export default function CardPlanos(props) {
             <i className={props.emblema}></i>
             {props.planos}
           </h3>
-          <h1>
-            <h2>R$</h2> {props.price}/<h4>{props.tempo}</h4>
-          </h1>
+        </div>
+        <div className="price-card">
+          <span>R$</span>
+          <h1>{props.price}/</h1>
+          <span>{props.tempo}</span>
         </div>
         <div className="plano-assinar">
           <button type="submit">
@@ -78,7 +80,7 @@ CardPlanos.propTypes = {
   emblema: PropTypes.string.isRequired,
   planos: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.string.isRequired,
   tempo: PropTypes.string.isRequired,
   icon: PropTypes.arrayOf(PropTypes.string).isRequired,
   priceId: PropTypes.string.isRequired,

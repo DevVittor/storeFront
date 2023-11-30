@@ -7,6 +7,20 @@
     background: black;
     height: 100vh;
     width: 300px;
+    padding: 40px 10px;
+}
+
+.filter-price {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-price input {
+    width: 70%;
+    outline: none;
+    border: 1px solid #ddd;
+    padding: 3px 10px;
 }
 
 .box-card-acomp {

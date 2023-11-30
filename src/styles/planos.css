@@ -226,6 +226,28 @@
     padding-right: 5px;
 }
 
+.price-card {
+    display: flex;
+    align-items: center;
+}
+
+.price-card span:nth-child(1) {
+    font-size: 14px;
+    position: relative;
+    top: -15px;
+}
+
+.price-card h1 {
+    font-size: 44px;
+    font-weight: 700;
+}
+
+.price-card span:nth-child(3) {
+    font-size: 14px;
+    position: relative;
+    top: 15px;
+}
+
 .plano-vantagens ul {
     display: flex;
     align-items: center;
@@ -292,6 +314,10 @@
     .container-planos {
         height: auto;
         padding: 20px;
+    }
+
+    .card-planos {
+        flex-direction: column;
     }
 }
 
