@@ -75,7 +75,7 @@ export default function Header() {
             <Link to={`/${idClient}`}>Perfil</Link>
           ) : (
             <>
-              <Link to="/cadastrar">Cadastrar</Link>
+              <Link to="/#">Cadastrar</Link>
               <Link to="/acessar">
                 Acessar<i className="ri-arrow-right-up-line"></i>
               </Link>

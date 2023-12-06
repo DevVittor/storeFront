@@ -1,118 +1,117 @@
 import { useEffect, useState } from "react";
 import Card from "../components/CardImg";
-import Services from "../components/Services";
+//import Services from "../components/Services";
 import "../styles/usuario.css";
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 export default function Usuario() {
 
   const { id } = useParams();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/${id}`)
+    axios.get(`http://localhost:8080/v1/api/acompanhantes/${id}`)
       .then((res) => {
-        document.title = res.data.infoData[0].nome;
-        setData(res.data.infoData);
+        console.log(res.data.info);
+        setData(res.data.info);
+        document.title = res.data.info.marca;
       }).catch(error => console.error(`Deu erro na hora de buscar dados no perfil ${error}`))
   }, [id]);
 
   return (
     <main>
       <section>
-        {data.map((item, index) => (
-          <div className="container-usuario" key={index}>
-            <div className="box-usuario">
-              <div className="usuario-avatar">
-                <img
-                  loading="lazy"
-                  src={`http://localhost:8080/upload/${item.avatar}`}
-                  alt=""
-                />
-              </div>
-              <div className="usuario-info">
-                <div className="box-info">
-                  <div className="usuario-name">
-                    <div className="">
-                      <h2>{item.nome}</h2>
-                    </div>
-                    <div className="usuario-selo">
-                      <nav>
-                        <ul className="">
-                          <li>
-                            <i className="ri-verified-badge-fill"></i>
-                          </li>
-                          <li>
-                            <i className="ri-flashlight-fill"></i>
-                          </li>
-                        </ul>
-                      </nav>
-                    </div>
-                    <div className="">
-                      <h2>| {item.idade} anos</h2>
-                    </div>
+        <div className="container-usuario" key={data.id}>
+          <div className="box-usuario">
+            <div className="usuario-avatar">
+              <img
+                loading="lazy"
+                src={`http://localhost:8080/upload/${data.avatar && data.avatar.length > 0 ? data.avatar[0] : ''}`}
+                alt=""
+              />
+            </div>
+            <div className="usuario-info">
+              <div className="box-info">
+                <div className="usuario-name">
+                  <div className="">
+                    <h2>{data.marca}</h2>
                   </div>
-                  <div className="price-share">
-                    <div className="usuario-follow">
-                      <button>R$ {item.preco}/H</button>
-                    </div>
-                    <div className="usuario-share">
-                      <button>
-                        <i className="ri-error-warning-line"></i>Denunciar
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="usuario-local-gen">
-                  <nav>
-                    <ul>
-                      <li>
-                        <span>
-                          <i className="ri-map-pin-line"></i>{item.estado}, {item.cidade} |
-                        </span>
-                      </li>
-                      <li>
-                        <span>
-                          <i className="ri-women-line"></i>{item.genero} |
-                        </span>
-                      </li>
-                      <li>
-                        <span>
-                          <i className="ri-open-arm-line"></i>{item.altura}Cm |
-                        </span>
-                      </li>
-                      <li>
-                        <span>
-                          <i className="ri-scales-line"></i>{item.peso}Kg
-                        </span>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <div className="usuario-descript">
-                  <p>
-                    {item.descricao}
-                  </p>
-                </div>
-                <div className="usuario-social-contato">
-                  <div className="usuario-contato">
-                    <i className="ri-bank-line"></i>
-                  </div>
-                  <div className="usuario-social">
+                  <div className="usuario-selo">
                     <nav>
-                      <ul>
-                        {item.pix && <li>Pix</li>}
-                        {item.dinheiro && <li>| Dinheiro</li>}
-                        {item.cartaoCredito && <li>| Cartão de Crédito</li>}
-                        {item.cartaoDebito && <li>| Cartão de Debito</li>}
+                      <ul className="">
+                        <li>
+                          <i className="ri-verified-badge-fill"></i>
+                        </li>
+                        <li>
+                          <i className="ri-flashlight-fill"></i>
+                        </li>
                       </ul>
                     </nav>
                   </div>
+                  <div className="">
+                    <h2>| {/*idade*/} anos</h2>
+                  </div>
+                </div>
+                <div className="price-share">
+                  <div className="usuario-follow">
+                    <button>R$ {data.valor}/H</button>
+                  </div>
+                  <div className="usuario-share">
+                    <button>
+                      <i className="ri-error-warning-line"></i>Denunciar
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="usuario-local-gen">
+                <nav>
+                  <ul>
+                    <li>
+                      <span>
+                        <i className="ri-map-pin-line"></i>{/*estado*/}, {/*cidade*/} |
+                      </span>
+                    </li>
+                    <li>
+                      <span>
+                        <i className="ri-women-line"></i>{/*genero*/} |
+                      </span>
+                    </li>
+                    <li>
+                      <span>
+                        <i className="ri-open-arm-line"></i>{/*altura*/}Cm |
+                      </span>
+                    </li>
+                    <li>
+                      <span>
+                        <i className="ri-scales-line"></i>{/*peso*/}Kg
+                      </span>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div className="usuario-descript">
+                <p>
+                  {/*Descricao*/}
+                </p>
+              </div>
+              <div className="usuario-social-contato">
+                <div className="usuario-contato">
+                  <i className="ri-bank-line"></i>
+                </div>
+                <div className="usuario-social">
+                  <nav>
+                    <ul>
+                      <li>Pix</li>
+                      <li>| Dinheiro</li>
+                      <li>| Cartão de Crédito</li>
+                      <li>| Cartão de Debito</li>
+                    </ul>
+                  </nav>
                 </div>
               </div>
             </div>
           </div>
-        ))}
+        </div>
       </section>
       <section>
         <div className="usuario-status">
@@ -131,11 +130,10 @@ export default function Usuario() {
             </h2>
           </div>
         </div>
-
       </section>
-      <section>
+      {/*<section>
         <Services />
-      </section>
+      </section>*/}
       <section>
         <div className="usuario-card">
           <Card urlImg="https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />

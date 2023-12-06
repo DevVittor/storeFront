@@ -1,8 +1,7 @@
-import Etapas from "../components/Etapas";
 export default function Perfil() {
   return (
     <main>
-      <Etapas />
+      <h1>Perfil</h1>
     </main>
   );
 }
