@@ -1,0 +1,33 @@
+.footer_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 50px;
+    gap: 20px;
+    background: var(--bg-400);
+}
+
+.footer_direito span {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-300);
+}
+
+.footer_social ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer_social a {
+    font-size: 20px;
+    color: var(--text-300);
+}
+
+@media screen and (max-width:770px) {
+    .footer_container {
+        justify-content: center;
+        gap: 10px;
+    }
+}

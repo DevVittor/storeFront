@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: auto;
+    padding: 20px;
+}
+
+
+.card {
+    height: 500px;
+    width: 333px;
+}
+
+.card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
