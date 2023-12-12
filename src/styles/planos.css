@@ -3,8 +3,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 854px;
+    min-height: 100%;
+    height: auto;
     padding: 40px 20px;
+    background: var(--text-450);
 }
 
 .box-title {

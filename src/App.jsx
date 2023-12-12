@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Inicio from "./pages/Inicio";
 import Acompanhantes from "./pages/Acompanhantes";
-import Sobre from "./pages/Sobre";
+//import Sobre from "./pages/Sobre";
 import Acessar from "./pages/Acessar";
 import Produto from "./pages/Produto";
 //import Profile from "./pages/Usuario";
@@ -13,6 +13,10 @@ import Planos from "./pages/Planos";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
 import Perfil from "./pages/Perfil";
+import ContaCriada from "./components/ContaCriada";
+
+//Apenas um teste
+import Formulario from './pages/Formulario';
 
 export default function App() {
   return (
@@ -21,21 +25,12 @@ export default function App() {
         <Route path="/" element={<NavBar />}>
           <Route index element={<Inicio />} />
           <Route path="acompanhantes" element={<Acompanhantes />} />
-          <Route
-            path="sobre"
-            element={
-              <Auth>
-                <Sobre />
-              </Auth>
-            }
-          />
+          <Route path="sobre" element={<Formulario />}/>
           <Route path="acessar" element={<Acessar />} />
           <Route
             path="planos"
             element={
-              <Auth>
-                <Planos />
-              </Auth>
+              <Planos />
             }
           />
           <Route
@@ -61,6 +56,7 @@ export default function App() {
             }
           />
           <Route path="produto" element={<Produto />} />
+	  	  <Route path="finalizada" element={<ContaCriada/>}/>
           {/*<Route path="/acompanhantes/:id" element={<Profile />} />*/}
           <Route path="/acompanhantes/:id" element={<Test />} />
           <Route path="*" element={<Error404 />} />

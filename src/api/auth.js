@@ -1,3 +1,4 @@
+//import {Redirect}from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function ProtectedRoute({ children }) {
@@ -8,7 +9,8 @@ function ProtectedRoute({ children }) {
     return children;
   } else {
     // O token não existe, redirecione para a página de login
-    return window.location.href = "/restrito";
+    return window.location.href = "https://www.npmjs.com/package/jsonwebtoken";
+    //return <Redirect to="/restrito" />;
   }
 }
 

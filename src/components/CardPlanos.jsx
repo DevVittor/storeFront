@@ -49,19 +49,16 @@ export default function CardPlanos(props) {
                 <i className={props.icon[2]}></i>Selo de Verificado
               </li>
               <li>
-                <i className={props.icon[3]}></i>Selo de Profissional
+                <i className={props.icon[3]}></i>Selo de Destaque
               </li>
               <li>
-                <i className={props.icon[4]}></i>Selo de Destaque
+                <i className={props.icon[4]}></i>Slider nas páginas
               </li>
               <li>
-                <i className={props.icon[5]}></i>Slider nas páginas
+                <i className={props.icon[5]}></i>Lista de Destaques
               </li>
               <li>
-                <i className={props.icon[6]}></i>Lista de Destaques
-              </li>
-              <li>
-                <i className={props.icon[7]}></i>Banner de Destaques
+                <i className={props.icon[6]}></i>Banner de Destaques
               </li>
             </ul>
           </nav>

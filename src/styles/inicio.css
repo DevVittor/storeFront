@@ -1,5 +1,106 @@
-img {
-    height: 400px;
-    width: 250px;
+.container_cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 100%;
+    height: auto;
+    padding: 20px;
+
+}
+
+.card_profile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    width: 300px;
+}
+
+.avatar_profile {
+    display: flex;
+    justify-content: center;
+    height: 450px;
+    width: 300px;
+}
+
+.avatar_profile img {
+    height: 100%;
+    width: 100%;
     object-fit: cover;
+}
+
+.selos_profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    gap: 10px;
+    width: auto;
+    max-width: 250px;
+    background: var(--text-300);
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.selos_list ul {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.selos_list i {
+    font-size: 20px;
+}
+
+.selos_list .ri-verified-badge-fill {
+    color: var(--bg-500);
+}
+
+.selos_list .ri-flashlight-fill {
+    color: var(--text-red);
+}
+
+.gen_price ul {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.gen_price li {
+    font-size: 14px;
+    font-weight: 400;
+    color: #212121;
+}
+
+.name_profile {
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    min-height: 50px;
+    height: auto;
+    max-height: 80px;
+    padding: 8px 10px;
+    gap: 5px;
+    backdrop-filter: blur(15px);
+}
+
+.name_profile h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-300);
+}
+
+.name_profile span {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-300);
+}
+.fontResult{
+  color: #fff;
 }
