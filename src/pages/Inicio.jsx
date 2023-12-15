@@ -5,7 +5,7 @@ import axios from 'axios';
 function Inicio() {
   document.title = "Inicio";
   const [alturaDisponivel, setAlturaDisponivel] = useState(window.innerHeight - 113);
-
+  const [result, setResult] = useState([]);
   useEffect(() => {
     function handleResize() {
       setAlturaDisponivel(window.innerHeight - 113);
@@ -16,10 +16,30 @@ function Inicio() {
     };
   }, []);
 
+  //Inicio
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle("visible", entry.isIntersecting);
+        if (entry.isIntersecting) observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.5 });
+
+    const cardsRef = Array.from(document.querySelectorAll(".card_profile"));
+    cardsRef.forEach(card => {
+      observer.observe(card);
+    });
+
+    return () => {
+      cardsRef.forEach(card => {
+        observer.unobserve(card);
+      });
+    };
+  }, [result]);
+  //Fim
   const divPrincipalStyle = {
     minHeight: `${alturaDisponivel}px`,
   };
-  const [result, setResult] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:8080/v1/api/acompanhantes")
       .then((res) => {
@@ -34,7 +54,7 @@ function Inicio() {
           {result.length > 0 ? (
             result.map((item) => (
               <Link to={`/acompanhantes/${item._id}`} key={item._id}>
-                <div className="card_profile" key={item._id}>
+                <div className="card_profile show" key={item._id}>
                   <div className="avatar_profile">
                     {/*<img src={`http://localhost:8080/upload/${item.avatar[0]}`} alt="" />*/}
                     <img src="https://images.pexels.com/photos/19283228/pexels-photo-19283228/free-photo-of-aventura-facanha-flutuando-voo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="foto" />

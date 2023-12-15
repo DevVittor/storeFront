@@ -1,51 +1,36 @@
 import '../styles/formulario.css'
 function Formulario() {
+    document.title = "Sobre";
     return (
         <div className="container_register">
-            <div className="dados_pessoais">
-                <div>
-                    <h2>Criar Perfil</h2>
+            <div className="box_info">
+                <div className="box_dados">
+                    <label htmlFor="input_avatar">
+                        <input type="file" id="input_avatar" />
+                        <h2>Enviar Foto</h2>
+                    </label>
                 </div>
-                <div className="picture_description">
-                    <div className="picture_profile">
-                        <img src="https://images.pexels.com/photos/18885907/pexels-photo-18885907/free-photo-of-vista-traseira-praia-litoral-preto-e-branco.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
-                        <label for="avatar">
-                            <span>Enviar Foto</span>
-                            <input type="file" id="avatar"/>
-                        </label>
-                    </div>
-                    <div className="sobre_description">
-                        <div className="sobre_profile">
-                            <h3>Sobre Mim</h3>
-                            <span>0/150</span>
-                        </div>
-                        <div>
-                            <textarea
-                            name="sobre"
-                            row="5" 
-                            col="30"
-                            >
-                                Apenas fale mais sobre você
-                            </textarea>
-                        </div>
+                <div className="dados_pessoais">
+                    <div className="name_lastname">
+                        <h2>Dados do Perfil</h2>
+                        <input type="text" placeholder="Nome" />
+                        <input type="text" placeholder="Sobrenome" />
+                        <input type="text" placeholder="Data de Nascimento" />
+                        <input type="text" placeholder="Gênero" />
+                        <input type="text" placeholder="Peso" />
+                        <input type="text" placeholder="Altura" />
+                        <input type="text" placeholder="Cachê por hora" />
                     </div>
                 </div>
-                <input 
-                type="text"
-                name="nome"
-                min-length="2"
-                max-length="16"
-                spellcheck="false"
-                required
-                placeholder="Nome"/>
-                <input 
-                type="text"
-                name="sobrenome"
-                min-length="2"
-                max-length="16"
-                placeholder="Sobrenome"/>
+                <div></div>
+                <div></div>
             </div>
-            <div className=""></div>
+            <div className="box_body">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
     )
 }

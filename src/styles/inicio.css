@@ -104,3 +104,12 @@
 .fontResult{
   color: #fff;
 }
+/*Animation intersection*/
+.show {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.show.visible {
+  opacity: 1;
+}
