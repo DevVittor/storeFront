@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 import { Link } from 'react-router-dom';
 import '../styles/inicio.css';
 import axios from 'axios';
 function Inicio() {
-  document.title = "Inicio";
+   document.title = "Inicio";
   const [alturaDisponivel, setAlturaDisponivel] = useState(window.innerHeight - 113);
   const [result, setResult] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const page = useRef(1);
+
   useEffect(() => {
     function handleResize() {
       setAlturaDisponivel(window.innerHeight - 113);
@@ -16,37 +19,49 @@ function Inicio() {
     };
   }, []);
 
-  //Inicio
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight
+    ) {
+      loadMoreItems();
+    }
+  };
+
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        entry.target.classList.toggle("visible", entry.isIntersecting);
-        if (entry.isIntersecting) observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.5 });
-
-    const cardsRef = Array.from(document.querySelectorAll(".card_profile"));
-    cardsRef.forEach(card => {
-      observer.observe(card);
-    });
-
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      cardsRef.forEach(card => {
-        observer.unobserve(card);
-      });
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [result]);
+
+  const loadMoreItems = () => {
+    if (!loading) {
+      setLoading(true);
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page.current}&limit=6`)
+        .then((res) => {
+          setResult(prevResult => [...prevResult, ...res.data.dados]);
+          setLoading(false);
+          page.current += 1;
+        }).catch((error) => {
+          setLoading(false);
+          console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
+        });
+    }
+  };
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page.current}&limit=12`)
+      .then((res) => {
+        console.log(res);
+        setResult(res.data.dados);
+        page.current += 1;
+      }).catch((error) => console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`));
+  }, []);
   //Fim
   const divPrincipalStyle = {
     minHeight: `${alturaDisponivel}px`,
   };
-  useEffect(() => {
-    axios.get("http://localhost:8080/v1/api/acompanhantes")
-      .then((res) => {
-        setResult(res.data.dados);
-      }).catch((error) => console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`));
-  }, []);
-
+  
   return (
     <main>
       <section>
@@ -54,11 +69,11 @@ function Inicio() {
           {result.length > 0 ? (
             result.map((item) => (
               <Link to={`/acompanhantes/${item._id}`} key={item._id}>
-                <div className="card_profile show" key={item._id}>
+                <div className="card_profile " key={item._id}>
                   <div className="avatar_profile">
                     {/*<img src={`http://localhost:8080/upload/${item.avatar[0]}`} alt="" />*/}
                     <img src="https://images.pexels.com/photos/19283228/pexels-photo-19283228/free-photo-of-aventura-facanha-flutuando-voo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="foto" />
-                    <div className="selos_profile">
+                    <div className="selos_profile show">
                       <div className="selos_list">
                         <nav>
                           <ul>
