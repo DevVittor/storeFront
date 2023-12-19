@@ -37,7 +37,7 @@ function Inicio() {
   const loadMoreItems = () => {
     if (!loading) {
       setLoading(true);
-      axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page.current}&limit=6`)
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page.current}&limit=12`)
         .then((res) => {
           setResult(prevResult => [...prevResult, ...res.data.dados]);
           setLoading(false);

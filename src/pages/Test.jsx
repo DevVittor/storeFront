@@ -33,6 +33,15 @@ function Test() {
                     </div>
                   </div>
                 </div>
+                <div className="profile-locale">
+                  <span>Rio de Janeiro, Rj</span>
+                  <span>|</span>
+                  <span>Mulher</span>
+                  <span>|</span>
+                  <span>1.76 Cm</span>
+                  <span>|</span>
+                  <span>78 Kg</span>
+                </div>
                 <div className="box-descript">
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -40,32 +49,6 @@ function Test() {
                     natus similique, in, omnis aliquam magni repudiandae, laborum
                     cumque cum totam? Sint!
                   </p>
-                </div>
-                <div className="box-social">
-                  <nav>
-                    <ul>
-                      <li>
-                        <Link to="/#">
-                          <i className="ri-facebook-box-fill"></i>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/#">
-                          <i className="ri-instagram-fill"></i>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/#">
-                          <i className="ri-twitter-x-fill"></i>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/#">
-                          <i className="ri-telegram-fill"></i>
-                        </Link>
-                      </li>
-                    </ul>
-                  </nav>
                 </div>
               </div>
             </div>

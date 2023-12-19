@@ -4,7 +4,10 @@
     align-items: center;
     height: auto;
     flex-direction: column;
-    padding: 40px;
+    padding-top:10px;
+    padding-right: 20px;
+    padding-left:20px;
+    padding-bottom:20px;
 }
 .box-profile{
     display: flex;
@@ -80,6 +83,17 @@
 }
 .profile-share button:hover{
     cursor: pointer;
+}
+.profile-locale{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px;
+}
+.profile-locale span{
+  color:white;
+  font-size:14px;
+  font-weight:400;
 }
 .box-descript p{
     color: white;
@@ -170,6 +184,9 @@
     .profile-info{
         justify-content: center;
         align-items: center;
+    }
+    .profile-locale{
+      justify-content:center;
     }
     .box-descript p{
         text-align: center;

@@ -1,7 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
+import { useState } from 'react';
 import "../styles/header.css";
 export default function Header() {
 
+  const [abrir,setAbrir] = useState(false);
   const idClient = localStorage.getItem("userId");
 
   const location = useLocation();
@@ -16,6 +18,10 @@ export default function Header() {
   const token = localStorage.getItem("Token");
   const currentRouteClass = pathToClassName[location.pathname] || "";
 
+  function clickMenu(){
+    setAbrir(!abrir);
+  }
+
   return (
     <header>
       <div className="container-header">
@@ -24,55 +30,37 @@ export default function Header() {
             <h1>ABRIME</h1>
           </Link>
         </div>
-        <div className="box-urls">
-          <nav>
-            <ul>
-              <li>
-                <Link
-                  to="/"
-                  className={
-                    currentRouteClass === "Inicio" ? "url-atual" : "urls"
-                  }
-                >
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/acompanhantes"
-                  className={
-                    currentRouteClass === "Acompanhantes" ? "url-atual" : "urls"
-                  }
-                >
-                  Acompanhantes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/planos"
-                  className={
-                    currentRouteClass === "Planos" ? "url-atual" : "urls"
-                  }
-                >
-                  Planos
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/sobre"
-                  className={
-                    currentRouteClass === "Sobre" ? "url-atual" : "urls"
-                  }
-                >
-                  Sobre
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
         <div className="box-acesso">
           {token ? (
-            <Link to={`/${idClient}`}>Perfil</Link>
+            <>
+              <button onClick={clickMenu}>
+                <span>Jéssica</span>
+                <i className="ri-menu-fill"></i>
+              </button>
+              {abrir ? (
+                  <div className="popUpMenu" >
+                    <nav>
+                      <ul>
+                        <li>
+                          <Link><i className="ri-user-search-line"></i>Perfil</Link>
+                        </li>
+                        <li>
+                          <Link><i className="ri-flashlight-fill"></i>Destacar</Link>
+                        </li>
+                        <li>
+                          <Link><i className="ri-verified-badge-fill"></i>Verificar</Link>
+                        </li>
+                        <li>
+                          <Link><i className="ri-user-settings-line"></i>Editar Perfil</Link>
+                        </li>
+                        <li>
+                          <Link><i className="ri-door-closed-line"></i>Sair</Link>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                ) : null}
+            </>
           ) : (
             <>
               <Link to="/#">Cadastrar</Link>
