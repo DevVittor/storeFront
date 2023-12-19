@@ -1,48 +1,57 @@
-.container-profile {
-    height: 550px;
+.card-profile{
+    height: auto;
 }
-
-.card-profile {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 550px;
-    width: 350px;
-    background: red;
-}
-
-.card-profile img {
+.card-profile img{
     height: 100%;
     width: 100%;
     object-fit: cover;
+    transition: all ease-out .3s;
 }
-
-.card-info {
+.card-profile img:hover{
+    cursor: pointer;
+   
+}
+.card-modal{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: auto;
-    padding: 15px;
-    width: 350px;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
     backdrop-filter: blur(15px);
-    position: absolute;
 }
-
-.card-info h2 {
+.card-modal i{
+    font-size: 32px;
     color: white;
-    font-size: 24px;
-    font-weight: 600;
 }
-
-.card-info span {
-    color: #f9f9f9;
-    font-size: 16px;
-    font-weight: 400;
+.card-modal i:hover{
+    transition: linear .3s;
+    color: red;
+    cursor: pointer;
 }
-
-@media screen and (max-width:770px) {
-    .container-profile {
-        display: none;
+.modal{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+}
+.modal img{
+    max-height: 800px;
+    height: auto;
+    max-width: 800px;
+    transition: all ease-in .3s;
+}
+@media screen and (max-width:640px){
+    .modal {
+        justify-content: center;
+        align-items: flex-end;
+        padding: 10px;
+    }
+    .modal img{
+        max-height: 600px;
+        height: auto;
+        width: 100%;
     }
 }

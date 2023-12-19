@@ -1,28 +1,116 @@
-import styles from './Test.module.css';
+import '../styles/test.css';
+import {Link} from 'react-router-dom';
+import Card from "../components/Card";
 function Test() {
+  document.title="Jéssica Gomes";
     return (
-        <main>
-            <section>
-                <div className={styles.container}>
-                    <div className={styles.box_info}>
-                        <div className={styles.box_name}>
-                            <div className={styles.box_first}>
-                                <h1>Jéssica</h1>
-                            </div>
-                            <div className={styles.box_last}>
-                                <h1>Gomes</h1>
-                            </div>
-                        </div>
-                        <div className={styles.box_description}>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis pariatur expedita cumque quos aspernatur commodi dignissimos officia sequi laboriosam, non doloremque eveniet nisi, tempora harum quasi molestias rerum nesciunt illum! Voluptate placeat illum a laborum saepe sunt explicabo cum hic vel architecto nostrum aut quod soluta qui, molestias ullam, aliquam repellendus quo commodi expedita fuga! Expedita sunt dolorum quisquam architecto debitis officia. Eum enim earum illo quo excepturi nesciunt eveniet, dignissimos repellendus quasi quaerat ipsam cumque placeat? Odit vel ipsum ullam velit corporis, error placeat repudiandae, voluptates suscipit impedit dignissimos hic ad natus consectetur doloribus fuga! Porro pariatur veritatis perspiciatis tempora soluta ullam obcaecati corporis tempore ad consectetur eos tenetur necessitatibus nulla minima at dolorem molestias cumque, veniam officia hic omnis similique. Iste earum dolor iusto ea iure doloremque, facere odio impedit vitae alias architecto et magnam? Repudiandae hic sequi nostrum enim, dolore dicta velit consequatur similique. Dignissimos vero dolore saepe accusantium nesciunt repudiandae veritatis maiores neque molestiae corporis recusandae distinctio fuga officia at, praesentium obcaecati, nostrum perferendis repellat omnis rerum nihil consequatur quae eos. Cupiditate quod, ut, beatae minima ducimus qui dolores eos asperiores distinctio excepturi aliquid laborum modi dolor? Sequi consectetur omnis eligendi asperiores est minima accusantium reiciendis rem? Error, quo quis sed recusandae ipsam obcaecati tempora a quasi corrupti vero, rem ipsa quas, nihil earum natus iure! Provident impedit, doloremque vel officia consectetur ab amet facilis! Animi, asperiores nesciunt quo, vitae explicabo nihil debitis molestias minus ea illum id ad suscipit, laboriosam corporis aut perferendis mollitia laudantium!</p>
-                        </div>
+      <main>
+        <section>
+          <div className="container-profile">
+            <div className="box-profile">
+              <div className="profile-photo">
+                <img
+                  loading="lazy"
+                  src="https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr="
+                  alt=""
+                />
+              </div>
+              <div className="profile-info">
+                <div className="box-info">
+                  <div className="profile-name">
+                    <h2>
+                      Jéssica Gomes<i className="ri-verified-badge-fill"></i>
+                    </h2>
+                  </div>
+                  <div className="price-share">
+                    <div className="profile-follow">
+                      <button className="profile">Seguir R$ 250/mês</button>
                     </div>
-                    <div className={styles.box_avatar}>
-                        <img src="https://images.pexels.com/photos/19248756/pexels-photo-19248756/free-photo-of-28mm-35-mm-adulto-lindo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                    <div className="profile-share">
+                      <button>
+                        <i className="ri-more-2-fill"></i> 
+                      </button>
                     </div>
+                  </div>
                 </div>
-            </section>
-        </main >
+                <div className="box-descript">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Maiores quasi ipsa sint fugit? Adipisci dolore autem sit amet
+                    natus similique, in, omnis aliquam magni repudiandae, laborum
+                    cumque cum totam? Sint!
+                  </p>
+                </div>
+                <div className="box-social">
+                  <nav>
+                    <ul>
+                      <li>
+                        <Link to="/#">
+                          <i className="ri-facebook-box-fill"></i>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/#">
+                          <i className="ri-instagram-fill"></i>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/#">
+                          <i className="ri-twitter-x-fill"></i>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/#">
+                          <i className="ri-telegram-fill"></i>
+                        </Link>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div className="container-card">
+            <Card urlImg="https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/10154767/pexels-photo-10154767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7125393/pexels-photo-7125393.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7227811/pexels-photo-7227811.jpeg" />
+            <Card urlImg="https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/10154767/pexels-photo-10154767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7125393/pexels-photo-7125393.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7227811/pexels-photo-7227811.jpeg" />
+            <Card urlImg="https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/10154767/pexels-photo-10154767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7125393/pexels-photo-7125393.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7227811/pexels-photo-7227811.jpeg" />
+            <Card urlImg="https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/10154767/pexels-photo-10154767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7125393/pexels-photo-7125393.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7227811/pexels-photo-7227811.jpeg" />
+            <Card urlImg="https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/10154767/pexels-photo-10154767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7125393/pexels-photo-7125393.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7227811/pexels-photo-7227811.jpeg" />
+            <Card urlImg="https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/10154767/pexels-photo-10154767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7125393/pexels-photo-7125393.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7227811/pexels-photo-7227811.jpeg" />
+            <Card urlImg="https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7125393/pexels-photo-7125393.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+            <Card urlImg="https://images.pexels.com/photos/7227811/pexels-photo-7227811.jpeg" />
+            <Card urlImg="https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+          </div>
+        </section>
+      </main> 
     )
 }
 export default Test;

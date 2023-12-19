@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/inicio.css';
 import axios from 'axios';
 function Inicio() {
-   document.title = "Inicio";
+  document.title = "Inicio";
   const [alturaDisponivel, setAlturaDisponivel] = useState(window.innerHeight - 113);
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -52,7 +52,6 @@ function Inicio() {
   useEffect(() => {
     axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page.current}&limit=12`)
       .then((res) => {
-        console.log(res);
         setResult(res.data.dados);
         page.current += 1;
       }).catch((error) => console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`));
@@ -68,7 +67,10 @@ function Inicio() {
         <div className="container_cards" style={divPrincipalStyle}>
           {result.length > 0 ? (
             result.map((item) => (
-              <Link to={`/acompanhantes/${item._id}`} key={item._id}>
+              <Link 
+              to={`/acompanhantes/${item._id}`} 
+              key={item._id}
+              >
                 <div className="card_profile " key={item._id}>
                   <div className="avatar_profile">
                     {/*<img src={`http://localhost:8080/upload/${item.avatar[0]}`} alt="" />*/}

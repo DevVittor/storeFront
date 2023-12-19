@@ -2,18 +2,19 @@ footer {
     position: relative;
     width: 100%;
     z-index: 9999;
+    background:var(--text-300);
 }
 
 .container-footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--bg-400);
+    background: var(--text-300);
     padding: 10px 50px;
 }
 
 .container-footer span {
-    color: white;
+    color: var(--bg-400);
     font-size: 16px;
     font-weight: 500;
 }
