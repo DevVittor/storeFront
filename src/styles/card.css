@@ -1,5 +1,7 @@
 .card-profile{
-    height: auto;
+  height:auto;
+  width:100%;
+  break-inside:avoid;
 }
 .card-profile img{
     height: 100%;
