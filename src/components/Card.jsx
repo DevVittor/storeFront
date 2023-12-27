@@ -37,14 +37,14 @@ function Card(props) {
   return (
     <>
       {modal ? (
-        <div className="card-profile">
-          <img loading="lazy" src={props.urlImg} alt="" onClick={alterModal} />
+        <div className="card-profile" key={1}>
+          <img src={props.urlImg} alt="Imagem" onClick={alterModal} />
         </div>
       ) : (
         <div className="card-modal" onClick={alterModal}>
           <div className="modal">
             <i className="ri-close-fill" onClick={alterModal}></i>
-            <img src={props.urlImg} alt="" />
+            <img src={props.urlImg} alt="Imagem" />
           </div>
         </div>
       )}

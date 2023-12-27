@@ -8,7 +8,9 @@ function Inicio() {
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const page = useRef(1);
-
+  const [nameList, setNameList] = useState([]);
+  const [inputSearch, setInputSearch] = useState("");
+  
   useEffect(() => {
     function handleResize() {
       setAlturaDisponivel(window.innerHeight - 67);
@@ -36,7 +38,7 @@ function Inicio() {
 
   const loadMoreItems = () => {
     if (!loading) {
-      setLoading(true);
+      setLoading(true); 
       axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page.current}&limit=12`)
         .then((res) => {
           setResult(prevResult => [...prevResult, ...res.data.dados]);
@@ -50,28 +52,32 @@ function Inicio() {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page.current}&limit=12`)
+    if(inputSearch.trim() !== ""){
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?nome=${inputSearch}&limit=0`)
       .then((res) => {
         setResult(res.data.dados);
-        page.current += 1;
+      }).catch((error) => console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`)); 
+    }else{
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page.current}&limit=12`)
+      .then((res) => {
+        setResult(res.data.dados);
       }).catch((error) => console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`));
-  }, []);
+    }
+  }, [inputSearch]);
   //Fim
   const divPrincipalStyle = {
     minHeight: `${alturaDisponivel}px`,
   };
 
   //Search
-  const [nameList, setNameList] = useState([]);
-  const [inputSearch, setInputSearch] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/v1/api/acompanhantes?limit`)
+    axios.get(`http://localhost:8080/v1/api/acompanhantes?nome=${nameList}`)
       .then((res) => {
+        //console.log(res.data.dados);
         setNameList(res.data.dados);
       }).catch(error => console.log(error));
   }, []);
-
   return (
     <main>
       <section>
@@ -84,9 +90,10 @@ function Inicio() {
           <div className="container_search_filter_option">
             <div className="box_search">
               <input
-                type="text"
+                type="search"
                 name="nome"
-                placeholder="Buscar por nome"
+                onChange={(e) => setInputSearch(e.target.value)}
+                placeholder="Buscar nome"
               />
             </div>
             <div className="box_filter">
@@ -103,38 +110,21 @@ function Inicio() {
         </div>
       </section>
       <section>
-        <div>
-          <input
-            type="text"
-            name="nome"
-            onChange={(e) => setInputSearch(e.target.value)}
-            placeholder="Buscar nome"
-          />
-          {nameList
-            .filter((listas) => {
+        <div className="container_cards" style={divPrincipalStyle}>
+          {result
+            .filter((item) => {
               if (inputSearch === "") {
-                return listas;
-              } else if (listas.nome.toLowerCase().includes(inputSearch.toLowerCase())) {
-                return listas;
+                return item;
+              } else if (item.nome.toLowerCase().includes(inputSearch.toLowerCase())) {
+                return item;
               }
             })
-            .map((listas) => {
-              return (
-                <h1 style={{ color: "white" }} key={listas._id}>
-                  {listas.nome}
-                </h1>
-              );
-            })}
-        </div>
-      </section>
-      <section>
-        <div className="container_cards" style={divPrincipalStyle}>
-          {result.map((item) => (
+            .map((item) => (
             <Link
               to={`/acompanhantes/${item._id}`}
               key={item._id}
             >
-              <div className="card_profile " key={item._id}>
+              <div className="card_profile ">
                 <div className="avatar_profile">
                   {/*<img src={`http://localhost:8080/upload/${item.avatar[0]}`} alt="" />*/}
                   <img src="https://images.pexels.com/photos/19283228/pexels-photo-19283228/free-photo-of-aventura-facanha-flutuando-voo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="foto" />
