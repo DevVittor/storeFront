@@ -22,6 +22,8 @@
     width: 100%;
     position: fixed;
     top: 0;
+    left:0;
+    right:0;
     backdrop-filter: blur(15px);
 }
 .card-modal i{
@@ -54,6 +56,6 @@
     .modal img{
         max-height: 600px;
         height: auto;
-        width: 100%;
+        max-width: 600px;
     }
 }

@@ -1,86 +1,55 @@
-.container_register{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    flex-wrap:wrap;
-    gap:20px;
-    height:auto;
-    gap:10px;
-    padding: 20px ;
-    background:#FFFFFF;
-}
-.box_info{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:10px;
-}
-.box_dados{
-    display:flex;
-    justify-content:center;
-    align-items:center; 
-}
-.box_dados label{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:400px;
-    width:250px;
-    border-radius:5px;
-    border:2px dashed var(--bg-400);
-    background:var(--text-300);
-}
-.box_dados input[type="file"]{
-    display:none;
-}
-.box_dados h2{
-    font-size:20px;
-    font-weight:600;
-    color:var(--bg-400);
-}
-.dados_pessoais{
-    display:flex;
-    justify-content:flex-start;
-    height:400px;
-    width: 250px;
-    flex-direction:column;
-    gap:10px; 
-}
-.name_lastname {
-    display:flex;
-    justify-content:space-between;
-    flex-direction:column;
-    background:white;
-    gap:10px;
-    padding:20px;
-    height:400px;
-    border-radius:5px;
-    border:1px solid #ddd;
-}
-.name_lastname input[type="text"]{
-    padding:5px 0;
-    font-size:14px;
-    font-weight:500;
-    outline:none;
-    border-top:none;
-    border-left:none;
-    border-right:none;
-    border-bottom:1px solid #ddd;
-}
-.box_body{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:10px;
+.form_avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  height: 88vh;
+  padding: 20px;
+  background: var(--text-300);
 }
 
-.box_body div{
-    height:400px;
-    width:250px;
-    border-radius:12px;
-    background:var(--text-red);
+.form_avatar h2 {
+  color: var(--bg-400);
+  font-size: 32px;
+  font-weight: 600;
 }
 
+.form_avatar input[type="file"] {
+  display: none;
+}
+
+.form_avatar span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+  width: 300px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 2px dashed var(--bg-400);
+}
+
+.form_avatar p {
+  width: 21%;
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--bg-400);
+}
+
+.form_avatar button {
+  padding: 5px 20px;
+  border-radius: 3px;
+  background: var(--bg-400);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-300);
+  outline: none;
+  border: none;
+}
+
+h2,
+p {
+  color: white;
+}

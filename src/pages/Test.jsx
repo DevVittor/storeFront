@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Card from "../components/Card";
 function Test() {
   document.title="Jéssica Gomes";
+  const avatar = "https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=";
     return (
       <main>
         <section>
@@ -10,8 +11,7 @@ function Test() {
             <div className="box-profile">
               <div className="profile-photo">
                 <img
-                  loading="lazy"
-                  src="https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr="
+                  src={avatar}
                   alt=""
                 />
               </div>

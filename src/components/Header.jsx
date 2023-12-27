@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import "../styles/header.css";
 export default function Header() {
 
@@ -19,8 +19,18 @@ export default function Header() {
   const currentRouteClass = pathToClassName[location.pathname] || "";
 
   function clickMenu(){
-    setAbrir(!abrir);
+    setAbrir(prevOpen=>!prevOpen);
   }
+  //Solução
+  const menuRef = useRef();
+  const nameRef = useRef();
+  const iconRef = useRef();
+
+  window.addEventListener("click",(event)=>{
+    if(event.target !== menuRef.current && event.target !== nameRef.current && event.target !== iconRef.current){
+      setAbrir(false); 
+    }
+  });
 
   return (
     <header>
@@ -33,9 +43,13 @@ export default function Header() {
         <div className="box-acesso">
           {token ? (
             <>
-              <button onClick={clickMenu}>
-                <span>Jéssica</span>
-                <i className="ri-menu-fill"></i>
+              <button ref={menuRef} onClick={clickMenu}>
+                <span ref={nameRef}>Jéssica</span>
+                {abrir ? (
+                  <i className="ri-close-line" ref={iconRef}></i>
+                ) :(
+                  <i className="ri-menu-fill"></i>
+                )} 
               </button>
               {abrir ? (
                   <div className="popUpMenu" >
@@ -54,7 +68,7 @@ export default function Header() {
                           <Link><i className="ri-user-settings-line"></i>Editar Perfil</Link>
                         </li>
                         <li>
-                          <Link><i className="ri-door-closed-line"></i>Sair</Link>
+                          <Link className="logout"><i className="ri-door-closed-line"></i>Sair</Link>
                         </li>
                       </ul>
                     </nav>
@@ -63,8 +77,8 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Link to="/#">Cadastrar</Link>
-              <Link to="/acessar">
+              <Link className="btn_cadastrar" to="/#">Cadastrar</Link>
+              <Link className="btn_acessar" to="/acessar">
                 Acessar<i className="ri-arrow-right-up-line"></i>
               </Link>
             </>
