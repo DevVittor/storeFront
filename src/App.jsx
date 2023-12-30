@@ -7,6 +7,7 @@ import Acessar from "./pages/Acessar";
 import Produto from "./pages/Produto";
 //import Profile from "./pages/Usuario";
 import Test from './pages/Test';
+//import Filtrando from './components/Filtrando';
 import Error404 from "./pages/Error404";
 import Auth from "./api/auth";
 import Planos from "./pages/Planos";
@@ -56,7 +57,7 @@ export default function App() {
             }
           />
           <Route path="produto" element={<Produto />} />
-	  	  <Route path="finalizada" element={<ContaCriada/>}/>
+	  	    <Route path="finalizada" element={<ContaCriada/>}/>
           {/*<Route path="/acompanhantes/:id" element={<Profile />} />*/}
           <Route path="/acompanhantes/:id" element={<Test />} />
           <Route path="*" element={<Error404 />} />

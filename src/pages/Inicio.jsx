@@ -10,7 +10,37 @@ function Inicio() {
   const page = useRef(1);
   const [nameList, setNameList] = useState([]);
   const [inputSearch, setInputSearch] = useState("");
-  
+  const [genero,setGenero] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState("");
+  const [rolando,setRolando] = useState(false);
+
+  window.addEventListener("scroll",()=>{
+    const scrollPosition = window.scrollY; // Obtém a posição atual do scroll vertical
+    console.log(scrollPosition);
+    if (scrollPosition >= alturaDisponivel) {
+      // Se a posição do scroll for maior ou igual a 350px, dispare um alerta
+      console.log('Altura de scroll atingiu 350px!');
+      setRolando(true);
+    }else{
+      setRolando(false)
+    }
+
+    if (
+      window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight
+    ) {
+      loadMoreItems();
+    }
+  });
+
+  useEffect(()=>{
+    axios.get(`http://localhost:8080/v1/api/acompanhantes?limit=0`)
+    .then((res)=>{
+      const axiosResponse=(res.data.dados);
+      const listGenero = axiosResponse.map(item=>item.genero);
+      setGenero(listGenero);
+    }).catch(error=>console.error(error));
+  },[]);
+
   useEffect(() => {
     function handleResize() {
       setAlturaDisponivel(window.innerHeight - 67);
@@ -53,10 +83,10 @@ function Inicio() {
 
   useEffect(() => {
     if(inputSearch.trim() !== ""){
-      axios.get(`http://localhost:8080/v1/api/acompanhantes?nome=${inputSearch}&limit=0`)
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?nome=${nameList}&limit=0`)
       .then((res) => {
         setResult(res.data.dados);
-      }).catch((error) => console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`)); 
+      }).catch((error) => console.error(`Não deu para pegar nenhuma informação: ${error}`)); 
     }else{
       axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page.current}&limit=12`)
       .then((res) => {
@@ -78,19 +108,81 @@ function Inicio() {
         setNameList(res.data.dados);
       }).catch(error => console.log(error));
   }, []);
+
+  //button gen
+
+  const getAcompanhantesByGenero = (genero) => {
+    if(genero === "Mulher"){
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?genero=${selectedGenre}&page=${page.current}&limit=0`)
+        .then((res) => {
+          setResult(res.data.dados);
+        }).catch((error) => {
+          console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
+        });
+    }else if(genero === "Homem"){
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?genero=${selectedGenre}&page=${page.current}&limit=0`)
+        .then((res) => {
+          setResult(res.data.dados);
+        }).catch((error) => {
+          console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
+        }); 
+    }else if(genero === "Trans"){
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?genero=${selectedGenre}&page=${page.current}&limit=0`)
+        .then((res) => {
+          setResult(res.data.dados);
+        }).catch((error) => {
+          console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
+        });
+    }else{
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page.current}`)
+        .then((res) => {
+          setResult(res.data.dados);
+        }).catch((error) => {
+          console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
+        });
+    }
+  }; 
+
+  const handleGenreClick = (genero) => {
+    setSelectedGenre(genero); // Define o gênero selecionado
+    getAcompanhantesByGenero(genero); // Chama a função para buscar acompanhantes com esse gênero
+  };
+
   return (
     <main>
       <section>
+        {rolando && 
+          <h1 style={{color:"red",position:"fixed",inset:"50%",transform:"translate(-50%,-50%)",zIndex:"9999"}}>Chegou</h1>
+        }
+      </section>
+      <section>
         <div className="container_filter_search">
           <div className="box_gen">
-            <button>Mulher | 324</button>
-            <button>Homem | 12</button>
-            <button>Trans | 5</button>
+            <button
+              className={selectedGenre === "" ? "selected" : ""}
+              onClick={()=>handleGenreClick("")}>
+                <i className="ri-team-line"></i> Todos | {genero.map(item=>item).length}
+            </button>
+            <button
+              className={selectedGenre === "Mulher" ? "selected" : ""}
+              onClick={()=>handleGenreClick("Mulher")}>
+                <i className="bi bi-gender-female"></i> Mulher | {genero.filter(item=>item==="Mulher").length}
+            </button>
+            <button
+              className={selectedGenre === "Homem" ? "selected" : ""}
+              onClick={()=>handleGenreClick("Homem")}>
+                <i className="bi bi-gender-male"></i> Homem | {genero.filter(item=>item === "Homem").length}
+            </button>
+            <button 
+              className={selectedGenre === "Trans" ? "selected" : ""}
+              onClick={()=>handleGenreClick("Trans")}>
+                <i className="bi bi-gender-trans"></i> Trans | {genero.filter(item=>item === "Trans").length}
+            </button>
           </div>
           <div className="container_search_filter_option">
             <div className="box_search">
               <input
-                type="search"
+                  type="search"
                 name="nome"
                 onChange={(e) => setInputSearch(e.target.value)}
                 placeholder="Buscar nome"
@@ -113,16 +205,19 @@ function Inicio() {
         <div className="container_cards" style={divPrincipalStyle}>
           {result
             .filter((item) => {
+              if (selectedGenre !== "" && item.genero !== selectedGenre) {
+                return false; // Não corresponde ao gênero selecionado, então retorna false para ser filtrado
+              }
               if (inputSearch === "") {
                 return item;
               } else if (item.nome.toLowerCase().includes(inputSearch.toLowerCase())) {
                 return item;
               }
             })
-            .map((item) => (
+            .map((item,index) => (
             <Link
               to={`/acompanhantes/${item._id}`}
-              key={item._id}
+              key={`${item._id}_${index}`}
             >
               <div className="card_profile ">
                 <div className="avatar_profile">

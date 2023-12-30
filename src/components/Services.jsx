@@ -15,7 +15,7 @@ function Services() {
   }, [id])
 
   if (Object.keys(data).length === 0) {
-    return <div>Loading...</div>;
+    return <div style={{color:"white"}}>Loading...</div>;
   }
 
   // Obtém os serviços especiais e normais do produto

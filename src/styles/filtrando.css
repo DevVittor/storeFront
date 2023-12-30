@@ -1,0 +1,39 @@
+.container_filtro {
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100%;
+  width:100%;
+  backdrop-filter:blur(15px);
+}
+.popUp_filtro {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  gap:10px;
+  background:#1e1e1e;
+  padding:10px;
+  border-radius:8px;
+}
+.input_filtro {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.input_filtro i {
+  color:var(--text-300);
+  font-size:18px;
+}
+.input_filtro input[type="search"]{
+  background:transparent;
+  font-size:18px;
+  font-weight:400;
+  color:var(--text-300);
+  border:none;
+  outline:none;
+}
+

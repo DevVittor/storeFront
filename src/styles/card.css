@@ -1,16 +1,17 @@
 .card-profile{
   height:auto;
-  width:100%;
+  width:auto;
   break-inside:avoid;
 }
 .card-profile img{
     height: 100%;
     width: 100%;
+    border-radius:3px;
     object-fit: cover;
     transition: all ease-out .3s;
 }
 .card-profile img:hover{
-    cursor: pointer;
+    cursor: zoom-in;
    
 }
 .card-modal{
@@ -18,13 +19,15 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     position: fixed;
-    top: 0;
-    left:0;
-    right:0;
+    inset:0;
+    z-index:9999;
     backdrop-filter: blur(15px);
+}
+.card-modal:hover{
+  cursor: zoom-out;
 }
 .card-modal i{
     font-size: 32px;
@@ -46,6 +49,9 @@
     height: auto;
     max-width: 800px;
     transition: all ease-in .3s;
+}
+.modal img:hover{
+  cursor: auto;
 }
 @media screen and (max-width:640px){
     .modal {

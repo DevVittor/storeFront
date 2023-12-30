@@ -26,12 +26,10 @@
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #ddd;
-  pointer-events: none;
 }
-.profile-photo img{
-  cursor: pointer;
+.profile-photo img:hover{
+  cursor: not-allowed; 
 }
-
 .profile-info{
   display: flex;
   flex-direction: column;
@@ -46,8 +44,8 @@
   gap: 20px;
   color: white;
 }
-.profile-name i{
-  padding-left: 5px;
+.profile-name .ri-verified-badge-fill {
+  padding-left:5px;
 }
 .profile-name h2{
   border-radius: 3px;
@@ -96,6 +94,7 @@
   font-weight:400;
 }
 .box-descript p{
+  text-wrap:pretty;
   margin-top: -5px;
   color: white;
   font-size: 15px;
@@ -110,10 +109,17 @@
   font-size: 20px;
   color: white;
 }
-.container-card{
-  columns:6;
+.container_imagens {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+}
+.container-card {
+  columns:5;
   flex-wrap:wrap;
   gap: 5px;
+  width:75%;
   padding: 5px;
 }
 .container-status{
@@ -141,6 +147,11 @@
   border-radius: 3px;
   background: white;
 }
+@media screen and (max-width:1200px) {
+  .container-card {
+    columns:3;
+  }
+}
 @media screen and (max-width:990px){
   .card-profile{
     margin-left: 5px;
@@ -153,7 +164,7 @@
   }
   .container-card{
     padding: 0;
-    columns:3;
+    columns:1;
   }
 }
 @media screen and (max-width:770px){
@@ -163,10 +174,6 @@
   .box-profile{
     justify-content: center;
     align-items: center;
-  }
-  .container-card{
-    columns:3;
-    padding: 0;
   }
 }
 @media screen and (max-width:640px){
@@ -193,10 +200,6 @@
   }
   .box-descript p{
     text-align: center;
-  }
-  .container-card{
-    columns:1;
-    padding: 0;
   }
   .box-status{
     justify-content: center;
