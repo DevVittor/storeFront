@@ -15,6 +15,7 @@ import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
 import Perfil from "./pages/Perfil";
 import ContaCriada from "./components/ContaCriada";
+import Categoria from './pages/Categoria';
 
 //Apenas um teste
 import Formulario from './pages/Formulario';
@@ -55,6 +56,10 @@ export default function App() {
             element={
               <Perfil />
             }
+          />
+          <Route 
+            path="categoria"
+            element={<Categoria/>}
           />
           <Route path="produto" element={<Produto />} />
 	  	    <Route path="finalizada" element={<ContaCriada/>}/>

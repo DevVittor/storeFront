@@ -1,13 +1,30 @@
 import '../styles/test.css';
+import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Card from "../components/Card";
 import Slider from "../components/Services";
 import Detalhes from "../components/Detalhes";
 function Test() {
+
+  const [age,setAge] = useState(18);
+
+  const handleAge = (e)=>{
+    if(age < 18 ){
+      console.log("Apenas maiores de 18 anos são permitidos");
+      setAge(18) 
+    }
+    setAge(e.target.value);
+  }
+
   document.title="Jéssica Gomes";
   const avatar = "https://images.pexels.com/photos/10448485/pexels-photo-10448485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=";
     return (
       <main>
+        <section>
+          <h2 style={{color:"white"}}>{age}</h2>
+          <input type="range" min="18" max="100" value={age} onChange={handleAge}/>
+          <input type="number" placeholder="Age" min="18" max="100" value={age} onChange={handleAge}/>
+        </section>
         <section>
           <Slider/>
         </section>
