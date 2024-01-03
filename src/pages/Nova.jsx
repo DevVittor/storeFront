@@ -3,6 +3,10 @@ import Card from "../components/Card";
 import {useState, useEffect} from 'react';
 function Nova(){
 
+  function backClick(){
+    window.history.back();
+  }
+
   const description = "Todos os dias são uma chance para aprender, crescer e abraçar as oportunidades que nos levam a novos horizontes e conquistas.conquistas.conquistas.con"
   const [texto,setTexto] = useState(["Base"]);
 
@@ -38,7 +42,7 @@ function Nova(){
             <div className="nova_two">
               <div className="nova_name">
                 <div className="nova_option">
-                  <a>
+                  <a onClick={backClick}>
                     <i className="ri-arrow-left-s-line"></i>
                     Voltar
                   </a> 
