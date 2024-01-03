@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
 import HeaderBar from "../components/Header";
-import FooterBar from "../components/Footer";
-export default function NavBar() {
+//import FooterBar from "../components/Footer";
+function NavBar() {
   return (
     <>
       <HeaderBar />
       <Outlet />
-      <FooterBar />
+    {/*<FooterBar />*/}
     </>
   );
 }
+export default NavBar; 

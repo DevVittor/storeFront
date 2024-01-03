@@ -16,6 +16,7 @@ import Cancel from "./pages/Cancel";
 import Perfil from "./pages/Perfil";
 import ContaCriada from "./components/ContaCriada";
 import Categoria from './pages/Categoria';
+import Nova from './pages/Nova';
 
 //Apenas um teste
 import Formulario from './pages/Formulario';
@@ -61,6 +62,7 @@ export default function App() {
             path="categoria"
             element={<Categoria/>}
           />
+          <Route path="nova" element={<Nova/>}/>
           <Route path="produto" element={<Produto />} />
 	  	    <Route path="finalizada" element={<ContaCriada/>}/>
           {/*<Route path="/acompanhantes/:id" element={<Profile />} />*/}

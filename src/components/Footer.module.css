@@ -1,3 +1,9 @@
+footer{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:var(--bg-400);
+}
 .footer_container {
     display: flex;
     justify-content: space-between;

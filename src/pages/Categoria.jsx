@@ -37,7 +37,7 @@ function Categoria(){
     .catch((error)=>{
       console.error(`Não deu para achar o error: ${error}`)
     })
-  },[handleRemove])
+  },[handleRemove]);
 
   function handleCategory(e){
     setCategory(e.target.value);
