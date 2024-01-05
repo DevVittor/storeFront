@@ -1,3 +1,10 @@
+.inicio_banner{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  padding: 0px 10px;
+}
 .container_filter_search {
   display:flex;
   justify-content:space-between;
@@ -157,7 +164,8 @@
     max-height: 80px;
     padding: 8px 10px;
     gap: 5px;
-    backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(50px);
 }
 
 .name_profile h2 {

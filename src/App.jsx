@@ -17,6 +17,10 @@ import Perfil from "./pages/Perfil";
 import ContaCriada from "./components/ContaCriada";
 import Categoria from './pages/Categoria';
 import Nova from './pages/Nova';
+import Arquivo from './components/uploadVideo';
+import Mulher from './components/generos/Mulher';
+import Homem from './components/generos/Homem';
+import Trans from './components/generos/Trans';
 
 //Apenas um teste
 import Formulario from './pages/Formulario';
@@ -62,11 +66,15 @@ export default function App() {
             path="categoria"
             element={<Categoria/>}
           />
+          <Route path="Mulher" element={<Mulher/>}/>
+          <Route path="Homem" element={<Homem/>}/>
+          <Route path="Trans" element={<Trans/>}/>
+          <Route path="arquivo" element={<Arquivo/>}/>
           <Route path="nova" element={<Nova/>}/>
           <Route path="produto" element={<Produto />} />
 	  	    <Route path="finalizada" element={<ContaCriada/>}/>
           {/*<Route path="/acompanhantes/:id" element={<Profile />} />*/}
-          <Route path="/acompanhantes/:id" element={<Test />} />
+          <Route path="/:id" element={<Nova />} />
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>

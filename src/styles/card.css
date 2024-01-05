@@ -47,7 +47,7 @@
 .modal img{
     max-height: 800px;
     height: auto;
-    max-width: 800px;
+    width: 100%;
     transition: all ease-in .3s;
 }
 .modal img:hover{

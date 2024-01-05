@@ -1,0 +1,99 @@
+.container_card_profile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: auto;
+}
+
+.card_avatar_profile {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.card_avatar_profile img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card_selos_profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    gap: 10px;
+    width: auto;
+    max-width: 250px;
+    background: var(--text-300);
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.card_selos_list ul {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.card_selos_list i {
+    font-size: 20px;
+}
+
+.card_selos_list .ri-verified-badge-fill {
+    color: var(--bg-500);
+}
+
+.card_selos_list .ri-flashlight-fill {
+    color: var(--text-red);
+}
+
+.card_gen_price ul {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.card_gen_price li {
+    font-size: 14px;
+    font-weight: 400;
+    color: #212121;
+}
+
+.card_name_profile {
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    min-height: 50px;
+    height: auto;
+    max-height: 80px;
+    padding: 8px 10px;
+    gap: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+}
+
+.card_name_profile h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-300);
+}
+
+.card_name_profile span {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-300);
+}
+@media screen and (max-width:660px){
+  .card_avatar_profile {
+    width:300px;  
+  }
+  .card_name_profile{
+    width:300px;
+  }
+}
