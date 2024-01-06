@@ -1,6 +1,6 @@
 import { useEffect, useState , useRef } from "react";
 import { Link } from 'react-router-dom';
-import '../../styles/inicio.css';
+//import '../../styles/inicio.css';
 import axios from 'axios';
 
 function Trans() {
@@ -10,11 +10,11 @@ function Trans() {
   const [loading, setLoading] = useState(false);
   const page = useRef(1);
   const [nameList, setNameList] = useState([]);
-  //const [genero,setGenero] = useState("Mulher");
+  const genero = "Trans";
 
 
   useEffect(()=>{
-    const genero = "Trans";
+
     axios.get(`http://localhost:8080/v1/api/acompanhantes?genero=${genero}&limit=12`)
     .then((res)=>{
       const axiosResponse = res.data.dados;
@@ -50,11 +50,11 @@ function Trans() {
 
   const loadMoreItems = () => {
     if (!loading) {
-      setLoading(true); 
-      const genero = "Trans";
+      setLoading(true);
       axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page.current}&genero=${genero}&limit=12`)
         .then((res) => {
-          setResult(prevResult => [...prevResult, ...res.data.dados]);
+          //setResult(prevResult => [...prevResult, ...res.data.dados]);
+          setResult(res.data.dados);
           setLoading(false);
           page.current += 1;
         }).catch((error) => {
@@ -79,7 +79,6 @@ function Trans() {
             >
               <div className="card_profile ">
                 <div className="avatar_profile">
-                  {/*<img src={`http://localhost:8080/upload/${item.avatar[0]}`} alt="" />*/}
                   <img src="https://images.pexels.com/photos/19283228/pexels-photo-19283228/free-photo-of-aventura-facanha-flutuando-voo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="foto" />
                   <div className="selos_profile">
                     <div className="selos_list">
