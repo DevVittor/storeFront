@@ -98,8 +98,7 @@ function Trans() {
 
   return (
       <section>
-        <h1 style={{color:"white"}}>{acomp}</h1>
-        <input type="search" value={acomp} onChange={(e)=>setAcomp(e.target.value)} placeholder="Buscando por alguém ?"/>}
+        <input type="search" value={acomp} onChange={(e)=>setAcomp(e.target.value)} placeholder="Buscando por alguém ?"/>
         <div className="container_cards">
           {result
             .map((item,index) => (
