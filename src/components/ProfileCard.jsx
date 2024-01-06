@@ -41,7 +41,7 @@ ProfileCard.propTypes = {
   genero: PropTypes.string,
   caches: PropTypes.string,
   nome: PropTypes.string,
-  idade: PropTypes.number,
+  idade: PropTypes.string,
   estado: PropTypes.string,
   cidade: PropTypes.string
 }

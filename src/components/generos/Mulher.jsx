@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import '../../styles/inicio.css';
 import axios from 'axios';
@@ -11,9 +11,22 @@ function Mulher() {
   //Novidades
   const [alturaDisponivel, setAlturaDisponivel] = useState(window.innerHeight - 67);
   const [loading, setLoading] = useState(false);
-  //const page = useRef(1);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(12);
+  const [acomp,setAcomp] = useState("");
+  const [contadorMulher,setContadorMulher] = useState(0);
+
+  useEffect(()=>{
+    axios.get(`http://localhost:8080/v1/api/acompanhantes?limit=0`)
+    .then((res)=>{
+      const axiosResponse = res.data.dados;
+
+      const countMulher = axiosResponse.filter(item => item.genero === "Mulher").length;
+      setContadorMulher(countMulher);
+
+    }).catch(error=>console.error(error));
+  },[]);
+
   useEffect(()=>{
     axios.get(`http://localhost:8080/v1/api/acompanhantes?genero=${genero}&limit=${limit}`)
       .then((res) => {
@@ -50,21 +63,43 @@ function Mulher() {
   const loadMoreItems = () => {
     if (!loading) {
       setLoading(true);
-      axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page}&genero${genero}&limit=12`)
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page}&genero=${genero}&limit=12`)
         .then((res) => {
           setResult(prevResult => [...prevResult, ...res.data.dados]);
           setLoading(false);
           setPage(prevResult => prevResult + 1);
           setLimit(prevResult => prevResult + 12);
         }).catch((error) => {
-          setLoading(false);
           console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
         });
     }
   };
 
+  //Search
+ useEffect(()=>{
+  if(acomp.trim() !== ""){
+    axios.get(`http://localhost:8080/v1/api/acompanhantes?name=${acomp}&genero=${genero}&limit=0`)
+    .then((res)=>{
+      const axiosResponse = res.data.dados;
+      const filterAxios = axiosResponse.filter(item => item.nome.toLowerCase().includes(acomp.toLowerCase()));
+      setResult([...filterAxios]);
+    }).catch(error=>console.error(error))
+    .finally(()=>setLoading(false));
+  } else {
+    // Se o campo de busca estiver vazio, exibir todos os resultados novamente
+    axios.get(`http://localhost:8080/v1/api/acompanhantes?genero=${genero}&limit=${limit}`)
+      .then((res) => {
+        setResult(res.data.dados);
+      }).catch((error) => {
+        console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
+      });
+  }
+},[acomp, genero, limit]);
+
   return (
       <section>
+        <h1 style={{color:"white"}}>{acomp}</h1>
+        <input type="search" value={acomp} onChange={(e)=>setAcomp(e.target.value)} placeholder="Buscando por alguém ?"/>}
         <div className="container_cards">
           {result
             .map((item,index) => (
