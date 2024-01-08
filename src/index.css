@@ -10,8 +10,10 @@
   font-family: 'Inter', sans-serif;
 }
 
+html,
 body {
   background: var(--bg-400);
+  scroll-behavior: smooth;
 }
 
 :root {

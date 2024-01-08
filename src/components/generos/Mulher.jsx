@@ -75,7 +75,7 @@ function Mulher() {
     }
   };
 
-  //Search
+//Search
  useEffect(()=>{
   if(acomp.trim() !== ""){
     axios.get(`http://localhost:8080/v1/api/acompanhantes?name=${acomp}&genero=${genero}&limit=0`)
@@ -83,7 +83,9 @@ function Mulher() {
       const axiosResponse = res.data.dados;
       const filterAxios = axiosResponse.filter(item => item.nome.toLowerCase().includes(acomp.toLowerCase()));
       setResult([...filterAxios]);
-    }).catch(error=>console.error(error))
+    }).catch((error)=>{
+      console.error(error)
+    })
     .finally(()=>setLoading(false));
   } else {
     // Se o campo de busca estiver vazio, exibir todos os resultados novamente
@@ -97,15 +99,21 @@ function Mulher() {
 },[acomp, genero, limit]);
 
   return (
-      <section>
-        <input type="search" value={acomp} onChange={(e)=>setAcomp(e.target.value)} placeholder="Buscando por alguém ?"/>
-        <div className="container_cards">
-          {result
-            .map((item,index) => (
-            <Link
-              to={`/${item._id}`}
-              key={`${item._id}_${index}`}
-            >
+    <section>
+      <input type="search" value={acomp} onChange={(e) => setAcomp(e.target.value)} placeholder="Buscando por alguém ?" />
+      <div className="container_cards">
+        {result.length === 0 ? (
+          <div>
+            <h1 style={{ color: "white" }}>{acomp} não foi encontrado</h1>
+            <button 
+              style={{ background: "white", outline: "none", border: "1px solid white" }} 
+              onClick={(e) => setAcomp(prevResult => prevResult = "")}>
+              Tente novamente!
+            </button>
+          </div>
+        ) : (
+          result.map((item, index) => (
+            <Link to={`/${item._id}`} key={`${item._id}_${index}`}>
               <div className="card_profile ">
                 <div className="avatar_profile">
                   <img src="https://images.pexels.com/photos/19283228/pexels-photo-19283228/free-photo-of-aventura-facanha-flutuando-voo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="foto" />
@@ -135,9 +143,10 @@ function Mulher() {
                 </div>
               </div>
             </Link>
-          ))}
-        </div>
-      </section>
+          ))
+        )}
+      </div>
+    </section>
   )
 }
 export default Mulher;

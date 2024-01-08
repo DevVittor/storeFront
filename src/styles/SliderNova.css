@@ -1,0 +1,23 @@
+.list_one nav {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  transition: transform 0.5s ease;
+}
+
+.slider li {
+  flex: 0 0 auto;
+  width: auto; /* Ajuste para a largura desejada de cada item */
+  margin-right: 10px; /* Espaçamento entre os itens */
+}
+
+.slider li:last-child {
+  margin-right: 0;
+}

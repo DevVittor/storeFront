@@ -72,6 +72,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap:10px;
   /*animation: scroll 30s linear infinite;*/
 }
 .list_one ul {
@@ -164,7 +165,7 @@
   position:relative;
   top:5px;
 }
-.nova_contact button{
+.nova_contact h3{
   padding:5px 15px;
   border-radius:3px;
   border:none;
@@ -252,20 +253,30 @@
   border-radius:3px;
   padding: 10px 0px;
 }
-.nova_select button {
+.button_select {
   padding: 3px 12px;
-  background:var(--text-300);
-  border:none;
-  outline:none;
-  color:var(--bg-400);
-  font-size:14px;
-  font-weight:500;
+  background: var(--bg-400);
+  border: 1px solid var(--text-300);
+  outline: none;
+  color: var(--text-300);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
 }
-.nova_select button:hover {
-  cursor:pointer;
+
+.select_button {
+  padding: 3px 12px;
+  background: var(--text-300);
+  border: 1px solid var(--bg-400);
+  outline: none;
+  color: var(--bg-400);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
 }
-.nova_select i{
-  padding-right:5px;
+
+.button_select i , .select_button i {
+  padding-right: 5px;
 }
 .container_imagens {
   display:flex;
@@ -318,8 +329,11 @@
     width:100%;
   }
   .components_card {
-    height:250px;
+    height:200px;
     width:100%;
+  }
+  .component_button button{
+    font-size:12px;
   }
   .nova_info {
     gap:10px;

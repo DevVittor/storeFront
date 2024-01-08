@@ -56,7 +56,7 @@ export default function Header() {
                     <nav>
                       <ul>
                         <li>
-                          <Link><i className="ri-user-search-line"></i>Perfil</Link>
+                          <Link to={`/:id`}><i className="ri-user-search-line"></i>Perfil</Link>
                         </li>
                         <li>
                           <Link><i className="ri-flashlight-fill"></i>Destacar</Link>
