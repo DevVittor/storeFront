@@ -68,6 +68,7 @@ export default function Assinatura() {
                 id="CardA"
                 emblema="ri-verified-badge-fill"
                 planos="Verificada"
+                name="priceId"
                 price={toggle ? "83,74" : "9,97"}
                 tempo={toggle ? "ano" : "mês"}
                 icon={[

@@ -188,7 +188,7 @@ function handleGenreClick(gen){
             <Link to={`/${item._id}`} key={`${item._id}_${index}`}>
               <div className="card_profile ">
                 <div className="avatar_profile">
-                  <img src="https://images.pexels.com/photos/19283228/pexels-photo-19283228/free-photo-of-aventura-facanha-flutuando-voo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="foto" />
+                  <img loading="lazy" src="https://images.pexels.com/photos/19283228/pexels-photo-19283228/free-photo-of-aventura-facanha-flutuando-voo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="foto" />
                   <div className="selos_profile">
                     <div className="selos_list">
                       <nav>

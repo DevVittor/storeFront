@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef } from 'react';
+import DestaqueModal from "../components/modals/DestaquesModal";
 import "../styles/header.css";
-export default function Header() {
-
+function Header() {
+  const [destaque,setDestaque] = useState(false);
   const [abrir,setAbrir] = useState(false);
   const idClient = localStorage.getItem("userId");
 
@@ -22,18 +23,24 @@ export default function Header() {
     setAbrir(prevOpen=>!prevOpen);
   }
   //Solução
+  const destaqueRef = useRef();
   const menuRef = useRef();
   const nameRef = useRef();
   const iconRef = useRef();
 
   window.addEventListener("click",(event)=>{
-    if(event.target !== menuRef.current && event.target !== nameRef.current && event.target !== iconRef.current){
-      setAbrir(false); 
+    if(event.target !== destaqueRef.current &&
+      event.target !== menuRef.current &&
+      event.target !== nameRef.current &&
+      event.target !== iconRef.current){
+      setAbrir(false);
+      setDestaque(false);
     }
   });
 
   return (
     <header>
+      {destaque && <DestaqueModal destaqueRef={destaqueRef} menuRef={menuRef} nameRef={nameRef} iconRef={iconRef} setDestaque={setDestaque}/>} 
       <div className="container-header">
         <div className="container-logo">
           <Link to="/">
@@ -59,7 +66,15 @@ export default function Header() {
                           <Link to={`/:id`}><i className="ri-user-search-line"></i>Perfil</Link>
                         </li>
                         <li>
-                          <Link><i className="ri-flashlight-fill"></i>Destacar</Link>
+                          <Link 
+                            onClick={() => {
+                              setDestaque(true);
+                              console.log('destaque set to true');
+                            }}
+                          >
+                          <i className="ri-flashlight-fill"></i>
+                          Destacar
+                          </Link>
                         </li>
                         <li>
                           <Link><i className="ri-verified-badge-fill"></i>Verificar</Link>
@@ -88,3 +103,4 @@ export default function Header() {
     </header>
   );
 }
+export default  Header;

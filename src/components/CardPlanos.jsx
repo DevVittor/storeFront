@@ -8,10 +8,9 @@ export default function CardPlanos(props) {
       priceId: props.priceId, // Substitua pelo valor correto
     };
 
-    axios
-      .post("http://localhost:8080/checkstripe", data)
+    axios.post("http://localhost:8080/v1/api/planos/checkoutstripe", data)
       .then((res) => {
-        console.log(res.data);
+        //console.log(res);
         window.location.href = res.data.url;
       })
       .catch((error) => console.error(`Deu ruim ${error}`));
@@ -28,7 +27,7 @@ export default function CardPlanos(props) {
         </div>
         <div className="price-card">
           <span>R$</span>
-          <h1>{props.price}/</h1>
+          <h1>{props.price}/</h1> 
           <span>{props.tempo}</span>
         </div>
         <div className="plano-assinar">
@@ -68,7 +67,6 @@ export default function CardPlanos(props) {
             <i className="ri-checkbox-line"></i>Renovação Automática
           </span>
         </div>
-
       </div>
     </form>
   );
