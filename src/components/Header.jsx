@@ -1,8 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import LoginModal from "../components/modals/LoginModal";
+import VerificadoModal from "../components/modals/VerificadoModal";
 import DestaqueModal from "../components/modals/DestaquesModal";
 import "../styles/header.css";
 function Header() {
+  const [login, setLogin] = useState(false);
+  const [verificado, setVerificado] = useState(false);
   const [destaque,setDestaque] = useState(false);
   const [abrir,setAbrir] = useState(false);
   const idClient = localStorage.getItem("userId");
@@ -23,24 +27,51 @@ function Header() {
     setAbrir(prevOpen=>!prevOpen);
   }
   //Solução);
-
-useEffect(()=>{
-      if(abrir){
-        setAbrir(false);
-      }
+   
+  useEffect(()=>{
+    if(verificado && destaque){
+      setVerificado(false);
+      setDestaque(true);
+    }
+    
   },[destaque]);
+  useEffect(()=>{
+    if(destaque && verificado){
+      setDestaque(false); 
+      setVerificado(true);
+    }
+    
+  },[verificado])
+
+  useEffect(()=>{
+    if(abrir){
+      setAbrir(false);
+    }
+  },[destaque]);  
 
   useEffect(()=>{
     window.addEventListener("click", (event) => {
-      if(!event.target.closest(".modal_destaque") &&
+      if(abrir && !event.target.closest(".box-acesso")){
+        setAbrir(false);
+      }
+    });  
+  },[abrir])
+
+  useEffect(()=>{
+    window.addEventListener("click", (event) => {
+      if(!event.target.closest(".modal_verificado") &&
+        !event.target.closest(".modal_destaque") &&
         !event.target.closest(".box-acesso")){
-        setDestaque(false);
+          setDestaque(false); 
+          setVerificado(false);
       }
     });
   },[abrir]);
 
   return (
     <header>
+      {login && <LoginModal setLogin={setLogin}/>} 
+      {verificado && <VerificadoModal setVerificado={setVerificado}/>} 
       {destaque && <DestaqueModal setDestaque={setDestaque}/>} 
       <div className="container-header">
         <div className="container-logo">
@@ -77,7 +108,11 @@ useEffect(()=>{
                           </Link>
                         </li>
                         <li>
-                          <Link><i className="ri-verified-badge-fill"></i>Verificar</Link>
+                          <Link 
+                            onClick={() => {
+                              setVerificado(true);
+                            }}
+                          ><i className="ri-verified-badge-fill"></i>Verificar</Link>
                         </li>
                         <li>
                           <Link><i className="ri-user-settings-line"></i>Editar Perfil</Link>
@@ -93,7 +128,11 @@ useEffect(()=>{
           ) : (
             <>
               <Link className="btn_cadastrar" to="/#">Cadastrar</Link>
-              <Link className="btn_acessar" to="/acessar">
+              <Link 
+                onClick={() => {
+                  setLogin(true);
+                }}
+              className="btn_acessar" to="/acessar">
                 Acessar<i className="ri-arrow-right-up-line"></i>
               </Link>
             </>

@@ -1,17 +1,17 @@
-import "../../styles/DestaquesModal.css";
+import "../../styles/VerificadoModal.css";
 //import {useRef,useEffect} from 'react';
-function DestaquesModal({setDestaque}){
+function VerificadoModal({setVerificado}){
 
     return(
-            <div className="modal_destaque" >
-                <div className="destaque_info">
-                    <div className="destaque_title_price">
-                        <h2><i className="ri-flashlight-fill"></i>Destaque</h2>
-                        <h2>R$ 4,97/mês</h2>
+            <div className="modal_verificado" >
+                <div className="verificado_info">
+                    <div className="verificado_title_price">
+                        <h2><i className="ri-flashlight-fill"></i>Verificada</h2>
+                        <h2>R$ 9,97/mês</h2>
                     </div>
                     <p>There are no monthly charges for ecommerce features, and we only take a small cut of each sale so that you keep the majority of what you earn.</p>              
                 </div>
-                <div className="destaque_vencimento">
+                <div className="verificado_vencimento">
                   <label htmlFor="checkbox_vencimento">
                     <h3>Anual</h3>
                     <input 
@@ -20,7 +20,7 @@ function DestaquesModal({setDestaque}){
                     />
                   </label>
                 </div>
-                <div className="destaque_features">
+                <div className="verificado_features">
                     <h3>Features</h3>
                     <nav>
                         <ul>
@@ -31,14 +31,14 @@ function DestaquesModal({setDestaque}){
                         </ul>
                     </nav>
                 </div>
-                <div className="btn_destaques">
+                <div className="btn_verificado">
                     <button  onClick={() => {
-                        setDestaque(false);
+                        setVerificado(false);
                         console.log("Clicou no cancel");
                     }}>Cancel</button> 
-                    <button><i className="ri-flashlight-fill"></i>Destacar</button> 
+                    <button><i className="ri-flashlight-fill"></i>Verificar</button> 
                 </div>
             </div>
     );
 }
-export default DestaquesModal;
+export default VerificadoModal;

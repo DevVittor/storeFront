@@ -22,7 +22,7 @@ import Mulher from './components/generos/Mulher';
 import Homem from './components/generos/Homem';
 import Trans from './components/generos/Trans';
 
-import DestaquesModal from "./components/modals/DestaquesModal";
+import DestaquesModal from "./components/modals/LoginModal";
 
 //Apenas um teste
 import Formulario from './pages/Formulario';
@@ -68,7 +68,7 @@ export default function App() {
             path="categoria"
             element={<Categoria/>}
           />
-          <Route path="Destaques" element={<DestaquesModal/>}/>
+          <Route path="destaque" element={<DestaquesModal/>}/>
           <Route path="Mulher" element={<Mulher/>}/>
           <Route path="Homem" element={<Homem/>}/>
           <Route path="Trans" element={<Trans/>}/>
