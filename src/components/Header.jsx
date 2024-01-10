@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import DestaqueModal from "../components/modals/DestaquesModal";
 import "../styles/header.css";
 function Header() {
@@ -22,25 +22,26 @@ function Header() {
   function clickMenu(){
     setAbrir(prevOpen=>!prevOpen);
   }
-  //Solução
-  const destaqueRef = useRef();
-  const menuRef = useRef();
-  const nameRef = useRef();
-  const iconRef = useRef();
+  //Solução);
 
-  window.addEventListener("click",(event)=>{
-    if(event.target !== destaqueRef.current &&
-      event.target !== menuRef.current &&
-      event.target !== nameRef.current &&
-      event.target !== iconRef.current){
-      setAbrir(false);
-      setDestaque(false);
-    }
-  });
+useEffect(()=>{
+      if(abrir){
+        setAbrir(false);
+      }
+  },[destaque]);
+
+  useEffect(()=>{
+    window.addEventListener("click", (event) => {
+      if(!event.target.closest(".modal_destaque") &&
+        !event.target.closest(".box-acesso")){
+        setDestaque(false);
+      }
+    });
+  },[abrir]);
 
   return (
     <header>
-      {destaque && <DestaqueModal destaqueRef={destaqueRef} menuRef={menuRef} nameRef={nameRef} iconRef={iconRef} setDestaque={setDestaque}/>} 
+      {destaque && <DestaqueModal setDestaque={setDestaque}/>} 
       <div className="container-header">
         <div className="container-logo">
           <Link to="/">
@@ -50,10 +51,10 @@ function Header() {
         <div className="box-acesso">
           {token ? (
             <>
-              <button ref={menuRef} onClick={clickMenu}>
-                <span ref={nameRef}>Jéssica</span>
+              <button onClick={clickMenu}>
+                <span>Jéssica</span>
                 {abrir ? (
-                  <i className="ri-close-line" ref={iconRef}></i>
+                  <i className="ri-close-line"></i>
                 ) :(
                   <i className="ri-menu-fill"></i>
                 )} 
@@ -69,7 +70,6 @@ function Header() {
                           <Link 
                             onClick={() => {
                               setDestaque(true);
-                              console.log('destaque set to true');
                             }}
                           >
                           <i className="ri-flashlight-fill"></i>

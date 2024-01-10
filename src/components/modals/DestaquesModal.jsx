@@ -1,19 +1,9 @@
 import "../../styles/DestaquesModal.css";
-import {useRef,useEffect} from 'react';
-function DestaquesModal({setDestaque,destaqueRef,menuRef,nameRef,iconRef}){
-    useEffect(()=>{
-        window.addEventListener("click", (event) => {
-            if (event.target !== destaqueRef.current &&
-                event.target !== menuRef.current &&
-                event.target !== nameRef.current &&
-                event.target !== iconRef.current
-                ){
-                setDestaque(true);
-            }
-        });
-    },[setDestaque])
+//import {useRef,useEffect} from 'react';
+function DestaquesModal({setDestaque}){
+
     return(
-            <div ref={destaqueRef}  className="modal_destaque" >
+            <div className="modal_destaque" >
                 <div className="destaque_info">
                     <div className="destaque_title_price">
                         <h2><i className="ri-flashlight-fill"></i>Destaque</h2>
@@ -34,7 +24,10 @@ function DestaquesModal({setDestaque,destaqueRef,menuRef,nameRef,iconRef}){
                     </nav>
                 </div>
                 <div className="btn_destaques">
-                    <button>Cancel</button> 
+                    <button  onClick={() => {
+                        setDestaque(false);
+                        console.log("Clicou no cancel");
+                    }}>Cancel</button> 
                     <button><i className="ri-flashlight-fill"></i>Destacar</button> 
                 </div>
             </div>
