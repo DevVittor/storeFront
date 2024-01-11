@@ -1,5 +1,6 @@
 import "../../styles/DestaquesModal.css";
 //import {useRef,useEffect} from 'react';
+import PropTypes from 'prop-types';
 function DestaquesModal({setDestaque}){
 
     return(
@@ -12,13 +13,13 @@ function DestaquesModal({setDestaque}){
                     <p>There are no monthly charges for ecommerce features, and we only take a small cut of each sale so that you keep the majority of what you earn.</p>              
                 </div>
                 <div className="destaque_vencimento">
-                  <label htmlFor="checkbox_vencimento">
-                    <h3>Anual</h3>
-                    <input 
-                      type="checkbox" 
-                      id="checkbox_vencimento"
-                    />
-                  </label>
+                    <label htmlFor="checkbox_vencimento">
+                        <h3>Anual</h3>
+                        <input 
+                            type="checkbox" 
+                            id="checkbox_vencimento"
+                        />
+                    </label>
                 </div>
                 <div className="destaque_features">
                     <h3>Features</h3>
@@ -40,5 +41,8 @@ function DestaquesModal({setDestaque}){
                 </div>
             </div>
     );
+}
+DestaquesModal.propTypes ={
+    setDestaque: PropTypes.func.isRequired
 }
 export default DestaquesModal;

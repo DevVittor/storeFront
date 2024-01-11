@@ -7,16 +7,13 @@ import ProfileBanner from "../components/ProfileBanner";
 function Inicio() {
   const ImgProfile = "https://images.pexels.com/photos/2479883/pexels-photo-2479883.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   document.title = "ABRIME";
+  
   const [genero, setGenero] = useState("Mulher");
-  const [contador, setContador] = useState(0);
   const [contadorMulher, setContadorMulher] = useState(0);
   const [contadorHomem, setContadorHomem] = useState(0);
   const [contadorTrans, setContadorTrans] = useState(0);
-
   const [result, setResult] = useState([]);
-
-  //Novidades
-  const [alturaDisponivel, setAlturaDisponivel] = useState(window.innerHeight - 67);
+  const [alturaDisponivel, setAlturaDisponivel] = useState(window.innerHeight - 492);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(12);
@@ -26,8 +23,6 @@ function Inicio() {
     axios.get(`http://localhost:8080/v1/api/acompanhantes?limit=0`)
     .then((res)=>{
       const axiosResponse = res.data.dados;
-      const total = axiosResponse.length;
-      setContador(total);
 
       const countMulher = axiosResponse.filter(item => item.genero === "Mulher").length;
       setContadorMulher(countMulher);
@@ -40,7 +35,7 @@ function Inicio() {
     }).catch(error=>console.error(error));
   },[]);
 
- useEffect(()=>{
+  useEffect(()=>{
     axios.get(`http://localhost:8080/v1/api/acompanhantes?limit=0`)
     .then((res)=>{
       const axiosResponse = res.data.dados;
@@ -58,12 +53,12 @@ function Inicio() {
       }).catch((error) => {
         console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
       });
-  },[limit]);
+  },[limit,genero]);
 
   //Novidade
   useEffect(() => {
     function handleResize() {
-      setAlturaDisponivel(window.innerHeight - 67);
+      setAlturaDisponivel(window.innerHeight - 492);
     }
     window.addEventListener('resize', handleResize);
     return () => {
@@ -100,30 +95,35 @@ function Inicio() {
   };
 
 //Search
- useEffect(()=>{
-  if(acomp.trim() !== ""){
-    axios.get(`http://localhost:8080/v1/api/acompanhantes?name=${acomp}&genero=${genero}&limit=0`)
-    .then((res)=>{
-      const axiosResponse = res.data.dados;
-      const filterAxios = axiosResponse.filter(item => item.nome.toLowerCase().includes(acomp.toLowerCase()));
-      setResult([...filterAxios]);
-    }).catch((error)=>{
-      console.error(error)
-    })
-    .finally(()=>setLoading(false));
-  } else {
-    // Se o campo de busca estiver vazio, exibir todos os resultados novamente
-    axios.get(`http://localhost:8080/v1/api/acompanhantes?genero=${genero}&limit=${limit}`)
-      .then((res) => {
-        setResult(res.data.dados);
-      }).catch((error) => {
-        console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
-      });
-  }
+  useEffect(()=>{
+    if(acomp.trim() !== ""){
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?name=${acomp}&genero=${genero}&limit=0`)
+      .then((res)=>{
+        const axiosResponse = res.data.dados;
+        const filterAxios = axiosResponse.filter(item => item.nome.toLowerCase().includes(acomp.toLowerCase()));
+        setResult([...filterAxios]);
+      }).catch((error)=>{
+        console.error(error)
+      })
+      .finally(()=>setLoading(false));
+    } else {
+      // Se o campo de busca estiver vazio, exibir todos os resultados novamente
+      axios.get(`http://localhost:8080/v1/api/acompanhantes?genero=${genero}&limit=${limit}`)
+        .then((res) => {
+          setResult(res.data.dados);
+        }).catch((error) => {
+          console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
+        });
+    }
 },[acomp, genero, limit]);
 
-function handleGenreClick(gen){
+/*function handleGenreClick(gen){
   setGenero(gen);
+}*/
+
+const DivHeght = {
+  minHeight:`${alturaDisponivel}px`,
+  height:"auto",
 }
 
   return (
@@ -173,20 +173,19 @@ function handleGenreClick(gen){
         </div>
       </section>
       <section>
-      
-      <div className="container_cards">
+      <div className="container_cards" style={{DivHeght}}>
         {result.length === 0 ? (
           <div>
             <h1 style={{ color: "white" }}>{acomp} não foi encontrado</h1>
             <button 
               style={{ background: "white", outline: "none", border: "1px solid white" }} 
-              onClick={() => setAcomp(prevResult => prevResult = "")}>
+              onClick={() => setAcomp("")}>
               Tente novamente!
             </button>
           </div>
         ) : (
           result.map((item, index) => (
-            <Link to={`/${item._id}`} key={`${item._id}_${index}`}>
+            <Link to={`/acompanhante/${item._id}`} key={`${item._id}_${index}`}>
               <div className="card_profile ">
                 <div className="avatar_profile">
                   <img loading="lazy" src={ImgProfile} alt="foto" />

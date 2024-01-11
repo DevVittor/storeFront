@@ -1,4 +1,4 @@
-export default function Error404() {
+function Error404() {
   document.title = "Página Vázia";
   return (
     <div>
@@ -6,3 +6,4 @@ export default function Error404() {
     </div>
   );
 }
+export default Error404; 

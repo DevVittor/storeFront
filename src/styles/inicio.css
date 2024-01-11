@@ -1,195 +1,195 @@
-.inicio_banner{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width:100%;
+.inicio_banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   padding: 0px 10px;
 }
 .container_filter_search {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
   padding: 10px 30px;
 }
 .container_search_filter_option {
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:5px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 .box_gen {
-  display:flex;
-  align-items:center;
-  gap:5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .box_gen button {
-  padding:5px 10px;
-  border:none;
-  outline:none;
-  background:var(--bg-400);
-  color:var(--text-300);
-  border:1px solid var(--text-300);
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  background: var(--bg-400);
+  color: var(--text-300);
+  border: 1px solid var(--text-300);
 }
 .box_gen button:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 .box_gen .selected {
-  padding:5px 10px;
-  border:none;
-  outline:none;
-  background:var(--text-300);
-  color:var(--bg-400);
-  border:1px solid var(--text-300);
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  background: var(--text-300);
+  color: var(--bg-400);
+  border: 1px solid var(--text-300);
 }
 .box_search {
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
 }
 .box_search input[type="search"] {
-  padding:5px 10px;
-  outline:none;
-  border:none;
+  padding: 5px 10px;
+  outline: none;
+  border: none;
 }
 .box_filter button {
-  padding:5px 10px;
-  border:none;
-  outline:none;
-  background:var(--text-300);
-  font-size:14px;
-  font-weight:400;
-  color:var(--bg-400);
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  background: var(--text-300);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--bg-400);
 }
 .box_filter button:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 .box_filter .ri-filter-2-line {
-  padding-right:5px;
+  padding-right: 5px;
 }
 .box_option select {
-  background:var(--text-300);
-  padding:5px 10px;
-  border:none;
-  outline:none;
+  background: var(--text-300);
+  padding: 5px 10px;
+  border: none;
+  outline: none;
 }
 .container_cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    min-height: 100%;
-    height: auto;
-    padding-top:0px;
-    padding-left:20px;
-    padding-right:20px;
-    padding-bottom:20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-height: 100%;
+  height: auto;
+  padding-top: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
 }
 
 .card_profile {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    height: auto;
-    width: 300px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  width: 300px;
 }
 
 .avatar_profile {
-    display: flex;
-    justify-content: center;
-    height: 450px;
-    width: 300px;
+  display: flex;
+  justify-content: center;
+  height: 450px;
+  width: 300px;
 }
 
 .avatar_profile img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .selos_profile {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    gap: 10px;
-    width: auto;
-    max-width: 250px;
-    background: var(--text-300);
-    margin-top: 10px;
-    padding: 5px 10px;
-    border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  gap: 10px;
+  width: auto;
+  max-width: 250px;
+  background: var(--text-300);
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 15px;
 }
 
 .selos_list ul {
-    display: flex;
-    align-items: center;
-    gap: 3px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
 }
 
 .selos_list i {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .selos_list .ri-verified-badge-fill {
-    color: var(--bg-500);
+  color: var(--bg-500);
 }
 
 .selos_list .ri-flashlight-fill {
-    color: var(--text-red);
+  color: var(--text-red);
 }
 
 .gen_price ul {
-    display: flex;
-    gap: 3px;
-    align-items: center;
+  display: flex;
+  gap: 3px;
+  align-items: center;
 }
 
 .gen_price li {
-    font-size: 14px;
-    font-weight: 400;
-    color: #212121;
+  font-size: 14px;
+  font-weight: 400;
+  color: #212121;
 }
 
 .name_profile {
-    position: absolute;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    min-height: 50px;
-    height: auto;
-    max-height: 80px;
-    padding: 8px 10px;
-    gap: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(50px);
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  min-height: 50px;
+  height: auto;
+  max-height: 80px;
+  padding: 8px 10px;
+  gap: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(50px);
 }
 
 .name_profile h2 {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text-300);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-300);
 }
 
 .name_profile span {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-300);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-300);
 }
-.fontResult{
+.fontResult {
   color: #fff;
 }
-@media screen and (max-width:990px) {
+@media screen and (max-width: 990px) {
   .container_filter_search {
-    justify-content:center;
+    justify-content: center;
   }
 }
-@media screen and (max-width:660px) {
+@media screen and (max-width: 660px) {
   .container_search_filter_option {
-    justify-content:center;
-    gap:5px;
+    justify-content: center;
+    gap: 5px;
   }
 }

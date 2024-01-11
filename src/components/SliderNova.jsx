@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 function SliderNova() {
-   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null); // Referência para o elemento div do carrossel
   const [texto, setTexto] = useState([]);
 

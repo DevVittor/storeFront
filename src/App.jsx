@@ -4,9 +4,10 @@ import Inicio from "./pages/Inicio";
 import Acompanhantes from "./pages/Acompanhantes";
 //import Sobre from "./pages/Sobre";
 import Acessar from "./pages/Acessar";
+import Registrar from "./pages/RegistrarModal";
 import Produto from "./pages/Produto";
 //import Profile from "./pages/Usuario";
-import Test from './pages/Test';
+//import Test from './pages/Test';
 //import Filtrando from './components/Filtrando';
 import Error404 from "./pages/Error404";
 import Auth from "./api/auth";
@@ -36,12 +37,8 @@ export default function App() {
           <Route path="acompanhantes" element={<Acompanhantes />} />
           <Route path="sobre" element={<Formulario />}/>
           <Route path="acessar" element={<Acessar />} />
-          <Route
-            path="planos"
-            element={
-              <Planos />
-            }
-          />
+          <Route path="registrar" element={<Registrar/>}/>
+          <Route path="planos" element={<Planos />}/>
           <Route
             path="success"
             element={
@@ -58,26 +55,17 @@ export default function App() {
               </Auth>
             }
           />
-          <Route
-            path="perfil"
-            element={
-              <Perfil />
-            }
-          />
-          <Route 
-            path="categoria"
-            element={<Categoria/>}
-          />
+          <Route path="perfil" element={<Perfil />} />
+          <Route path="categoria" element={<Categoria/>} />
           <Route path="destaque" element={<DestaquesModal/>}/>
           <Route path="Mulher" element={<Mulher/>}/>
           <Route path="Homem" element={<Homem/>}/>
           <Route path="Trans" element={<Trans/>}/>
           <Route path="arquivo" element={<Arquivo/>}/>
-          <Route path="nova" element={<Nova/>}/>
           <Route path="produto" element={<Produto />} />
-	  	    <Route path="finalizada" element={<ContaCriada/>}/>
+          <Route path="finalizada" element={<ContaCriada/>}/>
           {/*<Route path="/acompanhantes/:id" element={<Profile />} />*/}
-          <Route path="/:id" element={<Nova />} />
+          <Route path="/acompanhante/:id" element={<Nova />} />
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>

@@ -1,10 +1,12 @@
 import '../../styles/LoginModal.css';
 import {useState} from 'react';
 import axios from "axios";
+import PropTypes from 'prop-types';
 function LoginModal({setLogin}){
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [typeAccount,setTypeAccount] = useState("");
+  const [typeAccount,setTypeAccount] = useState("Cliente");
+
   console.log(typeAccount);
   function fazerLogin(e) {
     e.preventDefault();
@@ -43,8 +45,8 @@ function LoginModal({setLogin}){
           </div>
           <div className="type_account_login"> 
             <button className={typeAccount == "Cliente" ? "type_select" : "no_type_account"} onClick={()=>setTypeAccount("Cliente")}>Cliente</button>
+            <button className={typeAccount == "Acompanhante" ? "type_select" : "no_type_account"} onClick={()=>setTypeAccount("Acompanhante")}>Acompanhante</button>
             <button className={typeAccount == "Anunciante" ? "type_select" : "no_type_account"} onClick={()=>setTypeAccount("Anunciante")}>Anunciante</button>
-            <button className={typeAccount == "Empresa" ? "type_select" : "no_type_account"} onClick={()=>setTypeAccount("Empresa")}>Empresa</button>
           </div>
         </div>
         <div className="inputs_login">
@@ -60,7 +62,6 @@ function LoginModal({setLogin}){
             placeholder="*****"
             name="senha"
             value={senha}
-            placeholder="Senha"
             onChange={(e) => setSenha(e.target.value)}
           />
         </div>
@@ -72,5 +73,8 @@ function LoginModal({setLogin}){
       </form>
     </div>
   )
+}
+LoginModal.propTypes = {
+  setLogin: PropTypes.func.isRequired
 }
 export default LoginModal;
