@@ -124,6 +124,7 @@ function Inicio() {
 const DivHeght = {
   minHeight:`${alturaDisponivel}px`,
   height:"auto",
+  background:"red"
 }
 
   return (
