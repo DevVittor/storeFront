@@ -3,6 +3,7 @@
   flex-direction:column;
   gap:10px;
   position:fixed;
+  z-index: 9999;
   inset:50% auto auto 50%;
   transform:translate(-50%, -50%);
   height:auto;
@@ -10,6 +11,16 @@
   background:#1B1B1B;
   border-radius:12px;
   padding:20px;
+  animation: login-animation-in .5s both;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+@keyframes login-animation-in{
+  0% {
+    transform:translateX(-50%); 
+  }
+  100%{
+    transform:translateY(-50%,-50%);
+  }
 }
 .etapa_login {
   display:flex;
@@ -53,7 +64,18 @@
   align-items:center;
   gap:5px;
 }
-.type_account_login button {
+.type_select {
+  padding:5px 20px;
+  border-radius:3px;
+  font-size:15px;
+  background:#0079FF;
+  border:none;
+  outline:none;
+  font-weight:600;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  color:var(--text-300);
+}
+.no_type_account {
   padding:5px 20px;
   border-radius:3px;
   font-size:15px;
@@ -88,6 +110,7 @@
   display:flex;
   align-items:center;
   justify-content:space-between;
+  margin-top: 20px;
 }
 .btn_back_login button {
   padding:5px 20px;

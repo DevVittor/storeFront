@@ -28,6 +28,8 @@ function Header() {
   }
   //Solução);
    
+  useEffect(()=>{},[])
+
   useEffect(()=>{
     if(verificado && destaque){
       setVerificado(false);
@@ -59,11 +61,13 @@ function Header() {
 
   useEffect(()=>{
     window.addEventListener("click", (event) => {
-      if(!event.target.closest(".modal_verificado") &&
+      if(!event.target.closest(".login_modal") &&
+        !event.target.closest(".modal_verificado") &&
         !event.target.closest(".modal_destaque") &&
         !event.target.closest(".box-acesso")){
           setDestaque(false); 
           setVerificado(false);
+          setLogin(false);
       }
     });
   },[abrir]);
@@ -132,7 +136,7 @@ function Header() {
                 onClick={() => {
                   setLogin(true);
                 }}
-              className="btn_acessar" to="/acessar">
+              className="btn_acessar">
                 Acessar<i className="ri-arrow-right-up-line"></i>
               </Link>
             </>
