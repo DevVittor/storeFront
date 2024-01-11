@@ -66,7 +66,7 @@ function LoginModal({setLogin}){
         </div>
       </div>
       <div className="next_back_login">
-        <div className="btn_back_login"><button>Fechar</button></div>
+        <div className="btn_back_login"><button onClick={()=>{setLogin(false)}}>Fechar</button></div>
         <div className="btn_next_login"><button type="submit">Acessar</button></div>
       </div>
       </form>
