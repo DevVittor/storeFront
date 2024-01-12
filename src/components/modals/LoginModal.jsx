@@ -2,12 +2,11 @@ import '../../styles/LoginModal.css';
 import {useState} from 'react';
 import axios from "axios";
 import PropTypes from 'prop-types';
-function LoginModal({setLogin}){
+export default function LoginModal({setLogin}){
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [typeAccount,setTypeAccount] = useState("Cliente");
-
-  console.log(typeAccount);
+  
   function fazerLogin(e) {
     e.preventDefault();
 
@@ -67,7 +66,7 @@ function LoginModal({setLogin}){
         </div>
       </div>
       <div className="next_back_login">
-        <div className="btn_back_login"><button onClick={()=>{setLogin(false)}}>Fechar</button></div>
+        <div className="btn_back_login"><button>Fechar</button></div>
         <div className="btn_next_login"><button type="submit">Acessar</button></div>
       </div>
       </form>
@@ -75,6 +74,8 @@ function LoginModal({setLogin}){
   )
 }
 LoginModal.propTypes = {
-  setLogin: PropTypes.func.isRequired
+  setLogin: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.bool
+  ])
 }
-export default LoginModal;

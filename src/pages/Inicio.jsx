@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 //import "../styles/inicio.css";
 import axios from 'axios';
 import ProfileBanner from "../components/ProfileBanner";
+import FilterModal from "../components/modals/FilterModal";
 
 function Inicio() {
   const ImgProfile = "https://images.pexels.com/photos/2479883/pexels-photo-2479883.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
@@ -18,6 +19,18 @@ function Inicio() {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(12);
   const [acomp,setAcomp] = useState("");
+  const [filter,setFilter] = useState(false);
+
+  useEffect(()=>{
+    window.addEventListener("click",(event)=>{
+      if (!event.target.closest(".box_filter") &&
+      !event.target.closest(".modal_filter")) {
+        console.log("Clicou Fora")
+        setFilter(false);
+      }
+      console.log("Clicou Dentro")
+    })
+  },[filter]);
 
   useEffect(()=>{
     axios.get(`http://localhost:8080/v1/api/acompanhantes?limit=0`)
@@ -95,7 +108,7 @@ function Inicio() {
   };
 
 //Search
-  useEffect(()=>{
+  /*useEffect(()=>{
     if(acomp.trim() !== ""){
       axios.get(`http://localhost:8080/v1/api/acompanhantes?name=${acomp}&genero=${genero}&limit=0`)
       .then((res)=>{
@@ -115,7 +128,7 @@ function Inicio() {
           console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
         });
     }
-},[acomp, genero, limit]);
+},[acomp, genero, limit]);*/
 
 /*function handleGenreClick(gen){
   setGenero(gen);
@@ -124,7 +137,6 @@ function Inicio() {
 const DivHeght = {
   minHeight:`${alturaDisponivel}px`,
   height:"auto",
-  background:"red"
 }
 
   return (
@@ -157,11 +169,9 @@ const DivHeght = {
             </button>
           </div>
           <div className="container_search_filter_option">
-            <div className="box_search">
-              <input type="search" name="nome" value={acomp} onChange={(e) => setAcomp(e.target.value)} placeholder="Buscando por alguém ?" />
-            </div>
+            {filter && <FilterModal acomp={acomp} genero={genero} setResult={setResult} setLoading={setLoading} limit={limit} setAcomp={setAcomp}/>}
             <div className="box_filter">
-              <button><i className="ri-filter-2-line"></i>Filtro</button>
+              <button onClick={()=>setFilter(true)}><i className="ri-filter-2-line"></i>Filtro</button>
             </div>
             <div className="box_option">
               <select>
@@ -177,7 +187,7 @@ const DivHeght = {
       <div className="container_cards" style={{DivHeght}}>
         {result.length === 0 ? (
           <div>
-            <h1 style={{ color: "white" }}>{acomp} não foi encontrado</h1>
+            <h1 style={{ color: "white" }}>Sem resultados {acomp} </h1>
             <button 
               style={{ background: "white", outline: "none", border: "1px solid white" }} 
               onClick={() => setAcomp("")}>

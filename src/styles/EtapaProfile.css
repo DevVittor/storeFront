@@ -1,0 +1,47 @@
+.modal_etapa_profile{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.picture_etapa_profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    flex-direction: column;
+}
+.picture_etapa_profile label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 250px;
+    border:2px dashed var(--text-300);
+}
+.picture_etapa_profile span{
+    color: var(--text-300);
+    font-size: 17px;
+    font-weight: 500;
+}
+.picture_etapa_profile input[type="file"]{
+    display: none;
+}
+.rules_etapa_profile{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.rules_etapa_profile h3{
+    color: var(--text-300);
+    font-size: 15px;
+    font-weight: 500;
+}
+.rules_etapa_profile ul{
+    display: flex;
+    flex-direction: column;
+}
+.rules_etapa_profile li{
+    color: var(--text-300);
+    font-weight: 300;
+    font-size: 14px;
+}

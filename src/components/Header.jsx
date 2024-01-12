@@ -4,7 +4,7 @@ import LoginModal from "../components/modals/LoginModal";
 import VerificadoModal from "../components/modals/VerificadoModal";
 import DestaqueModal from "../components/modals/DestaquesModal";
 import "../styles/header.css";
-function Header() {
+export default function Header() {
   const [login, setLogin] = useState(false);
   const [verificado, setVerificado] = useState(false);
   const [destaque,setDestaque] = useState(false);
@@ -74,9 +74,9 @@ function Header() {
 
   return (
     <header>
-      {login && <LoginModal setLogin={setLogin}/>} 
-      {verificado && <VerificadoModal setVerificado={setVerificado}/>} 
-      {destaque && <DestaqueModal setDestaque={setDestaque}/>} 
+      {login && <LoginModal setLogin={setLogin} />}
+      {verificado && <VerificadoModal setVerificado={setVerificado} />} 
+      {destaque && <DestaqueModal setDestaque={setDestaque} />} 
       <div className="container-header">
         <div className="container-logo">
           <Link to="/">
@@ -146,4 +146,3 @@ function Header() {
     </header>
   );
 }
-export default  Header;
