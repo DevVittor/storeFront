@@ -31,11 +31,9 @@
 }
 .card-modal i{
     font-size: 32px;
-    color: white;
+    color: var(--text-red);
 }
 .card-modal i:hover{
-    transition: linear .3s;
-    color: red;
     cursor: pointer;
 }
 .modal{

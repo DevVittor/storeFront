@@ -1,10 +1,12 @@
 .container_etapa_type{
     display: flex;
     flex-direction: column;
+    max-height: 70%;
     height: auto;
     width: auto;
-    padding: 10px;
+    padding: 20px;
     position: fixed;
+    overflow: auto;
     inset: 50% auto auto 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;

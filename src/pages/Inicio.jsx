@@ -4,8 +4,9 @@ import axios from 'axios';
 import ProfileBanner from "../components/ProfileBanner";
 import FilterModal from "../components/modals/FilterModal";
 
-function Inicio() {
+export default  function Inicio() {
   const ImgProfile = "https://images.pexels.com/photos/2479883/pexels-photo-2479883.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
   document.title = "ABRIME";
   
   const [genero, setGenero] = useState("Mulher");
@@ -24,10 +25,8 @@ function Inicio() {
     window.addEventListener("click",(event)=>{
       if (!event.target.closest(".box_filter") &&
       !event.target.closest(".modal_filter")) {
-        console.log("Clicou Fora")
         setFilter(false);
       }
-      console.log("Clicou Dentro")
     })
   },[filter]);
 
@@ -61,7 +60,10 @@ function Inicio() {
   useEffect(()=>{
     axios.get(`http://localhost:8080/v1/api/acompanhantes?genero=${genero}&limit=${limit}`)
       .then((res) => {
-        setResult(res.data.dados);
+        const response = res.data.dados;
+        const ListGen = response.filter(item=>item.genero === `${genero}`);
+        setResult(ListGen);
+        console.log(ListGen);
       }).catch((error) => {
         console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
       });
@@ -82,16 +84,21 @@ function Inicio() {
     if (!loading) {
       setLoading(true);
       axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page}&genero=${genero}&limit=12`)
-        .then((res) => {
-          setResult(prevResult => [...prevResult, ...res.data.dados]);
+        .then(() => {
           setLoading(false);
           setPage(prevResult => prevResult + 1);
-          setLimit(prevResult => prevResult + 12);
+          if(genero === "Mulher" && contadorMulher >= limit){
+            setLimit(prevResult => prevResult + 12);
+          }else if(genero === "Homem" && contadorHomem >= limit){
+            setLimit(prevResult => prevResult + 12);
+          }else if(genero === "Trans" && contadorTrans>= limit){
+            setLimit(prevResult => prevResult + 12);
+          }
         }).catch((error) => {
           console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
         });
     }
-  },[genero,loading,page]);
+  },[genero,loading]);
 
   const handleScroll = useCallback(() => {
     if (
@@ -204,6 +211,5 @@ const DivHeght = {
       </div>
     </section>
     </main>
-  )
+  );
 }
-export default Inicio;

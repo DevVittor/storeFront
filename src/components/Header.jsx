@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react';
 import LoginModal from "../components/modals/LoginModal";
 import VerificadoModal from "../components/modals/VerificadoModal";
 import DestaqueModal from "../components/modals/DestaquesModal";
+import EtapaType from "./etapas/EtapaType";
 import "../styles/header.css";
 export default function Header() {
+  const [type,setType] = useState(false);
   const [login, setLogin] = useState(false);
   const [verificado, setVerificado] = useState(false);
   const [destaque,setDestaque] = useState(false);
@@ -17,32 +19,19 @@ export default function Header() {
   }
   //Solução);
 
-  useEffect(()=>{},[])
-
   useEffect(()=>{
-    if(verificado && destaque){
+    if(verificado){
+      setDestaque(false)
+      setAbrir(false);
+    }else{
       setVerificado(false);
-      setDestaque(true);
-    }
-    
-  },[destaque,verificado]);
-  useEffect(()=>{
-    if(destaque && verificado){
-      setDestaque(false); 
-      setVerificado(true);
-    }
-    
-  },[verificado,destaque])
-
-  useEffect(()=>{
-    if(abrir){
       setAbrir(false);
     }
-  },[destaque,abrir]);  
+  },[verificado, destaque])
 
   useEffect(()=>{
     window.addEventListener("click", (event) => {
-      if(abrir && !event.target.closest(".box-acesso")){
+      if(abrir &&  !event.target.closest(".box-acesso")){
         setAbrir(false);
       }
     });  
@@ -63,6 +52,7 @@ export default function Header() {
 
   return (
     <header>
+      {type && <EtapaType />}
       {login && <LoginModal setLogin={setLogin} />}
       {verificado && <VerificadoModal setVerificado={setVerificado} />} 
       {destaque && <DestaqueModal setDestaque={setDestaque} />} 
@@ -120,7 +110,7 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Link className="btn_cadastrar" to="/#">Cadastrar</Link>
+              <Link onClick={()=>{setType(true)}} className="btn_cadastrar" to="/#">Cadastrar</Link>
               <Link 
                 onClick={() => {
                   setLogin(true);
