@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {Link} from 'react-router-dom';
-//import "../styles/inicio.css";
 import axios from 'axios';
 import ProfileBanner from "../components/ProfileBanner";
 import FilterModal from "../components/modals/FilterModal";
@@ -79,20 +78,7 @@ function Inicio() {
     };
   }, []);
 
-  const handleScroll = () => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight
-    ) {
-      loadMoreItems();
-    }
-  };
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [result]);
-  const loadMoreItems = () => {
+  const loadMoreItems = useCallback(() => {
     if (!loading) {
       setLoading(true);
       axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page}&genero=${genero}&limit=12`)
@@ -105,34 +91,21 @@ function Inicio() {
           console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
         });
     }
-  };
+  },[genero,loading,page]);
 
-//Search
-  /*useEffect(()=>{
-    if(acomp.trim() !== ""){
-      axios.get(`http://localhost:8080/v1/api/acompanhantes?name=${acomp}&genero=${genero}&limit=0`)
-      .then((res)=>{
-        const axiosResponse = res.data.dados;
-        const filterAxios = axiosResponse.filter(item => item.nome.toLowerCase().includes(acomp.toLowerCase()));
-        setResult([...filterAxios]);
-      }).catch((error)=>{
-        console.error(error)
-      })
-      .finally(()=>setLoading(false));
-    } else {
-      // Se o campo de busca estiver vazio, exibir todos os resultados novamente
-      axios.get(`http://localhost:8080/v1/api/acompanhantes?genero=${genero}&limit=${limit}`)
-        .then((res) => {
-          setResult(res.data.dados);
-        }).catch((error) => {
-          console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
-        });
+  const handleScroll = useCallback(() => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight
+    ) {
+      loadMoreItems();
     }
-},[acomp, genero, limit]);*/
-
-/*function handleGenreClick(gen){
-  setGenero(gen);
-}*/
+  },[loadMoreItems]);
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [result, handleScroll]);
 
 const DivHeght = {
   minHeight:`${alturaDisponivel}px`,

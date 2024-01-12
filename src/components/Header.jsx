@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import LoginModal from "../components/modals/LoginModal";
 import VerificadoModal from "../components/modals/VerificadoModal";
@@ -9,25 +9,14 @@ export default function Header() {
   const [verificado, setVerificado] = useState(false);
   const [destaque,setDestaque] = useState(false);
   const [abrir,setAbrir] = useState(false);
-  const idClient = localStorage.getItem("userId");
-
-  const location = useLocation();
-
-  const pathToClassName = {
-    "/": "Inicio",
-    "/acompanhantes": "Acompanhantes",
-    "/sobre": "Sobre",
-    "/planos": "Planos",
-  };
 
   const token = localStorage.getItem("Token");
-  const currentRouteClass = pathToClassName[location.pathname] || "";
 
   function clickMenu(){
     setAbrir(prevOpen=>!prevOpen);
   }
   //Solução);
-   
+
   useEffect(()=>{},[])
 
   useEffect(()=>{
@@ -36,20 +25,20 @@ export default function Header() {
       setDestaque(true);
     }
     
-  },[destaque]);
+  },[destaque,verificado]);
   useEffect(()=>{
     if(destaque && verificado){
       setDestaque(false); 
       setVerificado(true);
     }
     
-  },[verificado])
+  },[verificado,destaque])
 
   useEffect(()=>{
     if(abrir){
       setAbrir(false);
     }
-  },[destaque]);  
+  },[destaque,abrir]);  
 
   useEffect(()=>{
     window.addEventListener("click", (event) => {

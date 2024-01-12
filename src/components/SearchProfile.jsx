@@ -22,7 +22,7 @@ function SearchProfile({acomp,genero,setResult,setLoading,limit,setAcomp}) {
                 console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
             });
         }
-    },[acomp, genero, limit]);
+    },[acomp, genero, limit,setResult,setLoading]);
     return (
         <div className="box_search">
             <input type="search" name="nome" value={acomp} onChange={(e) => setAcomp(e.target.value)} placeholder="Buscando por alguém ?" />
