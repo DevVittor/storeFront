@@ -1,16 +1,284 @@
 .container_etapa_type{
     display: flex;
     flex-direction: column;
+    gap: 10px;
     max-height: 70%;
     height: auto;
     width: auto;
     padding: 20px;
     position: fixed;
-    overflow: auto;
     inset: 50% auto auto 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;
     border-radius: 12px;
     background: var(--bg-400);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+/*Etapa 01*/
+.modal_name_lastname{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.modal_name_lastname input[type="text"]{
+    width: 100%;
+    padding:5px 10px;
+    border: none;
+    outline: none;
+    background:var(--bg-400);
+    color:var(--text-300);
+    font-size:14px;
+    font-weight: 400;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.modal_about{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    gap:10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.modal_about textarea{
+    height: 70px;
+    width: 100%;
+    background:var(--bg-400);
+    overflow: auto;
+    border:none;
+    outline:none;
+    font-size:14px;
+    font-weight: 400;
+    color: var(--text-300);
+    line-height: 1.3rem;
+    resize: none;
+    
+}
+.modal_about span{
+    color: var(--text-300);
+    font-size:13px;
+    font-weight: 400;
+}
+.modal_nascimento_genero{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap:5px;
+}
+.modal_date_acomp label{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    color: var(--text-300);
+    font-size: 16px;
+    font-weight: 500;
+}
+.modal_date_acomp input[type="date"]{
+    border: none;
+    border-radius: 5px;
+    font-size:14px;
+    font-weight: 500;
+    color: var(--text-300);
+    background: var(--bg-400);
+    padding: 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.modal_genero_estado_acomp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.modal_data_genero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:5px;
+}
+.modal_date_acomp{
+    width: 100%;
+}
+.modal_date_acomp select{
+    text-align: center;
+    width: 100%;
+    padding:5px 10px;
+    border: none;
+    outline: none;
+    background:var(--bg-400);
+    color:var(--text-300);
+    font-size:14px;
+    font-weight: 400;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.modal_date_acomp option{
+    text-align: center;
+}
+.modal_genero_acomp{
+    display: flex;
+    align-content: center;
+}
+.modal_genero_acomp select{
+    text-align: center;
+    padding:5px 10px;
+    border: none;
+    outline: none;
+    background:var(--bg-400);
+    color:var(--text-300);
+    font-size:14px;
+    font-weight: 400;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.modal_estado_cidade_acomp{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.modal_altura_peso_acomp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal_estado_cidade_acomp input[type="text"]{
+    padding:5px 10px;
+    border: none;
+    outline: none;
+    background:var(--bg-400);
+    color:var(--text-300);
+    font-size:14px;
+    font-weight: 400;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.modal_estado_acomp select,.modal_cidade_acomp select ,
+.modal_corpo_acomp select , .modal_etnia_acomp select,
+.modal_altura_acomp select, .modal_peso_acomp select{
+    text-align: center;
+    padding:5px 10px;
+    border: none;
+    outline: none;
+    background:var(--bg-400);
+    color:var(--text-300);
+    font-size:14px;
+    font-weight: 400;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.modal_zap_price_acomp{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.modal_zap_price_acomp input{
+    padding:5px 10px;
+    border: none;
+    outline: none;
+    background:var(--bg-400);
+    color:var(--text-300);
+    font-size:14px;
+    font-weight: 400;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.modal_locais_acomp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal_title_locais_acomp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.modal_title_locais_acomp h3{
+    color: var(--text-300);
+    font-size: 16px;
+    font-weight: 500;
+}
+.modal_list_local_acomp{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.modal_list_local_acomp label{
+    display: flex;
+    align-items: center;
+    gap:5px;
+    border:none;
+    outline: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    background: var(--text-300);
+    font-size: 13px;
+    font-weight: 400;
+}
+.modal_list_local_acomp label:hover{
+    cursor: pointer;
+}
+#check_modal_sem,#check_modal_domicilio,
+#check_modal_hotel, #check_modal_motel {
+    display: none;
+}
+.modal_list_local_acomp input[type="checkbox"]:checked + label{
+    background: var(--bg-500);
+    color: var(--text-300);
+}
+#check_modal_sem:checked + label{
+    background: var(--text-red);
+    color: var(--text-300);
+}
+/*ETAPA 02*/
+
+.modal_detalhes_acomp{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.modal_detalhes_acomp label{
+    display: flex;
+    align-items: center;
+    gap:5px;
+    border:none;
+    outline: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    background: var(--text-300);
+    font-size: 13px;
+    font-weight: 400;
+}
+.modal_detalhes_acomp label:hover{
+    cursor: pointer;
+}
+#check_tatuagem_acomp, #check_aparelho_acomp, #check_piercing_acomp{
+    display: none;
+}
+.modal_detalhes_acomp input[type="checkbox"]:checked + label{
+    background: var(--bg-500);
+    color: var(--text-300);
+}
+.modal_etnia_corpo_acomp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
