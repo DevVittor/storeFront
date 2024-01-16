@@ -1,11 +1,11 @@
 .container_etapa_type{
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    max-height: 70%;
+    gap: 20px;
     height: auto;
     width: auto;
     padding: 20px;
+    margin-top: 30px;
     position: fixed;
     inset: 50% auto auto 50%;
     transform: translate(-50%, -50%);
@@ -14,7 +14,6 @@
     background: var(--bg-400);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
-
 /*Etapa 01*/
 .modal_name_lastname{
     display: flex;
@@ -230,6 +229,7 @@
     background: var(--text-300);
     font-size: 13px;
     font-weight: 400;
+    
 }
 .modal_list_local_acomp label:hover{
     cursor: pointer;
@@ -250,6 +250,7 @@
 
 .modal_detalhes_acomp{
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 5px;
     flex-wrap: wrap;
@@ -262,9 +263,11 @@
     outline: none;
     border-radius: 3px;
     padding: 5px 10px;
-    background: var(--text-300);
+    background: var(--bg-400);
     font-size: 13px;
     font-weight: 400;
+    color: var(--text-300);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 .modal_detalhes_acomp label:hover{
     cursor: pointer;
@@ -273,7 +276,7 @@
     display: none;
 }
 .modal_detalhes_acomp input[type="checkbox"]:checked + label{
-    background: var(--bg-500);
+    background:var(--bg-500);
     color: var(--text-300);
 }
 .modal_etnia_corpo_acomp{

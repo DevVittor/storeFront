@@ -1,7 +1,39 @@
+import "../../styles/EtapaTwo.css";
 export default function EtapaTwo() {
+
     return (
         <div className="container_etapa_type">
-            <h2><i className="ri-signpost-line"></i> 02|05</h2>
+            <h2><i className="ri-signpost-line"></i> 02|03</h2>
+            <div className="modal_formas_pagamentos_acomp">
+                    <div className="box_pagamento_acomp">
+                        <input type="checkbox" id="input_dinheiro_acomp"/>
+                        <label htmlFor="input_dinheiro_acomp">
+                            Dinheiro
+                        </label>
+                    </div>
+                    <div className="box_pagamento_acomp">
+                        <input  type="checkbox" id="input_pix_acomp"/>
+                        <label htmlFor="input_pix_acomp">
+                            Pix
+                        </label>
+                    </div>
+                    <div className="box_pagamento_acomp">
+                        <input  type="checkbox" id="input_credito_acomp"/>
+                        <label htmlFor="input_credito_acomp">
+                            Cartão de crédito
+                        </label>
+                    </div>
+                    <div className="box_pagamento_acomp">
+                        <input  type="checkbox" id="input_debito_acomp"/>
+                        <label htmlFor="input_debito_acomp">
+                            Cartão de Débito
+                        </label>
+                    </div>
+            </div>
+            <div className="modal_zap_price_acomp">
+                <input type="text" placeholder="Whatsapp"/>
+                <input type="number" placeholder="Valor por hora"/>
+            </div>
             <div className="modal_etnia_corpo_acomp">
                 <div className="modal_etnia_acomp">
                     <select name="" id="">
@@ -64,6 +96,7 @@ export default function EtapaTwo() {
                     </label>
                 </div>
             </div>
+            
         </div>
     )
 }

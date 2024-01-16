@@ -1,7 +1,8 @@
 export default function EtapaOne() {
+
     return (
         <div className="container_etapa_type">
-            <h2><i className="ri-signpost-line"></i> 01|05</h2>
+            <h2><i className="ri-signpost-line"></i> 01|03</h2>
             <div className="modal_name_lastname">
                 <input type="text" name="" id="" placeholder="Nome"/>
                 <input type="text" name="" id="" placeholder="Sobrenome"/>
@@ -58,42 +59,6 @@ export default function EtapaOne() {
                         </select>
                     </div>
                 </div>
-            </div>
-            
-            <div className="modal_locais_acomp">
-                <div className="modal_title_locais_acomp">
-                    <h3>Locais de Atendimento</h3>
-                </div>
-                <div className="modal_list_local_acomp">
-                    <div>
-                        <input type="checkbox" id="check_modal_sem"/>
-                        <label htmlFor="check_modal_sem">
-                            <span>Sem Local</span>
-                        </label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="check_modal_domicilio"/>
-                        <label htmlFor="check_modal_domicilio">
-                            <span>A domicilio</span>
-                        </label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="check_modal_hotel"/>
-                        <label htmlFor="check_modal_hotel">
-                            <span>Hotel</span>
-                        </label>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="check_modal_motel"/>
-                        <label htmlFor="check_modal_motel">
-                            <span>Motel</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div className="modal_zap_price_acomp">
-                <input type="text" placeholder="Whatsapp"/>
-                <input type="number" placeholder="Valor por hora"/>
             </div>
         </div>
     );

@@ -4,7 +4,6 @@ import ProfileCard from "../components/ProfileCard";
 import ProfileBanner from "../components/ProfileBanner";
 //import SliderNova from "../components/SliderNova";
 import {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
 function Nova(){
   
   const banner = "https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
@@ -133,10 +132,10 @@ function Nova(){
             <div className="container_imagens">
               <div className="nova_three">
               <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-              <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+              <Card urlImg="https://images.pexels.com/photos/19627370/pexels-photo-19627370/free-photo-of-bone-de-baseball-bone-de-beisebol-face-rosto.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+              <Card urlImg="https://images.pexels.com/photos/2313635/pexels-photo-2313635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+              <Card urlImg="https://images.pexels.com/photos/2690323/pexels-photo-2690323.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+              <Card urlImg="https://images.pexels.com/photos/1840945/pexels-photo-1840945.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
               </div>
             </div>
           </div>
