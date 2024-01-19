@@ -3,16 +3,22 @@ import axios from 'axios';
 
 export default function EtapaOne() {
 
+    const [idade,setIdade] = useState([]);
     const [countNumber,setCountNumber] = useState("");
     const[estados,setEstados] = useState([]);
     const [cidades,setCidades] = useState([]);
     const [selectedEstado, setSelectedEstado] = useState("");
     const[imgAvatar,setImgAvatar] = useState(null);
 
+    useState(()=>{
+        for(let i = 18; i <=70; i++){
+            setIdade(prevIdade=>[...prevIdade,i]); 
+        }
+    },[]);
+
     useEffect(() => {
         axios.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome")
             .then((res) => {
-                console.log(res.data);
                 const response = res.data;
                 setEstados(response);
             })
@@ -23,7 +29,6 @@ export default function EtapaOne() {
         if (selectedEstado) {
             axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedEstado.id}/distritos?orderBy=nome`)
                 .then((res) => {
-                    console.log(res.data);
                     const response = res.data;
                     setCidades(response);
                 })
@@ -68,17 +73,16 @@ export default function EtapaOne() {
             <div className="modal_genero_estado_acomp">
                 <div className="modal_data_genero">
                     <div className="modal_date_acomp">
-                        <select name="" id="">
-                            <option value="" disabled selected hidden>Idade</option>
-                            <option value="" >18</option>
-                            <option value="" >19</option>
-                            <option value="" >20</option>
-                            <option value="" >21</option>
+                        <select defaultValue="18" name="" id="">
+                            <option value="" disabled >Idade</option>
+                            {idade.map((item,index)=>(
+                                <option key={index} value={item}>{item}</option>
+                            ))}
                         </select>
                     </div>
                     <div className="modal_genero_acomp">
-                        <select name="" id="">
-                            <option value="" disabled selected hidden>Gênero</option>
+                        <select defaultValue="Genero" name="" id="">
+                            <option value="" disabled >Gênero</option>
                             <option value="">Mulher</option>
                             <option value="">Homem</option>
                             <option value="">Trans</option>
@@ -88,22 +92,25 @@ export default function EtapaOne() {
                 <div className="modal_estado_cidade_acomp">
                     <div className="modal_estado_acomp">
                         <select name="" id="" onChange={handleEstadoChange} value={selectedEstado ? selectedEstado.nome : ""}>
-                            <option value="" disabled selected hidden>Estado</option>
+                            <option value="" disabled  >Estado</option>
                             {estados.map((item, index) => (
                                 <option key={index} title={item.nome} value={item.nome}>{item.nome}</option>
                             ))}
                         </select>
-                        {selectedEstado && <span>{selectedEstado.sigla}</span>}
+                        {selectedEstado && selectedEstado.sigla !== undefined ? <span>{selectedEstado.sigla}</span> : <span>Sigla</span>}
                     </div>
+                    {selectedEstado  && 
                     <div className="modal_cidade_acomp">
                         <select name="" id="">
-                            <option value="" disabled selected hidden>Cidade</option>
+                            <option value="" disabled >Cidade</option>
                             {cidades.map((item,index)=>(
                                 <option key={index} value={item.cidades}>{item.nome}</option>
                             ))}
                         </select>
                     </div>
+                }
                 </div>
+                
             </div>
         </div>
     );

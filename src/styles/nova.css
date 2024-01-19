@@ -56,17 +56,33 @@
 
 .nova_one {
   display:flex;
-  justify-content:center;
+  justify-content:flex-end;
   align-items:center;
   position:relative;
+  flex-wrap: nowrap;
   overflow:hidden;
   gap:10px;
   height:auto;
   width:100%;
-  padding:10px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-
   background:var(--bg-400);
+}
+.medidas_lastname_acomp{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 3px;
+}
+.medidas_acomp ul{
+  display: flex;
+  align-items: center;
+  gap:10px;
+  color: var(--text-300);
+  font-size: 14px;
+  font-weight: 400;
+}
+.medidas_acomp i{
+  padding-right: 5px;
 }
 .list_one {
   display: flex;
@@ -77,11 +93,16 @@
 }
 .list_one ul {
   display:flex;
-  gap:10px;
+  gap:5px;
   color:var(--text-300);
   white-space: nowrap;
   font-weight:500;
   font-size:16px;
+}
+.list_one li{
+  padding: 3px 20px;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
 /*.list_one ul:hover {
@@ -155,10 +176,6 @@
   color:var(--text-300);
   font-weight:400;
   font-size:24px;
-}
-.nome_one i{
-  font-size:44px;
-  color:var(--bg-500);
 }
 
 .nova_contact{
@@ -278,6 +295,23 @@
 .button_select i , .select_button i {
   padding-right: 5px;
 }
+.service_acomp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 3px;
+  padding: 10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;   
+}
+.service_acomp ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--text-300);
+}
 .container_imagens {
   display:flex;
   justify-content:center;
@@ -296,6 +330,9 @@
   background:var(--bg-400);
 }
 @media screen and (max-width: 640px){
+  .nova_one{
+    justify-content: center;
+  }
   .nova_two {
     box-shadow:none;
     padding:0;

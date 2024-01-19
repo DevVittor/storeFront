@@ -76,26 +76,6 @@ export default function EtapaTwo() {
                     </select>
                 </div>
             </div>
-            <div className="modal_detalhes_acomp">
-                <div>
-                    <input type="checkbox" name="" id="check_tatuagem_acomp"/>
-                    <label htmlFor="check_tatuagem_acomp">
-                        <span>Tatuagem</span>
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" name="" id="check_aparelho_acomp" />
-                    <label htmlFor="check_aparelho_acomp">
-                        <span>Aparelho Bocal</span>
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" name="" id="check_piercing_acomp" />
-                    <label htmlFor="check_piercing_acomp">
-                        <span>Piercing</span>
-                    </label>
-                </div>
-            </div>
             
         </div>
     )

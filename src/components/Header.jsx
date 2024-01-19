@@ -6,6 +6,7 @@ import DestaqueModal from "../components/modals/DestaquesModal";
 import EtapaType from "./etapas/EtapaType";
 import "../styles/header.css";
 export default function Header() {
+  
   const [type,setType] = useState(false);
   const [login, setLogin] = useState(false);
   const [verificado, setVerificado] = useState(false);
@@ -59,7 +60,7 @@ export default function Header() {
       <div className="container-header">
         <div className="container-logo">
           <Link to="/">
-            <h1>ABRIME</h1>
+            <h1>Acomp<b>X</b></h1>
           </Link>
         </div>
         <div className="box-acesso">

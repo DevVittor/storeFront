@@ -63,7 +63,6 @@ export default  function Inicio() {
         const response = res.data.dados;
         const ListGen = response.filter(item=>item.genero === `${genero}`);
         setResult(ListGen);
-        console.log(ListGen);
       }).catch((error) => {
         console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
       });
@@ -201,8 +200,11 @@ const DivHeght = {
                   </div>
                 </div>
                 <div className="name_profile">
-                  <h2>{item.nome}, {item.idade}</h2>
-                  <span>Rio de Janeiro, RJ</span>
+                  <div className="name_age_profile">
+                    <h2>{item.nome}</h2>
+                    <h3>, {item.idade}</h3>
+                  </div>
+                  <span>Itaboraí, RJ</span>
                 </div>
               </div>
             </Link>

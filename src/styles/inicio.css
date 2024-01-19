@@ -153,6 +153,9 @@
   font-size: 14px;
   font-weight: 400;
   color: #212121;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; 
 }
 
 .name_profile {
@@ -169,8 +172,21 @@
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(50px);
 }
-
-.name_profile h2 {
+.name_age_profile{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.name_age_profile h2 {
+  max-width: 85%;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-300);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; 
+}
+.name_age_profile h3{
   font-size: 18px;
   font-weight: 600;
   color: var(--text-300);

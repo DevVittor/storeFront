@@ -2,41 +2,33 @@ import '../styles/nova.css';
 import Card from "../components/Card";
 import ProfileCard from "../components/ProfileCard";
 import ProfileBanner from "../components/ProfileBanner";
+import { Fragment } from 'react';
 //import SliderNova from "../components/SliderNova";
-import {useState, useEffect} from 'react';
+//import {useState, useEffect} from 'react';
 function Nova(){
   
   const banner = "https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   const foto = "https://images.pexels.com/photos/5799649/pexels-photo-5799649.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
-  const description = "Todos os dias são uma chance para aprender, crescer e abraçar as oportunidades que nos levam a novos horizontes e conquistas.conquistas.conquistas.con"
-  const [texto,setTexto] = useState(["Base"]);
-  const [cards,setCards] = useState("Fotos");
-  let cardsSelect;
+  const description = "Todos os dias são uma chance para aprender, crescer e abraçar as oportunidades que nos levam a novos horizontes e conquistas.conquistas.conquistas.con";
 
-  switch(cards){
-    case 'Fotos':
-      cardsSelect = <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>;
-      break;
-    case 'Corpo':
-      cardsSelect = <div style={{color:"white"}}>Cards de Corpo</div>;
-      break;
-    case 'Serviços':
-      cardsSelect = <div style={{color:"white"}}>Cards de Serviços</div>;
-      break;
-    case 'Local':
-      cardsSelect = <div style={{color:"white"}}>Cards de Local</div>;
-      break;
-    default:
-      break;
-  }
+  let service = [
+    "Anal",
+    "Beijo na Boca",
+    "Casal",
+    "Boquete",
+    "Jantar Romântico",
+    "Festas",
+    "Eventos",
+    "Viagens",
+    "Massagem Erótica",
+    "Anal Giratório",
+    "Chuva Dourada",
+    "Chuva Negra",
+    "Fantasia",
+];
 
-  useEffect(()=>{
-    const novosTexto = [];
-      for(let i= 0; i<= 15; i++){
-        novosTexto.push(`Serviço ${i}`) 
-      }
-    setTexto(novosTexto);
-  },[])
+const tamanhoService = service.length;
+
 
   return(
     <main>
@@ -70,7 +62,19 @@ function Nova(){
                 </div>
                 <div className="nome_one">
                   <h1>Jéssica</h1>
-                  <h3>Gomes</h3>
+                  <div className="medidas_lastname_acomp">
+                    <div className='medidas_acomp'>
+                      <nav>
+                        <ul>
+                          <li><i className="fa-solid fa-weight-hanging"></i>65kg</li>
+                          <li><i className="fa-solid fa-ruler-combined"></i>1.58m</li>
+                        </ul>
+                      </nav>
+                    </div>
+                    <div>
+                      <h3>Gomes</h3>
+                    </div>
+                  </div>
                 </div> 
                 <div className="nova_description">
                   <p>{description}</p>
@@ -86,49 +90,18 @@ function Nova(){
               alt="Banner"
             />
             </div>
-            <div className="nova_one">
-              <div className="list_one">
-                <nav>
-                  <ul>
-                    {texto.map((item,index)=>(
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                </nav>
-              </div>
+            <div className="service_acomp">
+              <nav>
+                <ul>
+                  {service.slice(0, tamanhoService).map((item, index) => (
+                    <Fragment key={index}>
+                      <li>{item.replace("-", "")}</li>
+                      {index !== tamanhoService - 1 && <li>|</li>}
+                    </Fragment>
+                  ))}
+                </ul>
+              </nav>
             </div>
-            <div className="nova_five">
-              <div className="nova_select">
-                <button
-                  className={cards === "Fotos" ? "select_button" : "button_select"}
-                  onClick={()=>setCards("Fotos")}
-                >
-                <i className="fa-regular fa-image"></i>
-                Fotos
-                </button>
-                <button
-                  className={cards === "Corpo" ? "select_button" : "button_select"}
-                  onClick={()=>setCards("Corpo")}
-                >
-                <i className="fa-solid fa-child-reaching"></i>
-                Corpo
-                </button>
-                <button
-                  className={cards === "Serviços" ? "select_button" : "button_select"}
-                  onClick={()=>setCards("Serviços")}
-                >
-                <i className="fa-solid fa-bell-concierge"></i>
-                Serviços
-                </button>
-                <button 
-                  className={cards === "Local" ? "select_button" : "button_select"}
-                  onClick={()=>setCards("Local")}
-                >
-                <i className="fa-solid fa-location-dot"></i>
-                Local
-                </button>
-              </div>
-            </div> 
             <div className="container_imagens">
               <div className="nova_three">
               <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />

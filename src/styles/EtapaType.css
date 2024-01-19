@@ -1,7 +1,7 @@
 .container_etapa_type{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     height: auto;
     width: auto;
     padding: 20px;
@@ -21,7 +21,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
 }
 
 .avatar_img_acomp img{
@@ -126,18 +126,42 @@
     padding: 5px 15px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
+
 .modal_genero_estado_acomp{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 5px;
+}
+.modal_estado_acomp{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.modal_estado_cidade_acomp{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.modal_estado_cidade_acomp span{
+    color: var(--text-300);
+    font-weight: 400;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    font-size:14px;
+    font-weight: 500;
+    color: var(--text-300);
+    background: var(--bg-400);
+    padding: 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 .modal_data_genero{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     gap:5px;
 }
 .modal_date_acomp{
