@@ -14,6 +14,7 @@ export default function ModalBanner(){
       megabytes = parseFloat(megabytes.toFixed(2).replace(".",","));
       if(megabytes < 2.0){
         setBannerInput(bannerInput);
+        console.log(bannerInput);
         setViewBanner(URL.createObjectURL(bannerInput));
       }else{
         return;
@@ -32,7 +33,7 @@ export default function ModalBanner(){
         <div className="file_banner_anunciante">
           <input type="file" name="" accept='image/jpg, image/webp, image/jpeg' id="file_anunciante" onChange={(e)=>setBannerInput(e.target.files[0])}/>
           <label htmlFor="file_anunciante">
-            <h1>Poster do Anúncio</h1>  
+            <h1>{bannerInput === "" ? "Enviar Banner" : `Banner Carregado`}</h1>  
           </label>
         </div>
       }
