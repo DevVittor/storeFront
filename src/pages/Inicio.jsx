@@ -15,6 +15,7 @@ export default  function Inicio() {
   const [contadorTrans, setContadorTrans] = useState(0);
   const [result, setResult] = useState([]);
   const [alturaDisponivel, setAlturaDisponivel] = useState(window.innerHeight - 492);
+  const [initialLoad, setInitialLoad] = useState(false);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(12);
@@ -112,6 +113,17 @@ export default  function Inicio() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [result, handleScroll]);
+
+  useEffect(() => {
+    if (!initialLoad) {
+      setInitialLoad(true);
+      return;
+    }
+  
+    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+      loadMoreItems();
+    }
+  }, [result, handleScroll, initialLoad, loadMoreItems]);
 
 const DivHeght = {
   minHeight:`${alturaDisponivel}px`,

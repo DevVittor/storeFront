@@ -66,7 +66,7 @@ export default function Header() {
         <div className="box-acesso">
           {token ? (
             <>
-              <button onClick={clickMenu}>
+              <button id="btn_profile" onClick={clickMenu}>
                 <span>Jéssica</span>
                 {abrir ? (
                   <i className="ri-close-line"></i>
