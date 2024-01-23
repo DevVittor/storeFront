@@ -21,103 +21,104 @@ function FilterModal({acomp,genero,setResult,setLoading,limit,setAcomp}){
 
     return (
         <div className="modal_filter">
-            <SearchProfile acomp={acomp} genero={genero} setResult={setResult} setLoading={setLoading} limit={limit} setAcomp={setAcomp}/>
+            <div className='title_filter_acomp'>
+                <h2><i className="ri-filter-line"></i>Filtro:</h2>
+            </div>
+            <div className="search_option_acomp">
+                <i className="ri-search-line"></i>
+                <SearchProfile acomp={acomp} genero={genero} setResult={setResult} setLoading={setLoading} limit={limit} setAcomp={setAcomp}/>
+            </div>
             <div className="cache_filter_acomp">
-                <div className='max_min_cache'>
-                    <div className="min_cache_acomp">
-                        <input type="range" name="" id="" />
-                        <label htmlFor="">
-                            min
-                        </label>
-                    </div>
-                    <div className="max_cache_acomp">
-                        <input type="range" name="" id="" />
-                        <label htmlFor="">
-                            max
-                        </label>
-                    </div>
-                </div>
+                <span>R$</span>
+                <input type="text" name="max_price" id="max_price_acomp" maxLength={5} pattern='^[0-9]+([,.][0-9]+)?$' placeholder="Preço/Hora"/>
             </div>
             <div className="idade_filter_acomp">
-                <input type="range" name="" id="idade_filter" />
-                <label htmlFor="idade_filter">
-                    18
-                </label>
+                <i className="ri-calendar-todo-fill"></i>
+                <input type="text" name="idade_filter" id="max_price_acomp" maxLength={2} pattern='^[0-9]+([,.][0-9]+)?$' placeholder="Idade"/>
             </div>
-            <div className="corpo_filter_acomp">
-                <div>
-                    <input type="checkbox" name="" id="check_filter_corpo" />
-                    <label htmlFor="check_filter_corpo">
-                        Magra
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" name="" id="check_filter_corpo" />
-                    <label htmlFor="check_filter_corpo">
-                        Normal
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" name="" id="check_filter_corpo" />
-                    <label htmlFor="check_filter_corpo">
-                        Sarado
-                    </label>
-                </div>
-                <div>
-                    <input type="checkbox" name="" id="check_filter_corpo" />
-                    <label htmlFor="check_filter_corpo">
-                        Gorda
-                    </label>
-                </div>
-            </div>
-            <div className="etnia_filter_acomp">
-                <div className='etnia_filter'>
-                    <input type="checkbox" name="" id="check_filter_etnia" />
-                    <label htmlFor="check_filter_etnia">
-                        Branca(o)
-                    </label>
-                </div>
-                <div className='etnia_filter'>
-                    <input type="checkbox" name="" id="check_filter_etnia" />
-                    <label htmlFor="check_filter_etnia">
-                        Morena(o)
-                    </label>
-                </div>
-                <div className='etnia_filter'>
-                    <input type="checkbox" name="" id="check_filter_etnia" />
-                    <label htmlFor="check_filter_etnia">
-                        Parda(o)
-                    </label>
-                </div>
-                <div className='etnia_filter'>
-                    <input type="checkbox" name="" id="check_filter_etnia" />
-                    <label htmlFor="check_filter_etnia">
-                        Negra(o)
-                    </label>
-                </div>
-                <div className='etnia_filter'>
-                    <input type="checkbox" name="" id="check_filter_etnia" />
-                    <label htmlFor="check_filter_etnia">
-                        Asiática(o)
-                    </label>
-                </div>
-                <div className='etnia_filter'>
-                    <input type="checkbox" name="" id="check_filter_etnia" />
-                    <label htmlFor="check_filter_etnia">
-                        Indigêna
-                    </label>
-                </div>
-            </div>
-            <div className="services_filter_acomp">
-                {service.map((item,index)=>(
-                    <div key={index} className="">
-                        <input type="checkbox" name="" id="" />
-                        <label htmlFor="">
-                            {item}
+            <details className='details_corpo_acomp'>
+                <summary className='summary_corpo_acomp'>Corpo</summary>
+                <div className="corpo_filter_acomp">
+                    <div className='check_filter_corpo'>
+                        <input type="checkbox" name="" id="check_filter_magra" />
+                        <label htmlFor="check_filter_magra">
+                            Magra
                         </label>
                     </div>
-                ))}
-            </div>
+                    <div className='check_filter_corpo'>
+                        <input type="checkbox" name="" id="check_filter_normal" />
+                        <label htmlFor="check_filter_normal">
+                            Normal
+                        </label>
+                    </div>
+                    <div className='check_filter_corpo'>
+                        <input type="checkbox" name="" id="check_filter_sarada" />
+                        <label htmlFor="check_filter_sarada">
+                            Sarada(o)
+                        </label>
+                    </div>
+                    <div className='check_filter_corpo'>
+                        <input type="checkbox" name="" id="check_filter_gorda" />
+                        <label htmlFor="check_filter_gorda">
+                            Gorda(o)
+                        </label>
+                    </div>
+                </div>
+            </details>
+            <details className='details_corpo_acomp'>
+                <summary className='summary_corpo_acomp'>Etnia</summary>
+                <div className="corpo_filter_acomp">
+                    <div className='check_filter_corpo'>
+                        <input type="checkbox" name="" id="check_filter_magra" />
+                        <label htmlFor="check_filter_magra">
+                            Branca(o)
+                        </label>
+                    </div>
+                    <div className='check_filter_corpo'>
+                        <input type="checkbox" name="" id="check_filter_normal" />
+                        <label htmlFor="check_filter_normal">
+                            Morena(o)
+                        </label>
+                    </div>
+                    <div className='check_filter_corpo'>
+                        <input type="checkbox" name="" id="check_filter_sarada" />
+                        <label htmlFor="check_filter_sarada">
+                            Parda(o)
+                        </label>
+                    </div>
+                    <div className='check_filter_corpo'>
+                        <input type="checkbox" name="" id="check_filter_gorda" />
+                        <label htmlFor="check_filter_gorda">
+                            Negra(o)
+                        </label>
+                    </div>
+                    <div className='check_filter_corpo'>
+                        <input type="checkbox" name="" id="check_filter_gorda" />
+                        <label htmlFor="check_filter_gorda">
+                            Asiática(o)
+                        </label>
+                    </div>
+                    <div className='check_filter_corpo'>
+                        <input type="checkbox" name="" id="check_filter_gorda" />
+                        <label htmlFor="check_filter_gorda">
+                            Indigêna
+                        </label>
+                    </div>
+                </div>
+            </details>
+            <details className="details_corpo_acomp">
+                <summary className='summary_corpo_acomp'>Serviços</summary>
+                <div className='corpo_filter_acomp'>
+                    {service.map((item,index)=>(
+                        <div key={index} className="check_filter_corpo">
+                            <input type="checkbox" name="" id="check_filter_magra" />
+                            <label htmlFor="">
+                                {item}
+                            </label>
+                        </div>
+                    ))}
+                </div>
+            </details>
         </div>
     )
 }

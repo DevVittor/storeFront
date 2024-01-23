@@ -25,7 +25,7 @@ function SearchProfile({acomp,genero,setResult,setLoading,limit,setAcomp}) {
     },[acomp, genero, limit,setResult,setLoading]);
     return (
         <div className="box_search">
-            <input type="search" name="nome" value={acomp} onChange={(e) => setAcomp(e.target.value)} placeholder="Buscando por alguém ?" />
+            <input type="search" name="nome" value={acomp} onChange={(e) => setAcomp(e.target.value)} placeholder="Digite um nome" />
         </div>
     )
 }

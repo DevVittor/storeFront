@@ -1,15 +1,75 @@
 .modal_filter{
     display: flex;
     flex-direction: column;
+    gap: 10px;
     position: fixed;
     inset: 50%  auto auto 50%;
     transform: translate(-50%,-50%);
     z-index: 9999;
     height: auto;
+    overflow: auto;
     width: auto;
+    max-width: 350px;
+    border-radius: 5px;
     padding: 10px;
     background: var(--bg-400);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.title_filter_acomp i{
+    padding-right: 5px;
+}
+.search_option_acomp{
+    display: flex;
+    align-items: center;
+    background: var(--text-300);
+    border: none;
+}
+.search_option_acomp i{
+    padding: 5px;
+    background: #ddd;
+    border: none;
+    outline: none;
+}
+.search_option_acomp input[type="search"]{
+    padding: 5px;
+    border: none;
+    outline: none;
+    background: var(--text-300);
+}
+.cache_filter_acomp{
+    display: flex;
+    align-items: center;
+    background: var(--text-300);
+    border: none;
+}
+.cache_filter_acomp span{
+    background: #ddd;
+    border: none;
+    padding: 5px;
+}
+.cache_filter_acomp input[type="text"]{
+    padding: 5px;
+    border: none;
+    outline: none;
+    background: var(--text-300);
+}
+.idade_filter_acomp{
+    display: flex;
+    align-items: center;
+    background: var(--text-300);
+    border: none;
+}
+.idade_filter_acomp i{
+    padding: 5px;
+    background: #ddd;
+    border: none;
+    outline: none;
+}
+.idade_filter_acomp input[type="text"]{
+    padding: 5px;
+    border: none;
+    outline: none;
+    background: var(--text-300);
 }
 .etnia_filter_acomp{
     display: flex;
@@ -39,8 +99,80 @@
 .etnia_filter label:hover{
     cursor: pointer;
 }
+.details_corpo_acomp:hover{
+    cursor: pointer;
+}
+.summary_filter_acomp {
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    padding: 5px 15px;
+    border-radius: 3px;
+    color: var(--bg-400);
+    border: none;
+    width: 90px;
+    text-align: center;
+    background: var(--text-300);
+}
+.summary_filter_acomp:hover{
+    cursor: pointer;
+}
+.summary_filter_acomp i{
+    padding-right: 5px;
+}
 .max_min_cache{
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px 0;
+}
+.idade_filter_acomp input[type="number"]{
+    padding: 5px 15px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--bg-400);
+}
+.corpo_filter_acomp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+    flex-wrap: wrap;
+    padding: 10px;
+    background: #000;
+}
+.summary_corpo_acomp{
+    color: var(--text-300);
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    padding: 5px 15px;
+    background: var(--bg-400);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+#check_filter_magra, #check_filter_normal,
+#check_filter_sarada, #check_filter_gorda{
+    display: none;
+}
+.check_filter_corpo input[type="checkbox"]:checked + label{
+    background: var(--bg-500);
+    color: var(--text-300);
+}
+.check_filter_corpo label{
+    padding: 3px 10px;
+    border: none;
+    outline: none;
+    background: var(--bg-400);
+    color: var(--text-300);
+    font-size: 14px;
+    font-weight: 400;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.check_filter_corpo label:hover{
+    cursor: pointer;
 }
