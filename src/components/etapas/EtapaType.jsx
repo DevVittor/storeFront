@@ -16,7 +16,7 @@ export default function EtapaType() {
     }
 
     return (
-        <>
+        <form encType="multipart/form-data" method="post">
             {stage === 1 && (
                 <EtapaOne numero={stage}>
                     <button className="next_staps" onClick={next}>Avançar</button>
@@ -39,6 +39,6 @@ export default function EtapaType() {
                     </div>
                 </EtapaTres>
             )}
-        </>
+        </form>
     )
 }

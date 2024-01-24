@@ -5,7 +5,6 @@ import Acompanhantes from "./pages/Acompanhantes";
 //import Sobre from "./pages/Sobre";
 import Acessar from "./pages/Acessar";
 //import Registrar from "./pages/RegistrarModal";
-import Produto from "./pages/Produto";
 //import Profile from "./pages/Usuario";
 //import Test from './pages/Test';
 //import Filtrando from './components/Filtrando';
@@ -25,6 +24,7 @@ import Trans from './components/generos/Trans';
 
 //Modals
 
+import Files from "./components/Files";
 import ClienteModal from './components/modals/AcompRegistro';
 import AcompModal from './components/modals/AcompRegistro';
 import AnuncianteModal from './components/modals/AcompRegistro';
@@ -52,6 +52,7 @@ export default function App() {
           <Route path="cliente" element={<ClienteModal/>}/>
           <Route path="acomp" element={<AcompModal/>}/>
           <Route path="anunciante" element={<AnuncianteModal/>}/>
+          <Route path="upload" element={<Files/>}/>
           <Route
             path="success"
             element={
@@ -75,7 +76,6 @@ export default function App() {
           <Route path="Homem" element={<Homem/>}/>
           <Route path="Trans" element={<Trans/>}/>
           <Route path="arquivo" element={<Arquivo/>}/>
-          <Route path="produto" element={<Produto />} />
           <Route path="finalizada" element={<ContaCriada/>}/>
           {/*<Route path="/acompanhantes/:id" element={<Profile />} />*/}
           <Route path="/acompanhante/:id" element={<Nova />} />

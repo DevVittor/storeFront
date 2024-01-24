@@ -56,7 +56,7 @@ export default function EtapaOne({numero,children}) {
                     {imgAvatar ? <img src={imgAvatar} alt="Avatar" /> :  <img src="https://images.pexels.com/photos/247297/pexels-photo-247297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar" />}
                 </div>
                 <div className="avatar_input_acomp">
-                    <input type="file" accept="image/png, image/jpg, image/jpeg, image/webp" name="" id="avatar_profile_acomp" onChange={handleFileChange}/>
+                    <input required type="file" accept="image/png, image/jpg, image/jpeg, image/webp" name="" id="avatar_profile_acomp" onChange={handleFileChange}/>
                     <label htmlFor="avatar_profile_acomp">
                         <span><i className="ri-upload-cloud-fill"></i>Enviar Foto</span>
                     </label>
@@ -81,7 +81,7 @@ export default function EtapaOne({numero,children}) {
                         </select>
                     </div>
                     <div className="modal_genero_acomp">
-                        <select defaultValue="Genero" name="" id="">
+                        <select defaultValue="Genero" name="" id="" required>
                             <option value="" disabled >Gênero</option>
                             <option value="">Mulher</option>
                             <option value="">Homem</option>
