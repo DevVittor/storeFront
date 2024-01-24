@@ -15,16 +15,16 @@ function Nova(){
     "Anal",
     "Beijo na Boca",
     "Casal",
-    "Boquete",
-    "Jantar Romântico",
+    "Namoradinha",
+    "Fantasias",
+    "Massagem erótica",
+    "Chuva Dourada",
+    "Chuva Negra",
+    "Striptease",
     "Festas",
     "Eventos",
     "Viagens",
-    "Massagem Erótica",
     "Anal Giratório",
-    "Chuva Dourada",
-    "Chuva Negra",
-    "Fantasia",
 ];
 
 const tamanhoService = service.length;

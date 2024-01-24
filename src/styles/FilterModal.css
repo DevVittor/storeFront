@@ -24,80 +24,26 @@
     background: var(--text-300);
     border: none;
 }
-.search_option_acomp i{
-    padding: 5px;
-    background: #ddd;
-    border: none;
-    outline: none;
-}
-.search_option_acomp input[type="search"]{
-    padding: 5px;
-    border: none;
-    outline: none;
-    background: var(--text-300);
-}
-.cache_filter_acomp{
-    display: flex;
-    align-items: center;
-    background: var(--text-300);
-    border: none;
-}
-.cache_filter_acomp span{
-    background: #ddd;
-    border: none;
-    padding: 5px;
-}
-.cache_filter_acomp input[type="text"]{
-    padding: 5px;
-    border: none;
-    outline: none;
-    background: var(--text-300);
-}
-.idade_filter_acomp{
-    display: flex;
-    align-items: center;
-    background: var(--text-300);
-    border: none;
-}
-.idade_filter_acomp i{
-    padding: 5px;
-    background: #ddd;
-    border: none;
-    outline: none;
-}
-.idade_filter_acomp input[type="text"]{
-    padding: 5px;
-    border: none;
-    outline: none;
-    background: var(--text-300);
-}
+.cache_filter_acomp, .idade_filter_acomp,
 .etnia_filter_acomp{
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-.etnia_filter input[type="checkbox"]{
-    display: none;
-}
-.etnia_filter input[type="checkbox"]:checked + label{
     background: var(--text-300);
-    color: var(--bg-400);
+    border: none;
 }
-.etnia_filter label{
-    padding: 3px 10px;
+.cache_filter_acomp input[type="text"], .idade_filter_acomp input[type="text"],
+.idade_filter_acomp input[type="number"], .search_option_acomp input[type="search"]{
+    padding: 5px;
     border: none;
     outline: none;
-    border-radius: 3px;
-    background: var(--bg-400);
-    color: var(--text-300);
-    font-size: 14px;
-    font-weight: 400;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    background: var(--text-300);
 }
-.etnia_filter label:hover{
-    cursor: pointer;
+.cache_filter_acomp i, .idade_filter_acomp i,
+.search_option_acomp i {
+    padding: 5px;
+    background: #ddd;
+    border: none;
+    outline: none;
 }
 .details_corpo_acomp:hover, .details_etnia_acomp:hover,
 .details_service_acomp:hover{
@@ -110,15 +56,6 @@
     flex-wrap: wrap;
     gap: 5px;
     padding: 10px 0;
-}
-.idade_filter_acomp input[type="number"]{
-    padding: 5px 15px;
-    border: none;
-    border-radius: 3px;
-    outline: none;
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--bg-400);
 }
 .summary_corpo_acomp, .summary_etnia_acomp,
 .summary_service_acomp{
@@ -136,7 +73,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:5px;
+    gap:8px;
     flex-wrap: wrap;
     padding: 10px;
     background: #000;
@@ -151,7 +88,7 @@
 #check_filter_3, #check_filter_4, #check_filter_5,
 #check_filter_6, #check_filter_7, #check_filter_8, 
 #check_filter_9, #check_filter_10, #check_filter_11, 
-#check_filter_12{
+#check_filter_12, #service_checkout_acomp_13{
     display: none;
 }
 .check_filter_corpo input[type="checkbox"]:checked + label,

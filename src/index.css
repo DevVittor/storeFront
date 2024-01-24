@@ -12,7 +12,7 @@
 
 html,
 body {
-  background: var(--bg-400);
+  background: var(--bg-350);
   scroll-behavior: smooth;
 }
 
@@ -38,6 +38,7 @@ body {
   --bg-500: rgba(0, 121, 255, 1);
   --bg-600: rgba(0, 223, 162, 1);
   --bg-700: rgba(255, 0, 96, 1);
+  --color-orange: rgba(254, 122, 54, 1);
 }
 
 /*@media screen and (max-width:800px) {

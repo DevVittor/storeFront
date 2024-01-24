@@ -29,7 +29,7 @@ function FilterModal({acomp,genero,setResult,setLoading,limit,setAcomp}){
                 <SearchProfile acomp={acomp} genero={genero} setResult={setResult} setLoading={setLoading} limit={limit} setAcomp={setAcomp}/>
             </div>
             <div className="cache_filter_acomp">
-                <span>R$</span>
+                <i className="ri-cash-line"></i>
                 <input type="text" name="max_price" id="max_price_acomp" maxLength={5} pattern='^[0-9]+([,.][0-9]+)?$' placeholder="Preço/Hora"/>
             </div>
             <div className="idade_filter_acomp">

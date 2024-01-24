@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
-
-export default function EtapaOne() {
+import PropTypes from 'prop-types';
+export default function EtapaOne({numero,children}) {
 
     const [idade,setIdade] = useState([]);
     const [countNumber,setCountNumber] = useState("");
@@ -50,7 +50,7 @@ export default function EtapaOne() {
 
     return (
         <div className="container_etapa_type">
-            <h2><i className="ri-signpost-line"></i> 01|03</h2>
+            <h2><i className="ri-signpost-line"></i> 0{numero}|03</h2>
             <div className="box_avatar_acomp">
                 <div className="avatar_img_acomp">
                     {imgAvatar ? <img src={imgAvatar} alt="Avatar" /> :  <img src="https://images.pexels.com/photos/247297/pexels-photo-247297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Avatar" />}
@@ -110,8 +110,12 @@ export default function EtapaOne() {
                     </div>
                 }
                 </div>
-                
             </div>
+            {children}
         </div>
     );
+}
+EtapaOne.propTypes = {
+    numero: PropTypes.func,
+    children: PropTypes.node
 }

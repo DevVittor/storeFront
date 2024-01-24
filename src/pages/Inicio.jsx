@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import ProfileBanner from "../components/ProfileBanner";
@@ -15,10 +15,9 @@ export default  function Inicio() {
   const [contadorTrans, setContadorTrans] = useState(0);
   const [result, setResult] = useState([]);
   const [alturaDisponivel, setAlturaDisponivel] = useState(window.innerHeight - 492);
-  const [initialLoad, setInitialLoad] = useState(false);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(12);
+  const [limit, setLimit] = useState(6);
   const [acomp,setAcomp] = useState("");
   const [filter,setFilter] = useState(false);
 
@@ -80,53 +79,43 @@ export default  function Inicio() {
     };
   }, []);
 
-  const loadMoreItems = useCallback(() => {
-    if (!loading) {
-      setLoading(true);
-      axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page}&genero=${genero}&limit=12`)
-        .then(() => {
-          setLoading(false);
-          setPage(prevResult => prevResult + 1);
-          if(genero === "Mulher" && contadorMulher >= limit){
-            setLimit(prevResult => prevResult + 12);
-          }else if(genero === "Homem" && contadorHomem >= limit){
-            setLimit(prevResult => prevResult + 12);
-          }else if(genero === "Trans" && contadorTrans>= limit){
-            setLimit(prevResult => prevResult + 12);
-          }
-        }).catch((error) => {
-          console.error(`Não deu para pegar nenhuma informação por causa disso: ${error}`);
-        });
-    }
-  },[genero,loading]);
+  const handleScroll = () => {
+    const scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+    const scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight || window.innerHeight;
 
-  const handleScroll = useCallback(() => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight
-    ) {
-      loadMoreItems();
+    if (scrollTop + clientHeight >= scrollHeight - 200) {
+      // O usuário chegou perto do final da página, você pode carregar mais itens aqui
+      if (!loading) {
+        setLoading(true);
+        axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page}&genero=${genero}&limit=12`)
+          .then(() => {
+            setLoading(false);
+            setPage(prevResult => prevResult + 1);
+            if (genero === "Mulher" && contadorMulher >= limit) {
+              setLimit(prevResult => prevResult + 6);
+            } else if (genero === "Homem" && contadorHomem >= limit) {
+              setLimit(prevResult => prevResult + 6);
+            } else if (genero === "Trans" && contadorTrans >= limit) {
+              setLimit(prevResult => prevResult + 6);
+            }
+          })
+          .catch((error) => {
+            console.error(`Erro na requisição: ${error}`);
+          });
+      }
     }
-  },[loadMoreItems]);
+  };
+
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [result, handleScroll]);
-
-  useEffect(() => {
-    if (!initialLoad) {
-      setInitialLoad(true);
-      return;
-    }
-  
-    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
-      loadMoreItems();
-    }
-  }, [result, handleScroll, initialLoad, loadMoreItems]);
+  }, [loading, genero, page]);
 
 const DivHeght = {
-  minHeight:`${alturaDisponivel}px`,
+minHeight:`${alturaDisponivel}px`,
   height:"auto",
 }
 
@@ -190,7 +179,7 @@ const DivHeght = {
             <Link to={`/acompanhante/${item._id}`} key={`${item._id}_${index}`}>
               <div className="card_profile ">
                 <div className="avatar_profile">
-                  <img loading="lazy" src={ImgProfile} alt="foto" />
+                  <img loading="lazy" src={ImgProfile} alt={`picture_${item._id}`} />
                   <div className="selos_profile">
                     <div className="selos_list">
                       <nav>

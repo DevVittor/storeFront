@@ -4,6 +4,7 @@
   align-items: center;
   width: 100%;
   padding: 20px;
+  background: var(--bg-350);
 }
 .container_filter_search {
   display: flex;
@@ -12,6 +13,7 @@
   flex-wrap: wrap;
   gap: 5px;
   padding: 10px 30px;
+  background: var(--bg-350);
 }
 .container_search_filter_option {
   display: flex;
@@ -26,9 +28,8 @@
 }
 .box_gen button {
   padding: 5px 10px;
-  border: none;
   outline: none;
-  background: var(--bg-400);
+  background: var(--bg-350);
   color: var(--text-300);
   border: 1px solid var(--text-300);
 }
@@ -40,7 +41,7 @@
   border: none;
   outline: none;
   background: var(--text-300);
-  color: var(--bg-400);
+  color: var(--bg-350);
   border: 1px solid var(--text-300);
 }
 .box_search {
@@ -58,8 +59,8 @@
   outline: none;
   background: var(--text-300);
   font-size: 14px;
-  font-weight: 400;
-  color: var(--bg-400);
+  font-weight: 500;
+  color: var(--bg-350);
 }
 .box_filter button:hover {
   cursor: pointer;
@@ -85,6 +86,7 @@
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
+  background: var(--bg-350);
 }
 
 .card_profile {

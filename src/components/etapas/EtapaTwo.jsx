@@ -1,9 +1,10 @@
 import "../../styles/EtapaTwo.css";
-export default function EtapaTwo() {
+import PropTypes from 'prop-types';
+export default function EtapaTwo({numero,children}) {
 
     return (
         <div className="container_etapa_type">
-            <h2><i className="ri-signpost-line"></i> 02|03</h2>
+            <h2><i className="ri-signpost-line"></i> 0{numero}|03</h2>
             <div className="modal_formas_pagamentos_acomp">
                     <div className="box_pagamento_acomp">
                         <input type="checkbox" id="input_dinheiro_acomp"/>
@@ -76,7 +77,11 @@ export default function EtapaTwo() {
                     </select>
                 </div>
             </div>
-            
+            {children}
         </div>
     )
+}
+EtapaTwo.propTypes = {
+    numero: PropTypes.func,
+    children: PropTypes.node
 }
