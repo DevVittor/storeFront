@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/ModalBanner.css";
 import PropTypes from 'prop-types';
 import { useEffect } from "react";
+import axios from "axios";
 export default function ModalBanner({isOpen}){
 
   useEffect(()=>{
@@ -18,8 +19,9 @@ export default function ModalBanner({isOpen}){
 
   const [bannerInput,setBannerInput] = useState("");
   const [viewBanner,setViewBanner] = useState("");
-  const [prevBanner,setPrevBanner] = useState(false);
-  const [backBanner, setBackBanner] = useState(true);
+  const [nameBanner,setNameBanner] = useState("");
+  const [bannerImg,setBannerImg] = useState("");
+  const [linkBanner,setLinkBanner] = useState("");
 
   useEffect(() => {
     if (bannerInput) {
@@ -29,40 +31,51 @@ export default function ModalBanner({isOpen}){
       } else {
         console.log("Imagem muito grande. Limite de 2MB.");
         setBannerInput(null);
-        setViewBanner("");
       }
     }
   }, [bannerInput]);
 
-  function handleBanner(){
-    setBackBanner(!backBanner);
-    setPrevBanner(!prevBanner);
+
+
+  function submitBanner(e){
+    e.preventDefault();
+    const formData = {
+      title:nameBanner,
+      banner:bannerImg,
+      link:linkBanner
+    }
+    axios.post("http://localhost:8080/publicidade/create",formData)
+    .then(()=>{
+      console.log(`Banner criado com sucesso!`);
+    })
   }
 
   return (
     <div  className='modal_banner_anunciante'>
-      {backBanner && 
+      <form onSubmit={submitBanner}> 
         <div className="file_banner_anunciante">
-          <input type="file" name="" accept='image/jpg, image/webp, image/jpeg' id="file_anunciante" onChange={(e)=>setBannerInput(e.target.files[0])}/>
+          <input type="file" name="" accept='image/jpg, image/webp, image/jpeg' id="file_anunciante" 
+          onChange={(e)=>setBannerInput(e.target.files[0])}/>
           <label htmlFor="file_anunciante">
             <h1>{bannerInput === null 
-              ? "Enviar Banner" 
-              : `Banner Carregado`}
+              ? `Banner Carregado`
+              : `Enviar Banner`}
             </h1>  
           </label>
         </div>
-      }
-      {prevBanner && !backBanner &&
+      {bannerInput && (
         <div className="preview_banner_anunciante">
-          <img src={viewBanner} alt="" />
+          <img src={viewBanner}alt="" onChange={(e)=>setBannerImg(e.target.files[0])}/>
         </div>
-      }
+      )}
       {bannerInput && 
-        <div className="btn_preview_anunciante">
-          <button className={prevBanner ? "close_preview" : "open_preview"} onClick={handleBanner}><i className="ri-picture-in-picture-fill"></i>{prevBanner ? "Fechar Visualização" : "Visualizar Banner"}</button>
+        <div className="">
+          <input type="text" name="name" id="" placeholder="Name" onChange={(e)=>setNameBanner(e.target.value)}/>
+          <input type="url" name="link" id="" pattern="https://.*" required
+          placeholder="https://example.com" onChange={(e)=>setLinkBanner(e.target.value)}/>
         </div>
       }
-      
+      </form>
       <div className="obs_banner_anunciante">
         <span>Resolução de até 800px x 500px com o tamanho de até 2mb com o tipos de .JPG, .WEBP, .JPEG</span>
       </div>

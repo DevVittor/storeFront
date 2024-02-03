@@ -30,7 +30,37 @@ export default  function Inicio() {
     })
   },[filter]);
 
+  async function handleLengthGen(){
+
+    try{
+    const response = await fetch(`http://localhost:8080/v1/api/acompanhantes?limit=0`,{
+      method:'get',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
+    })
+      const data = await response.json();
+      const axiosResponse = data.dados;
+
+      const countMulher = axiosResponse.filter(item => item.genero === "Mulher").length;
+      setContadorMulher(countMulher);
+
+      const countHomem = axiosResponse.filter(item => item.genero === "Homem").length;
+      setContadorHomem(countHomem);
+
+      const countTrans = axiosResponse.filter(item => item.genero === "Trans").length;
+      setContadorTrans(countTrans);
+    }catch(error){
+      console.log(error);
+    }
+  }
+
   useEffect(()=>{
+    handleLengthGen();
+  },[])
+
+  /*useEffect(()=>{
     axios.get(`http://localhost:8080/v1/api/acompanhantes?limit=0`)
     .then((res)=>{
       const axiosResponse = res.data.dados;
@@ -44,7 +74,8 @@ export default  function Inicio() {
       const countTrans = axiosResponse.filter(item => item.genero === "Trans").length;
       setContadorTrans(countTrans);
     }).catch(error=>console.error(error));
-  },[]);
+  },[]);*/
+
 
   useEffect(()=>{
     axios.get(`http://localhost:8080/v1/api/acompanhantes?limit=0`)

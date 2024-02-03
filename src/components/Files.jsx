@@ -37,7 +37,7 @@ export default function Files() {
         Enviar
       </button>
     </form>
-    {progress >=0 && (
+    {progress >=  0 && (
       <div className='barra' style={{width:`${progress}%`}}>{
         progress === 100
         ? "Concluido"

@@ -34,6 +34,7 @@ import DestaquesModal from "./components/modals/LoginModal";
 //Modals steps 
 
 import EtapaType from "./components/etapas/EtapaType";
+import TypeAccount from "./components/modals/TypeAccount";
 
 //Apenas um teste
 import Formulario from './pages/Formulario';
@@ -53,6 +54,7 @@ export default function App() {
           <Route path="acomp" element={<AcompModal/>}/>
           <Route path="anunciante" element={<AnuncianteModal/>}/>
           <Route path="upload" element={<Files/>}/>
+          <Route path="tipo" element={<TypeAccount/>}/>
           <Route
             path="success"
             element={

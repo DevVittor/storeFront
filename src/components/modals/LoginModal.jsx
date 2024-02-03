@@ -16,8 +16,7 @@ export default function LoginModal({setLogin}){
       typeAccount
     };
 
-    axios
-      .post("http://localhost:8080/v1/api/login/save", checarDados)
+    axios.post("http://localhost:8080/v1/api/login/save", checarDados)
       .then((res) => {
         console.log(res.data);
         const userId = res.data.useId;
