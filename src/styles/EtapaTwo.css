@@ -100,6 +100,7 @@
     border-radius: 20px;
     background: var(--bg-400);
     cursor: pointer;
+    outline: none;
 }
 .modal_altura_acomp input[type="range"]::-webkit-slider-runnable-track,
 .modal_peso_acomp input[type="range"]::-webkit-slider-runnable-track {

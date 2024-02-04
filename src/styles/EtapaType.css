@@ -342,7 +342,7 @@
     margin: 10px 0;
     appearance: none; 
     border-radius: 20px;
-    
+    outline: none;
     background: var(--bg-400);
 }
 .modal_date_acomp input[type="range"]::-webkit-slider-runnable-track {
