@@ -1,6 +1,6 @@
 import "../../styles/EtapaTres.css";
 import PropTypes from 'prop-types';
-export default function EtapaTres({ numero,children }) {
+export const EtapaTres= ({ numero,children })=> {
 
     const service = [
         "Anal",
@@ -38,6 +38,6 @@ export default function EtapaTres({ numero,children }) {
     )
 }
 EtapaTres.propTypes ={
-    numero: PropTypes.func,
+    numero: PropTypes.number,
     children: PropTypes.node,
 }

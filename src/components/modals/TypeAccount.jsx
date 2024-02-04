@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../styles/TypeAccount.css";
-function TypeAccount(){
+export const TypeAccount = ()=>{
 
   const [selectedType,setSelectedType] = useState("");
-
+  const [alturaAtual,setAlturaAtual] = useState(window.innerHeight - 65);
+ useEffect(()=>{
+  setAlturaAtual(window.innerHeight - 65);
+  console.log("Altura",alturaAtual);
+ },[alturaAtual]);
   function handleClick(typeName){
     setSelectedType(typeName);
   }
@@ -19,11 +23,15 @@ function TypeAccount(){
     transition:"all ease .3s"
   }
 
+  const AlturaAtt = {
+    minHeight:`${alturaAtual}px`
+  }
+
   return(
-    <div className="modal_type_account">
+    <div className="modal_type_account" style={AlturaAtt}>
       <div className="box_type_account">
         <div className="title_type">
-          <h1>Quem eu sou ?</h1>
+          <h1><i className="ri-team-fill"></i>Quem eu sou ?</h1>
           <span>Cada tipo tem suas funções dentro da plataforma</span>
         </div>
         <div className="list_type_account">
@@ -50,4 +58,3 @@ function TypeAccount(){
     </div>
   )
 }
-export default TypeAccount;

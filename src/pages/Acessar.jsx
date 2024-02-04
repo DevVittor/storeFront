@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-export default function Acessar() {
+export const Acessar=()=> {
   document.title = "Acessar";
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");

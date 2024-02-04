@@ -1,7 +1,7 @@
 //import {Redirect}from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function ProtectedRoute({ children }) {
+export const ProtectedRoute=({ children })=> {
   const userToken = localStorage.getItem("Token");
 
   if (userToken) {
@@ -18,5 +18,3 @@ function ProtectedRoute({ children }) {
 ProtectedRoute.propTypes = {
   children: PropTypes.node,
 };
-
-export default ProtectedRoute;

@@ -1,6 +1,6 @@
 import {useState,useEffect} from 'react';
 import axios from 'axios';
-function Categoria(){
+export const Categoria=()=>{
 
   const token = localStorage.getItem('token');
 
@@ -109,4 +109,3 @@ function Categoria(){
     </>
   ) 
 }
-export default Categoria;

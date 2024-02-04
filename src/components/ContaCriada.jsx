@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../styles/contaCriada.css';
 import Profile from '../components/Cardizinho.jsx';
-function ContaCriada() {
+export const ContaCriada=()=> {
 	return (
 		<div className="container_conta">
 			<div className="box_conta">
@@ -11,4 +11,3 @@ function ContaCriada() {
 		</div>
 	)
 }
-export default ContaCriada;

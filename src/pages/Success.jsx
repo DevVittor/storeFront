@@ -1,5 +1,5 @@
 import axios from 'axios';
-export default function Success() {
+export const Success=()=> {
     axios.post("http://localhost:8080/success")
     .then(res=>{
         console.log(res.data);

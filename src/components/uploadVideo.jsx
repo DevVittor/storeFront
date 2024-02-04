@@ -1,5 +1,5 @@
 import {useState} from 'react';
-function uploadVideo(){
+export const uploadVideo=()=>{
 
   const all = {
     color:"black"
@@ -42,5 +42,3 @@ function uploadVideo(){
     </>
   )
 }
-
-export default uploadVideo;

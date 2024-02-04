@@ -1,3 +1,3 @@
-export default function Cancel() {
+export const Cancel=()=> {
   return <div>Cancel</div>;
 }

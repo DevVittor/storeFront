@@ -1,4 +1,4 @@
-export default function Perfil() {
+export const Perfil=()=> {
   return (
     <main>
       <h1>Perfil</h1>

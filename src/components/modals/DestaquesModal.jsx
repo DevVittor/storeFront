@@ -1,7 +1,7 @@
 import "../../styles/DestaquesModal.css";
 //import {useRef,useEffect} from 'react';
 import PropTypes from 'prop-types';
-function DestaquesModal({setDestaque}){
+export const DestaquesModal=({setDestaque})=>{
 
     return(
             <div className="modal_destaque" >
@@ -45,4 +45,3 @@ function DestaquesModal({setDestaque}){
 DestaquesModal.propTypes ={
     setDestaque: PropTypes.func.isRequired
 }
-export default DestaquesModal;

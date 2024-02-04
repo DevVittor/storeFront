@@ -1,7 +1,7 @@
 import "../../styles/VerificadoModal.css";
 //import {useRef,useEffect} from 'react';
 import PropTypes from 'prop-types';
-function VerificadoModal({setVerificado}){
+export const VerificadoModal=({setVerificado})=>{
 
     return(
             <div className="modal_verificado" >
@@ -45,4 +45,3 @@ function VerificadoModal({setVerificado}){
 VerificadoModal.propTypes = {
     setVerificado: PropTypes.func.isRequired
 }
-export default VerificadoModal;

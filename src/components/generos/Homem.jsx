@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/inicio.css';
 import axios from 'axios';
 
-function Homem() {
+export const Homem=()=> {
 
   const [result, setResult] = useState([]);
   const genero = "Homem";
@@ -140,4 +140,3 @@ function Homem() {
       </section>
   )
 }
-export default Homem;

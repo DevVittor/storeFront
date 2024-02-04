@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import "../styles/planos.css";
 import CardPlanos from "../components/CardPlanos";
-export default function Assinatura() {
+export const Assinatura=()=> {
   const [toggle, setToggle] = useState(false);
   const [alturaDisponivel, setAlturaDisponivel] = useState(window.innerHeight - 113);
 

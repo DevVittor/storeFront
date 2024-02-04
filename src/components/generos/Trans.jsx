@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/inicio.css';
 import axios from 'axios';
 
-function Trans() {
+export const Trans=()=> {
 
   const [result, setResult] = useState([]);
   const genero = "Trans";
@@ -140,4 +140,3 @@ function Trans() {
       </section>
   )
 }
-export default Trans;

@@ -1,7 +1,7 @@
 import "../../styles/AcompRegistro.css";
 import EtapaProfile from "../etapas/EtapaProfile";
 
-function AcompRegistro() {
+export const AcompRegistro=()=> {
 
     return (
         <div className="acomp_registro_modal">
@@ -13,4 +13,3 @@ function AcompRegistro() {
         </div>
     )
 }
-export default AcompRegistro;

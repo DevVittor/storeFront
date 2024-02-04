@@ -1,20 +1,16 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import PropTypes from 'prop-types';
-export default function EtapaOne({numero,children}) {
+export const EtapaOne = ({numero,children})=> {
 
-    const [idade,setIdade] = useState([]);
+    const [age,setAge]= useState(18);
     const [countNumber,setCountNumber] = useState("");
     const[estados,setEstados] = useState([]);
     const [cidades,setCidades] = useState([]);
     const [selectedEstado, setSelectedEstado] = useState("");
     const[imgAvatar,setImgAvatar] = useState(null);
 
-    useState(()=>{
-        for(let i = 18; i <=70; i++){
-            setIdade(prevIdade=>[...prevIdade,i]); 
-        }
-    },[]);
+    console.log(`Idade Atual ${age}`);
 
     useEffect(() => {
         axios.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome")
@@ -47,6 +43,9 @@ export default function EtapaOne({numero,children}) {
             setImgAvatar(URL.createObjectURL(file));
         }
     };
+    function handleAge(e){
+        setAge(e.target.value);
+    }
 
     return (
         <div className="container_etapa_type">
@@ -71,23 +70,9 @@ export default function EtapaOne({numero,children}) {
                 <span className={countNumber.length === 150 ? "limitCaracteres" : ""}>{countNumber === "" || countNumber.length === 0 ? 0 : countNumber.length}/150</span>
             </div>
             <div className="modal_genero_estado_acomp">
-                <div className="modal_data_genero">
-                    <div className="modal_date_acomp">
-                        <select defaultValue="18" name="" id="">
-                            <option value="" disabled >Idade</option>
-                            {idade.map((item,index)=>(
-                                <option key={index} value={item}>{item}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className="modal_genero_acomp">
-                        <select defaultValue="Genero" name="" id="" required>
-                            <option value="" disabled >Gênero</option>
-                            <option value="">Mulher</option>
-                            <option value="">Homem</option>
-                            <option value="">Trans</option>
-                        </select>
-                    </div>
+                <div className="modal_date_acomp">
+                        <label htmlFor="rangeAge">Idade: {age}</label>
+                        <input type="range" name="age" min={1} max={100} step="1" id="rangeAge" value={age} onChange={handleAge} />
                 </div>
                 <div className="modal_estado_cidade_acomp">
                     <div className="modal_estado_acomp">
@@ -116,6 +101,6 @@ export default function EtapaOne({numero,children}) {
     );
 }
 EtapaOne.propTypes = {
-    numero: PropTypes.func,
+    numero: PropTypes.number,
     children: PropTypes.node
 }

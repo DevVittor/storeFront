@@ -1,13 +1,25 @@
 import { useState } from "react";
 import "../../styles/EtapaType.css";
 
-import EtapaOne from "./EtapaOne";
-import EtapaTwo from "./EtapaTwo";
-import EtapaTres from "./EtapaTres";
+import {EtapaOne} from "./EtapaOne";
+import {EtapaTwo} from "./EtapaTwo";
+import {EtapaTres} from "./EtapaTres";
 
-export default function EtapaType() {
+export const EtapaType = ()=> {
 
     const [stage,setStage] = useState(1);
+    const [stageData,setStageData] = useState({});
+
+    console.log("Dados das Etapas: ",stageData);
+
+    function handleDataStage(dataEtapa){
+
+        // Faça o que quiser com os dados recebidos do EtapaTwo
+        console.log("Dados recebidos do EtapaTwo:", dataEtapa);
+
+        // Adiciona os dados ao array
+        setStageData({dataEtapa});
+    }
 
     function next(){
         if (stage>0 && stage <4) setStage(prevNext=>prevNext + 1);
@@ -24,7 +36,7 @@ export default function EtapaType() {
                 </EtapaOne>
             )}
             {stage === 2 && (
-                <EtapaTwo numero={stage}>
+                <EtapaTwo numero={stage} onNext={handleDataStage}>
                     <div className="next_back_staps">
                         <button className="back_staps" onClick={back}>Voltar</button>
                         <button className="next_staps" onClick={next}>Avançar</button>
@@ -43,3 +55,4 @@ export default function EtapaType() {
         </form>
     )
 }
+export default EtapaType;

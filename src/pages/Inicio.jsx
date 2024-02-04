@@ -4,7 +4,7 @@ import axios from 'axios';
 import ProfileBanner from "../components/ProfileBanner";
 import FilterModal from "../components/modals/FilterModal";
 
-export default  function Inicio() {
+export const Inicio = ()=> {
   const ImgProfile = "https://images.pexels.com/photos/2479883/pexels-photo-2479883.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
   document.title = "ABRIME";

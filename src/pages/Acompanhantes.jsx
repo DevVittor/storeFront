@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import styles from './Acomp.module.css';
 import { Link, useParams } from 'react-router-dom';
-function Acompanhantes() {
+export const Acompanhantes= ()=> {
   const {id} = useParams();
   const [info, setInfo] = useState([]);
   const upload = "http://localhost:8080/upload/";
@@ -31,4 +31,3 @@ function Acompanhantes() {
   )
 }
 
-export default Acompanhantes;

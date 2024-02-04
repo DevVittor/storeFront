@@ -1,5 +1,5 @@
 import "../../styles/EtapaProfile.css";
-function EtapaProfile() {
+export const EtapaProfile = ()=> {
     return (
             <div className="modal_etapa_profile">
                 <div className="picture_etapa_profile">
@@ -20,4 +20,3 @@ function EtapaProfile() {
             </div>
     )
 }
-export default EtapaProfile;

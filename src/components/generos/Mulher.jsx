@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../styles/inicio.css';
 import axios from 'axios';
 
-function Mulher() {
+export const Mulher=()=> {
 
   const [result, setResult] = useState([]);
   const genero = "Mulher";
@@ -149,4 +149,3 @@ function Mulher() {
     </section>
   )
 }
-export default Mulher;

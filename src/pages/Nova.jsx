@@ -5,7 +5,7 @@ import ProfileBanner from "../components/ProfileBanner";
 import { Fragment } from 'react';
 //import SliderNova from "../components/SliderNova";
 //import {useState, useEffect} from 'react';
-function Nova(){
+export const Nova=()=>{
   
   const banner = "https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   const foto = "https://images.pexels.com/photos/5799649/pexels-photo-5799649.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
@@ -117,4 +117,3 @@ const tamanhoService = service.length;
     </main>
   )
 }
-export default Nova;

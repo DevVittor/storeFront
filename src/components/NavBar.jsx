@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import HeaderBar from "../components/Header";
+import {HeaderBar} from "../components/Header";
 //import FooterBar from "../components/Footer";
-function NavBar() {
+export const NavBar=()=> {
   return (
     <>
       <HeaderBar />
@@ -9,5 +9,4 @@ function NavBar() {
     {/*<FooterBar />*/}
     </>
   );
-}
-export default NavBar; 
+} 

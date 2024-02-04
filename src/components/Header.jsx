@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
-import LoginModal from "../components/modals/LoginModal";
-import VerificadoModal from "../components/modals/VerificadoModal";
-import DestaqueModal from "../components/modals/DestaquesModal";
-import EtapaType from "./etapas/EtapaType";
+import { useState, useEffect, useRef } from 'react';
+import {LoginModal} from "../components/modals/LoginModal";
+import {VerificadoModal} from "../components/modals/VerificadoModal";
+import {DestaquesModal} from "../components/modals/DestaquesModal";
+import {EtapaType} from "./etapas/EtapaType";
 import "../styles/header.css";
-export default function Header() {
+export const Header=()=> {
   
+  const containerHeaderRef = useRef(null);
   const [type,setType] = useState(false);
   const [login, setLogin] = useState(false);
   const [verificado, setVerificado] = useState(false);
@@ -14,6 +15,11 @@ export default function Header() {
   const [abrir,setAbrir] = useState(false);
 
   const token = localStorage.getItem("Token");
+
+  useEffect(()=>{
+    const alturaDaDiv = containerHeaderRef.current.offsetHeight;
+    console.log('Altura da div:', alturaDaDiv);
+  },[])
 
   function clickMenu(){
     setAbrir(prevOpen=>!prevOpen);
@@ -56,8 +62,8 @@ export default function Header() {
       {type && <EtapaType />}
       {login && <LoginModal setLogin={setLogin} />}
       {verificado && <VerificadoModal setVerificado={setVerificado} />} 
-      {destaque && <DestaqueModal setDestaque={setDestaque} />} 
-      <div className="container-header">
+      {destaque && <DestaquesModal setDestaque={setDestaque} />} 
+      <div className="container-header" ref={containerHeaderRef}>
         <div className="container-logo">
           <Link to="/">
             <h1>Acomp<b>X</b></h1>

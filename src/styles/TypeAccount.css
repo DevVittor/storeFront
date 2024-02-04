@@ -1,4 +1,4 @@
-.modal_type_account{
+/*.modal_type_account{
   position:fixed;
   inset:50% auto auto 50%;
   transform: translate(-50%, -50%);
@@ -10,14 +10,33 @@
   width:auto;
   border:none;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}*/
+.modal_type_account{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: red;
+  padding: 20px;
 }
 .box_type_account{
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: auto;
+  width: auto;
+  padding:20px;
+  border-radius:12px;
+  border: none;
+  background: var(--bg-black2);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 .title_type h1{
+  display: flex;
+  align-items: center;
   color: var(--text-300);
+}
+.title_type i{
+  padding-right: 5px;
 }
 .title_type span{
   color: var(--text-300);
@@ -33,6 +52,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   border: 2px solid transparent;
   border-radius: 5px;
   padding: 20px 15px;
@@ -79,4 +99,28 @@
 }
 .type_btn button:hover{
   cursor: pointer;
+}
+@media screen and (max-width:660px){
+  .title_type{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .title_type h1{
+    flex-direction: column;
+  }
+  .title_type span{
+    text-align: center;
+    width: 70%;
+  }
+  .select_type{
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .select_type span{
+    text-align: center;
+  }
 }

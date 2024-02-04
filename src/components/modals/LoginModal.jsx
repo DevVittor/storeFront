@@ -2,7 +2,7 @@ import '../../styles/LoginModal.css';
 import {useState} from 'react';
 import axios from "axios";
 import PropTypes from 'prop-types';
-export default function LoginModal({setLogin}){
+export const LoginModal=({setLogin})=>{
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [typeAccount,setTypeAccount] = useState("Cliente");

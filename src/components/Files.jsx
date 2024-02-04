@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/Files.css';
 import axios from 'axios';
-export default function Files() {
+export const Files=()=> {
 
   const [files,setFiles]= useState([]);
   const [progress,setProgress] = useState(-1);
