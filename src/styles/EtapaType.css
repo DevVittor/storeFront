@@ -11,7 +11,7 @@
     transform: translate(-50%, -50%);
     z-index: 9999;
     border-radius: 12px;
-    background: var(--bg-400);
+    background: var(--bg-black2);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 .next_back_staps{
@@ -92,7 +92,6 @@
     font-size:14px;
     font-weight: 400;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 .modal_about{
     display: flex;
@@ -103,14 +102,14 @@
     padding: 10px;
     border-radius: 5px;
     gap:10px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    background: var(--bg-400);
 }
 .modal_about textarea{
     max-height: 100px;
     min-height: 30px;
     height: auto;
     width: 100%;
-    background:var(--bg-400);
+    background: var(--bg-400);
     border:none;
     outline:none;
     font-size:14px;
@@ -201,38 +200,17 @@
     font-size:14px;
     font-weight: 400;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 .modal_date_acomp option{
     text-align: center;
 }
-.modal_genero_acomp{
-    display: flex;
-    align-content: center;
-}
-.modal_genero_acomp select{
-    text-align: center;
-    padding:5px 10px;
-    border: none;
-    outline: none;
-    background:var(--bg-400);
-    color:var(--text-300);
-    font-size:14px;
-    font-weight: 400;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-}
+
 .modal_estado_cidade_acomp{
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
     gap: 5px;
-}
-.modal_altura_peso_acomp{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .modal_estado_cidade_acomp input[type="text"]{
     padding:5px 10px;
@@ -243,7 +221,6 @@
     font-size:14px;
     font-weight: 400;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 .modal_estado_acomp select,.modal_cidade_acomp select ,
 .modal_corpo_acomp select , .modal_etnia_acomp select,
@@ -257,7 +234,6 @@
     font-size:14px;
     font-weight: 400;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 .modal_locais_acomp{
     display: flex;
@@ -333,7 +309,6 @@
     font-size: 13px;
     font-weight: 400;
     color: var(--text-300);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 .modal_detalhes_acomp label:hover{
     cursor: pointer;
@@ -367,6 +342,8 @@
     margin: 10px 0;
     appearance: none; 
     border-radius: 20px;
+    
+    background: var(--bg-400);
 }
 .modal_date_acomp input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;

@@ -8,14 +8,16 @@ export const EtapaTwo = ({numero,children, onNext}) => {
     const [priceHour,setPriceHour] = useState(null);
     const [etniaValue,setEtniaValue] = useState("");
     const [bodyValue,setBodyValue] = useState("");
-    const [heightValue,setHeightValue] = useState(150);
-    const [pesoValue,setPesoValue] = useState(50)
+    const [heightValue,setHeightValue] = useState("");
+    const [pesoValue,setPesoValue] = useState(null);
+    const [genValue,setGenValue] = useState("");
     const [next,setNext] = useState(false);
 
     useEffect(()=>{
-        console.log(etniaValue);
-        console.log("Peso:",pesoValue)
-    },[etniaValue,pesoValue])
+        console.log("Etnia",etniaValue);
+        console.log("Peso:",pesoValue, "Tipo:",typeof(pesoValue));
+        console.log("Altura",heightValue, "Tipo",typeof(heightValue));
+    },[etniaValue,pesoValue,heightValue])
 
     useEffect(() => {
         if (payments.length !== 0 && numberZap !== null && priceHour !== null) {
@@ -24,7 +26,7 @@ export const EtapaTwo = ({numero,children, onNext}) => {
         } else {
             setNext(false);
         }
-    }, [payments, numberZap, priceHour]);
+    }, [payments, numberZap, priceHour,pesoValue]);
 
     const handlePayments = (event) => {
         const checkboxValue = event.target.value;
@@ -36,7 +38,7 @@ export const EtapaTwo = ({numero,children, onNext}) => {
             setPayments((prevPayments) => prevPayments.filter((payment) => payment !== checkboxValue));
         }
     };
-    function handleZap(e){
+    /*function handleZap(e){
         const numberZap = e.target.value;
         if (numberZap === "" || isNaN(numberZap)){
             setNumberZap(null);
@@ -44,16 +46,39 @@ export const EtapaTwo = ({numero,children, onNext}) => {
             const convertZap = parseFloat(numberZap);
             setNumberZap(convertZap);
         }
-    }
-    function handlePriceHour(e){
-        const getPriceHour  = e.target.value;
-        if (getPriceHour === "" || isNaN(getPriceHour)) {
-            setPriceHour(null);
+    }*/
+    function handleZap(e) {
+        let inputNumber = e.target.value;
+
+        // Remove todos os caracteres não numéricos do número de telefone
+        inputNumber = inputNumber.replace(/\D/g, '');
+
+        // Formata o número de telefone como (ddd) xxxxx-xxxx
+        if (inputNumber.length <= 2) {
+            inputNumber = `${inputNumber}`;
+        } else if (inputNumber.length <= 8) {
+            inputNumber = `(${inputNumber.substring(0, 2)}) ${inputNumber.substring(2)}`;
         } else {
-            const convertPriceHour = parseFloat(getPriceHour);
-            setPriceHour(convertPriceHour);
+            inputNumber = `(${inputNumber.substring(0, 2)}) ${inputNumber.substring(2, 8)}-${inputNumber.substring(8)}`;
         }
+        // Atualiza o estado com o número formatado
+        setNumberZap(inputNumber);
     }
+
+      
+    const handlePriceHour = (event) => {
+        let inputValue = event.target.value;
+    
+        // Remover não-dígitos
+        inputValue = inputValue.replace(/[^\d]/g, '');
+    
+        // Adicionar ponto após o 3º dígito à partir do final
+        if (inputValue.length > 3) {
+          inputValue = inputValue.replace(/(\d{3})$/, '.$1');
+        }
+    
+        setPriceHour(inputValue);
+      };
     function handleEtnia(e){
         setEtniaValue(e.target.value);
     }
@@ -63,13 +88,16 @@ export const EtapaTwo = ({numero,children, onNext}) => {
     function handleHeight(e) {
         const heightAtual = e.target.value;
         const convertHeight = (heightAtual / 100).toFixed(2);
-        setHeightValue(Number(convertHeight));
+        setHeightValue(convertHeight);
       }
       
     function handlePeso(e){
         const pesoAtual = e.target.value;
-        const convertPeso = parseFloat(pesoAtual.toFixed(2));
+        const convertPeso = parseInt(pesoAtual);
         setPesoValue(convertPeso);
+    }
+    function handleGen(e){
+        setGenValue(e.target.value);
     }
 
     return (
@@ -94,46 +122,65 @@ export const EtapaTwo = ({numero,children, onNext}) => {
                 </div>
             </div>
             <div className="modal_zap_price_acomp">
-                <input type="text" placeholder="Whatsapp" value={numberZap || ""} onChange={handleZap}/>
-                <input type="text" placeholder="Valor por hora" value={priceHour || ""} onChange={handlePriceHour}/>
+                <input type="text" placeholder="Whatsapp" maxLength={15} value={numberZap || ""} onChange={handleZap}/>
+                <input type="text" minLength={2} maxLength={7} placeholder="Valor por hora" value={priceHour || ""} onChange={handlePriceHour}/>
             </div>
             <div className="modal_acomp_gen_etnia_body">
                 <div className="modal_genero_acomp">
-                    <select defaultValue="Genero" name="" id="" required>
+                    <select defaultValue="Genero" name="" id="" value={genValue} onChange={handleGen} required>
                         <option value="" disabled >Gênero</option>
-                        <option value="">Mulher</option>
-                        <option value="">Homem</option>
-                        <option value="">Trans</option>
+                        <option value="Mulher">Mulher</option>
+                        <option value="Homem">Homem</option>
+                        <option value="Trans">Trans</option>
                     </select>
                 </div>
                 <div className="modal_etnia_acomp">
-                        <select name="" onChange={handleEtnia} value={etniaValue} id="">
-                            <option value="" disabled hidden>Etnia</option>
-                            <option value="Branco">Branca(o)</option>
-                            <option value="Morena">Morena(o)</option>
-                            <option value="Parda">Parda(o)</option>
-                            <option value="Negra">Negra(o)</option>
-                            <option value="Asiática">Asiática(o)</option>
+                        <select name="" value={etniaValue} onChange={handleEtnia}  id="">
+                            <option value="" disabled >Etnia</option>
+                            <option value={genValue === "Mulher" ? "Branca" : genValue === "Homem" ? "Branco" : "Branca(o)"}>
+                                {genValue === "Mulher" ? "Branca" : genValue === "Homem" ? "Branco" : "Branca(o)"}
+                            </option>
+                            <option value={genValue === "Mulher" ? "Morena" : genValue === "Homem" ? "Moreno" : "Morena(o)"}>
+                                {genValue === "Mulher" ? "Morena" : genValue === "Homem" ? "Moreno" : "Morena(o)"}
+                            </option>
+                            <option value={genValue === "Mulher" ? "Parda" : genValue === "Homem" ? "Pardo" : "Parda(o)"}>
+                                {genValue === "Mulher" ? "Parda" : genValue === "Homem" ? "Pardo" : "Parda(o)"}
+                            </option>
+                            <option value={genValue === "Mulher" ? "Negra" : genValue === "Homem" ? "Negro" : "Negra(o)"}>
+                                {genValue === "Mulher" ? "Negra" : genValue === "Homem" ? "Negro" : "Negra(o)"}
+                            </option>
+                            <option value={genValue === "Mulher" ? "Asiática" : genValue === "Homem" ? "Negro" : "Asiática(o)"}>
+                                {genValue === "Mulher" ? "Asiática" : genValue === "Homem" ? "Asiático" : "Asiática(o)"}
+                            </option>
                             <option value="Indigêna">Indigêna</option> 
                         </select> 
                     </div>
                     <div className="modal_corpo_acomp">
                         <select name="" value={bodyValue} onChange={handleBodyData} id="">
-                            <option value="" hidden disabled>Corpo</option>
-                            <option value="Magro">Magro</option>
+                            <option value=""  disabled>Corpo</option>
+                            <option value={genValue === "Mulher" ? "Magra" : genValue === "Homem" ? "Magro" : "Magra(o)"}>
+                                {genValue === "Mulher" ? "Magra" : genValue === "Homem" ? "Magro" : "Magra(o)"}
+                            </option>
                             <option value="Normal">Normal</option>
-                            <option value="Sarado">Sarado</option>
-                            <option value="Gordo">Gordo</option>
+                            <option value={genValue === "Mulher" ? "Sarada" : genValue === "Homem" ? "Sarado" : "Sarada(o)"}>
+                                {genValue === "Mulher" ? "Sarada" : genValue === "Homem" ? "Sarado" : "Sarada(o)"}
+                            </option>
+                            <option value={genValue === "Mulher" ? "Musculosa" : genValue === "Homem" ? "Musculoso" : "Musculosa(o)"}>
+                                {genValue === "Mulher" ? "Musculosa" : genValue === "Homem" ? "Musculoso" : "Musculosa(o)"}
+                            </option>
+                            <option value={genValue === "Mulher" ? "Gordinha" : genValue === "Homem" ? "Gordinho" : "Gordinha(o)"}>
+                                {genValue === "Mulher" ? "Gordinha" : genValue === "Homem" ? "Gordinho" : "Gordinha(o)"}
+                            </option>
                         </select>
                     </div>
             </div>
             <div className="modal_altura_peso_acomp">
                 <div className="modal_altura_acomp">
-                    <label htmlFor="range_heigth_acomp">Altura: {heightValue}M</label>
+                    <label htmlFor="range_heigth_acomp">Altura: <span>{heightValue}M</span></label>
                     <input type="range" name="height" step={1} min={120} max={250} id="range_heigth_acomp" onChange={handleHeight}/>
                 </div>
                 <div className="modal_peso_acomp">
-                    <label htmlFor="range_peso_acomp">Peso: {pesoValue}Kg</label>
+                    <label htmlFor="range_peso_acomp">Peso: <span>{pesoValue}Kg</span></label>
                     <input type="range" name="peso" step={1} min={30} max={250} id="range_peso_acomp" onChange={handlePeso}/>
                 </div>
             </div>

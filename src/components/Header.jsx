@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import {LoginModal} from "../components/modals/LoginModal";
 import {VerificadoModal} from "../components/modals/VerificadoModal";
 import {DestaquesModal} from "../components/modals/DestaquesModal";
 import {EtapaType} from "./etapas/EtapaType";
 import "../styles/header.css";
-export const Header=()=> {
-  
-  const containerHeaderRef = useRef(null);
+export const HeaderBar=()=> {
+
   const [type,setType] = useState(false);
   const [login, setLogin] = useState(false);
   const [verificado, setVerificado] = useState(false);
@@ -15,11 +14,6 @@ export const Header=()=> {
   const [abrir,setAbrir] = useState(false);
 
   const token = localStorage.getItem("Token");
-
-  useEffect(()=>{
-    const alturaDaDiv = containerHeaderRef.current.offsetHeight;
-    console.log('Altura da div:', alturaDaDiv);
-  },[])
 
   function clickMenu(){
     setAbrir(prevOpen=>!prevOpen);
@@ -63,7 +57,7 @@ export const Header=()=> {
       {login && <LoginModal setLogin={setLogin} />}
       {verificado && <VerificadoModal setVerificado={setVerificado} />} 
       {destaque && <DestaquesModal setDestaque={setDestaque} />} 
-      <div className="container-header" ref={containerHeaderRef}>
+      <div className="container-header">
         <div className="container-logo">
           <Link to="/">
             <h1>Acomp<b>X</b></h1>

@@ -1,5 +1,5 @@
 import "../../styles/AcompRegistro.css";
-import EtapaProfile from "../etapas/EtapaProfile";
+import {EtapaProfile} from "../etapas/EtapaProfile";
 
 export const AcompRegistro=()=> {
 
