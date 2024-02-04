@@ -6,11 +6,11 @@ export const EtapaTwo = ({numero,children, onNext}) => {
     const [payments, setPayments] = useState([]);
     const [numberZap,setNumberZap] = useState(null);
     const [priceHour,setPriceHour] = useState(null);
+    const [genValue,setGenValue] = useState("");
     const [etniaValue,setEtniaValue] = useState("");
     const [bodyValue,setBodyValue] = useState("");
     const [heightValue,setHeightValue] = useState("");
     const [pesoValue,setPesoValue] = useState(null);
-    const [genValue,setGenValue] = useState("");
     const [next,setNext] = useState(false);
 
     useEffect(()=>{
@@ -20,13 +20,15 @@ export const EtapaTwo = ({numero,children, onNext}) => {
     },[etniaValue,pesoValue,heightValue])
 
     useEffect(() => {
-        if (payments.length !== 0 && numberZap !== null && priceHour !== null) {
+        if (payments.length !== 0 && numberZap !== null && priceHour !== null && 
+            genValue !== "" && etniaValue !== "" && bodyValue !== "" &&
+            heightValue !== "" && pesoValue !== "") {
             setNext(true);
-            onNext({payments,numberZap,priceHour})
+            onNext({payments,numberZap,priceHour,genValue,etniaValue,bodyValue,heightValue,pesoValue})
         } else {
             setNext(false);
         }
-    }, [payments, numberZap, priceHour,pesoValue]);
+    }, [payments,numberZap,priceHour,genValue,etniaValue,bodyValue,heightValue,pesoValue]);
 
     const handlePayments = (event) => {
         const checkboxValue = event.target.value;
