@@ -89,9 +89,6 @@ header {
 .box-acesso i {
     padding-left: 3px;
 }
-.box-acesso .ri-menu-fill{
-  color:var(--bg-400);
-}
 .box-acesso .ri-close-line{
   color:var(--text-red)!important;
 }

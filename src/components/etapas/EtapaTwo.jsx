@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../styles/EtapaTwo.css";
 import PropTypes from 'prop-types';
-export const EtapaTwo = ({numero,children, onNext}) => {
+export default function EtapaTwo({numero,children, onNext}){
 
     const [payments, setPayments] = useState([]);
     const [numberZap,setNumberZap] = useState(null);
@@ -17,12 +17,15 @@ export const EtapaTwo = ({numero,children, onNext}) => {
         console.log("Etnia",etniaValue);
         console.log("Peso:",pesoValue, "Tipo:",typeof(pesoValue));
         console.log("Altura",heightValue, "Tipo",typeof(heightValue));
-    },[etniaValue,pesoValue,heightValue])
+        if (numberZap !== null) {
+            console.log("Quantidade de caracteres do número de telefone:", numberZap.toString().length);
+        }
+    },[etniaValue,pesoValue,heightValue,numberZap]);
 
     useEffect(() => {
-        if (payments.length !== 0 && numberZap !== null && priceHour !== null && 
-            genValue !== "" && etniaValue !== "" && bodyValue !== "" &&
-            heightValue !== "" && pesoValue !== "") {
+        if (payments.length !== 0  && numberZap !== null && numberZap.toString().length === 15 &&
+        priceHour !== null && priceHour !== "" && genValue !== "" && etniaValue !== "" &&
+        bodyValue !== "" && heightValue !== "" && pesoValue !== null) {
             setNext(true);
             onNext({payments,numberZap,priceHour,genValue,etniaValue,bodyValue,heightValue,pesoValue})
         } else {
@@ -124,8 +127,21 @@ export const EtapaTwo = ({numero,children, onNext}) => {
                 </div>
             </div>
             <div className="modal_zap_price_acomp">
-                <input type="text" placeholder="Whatsapp" maxLength={15} value={numberZap || ""} onChange={handleZap}/>
-                <input type="text" minLength={2} maxLength={7} placeholder="Valor por hora" value={priceHour || ""} onChange={handlePriceHour}/>
+                <input 
+                type="text" 
+                required
+                placeholder="Whatsapp" 
+                maxLength={15} value={numberZap || ""} 
+                onChange={handleZap} 
+                />
+                <input 
+                type="text" 
+                required
+                minLength={2} 
+                maxLength={7} 
+                placeholder="Valor por hora" 
+                value={priceHour || ""} 
+                onChange={handlePriceHour}/>
             </div>
             <div className="modal_acomp_gen_etnia_body">
                 <div className="modal_genero_acomp">
@@ -137,7 +153,7 @@ export const EtapaTwo = ({numero,children, onNext}) => {
                     </select>
                 </div>
                 <div className="modal_etnia_acomp">
-                        <select name="" value={etniaValue} onChange={handleEtnia}  id="">
+                        <select name="" value={etniaValue} onChange={handleEtnia}  id="" required>
                             <option value="" disabled >Etnia</option>
                             <option value={genValue === "Mulher" ? "Branca" : genValue === "Homem" ? "Branco" : "Branca(o)"}>
                                 {genValue === "Mulher" ? "Branca" : genValue === "Homem" ? "Branco" : "Branca(o)"}
@@ -158,7 +174,7 @@ export const EtapaTwo = ({numero,children, onNext}) => {
                         </select> 
                     </div>
                     <div className="modal_corpo_acomp">
-                        <select name="" value={bodyValue} onChange={handleBodyData} id="">
+                        <select name="" value={bodyValue} onChange={handleBodyData} id="" required>
                             <option value=""  disabled>Corpo</option>
                             <option value={genValue === "Mulher" ? "Magra" : genValue === "Homem" ? "Magro" : "Magra(o)"}>
                                 {genValue === "Mulher" ? "Magra" : genValue === "Homem" ? "Magro" : "Magra(o)"}

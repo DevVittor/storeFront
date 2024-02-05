@@ -5,6 +5,9 @@ import {VerificadoModal} from "../components/modals/VerificadoModal";
 import {DestaquesModal} from "../components/modals/DestaquesModal";
 import {EtapaType} from "./etapas/EtapaType";
 import "../styles/header.css";
+import MenuLogado from "./MenuLogado";
+import MenuDeslogado from "./MenuDeslogado";
+import Logout from "./Logout";
 export const HeaderBar=()=> {
 
   const [type,setType] = useState(false);
@@ -51,6 +54,12 @@ export const HeaderBar=()=> {
     });
   },[abrir]);
 
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
+
+  const handleLogout = () => {
+    setLogoutModalOpen(!logoutModalOpen);
+  }
+
   return (
     <header>
       {type && <EtapaType />}
@@ -66,14 +75,7 @@ export const HeaderBar=()=> {
         <div className="box-acesso">
           {token ? (
             <>
-              <button id="btn_profile" onClick={clickMenu}>
-                <span>Jéssica</span>
-                {abrir ? (
-                  <i className="ri-close-line"></i>
-                ) :(
-                  <i className="ri-menu-fill"></i>
-                )} 
-              </button>
+              <MenuLogado clickMenu={clickMenu} abrir={abrir}/>
               {abrir ? (
                   <div className="popUpMenu" >
                     <nav>
@@ -101,8 +103,8 @@ export const HeaderBar=()=> {
                         <li>
                           <Link><i className="ri-user-settings-line"></i>Editar Perfil</Link>
                         </li>
-                        <li>
-                          <Link className="logout"><i className="ri-door-closed-line"></i>Sair</Link>
+                        <li onClick={() => handleLogout()}>
+                          <i className="ri-door-closed-line"></i>Sair
                         </li>
                       </ul>
                     </nav>
@@ -110,18 +112,12 @@ export const HeaderBar=()=> {
                 ) : null}
             </>
           ) : (
-            <>
-              <Link onClick={()=>{setType(true)}} className="btn_cadastrar" to="/#">Cadastrar</Link>
-              <Link 
-                onClick={() => {
-                  setLogin(true);
-                }}
-              className="btn_acessar">
-                Acessar<i className="ri-arrow-right-up-line"></i>
-              </Link>
-            </>
+            <MenuDeslogado setType={setType} setLogin={setLogin}/>
           )}
         </div>
+        {logoutModalOpen && (
+          <Logout modal={setLogoutModalOpen} confirmLogout={handleLogout} />
+        )}
       </div>
     </header>
   );

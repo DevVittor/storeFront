@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../../styles/EtapaType.css";
 
 import {EtapaOne} from "./EtapaOne";
-import {EtapaTwo} from "./EtapaTwo";
+import EtapaTwo from "./EtapaTwo";
 import {EtapaTres} from "./EtapaTres";
 
 export const EtapaType = ()=> {

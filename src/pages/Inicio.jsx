@@ -119,7 +119,7 @@ export const Inicio = ()=> {
       // O usuário chegou perto do final da página, você pode carregar mais itens aqui
       if (!loading) {
         setLoading(true);
-        axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page}&genero=${genero}&limit=12`)
+        axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page}&genero=${genero}&limit=6`)
           .then(() => {
             setLoading(false);
             setPage(prevResult => prevResult + 1);

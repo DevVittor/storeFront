@@ -19,7 +19,7 @@ export const LoginModal=({setLogin})=>{
     axios.post("http://localhost:8080/v1/api/login/save", checarDados)
       .then((res) => {
         console.log(res.data);
-        const userId = res.data.useId;
+        const userId = res.data.userId;
         const token = res.data.token;
         localStorage.setItem("Token", token);
         localStorage.setItem("userId", userId);
@@ -65,8 +65,8 @@ export const LoginModal=({setLogin})=>{
         </div>
       </div>
       <div className="next_back_login">
-        <div className="btn_back_login"><button>Fechar</button></div>
-        <div className="btn_next_login"><button type="submit">Acessar</button></div>
+        <button className="btn_back_login">Fechar</button>
+        <button className="btn_next_login" type="submit">Acessar</button>
       </div>
       </form>
     </div>
