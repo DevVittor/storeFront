@@ -15,7 +15,7 @@
 }
 .next_back_staps{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 .back_staps, .next_staps{

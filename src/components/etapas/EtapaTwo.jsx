@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../styles/EtapaTwo.css";
 import PropTypes from 'prop-types';
-export default function EtapaTwo({numero,children, onNext}){
+export default function EtapaTwo({numero,children, onNext,next}){
 
     const [payments, setPayments] = useState([]);
     const [numberZap,setNumberZap] = useState(null);
@@ -11,7 +11,6 @@ export default function EtapaTwo({numero,children, onNext}){
     const [bodyValue,setBodyValue] = useState("");
     const [heightValue,setHeightValue] = useState("");
     const [pesoValue,setPesoValue] = useState(null);
-    const [next,setNext] = useState(false);
 
     useEffect(()=>{
         console.log("Etnia",etniaValue);
@@ -26,10 +25,10 @@ export default function EtapaTwo({numero,children, onNext}){
         if (payments.length !== 0  && numberZap !== null && numberZap.toString().length === 15 &&
         priceHour !== null && priceHour !== "" && genValue !== "" && etniaValue !== "" &&
         bodyValue !== "" && heightValue !== "" && pesoValue !== null) {
-            setNext(true);
+            next(false);
             onNext({payments,numberZap,priceHour,genValue,etniaValue,bodyValue,heightValue,pesoValue})
         } else {
-            setNext(false);
+            next(true);
         }
     }, [payments,numberZap,priceHour,genValue,etniaValue,bodyValue,heightValue,pesoValue]);
 
@@ -43,15 +42,6 @@ export default function EtapaTwo({numero,children, onNext}){
             setPayments((prevPayments) => prevPayments.filter((payment) => payment !== checkboxValue));
         }
     };
-    /*function handleZap(e){
-        const numberZap = e.target.value;
-        if (numberZap === "" || isNaN(numberZap)){
-            setNumberZap(null);
-        }else{
-            const convertZap = parseFloat(numberZap);
-            setNumberZap(convertZap);
-        }
-    }*/
     function handleZap(e) {
         let inputNumber = e.target.value;
 
@@ -69,21 +59,14 @@ export default function EtapaTwo({numero,children, onNext}){
         // Atualiza o estado com o número formatado
         setNumberZap(inputNumber);
     }
-
-      
     const handlePriceHour = (event) => {
         let inputValue = event.target.value;
-    
-        // Remover não-dígitos
         inputValue = inputValue.replace(/[^\d]/g, '');
-    
-        // Adicionar ponto após o 3º dígito à partir do final
         if (inputValue.length > 3) {
-          inputValue = inputValue.replace(/(\d{3})$/, '.$1');
+            inputValue = inputValue.replace(/(\d{3})$/, '.$1');
         }
-    
         setPriceHour(inputValue);
-      };
+    };
     function handleEtnia(e){
         setEtniaValue(e.target.value);
     }
@@ -94,8 +77,7 @@ export default function EtapaTwo({numero,children, onNext}){
         const heightAtual = e.target.value;
         const convertHeight = (heightAtual / 100).toFixed(2);
         setHeightValue(convertHeight);
-      }
-      
+    }
     function handlePeso(e){
         const pesoAtual = e.target.value;
         const convertPeso = parseInt(pesoAtual);
@@ -202,7 +184,7 @@ export default function EtapaTwo({numero,children, onNext}){
                     <input type="range" name="peso" step={1} min={30} max={250} id="range_peso_acomp" onChange={handlePeso}/>
                 </div>
             </div>
-            {next && children}
+            {children}
         </div>
     )
 }
@@ -210,4 +192,5 @@ EtapaTwo.propTypes = {
     numero: PropTypes.number,
     children: PropTypes.node,
     onNext: PropTypes.func,
+    next:PropTypes.bool
 }

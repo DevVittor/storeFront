@@ -36,6 +36,7 @@ import {TypeAccount} from "./components/modals/TypeAccount";
 
 //Apenas um teste
 import {Formulario} from './pages/Formulario';
+import { DestaquesModal } from "./components/modals/DestaquesModal";
 
 export const App=()=> {
   return (
@@ -43,14 +44,14 @@ export const App=()=> {
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Inicio />} />
-          <Route path="acompanhantes" element={<Acompanhantes />} />
+          <Route path="seila" element={<Acompanhantes />} />
           <Route path="sobre" element={<Formulario />}/>
           <Route path="acessar" element={<Acessar />} />
-          <Route path="registrar" element={<EtapaType/>}/>
+          <Route path="acompanhante" element={<EtapaType/>}/>
           <Route path="planos" element={<Assinatura />}/>
           <Route path="acomp" element={<AcompRegistro/>}/>
           <Route path="upload" element={<Files/>}/>
-          <Route path="tipo" element={<TypeAccount/>}/>
+          <Route path="cadastrar" element={<TypeAccount/>}/>
           <Route
             path="success"
             element={
@@ -67,6 +68,7 @@ export const App=()=> {
               </ProtectedRoute>
             }
           />
+          <Route path="destaque" element={<DestaquesModal/>}/>
           <Route path="perfil" element={<Perfil />} />
           <Route path="categoria" element={<Categoria/>} />
           <Route path="destaque" element={<LoginModal/>}/>

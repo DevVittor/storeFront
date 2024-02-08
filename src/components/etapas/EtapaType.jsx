@@ -9,16 +9,13 @@ export const EtapaType = ()=> {
 
     const [stage,setStage] = useState(1);
     const [stageData,setStageData] = useState({});
+    const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
     console.log("Dados das Etapas: ",stageData);
 
-    function handleDataStage(dataEtapa){
-
-        // Faça o que quiser com os dados recebidos do EtapaTwo
-        console.log("Dados recebidos do EtapaTwo:", dataEtapa);
-
-        // Adiciona os dados ao array
-        setStageData({dataEtapa});
+    function handleDataStage(dataEtapa) {
+        console.log("Dados recebidos da etapa:", dataEtapa);
+        setStageData(prevData => ({ ...prevData, ...dataEtapa }));
     }
 
     function next(){
@@ -31,24 +28,26 @@ export const EtapaType = ()=> {
     return (
         <form encType="multipart/form-data" method="post">
             {stage === 1 && (
-                <EtapaOne numero={stage}>
-                    <button className="next_staps" onClick={next}>Avançar</button>
+                <EtapaOne numero={stage} onNext={handleDataStage} next={setNextButtonDisabled} dataEtapa={stageData}>
+                    <div className="next_back_staps">
+                        <button style={nextButtonDisabled ? { background: "gray",cursor:"default" } : {} } className="next_staps" onClick={next} disabled={nextButtonDisabled}>Avançar</button>
+                    </div>
                 </EtapaOne>
             )}
             {stage === 2 && (
-                <EtapaTwo numero={stage} onNext={handleDataStage}>
+                <EtapaTwo numero={stage} onNext={handleDataStage} next={setNextButtonDisabled} dataEtapa={stageData}>
                     <div className="next_back_staps">
                         <button className="back_staps" onClick={back}>Voltar</button>
-                        <button className="next_staps" onClick={next}>Avançar</button>
+                        <button style={nextButtonDisabled ? { background: "gray",cursor:"default" } : {} } className="next_staps" onClick={next} disabled={nextButtonDisabled}>Avançar</button>
                     </div>
                 </EtapaTwo>
             )}
 
             {stage === 3 && (
-                <EtapaTres numero={stage}>
+                <EtapaTres numero={stage} dataEtapa={stageData}>
                     <div className="next_back_staps">
                         <button className="back_staps" onClick={back}>Voltar</button>
-                        <button className="next_staps" onClick={next}>Avançar</button>
+                        <button className="next_staps" onClick={next}>Finalizar</button>
                     </div>
                 </EtapaTres>
             )}

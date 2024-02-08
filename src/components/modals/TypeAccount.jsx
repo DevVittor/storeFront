@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../styles/TypeAccount.css";
+import { Link } from "react-router-dom";
 export const TypeAccount = ()=>{
 
   const [selectedType,setSelectedType] = useState("");
@@ -50,7 +51,9 @@ export const TypeAccount = ()=>{
         </div>
         {selectedType && (
           <div className="type_btn">
-            <button>Criar Conta</button>
+            <Link to={selectedType === "Cliente" ? "/cliente" : selectedType === "Acompanhante" ? "/acompanhante" : "/anunciante"}>
+              <button>Próximo</button>
+            </Link>
           </div>
         )}
   </div>
