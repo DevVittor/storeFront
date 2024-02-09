@@ -1,0 +1,29 @@
+.next_back_staps {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.back_staps,
+.next_staps {
+    padding: 5px 20px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-300);
+}
+
+.back_staps:hover,
+.next_staps:hover {
+    cursor: pointer;
+}
+
+.back_staps {
+    background: var(--text-100);
+}
+
+.next_staps {
+    background: var(--color-orange);
+}

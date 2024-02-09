@@ -1,60 +1,50 @@
-.modal_verificado {
-    animation: verificado-animation-in .5s both;
-    transition: ease-out .5s;
+.container_destaque {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.modal_destaque {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    position: fixed;
-    z-index: 9999;
-    height: auto;
-    width: 350px;
-    background: var(--bg-400);
     padding: 20px 15px;
     border-radius: 12px;
-    inset: 50% auto auto 50%;
-    transform: translate(-50%, -50%);
+    background: var(--bg-310);
+    width: 350px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
-@keyframes verificado-animation-in {
-    0% {
-        transform: translateX(-50%);
-    }
-
-    100% {
-        transform: translateY(-50%, -50%);
-    }
-}
-
-.verificado_info {
+.destaque_info {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.verificado_title_price {
+.destaque_title_price {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.verificado_title_price .ri-verified-badge-fill {
+.destaque_title_price i {
     padding-right: 5px;
-    color: var(--bg-500);
+    color: rgba(254, 0, 0, 1)
 }
 
-.verificado_info p {
+.destaque_info p {
     padding-bottom: 8px;
     font-weight: 400;
     font-size: 15px;
 }
 
-.verificado_vencimento {
+.destaque_vencimento {
     border-radius: 5px;
     width: 100%;
 }
 
-.verificado_vencimento label {
+.destaque_vencimento label {
     border: 1px solid #212121;
     display: flex;
     padding: 5px 10px;
@@ -62,71 +52,74 @@
     align-items: center;
 }
 
-.verificado_vencimento h3 {
+.destaque_vencimento input[type=checkbox]:checked+label {
+    border: 1px solid red;
+}
+
+.destaque_vencimento h3 {
     color: var(--text-300);
     font-size: 15px;
     font-weight: 500;
 }
 
-.verificado_features {
+.destaque_features {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.verificado_features h3 {
+.destaque_features h3 {
     color: var(--text-300);
     font-weight: 500;
     font-size: 18px;
 }
 
-.verificado_features ul {
+.destaque_features ul {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.verificado_features li {
+.destaque_features li {
     color: var(--text-300);
     font-size: 14px;
     line-height: 1.4rem;
 }
 
-.verificado_features i {
+.destaque_features i {
     color: #7DCE13;
     font-size: 16px;
     padding-right: 5px;
 }
 
-.btn_verificado {
+.btn_destaques {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.btn_verificado button {
+.btn_destaques button {
     padding: 5px 15px;
     border: none;
     border-radius: 3px;
     font-size: 14px;
-    font-weight: 500;
-}
-
-.btn_verificado button:nth-child(1) {
-    background: var(--text-red);
+    font-weight: 600;
     color: var(--text-300);
 }
 
-.btn_verificado button:nth-child(2) {
-    background:var(--text-300);
-    color: var(--bg-400);
+.btn_destaques button:nth-child(1) {
+    background: rgba(254, 0, 0, 1);
 }
 
-.btn_verificado button:nth-child(2) i {
+.btn_destaques button:nth-child(2) {
+    background: rgba(24, 119, 242, 1);
+}
+
+.btn_destaques button:nth-child(2) i {
     padding-right: 5px;
-    color: var(--bg-500);
+    color: rgba(254, 0, 0, 1);
 }
 
-.btn_verificado button:hover {
+.btn_destaques button:hover {
     cursor: pointer;
 }

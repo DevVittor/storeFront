@@ -12,7 +12,7 @@
 
 html,
 body {
-  background: var(--bg-350);
+  background: var(--bg-320);
   scroll-behavior: smooth;
 }
 
@@ -32,19 +32,15 @@ body {
   --bg-100: rgba(247, 247, 247, 1);
   --bg-200: rgba(237, 237, 237, 1);
   --bg-300: rgba(196, 196, 196, 1);
-  --bg-350:rgba(5, 5, 5, 1);
+  --bg-310: rgba(23, 23, 23, 1);
+  --bg-320: rgba(13, 13, 13, 1);
+  --bg-350: rgba(5, 5, 5, 1);
   --bg-400: rgba(17, 17, 17, 1);
   --bg-450: rgba(15, 23, 42, 1);
-  --bg-black:rgba(41, 41, 41, 1);
-  --bg-black2:rgba(28, 28, 28, 1);
+  --bg-black: rgba(41, 41, 41, 1);
+  --bg-black2: rgba(28, 28, 28, 1);
   --bg-500: rgba(0, 121, 255, 1);
   --bg-600: rgba(0, 223, 162, 1);
   --bg-700: rgba(255, 0, 96, 1);
-  --color-orange:rgba(230, 62, 33, 1);
+  --color-orange: rgba(230, 62, 33, 1);
 }
-
-/*@media screen and (max-width:800px) {
-  #root {
-    flex-wrap: wrap;
-  }
-}*/

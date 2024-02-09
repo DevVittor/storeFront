@@ -1,10 +1,10 @@
-import '../styles/nova.css';
 import Card from "../components/Card";
 import ProfileCard from "../components/ProfileCard";
 import ProfileBanner from "../components/ProfileBanner";
 import { Fragment } from 'react';
 //import SliderNova from "../components/SliderNova";
 //import {useState, useEffect} from 'react';
+import styles from './Nova.module.css';
 export const Nova=()=>{
   
   const banner = "https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
@@ -33,8 +33,8 @@ const tamanhoService = service.length;
   return(
     <main>
       <section>
-        <div className="container_nova">
-          <div className="nova_card">
+        <div className={styles.container_nova}>
+          <div className={styles.nova_card}>
             <ProfileCard
               avatar={foto}
               alt="foto"
@@ -46,11 +46,11 @@ const tamanhoService = service.length;
               cidade="SP"
             />
           </div> 
-          <div className="nova_info"> 
-            <div className="nova_two">
-              <div className="nova_name"> 
-                <div className="nova_all">
-                  <div className="nova_payment">
+          <div className={styles.nova_info}> 
+            <div className={styles.nova_two}>
+              <div className={styles.nova_name}> 
+                <div className={styles.nova_all}>
+                  <div className={styles.nova_payment}>
                     <nav>
                       <ul>
                         <li>Pix</li>
@@ -60,10 +60,10 @@ const tamanhoService = service.length;
                     </nav>
                   </div>
                 </div>
-                <div className="nome_one">
+                <div className={styles.nome_one}>
                   <h1>Jéssica</h1>
-                  <div className="medidas_lastname_acomp">
-                    <div className='medidas_acomp'>
+                  <div className={styles.medidas_lastname_acomp}>
+                    <div className={styles.medidas_acomp}>
                       <nav>
                         <ul>
                           <li><i className="fa-solid fa-weight-hanging"></i>65kg</li>
@@ -76,10 +76,10 @@ const tamanhoService = service.length;
                     </div>
                   </div>
                 </div> 
-                <div className="nova_description">
+                <div className={styles.nova_description}>
                   <p>{description}</p>
                 </div>
-                <div className="nova_contact">
+                <div className={styles.nova_contact}>
                   <h3>
                     <i className="ri-message-2-fill"></i>(21) 998423-204   
                   </h3>
@@ -90,7 +90,7 @@ const tamanhoService = service.length;
               alt="Banner"
             />
             </div>
-            <div className="service_acomp">
+            <div className={styles.service_acomp}>
               <nav>
                 <ul>
                   {service.slice(0, tamanhoService).map((item, index) => (
@@ -102,8 +102,8 @@ const tamanhoService = service.length;
                 </ul>
               </nav>
             </div>
-            <div className="container_imagens">
-              <div className="nova_three">
+            <div className={styles.container_imagens}>
+              <div className={styles.nova_three}>
               <Card urlImg="https://images.pexels.com/photos/7120317/pexels-photo-7120317.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
               <Card urlImg="https://images.pexels.com/photos/19627370/pexels-photo-19627370/free-photo-of-bone-de-baseball-bone-de-beisebol-face-rosto.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
               <Card urlImg="https://images.pexels.com/photos/2313635/pexels-photo-2313635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />

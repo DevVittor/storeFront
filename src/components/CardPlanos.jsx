@@ -1,14 +1,15 @@
 import PropTypes from "prop-types";
 import axios from "axios";
 import "../styles/cardPlanos.css";
-export default function CardPlanos(props) {
+export const CardPlanos = (props) => {
   function pegarReq(event) {
     event.preventDefault();
     const data = {
       priceId: props.priceId, // Substitua pelo valor correto
     };
 
-    axios.post("http://localhost:8080/v1/api/planos/checkoutstripe", data)
+    axios
+      .post("http://localhost:8080/v1/api/planos/checkoutstripe", data)
       .then((res) => {
         //console.log(res);
         window.location.href = res.data.url;
@@ -27,13 +28,11 @@ export default function CardPlanos(props) {
         </div>
         <div className="price-card">
           <span>R$</span>
-          <h1>{props.price}/</h1> 
+          <h1>{props.price}/</h1>
           <span>{props.tempo}</span>
         </div>
         <div className="plano-assinar">
-          <button type="submit">
-            Selecione
-          </button>
+          <button type="submit">Selecione</button>
         </div>
         <div className="plano-vantagens">
           <nav>
@@ -70,7 +69,7 @@ export default function CardPlanos(props) {
       </div>
     </form>
   );
-}
+};
 CardPlanos.propTypes = {
   emblema: PropTypes.string.isRequired,
   planos: PropTypes.string.isRequired,

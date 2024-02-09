@@ -1,0 +1,227 @@
+header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    background: var(--bg-320);
+    border-bottom: 1px solid var(--bg-400);
+}
+
+.container_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    width: 100%;
+}
+
+.container_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container_logo b {
+    color: var(--text-red);
+}
+
+.container_logo a {
+    color: var(--text-300);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.box_acesso ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.box_acesso a {
+    color: var(--text-300);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.box_urls ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.box_urls a {
+    color: var(--text-300);
+}
+
+.box_urls .url_atual {
+    color: var(--primary-100);
+    font-weight: 500;
+}
+
+.urls {
+    color: var(--text-300);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.urls:hover {
+    border-bottom: 2px solid var(--primary-100);
+    padding-bottom: 5px;
+    color: var(--primary-100);
+    transition: linear .2s;
+}
+
+.box_acesso {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.box_acesso button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    outline: none;
+    color: var(--bg-400);
+    font-weight: 600;
+    font-size: 16px;
+    background: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+}
+
+.box_acesso button:hover {
+    cursor: pointer;
+}
+
+.box_acesso span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--bg-400);
+}
+
+.box_acesso i {
+    padding-left: 3px;
+}
+
+.box_acesso .ri-close-line {
+    color: var(--text-red) !important;
+}
+
+.popUpMenu {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    margin-right: 34px;
+    background: var(--text-300);
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.name_menu {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.popUpMenu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.popUpMenu i {
+    color: var(--bg-400);
+    padding-right: 5px;
+}
+
+.popUpMenu a {
+    color: var(--bg-400);
+    cursor: pointer;
+}
+
+.popUpMenu a:hover {
+    color: var(--bg-500);
+}
+
+.logout {
+    color: var(--text-red) !important;
+}
+
+.logout i {
+    color: var(--text-red) !important;
+}
+
+.btn_cadastrar {
+    border: 2px solid var(--text-300);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-300);
+    padding: 5px 15px;
+    background: var(--bg-400);
+    transition: all ease-out .3s;
+}
+
+.btn_acessar {
+    border: 2px solid var(--text-300);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--bg-400);
+    padding: 5px 15px;
+    background: var(--text-300);
+    transition: all ease-out .3s;
+}
+
+@media screen and (max-width:800px) {
+    header {
+        height: auto;
+        width: 100%;
+    }
+
+    .container_header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+        width: 100%;
+        padding: 10px 30px;
+    }
+
+    .container_logo {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .box_urls ul {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .urls:hover {
+        border-bottom: none;
+        padding-bottom: 0px;
+        color: #212121;
+        transition: none;
+    }
+
+    .popUpMenu {
+        border-radius: 3px;
+        width: 155px;
+        top: 180px;
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

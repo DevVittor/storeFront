@@ -1,23 +1,25 @@
 //import axios from "axios";
 import { useEffect, useState } from "react";
 import "../styles/planos.css";
-import CardPlanos from "../components/CardPlanos";
-export const Assinatura=()=> {
+import { CardPlanos } from "../components/CardPlanos";
+export const Assinatura = () => {
   const [toggle, setToggle] = useState(false);
-  const [alturaDisponivel, setAlturaDisponivel] = useState(window.innerHeight - 113);
+  const [alturaDisponivel, setAlturaDisponivel] = useState(
+    window.innerHeight - 113
+  );
 
   useEffect(() => {
     function handleResize() {
       setAlturaDisponivel(window.innerHeight - 113);
     }
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   const divPrincipalStyle = {
-    minHeight: `${alturaDisponivel}px`
+    minHeight: `${alturaDisponivel}px`,
   };
   document.title = "Planos";
 
@@ -31,7 +33,10 @@ export const Assinatura=()=> {
         <div className="container-planos" style={divPrincipalStyle}>
           <div className="box-planos">
             <div className="box-title">
-              <h1><i className="ri-fire-fill"></i>Destaque seu perfil<i className="ri-verified-badge-fill"></i></h1>
+              <h1>
+                <i className="ri-fire-fill"></i>Destaque seu perfil
+                <i className="ri-verified-badge-fill"></i>
+              </h1>
             </div>
             <div className="modeToggle" onClick={alterToggle}>
               <button className={toggle ? "offToggle" : "onToggle"}>
@@ -92,4 +97,4 @@ export const Assinatura=()=> {
       </section>
     </main>
   );
-}
+};
