@@ -1,0 +1,74 @@
+.container_upload_imgs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 20px;
+}
+
+.view_imgs {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.img_verify img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.img_verify img:hover {
+    cursor: pointer;
+}
+
+.list_view_imgs {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.list_imgs {
+    height: 100px;
+    width: 100px;
+}
+
+.list_imgs img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.list_imgs img:hover {
+    cursor: pointer;
+}
+
+.uploads {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.uplods_img input[type="file"] {
+    display: none;
+}
+
+.uplods_img label {
+    padding: 5px 20px;
+    border-radius: 3px;
+    background: var(--text-300);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--bg-320);
+}
+
+.uplods_img label:hover {
+    cursor: pointer;
+}

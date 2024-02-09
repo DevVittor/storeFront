@@ -17,8 +17,8 @@
 .box_gen {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 5px;
-  background: var(--bg-310);
   border-radius: 20px;
   padding: 5px;
 }
@@ -231,6 +231,10 @@
 
 @media screen and (max-width: 990px) {
   .container_filter_search {
+    justify-content: center;
+  }
+
+  .box_gen {
     justify-content: center;
   }
 }

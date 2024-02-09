@@ -1,5 +1,6 @@
 import styles from "./DestaquesModal.module.css";
 import WindowSize from "../WindowSize";
+import { RiFireFill } from "react-icons/ri";
 export default function DestaquesModal() {
   const alturaAtual = WindowSize();
 
@@ -14,7 +15,8 @@ export default function DestaquesModal() {
             <div className={styles.destaque_info}>
               <div className={styles.destaque_title_price}>
                 <h2>
-                  <i className="ri-flashlight-fill"></i>Destaque
+                  <RiFireFill style={{ color: "var(--text-red)" }} />
+                  Destaque
                 </h2>
                 <h2>R$ 4,97/mês</h2>
               </div>

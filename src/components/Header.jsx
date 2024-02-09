@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-//import "../styles/header.css";
 import styles from "./Header.module.css";
 export const HeaderBar = () => {
   const location = useLocation();
@@ -23,66 +22,66 @@ export const HeaderBar = () => {
   return (
     <header>
       <div className={styles.container_header}>
-        <div className={styles.container_logo}>
-          <Link to="/">
-            <h1>
-              Acomp<b>X</b>
-            </h1>
-          </Link>
+        <div className={styles.logo_menu}>
+          <div className={styles.logo}>
+            <Link to="/">
+              <h1>
+                Acomp<b>X</b>
+              </h1>
+            </Link>
+          </div>
+          <div className={styles.menu}>
+            <nav>
+              <ul>
+                <li>
+                  <Link
+                    to={`/`}
+                    style={{
+                      color:
+                        rotaActive === "/" ? "var(--text-yellow)" : "white",
+                    }}
+                  >
+                    Inicio
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={`/destacar`}
+                    style={{
+                      color:
+                        rotaActive === "/destacar"
+                          ? "var(--text-yellow)"
+                          : "white",
+                    }}
+                  >
+                    Destacar
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={`/verificar`}
+                    style={{
+                      color:
+                        rotaActive === "/verificar"
+                          ? "var(--text-yellow)"
+                          : "white",
+                    }}
+                  >
+                    Verificar
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <div className={styles.box_acesso}>
-          <nav>
-            <ul>
-              <li>
-                <Link
-                  to={`/`}
-                  style={{ color: rotaActive === "/" ? "red" : "white" }}
-                >
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={`/destacar`}
-                  style={{
-                    color: rotaActive === "/destacar" ? "red" : "white",
-                  }}
-                >
-                  Destacar
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={`/verificar`}
-                  style={{
-                    color: rotaActive === "/verificar" ? "red" : "white",
-                  }}
-                >
-                  Verificar
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={`/acessar`}
-                  style={{
-                    color: rotaActive === "/acessar" ? "red" : "white",
-                  }}
-                >
-                  Acessar
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={`/cadastrar`}
-                  style={{
-                    color: rotaActive === "/cadastrar" ? "red" : "white",
-                  }}
-                >
-                  Cadastrar
-                </Link>
-              </li>
-            </ul>
-          </nav>
+        <div className={styles.acesso_register}>
+          <Link className={styles.url_acesso} to={`/acessar`}>
+            Acessar
+          </Link>
+
+          <Link className={styles.url_cadastro} to={`/cadastrar`}>
+            Cadastrar
+          </Link>
         </div>
       </div>
     </header>

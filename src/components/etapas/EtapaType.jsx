@@ -5,9 +5,10 @@ import styles from "./EtapaType.module.css";
 import { EtapaOne } from "./EtapaOne";
 import EtapaTwo from "./EtapaTwo";
 import { EtapaTres } from "./EtapaTres";
+import UploadImg from "./UpĺoadImg";
 
 export const EtapaType = () => {
-  const [stage, setStage] = useState(1);
+  const [stage, setStage] = useState(4);
   const [stageData, setStageData] = useState({});
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
@@ -19,7 +20,7 @@ export const EtapaType = () => {
   }
 
   function next() {
-    if (stage > 0 && stage < 4) setStage((prevNext) => prevNext + 1);
+    if (stage > 0 && stage < 5) setStage((prevNext) => prevNext + 1);
   }
   function back() {
     if (stage > 1) setStage((prevBack) => prevBack - 1);
@@ -83,11 +84,32 @@ export const EtapaType = () => {
             <button className={styles.back_staps} onClick={back}>
               Voltar
             </button>
+            <button
+              style={
+                nextButtonDisabled
+                  ? { background: "gray", cursor: "default" }
+                  : {}
+              }
+              className={styles.next_staps}
+              onClick={next}
+              disabled={nextButtonDisabled}
+            >
+              Avançar
+            </button>
+          </div>
+        </EtapaTres>
+      )}
+      {stage === 4 && (
+        <UploadImg numero={stage} dataEtapa={stageData}>
+          <div className={styles.next_back_staps}>
+            <button className={styles.back_staps} onClick={back}>
+              Voltar
+            </button>
             <button className={styles.next_staps} onClick={next}>
               Finalizar
             </button>
           </div>
-        </EtapaTres>
+        </UploadImg>
       )}
     </form>
   );

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ProfileBanner from "../components/ProfileBanner";
-import FilterModal from "../components/modals/FilterModal";
 import styles from "./Inicio.module.css";
+import SearchProfile from "../components/SearchProfile";
 
 export const Inicio = () => {
   const ImgProfile =
@@ -208,30 +208,14 @@ export const Inicio = () => {
               <i className="bi bi-gender-trans"></i> Trans | {contadorTrans}
             </button>
           </div>
-          <div className={styles.container_search_filter_option}>
-            {filter && (
-              <FilterModal
-                acomp={acomp}
-                genero={genero}
-                setResult={setResult}
-                setLoading={setLoading}
-                limit={limit}
-                setAcomp={setAcomp}
-              />
-            )}
-            <div className={styles.box_filter}>
-              <button onClick={() => setFilter(true)}>
-                <i className="ri-filter-2-line"></i>Filtro
-              </button>
-            </div>
-            <div className={styles.box_option}>
-              <select>
-                <option>Novidades</option>
-                <option>Destaques</option>
-                <option>Verificadas</option>
-              </select>
-            </div>
-          </div>
+          <SearchProfile
+            acomp={acomp}
+            genero={genero}
+            setResult={setResult}
+            setLoading={setLoading}
+            limit={limit}
+            setAcomp={setAcomp}
+          />
         </div>
       </section>
       <section>

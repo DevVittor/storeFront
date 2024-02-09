@@ -138,5 +138,3 @@ FilterModal.propTypes = {
   limit: PropTypes.oneOfType([PropTypes.func, PropTypes.number]).isRequired,
   setAcomp: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).isRequired,
 };
-
-export default FilterModal;
