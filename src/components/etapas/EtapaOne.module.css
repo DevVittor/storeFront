@@ -25,11 +25,9 @@
 }
 
 .avatar_img_acomp img {
-    height: 150px;
+    height: 250px;
     width: 150px;
-    border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--text-300);
 }
 
 .avatar_input_acomp input[type="file"] {

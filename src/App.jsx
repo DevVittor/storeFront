@@ -24,12 +24,13 @@ import { LoginModal } from "./components/modals/LoginModal";
 //Modals steps
 
 import { EtapaType } from "./components/etapas/EtapaType";
-import { TypeAccount } from "./components/modals/TypeAccount";
 
 //Apenas um teste
 import { Formulario } from "./pages/Formulario";
 import DestaquesModal from "./components/modals/DestaquesModal";
 import Verificar from "./components/modals/Verificar";
+
+import Cadastrar from "./pages/Cadastrar";
 
 export const App = () => {
   return (
@@ -43,7 +44,7 @@ export const App = () => {
           <Route path="planos" element={<Assinatura />} />
           <Route path="acomp" element={<AcompRegistro />} />
           <Route path="upload" element={<Files />} />
-          <Route path="cadastrar" element={<TypeAccount />} />
+          <Route path="cadastrar" element={<Cadastrar />} />
           <Route
             path="success"
             element={

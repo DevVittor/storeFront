@@ -36,10 +36,9 @@ export const HeaderBar = () => {
                 <li>
                   <Link
                     to={`/`}
-                    style={{
-                      color:
-                        rotaActive === "/" ? "var(--text-yellow)" : "white",
-                    }}
+                    className={
+                      rotaActive === "/" ? styles.selected : styles.url
+                    }
                   >
                     Inicio
                   </Link>
@@ -47,12 +46,9 @@ export const HeaderBar = () => {
                 <li>
                   <Link
                     to={`/destacar`}
-                    style={{
-                      color:
-                        rotaActive === "/destacar"
-                          ? "var(--text-yellow)"
-                          : "white",
-                    }}
+                    className={
+                      rotaActive === "/destacar" ? styles.selected : styles.url
+                    }
                   >
                     Destacar
                   </Link>
@@ -60,14 +56,21 @@ export const HeaderBar = () => {
                 <li>
                   <Link
                     to={`/verificar`}
-                    style={{
-                      color:
-                        rotaActive === "/verificar"
-                          ? "var(--text-yellow)"
-                          : "white",
-                    }}
+                    className={
+                      rotaActive === "/verificar" ? styles.selected : styles.url
+                    }
                   >
                     Verificar
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={`/conta`}
+                    className={
+                      rotaActive === "/conta" ? styles.selected : styles.url
+                    }
+                  >
+                    Conta
                   </Link>
                 </li>
               </ul>

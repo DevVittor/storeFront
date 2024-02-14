@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function WindowSize() {
-  const [alturaRef, setAlturaRef] = useState(65);
+  const [alturaRef, setAlturaRef] = useState(64);
   const [alturaPage, setAlturaPage] = useState(window.innerHeight);
   const [alturaAtual, setAlturaAtual] = useState(alturaPage - alturaRef);
 

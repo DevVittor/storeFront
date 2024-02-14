@@ -40,6 +40,20 @@ header {
     gap: 10px;
 }
 
+.url {
+    color: var(--text-300);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.selected {
+    color: var(--text-300);
+    border-bottom: 2px solid var(--color-orange);
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+
 .acesso_register {
     display: flex;
     align-items: center;
@@ -47,19 +61,21 @@ header {
 }
 
 .url_acesso {
-    color: var(--text-300);
-    font-size: 16px;
-    font-weight: 500;
-    padding: 3px 12px;
-}
-
-.url_cadastro {
     color: var(--bg-320);
     font-size: 16px;
     font-weight: 500;
     padding: 3px 12px;
-    border-radius: 3px;
     background: var(--text-300);
+    border-radius: 3px;
+}
+
+.url_cadastro {
+    color: var(--text-300);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 3px 12px;
+    border-radius: 3px;
+    background: var(--color-orange);
 }
 
 @media screen and (max-width:770px) {
