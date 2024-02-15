@@ -1,23 +1,51 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import styles from "./Header.module.css";
-export const HeaderBar = () => {
+import styles from "./HeaderBar.module.css";
+import Acessar from "../pages/Acessar";
+import Cadastrar from "../pages/Cadastrar";
+export default function HeaderBar() {
+
   const location = useLocation();
   const [rotaActive, setRotaActive] = useState("");
+  const [modalAcessar, setModalAcessar] = useState(false);
+  const [modalCadastrar, setModalCadastrar] = useState(false);
+  const userId = localStorage.getItem("userId");
+  const [logado, setLogado] = useState(false);
+
+  useEffect(() => {
+    if (userId != null) {
+      setLogado(true)
+    } else {
+      setLogado(false)
+    }
+  }, [userId])
 
   useEffect(() => {
     setRotaActive(location.pathname);
   }, [location.pathname]);
 
-  const [abrir, setAbrir] = useState(false);
-
   useEffect(() => {
-    window.addEventListener("click", (event) => {
-      if (abrir && !event.target.closest(".box-acesso")) {
-        setAbrir(false);
+    window.addEventListener("click", (e) => {
+      if (
+        modalCadastrar &&
+        !e.target.closest("#cadastrar") &&
+        !e.target.closest("#container_cadastrar")
+      ) {
+        setModalCadastrar(false);
       }
     });
-  }, [abrir]);
+  }, [modalCadastrar]);
+  useEffect(() => {
+    window.addEventListener("click", (e) => {
+      if (
+        modalAcessar &&
+        !e.target.closest("#acessar") &&
+        !e.target.closest("#container_acessar")
+      ) {
+        setModalAcessar(false);
+      }
+    });
+  }, [modalAcessar]);
 
   return (
     <header>
@@ -77,16 +105,33 @@ export const HeaderBar = () => {
             </nav>
           </div>
         </div>
-        <div className={styles.acesso_register}>
-          <Link className={styles.url_acesso} to={`/acessar`}>
-            Acessar
-          </Link>
+        {logado ? (
+          <div>
+            <h2>Logado</h2>
+          </div>
+        ) : (
+          <div className={styles.acesso_register}>
+            <button
+              className={styles.url_acesso}
+              id="acessar"
+              onClick={() => setModalAcessar(!modalAcessar)}
+            >
+              Acessar
+            </button>
 
-          <Link className={styles.url_cadastro} to={`/cadastrar`}>
-            Cadastrar
-          </Link>
-        </div>
+            <button
+              className={styles.url_cadastro}
+              id="cadastrar"
+              onClick={() => setModalCadastrar(!modalCadastrar)}
+            >
+              Cadastrar
+            </button>
+          </div>
+        )}
+
+        {modalAcessar && <Acessar />}
+        {modalCadastrar && <Cadastrar />}
       </div>
     </header>
   );
-};
+}

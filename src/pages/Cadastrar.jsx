@@ -1,14 +1,13 @@
 import styles from "./Cadastrar.module.css";
-import WindowSize from "../components/WindowSize";
 import { IoPeopleCircleSharp } from "react-icons/io5";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { FaEyeSlash } from "react-icons/fa";
-import { FaEye } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
+import WindowSize from "../components/WindowSize";
 export default function Cadastrar() {
   const alturaHeight = WindowSize();
+
   const [view, setView] = useState(false);
 
   const [nome, setNome] = useState("");
@@ -19,103 +18,77 @@ export default function Cadastrar() {
     e.preventDefault();
 
     const formData = {
-      nome,
-      email,
-      password,
+      nome: nome,
+      email: email,
+      senha: password,
     };
 
-    try {
-      axios
-        .post("http://localhost:8080/cadastrar", formData)
-        .then(() => {
-          console.log(`Tudo foi enviado`);
-        })
-        .catch((error) => {
-          console.log(`Não deu para enviar.Error: ${error}`);
-        });
-    } catch (error) {
-      console.log(`Deu error ${error}`);
-    }
+    axios.post("http://localhost:8080/v1/api/cadastrar/salvar", formData)
+      .then(() => {
+        console.log(`Tudo foi enviado`);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(`Não deu para enviar.Error: ${error}`);
+      });
   }
 
   return (
-    <main>
-      <section>
-        <div
-          className={styles.container}
-          style={{ minHeight: `${alturaHeight}px` }}
-        >
-          <div className={styles.box}>
-            <div className={styles.one}>
-              <div className={styles.title}>
-                <h2>Cadastre-se</h2>
-              </div>
-              <form onSubmit={handleSubmit} className={styles.input_form}>
-                <div className={styles.inputs}>
-                  <IoPeopleCircleSharp className={styles.icon} />
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Nome"
-                    onChange={(e) => setNome(e.target.value)}
-                  />
-                </div>
-                <div className={styles.inputs}>
-                  <MdOutlineAlternateEmail className={styles.icon} />
-                  <input
-                    type="email"
-                    name=""
-                    id=""
-                    placeholder="Email"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className={styles.inputs}>
-                  <RiLockPasswordFill className={styles.icon} />
-                  <input
-                    type={view ? "text" : "password"}
-                    name=""
-                    id=""
-                    placeholder="*****"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  {view ? (
-                    <FaEye
-                      className={styles.password_icon}
-                      onClick={() => setView(!view)}
-                    />
-                  ) : (
-                    <FaEyeSlash
-                      className={styles.password_icon}
-                      onClick={() => setView(!view)}
-                    />
-                  )}
-                </div>
-                <div className={styles.input_checkbox}>
-                  <input type="checkbox" name="" id="" />
-                  <span>Tenho 18 anos ou mais</span>
-                </div>
-                <div className={styles.termos}>
-                  <input type="checkbox" name="" id="" />
-                  <span>
-                    Eu concordo com os <a href="#">termos e condições</a>
-                  </span>
-                </div>
-                <div className={styles.input_submit}>
-                  <input type="submit" value="Cadastrar" />
-                </div>
-              </form>
-            </div>
-            <div className={styles.two}>
-              <img
-                src="https://images.pexels.com/photos/267028/pexels-photo-267028.jpeg"
-                alt=""
-              />
-            </div>
-          </div>
+    <div
+      className={styles.container}
+      style={{ minHeight: `${alturaHeight}px` }}
+    >
+      <div className={styles.one} id="container_cadastrar">
+        <div className={styles.title}>
+          <h2>Cadastre-se</h2>
         </div>
-      </section>
-    </main>
+        <form onSubmit={handleSubmit} className={styles.input_form}>
+          <div className={styles.inputs}>
+            <IoPeopleCircleSharp className={styles.icon} />
+            <input
+              type="text"
+              placeholder="Nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+            />
+          </div>
+          <div className={styles.inputs}>
+            <MdOutlineAlternateEmail className={styles.icon} />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className={styles.inputs}>
+            <RiLockPasswordFill className={styles.icon} />
+            <input
+              type={view ? "text" : "password"}
+              value={password}
+              placeholder="*****"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <i
+              onClick={() => setView(!view)}
+              className={view ? "ri-eye-fill" : "ri-eye-off-fill"}
+            ></i>
+          </div>
+          <div className={styles.input_checkbox}>
+            <input type="checkbox" />
+            <span>Tenho 18 anos ou mais</span>
+          </div>
+          <div className={styles.termos}>
+            <input type="checkbox" />
+            <span>
+              Eu concordo com os <a href="#">termos e condições</a>
+            </span>
+          </div>
+          <div className={styles.input_submit}>
+            <input type="submit" value="Cadastrar" />
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }

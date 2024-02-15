@@ -29,10 +29,23 @@ import { EtapaType } from "./components/etapas/EtapaType";
 import { Formulario } from "./pages/Formulario";
 import DestaquesModal from "./components/modals/DestaquesModal";
 import Verificar from "./components/modals/Verificar";
+import { useEffect } from "react";
 
-import Cadastrar from "./pages/Cadastrar";
+export default function App() {
 
-export const App = () => {
+  useEffect(() => {
+    const temToken = localStorage.getItem("Token");
+    const intervalId = setInterval(() => {
+      if (temToken) {
+        //localStorage.removeItem('Token');
+        localStorage.clear();
+      }
+    }, 10000);
+    return () => {
+      clearInterval(intervalId);
+    }
+  }, [])
+
   return (
     <BrowserRouter>
       <Routes>
@@ -44,7 +57,6 @@ export const App = () => {
           <Route path="planos" element={<Assinatura />} />
           <Route path="acomp" element={<AcompRegistro />} />
           <Route path="upload" element={<Files />} />
-          <Route path="cadastrar" element={<Cadastrar />} />
           <Route
             path="success"
             element={
@@ -76,4 +88,4 @@ export const App = () => {
       </Routes>
     </BrowserRouter>
   );
-};
+}

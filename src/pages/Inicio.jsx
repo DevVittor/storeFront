@@ -237,7 +237,7 @@ export const Inicio = () => {
           ) : (
             result.map((item, index) => (
               <Link
-                to={`/acompanhante/${item._id}`}
+                to={`/acompanhante/${item.nome}`}
                 key={`${item._id}_${index}`}
               >
                 <div className={styles.card_profile}>

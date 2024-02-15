@@ -32,6 +32,11 @@
     color: var(--text-300);
 }
 
+.two {
+    height: 100%;
+    width: 1000px;
+}
+
 .input_form {
     display: flex;
     flex-direction: column;
@@ -116,18 +121,49 @@
     transition: all ease .3s;
 }
 
+.lembrar_esquecer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lembrar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.lembrar input[type="checkbox"]:checked {
+    accent-color: var(--color-orange);
+}
+
+.lembrar span {
+    color: var(--text-300);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.esqueceu a {
+    color: var(--text-300);
+}
+
+.esqueceu a:hover {
+    color: var(--text-red);
+    text-decoration: underline;
+    transition: all ease .3s;
+}
+
 @media screen and (width < 700px) {
 
     .box {
         justify-content: center;
         align-items: center;
         height: 100%;
-        width: 100%;
         gap: 10px;
     }
 
-    .termos {
-        align-items: flex-start;
-        justify-content: center;
+
+    .two {
+        height: 100%;
     }
 }

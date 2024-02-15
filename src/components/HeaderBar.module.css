@@ -67,6 +67,11 @@ header {
     padding: 3px 12px;
     background: var(--text-300);
     border-radius: 3px;
+    border: none;
+}
+
+.url_acesso:hover {
+    cursor: pointer;
 }
 
 .url_cadastro {
@@ -76,6 +81,12 @@ header {
     padding: 3px 12px;
     border-radius: 3px;
     background: var(--color-orange);
+    border: none;
+    outline: none;
+}
+
+.url_cadastro:hover {
+    cursor: pointer;
 }
 
 @media screen and (max-width:770px) {
