@@ -7,6 +7,7 @@ import { GrContact } from "react-icons/gr";
 
 import WindowSize from "../components/WindowSize";
 import styles from "./Nova.module.css";
+import Maps from "../components/Maps";
 export const Nova = () => {
   const alturaDiv = WindowSize();
 
@@ -104,12 +105,7 @@ export const Nova = () => {
               <div className={styles.video}></div>
               <div className={styles.anuncio}></div>
               <div className={styles.map}>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14695.958451846314!2d-43.3586176!3d-22.95060965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bd9b7d3d8fdff%3A0xaa1c9667bd8a6bef!2zVmlhw6fDo28gUmVkZW50b3I!5e0!3m2!1spt-BR!2sbr!4v1707577578097!5m2!1spt-BR!2sbr"
-                  width="600"
-                  height="450"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+                <Maps />
               </div>
             </div>
           </div>

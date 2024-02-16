@@ -4,6 +4,8 @@ import axios from "axios";
 import ProfileBanner from "../components/ProfileBanner";
 import styles from "./Inicio.module.css";
 import SearchProfile from "../components/SearchProfile";
+import { BsFillPatchCheckFill } from "react-icons/bs";
+import { RiFireFill } from "react-icons/ri";
 
 export const Inicio = () => {
   const ImgProfile =
@@ -252,10 +254,10 @@ export const Inicio = () => {
                         <nav>
                           <ul>
                             <li>
-                              <i className="ri-verified-badge-fill"></i>
+                              <BsFillPatchCheckFill className={styles.icon_Verificado} />
                             </li>
                             <li>
-                              <i className="ri-flashlight-fill"></i>
+                              <RiFireFill className={styles.icon_Destaque} />
                             </li>
                           </ul>
                         </nav>

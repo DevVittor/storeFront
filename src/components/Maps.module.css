@@ -1,0 +1,203 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-320);
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 10px;
+    height: auto;
+    width: auto;
+    background: var(--bg-310);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 600px;
+    width: 300px;
+    gap: 8px;
+}
+
+.foto_perfil {
+    height: 100%;
+    width: 100%;
+}
+
+.foto_perfil img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.upload_foto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+
+.upload_foto input[type="file"] {
+    display: none;
+}
+
+.upload_foto label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background: var(--color-orange);
+    color: var(--text-300);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.upload_foto label:hover {
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 8px;
+    height: 600px;
+    width: auto;
+    max-width: 740px;
+}
+
+input {
+    padding: 4px 12px;
+    border-radius: 3px;
+    background: var(--bg-320);
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-300);
+    width: 100%;
+}
+
+select {
+    padding: 3px 10px;
+    outline: none;
+    border: none;
+    background: var(--bg-320);
+    color: var(--text-300);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+option {
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.inputs_one {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.idade_altura_peso {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.idade_altura_peso input {
+    width: 100%;
+}
+
+.estado_sigla_cidade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.sigla {
+    background: var(--bg-320);
+    padding: 3px 10px;
+    border-radius: 3px;
+}
+
+.pagamentos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+
+.cache {
+    width: 100%;
+}
+
+.cache input[type="range"] {
+    width: 100%;
+}
+
+.formas {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sigla span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-300);
+}
+
+.rua_bairro_cep {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cache_etnia_gen {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.age {
+    width: 100%;
+}
+
+.sobre {
+    width: 100%;
+}
+
+.sobre textarea {
+    background: var(--bg-320);
+    color: var(--text-300);
+    height: 200px;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    resize: none;
+}

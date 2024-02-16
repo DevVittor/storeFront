@@ -8,7 +8,7 @@ import { EtapaTres } from "./EtapaTres";
 import UploadImg from "./UpĺoadImg";
 
 export const EtapaType = () => {
-  const [stage, setStage] = useState(2);
+  const [stage, setStage] = useState(1);
   const [stageData, setStageData] = useState({});
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 

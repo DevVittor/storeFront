@@ -155,12 +155,14 @@
   gap: 3px;
 }
 
-.selos_list i {
+.icon_Verificado {
   font-size: 20px;
+  color: var(--bg-500);
 }
 
-.selos_list .ri-verified-badge-fill {
-  color: var(--bg-500);
+.icon_Destaque {
+  font-size: 20px;
+  color: var(--text-red);
 }
 
 .selos_list .ri-flashlight-fill {

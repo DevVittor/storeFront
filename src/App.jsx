@@ -29,7 +29,9 @@ import { EtapaType } from "./components/etapas/EtapaType";
 import { Formulario } from "./pages/Formulario";
 import DestaquesModal from "./components/modals/DestaquesModal";
 import Verificar from "./components/modals/Verificar";
+import Conta from "./pages/Conta";
 import { useEffect } from "react";
+import Maps from "./components/Maps";
 
 export default function App() {
 
@@ -73,6 +75,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="conta" element={<Conta />} />
           <Route path="destacar" element={<DestaquesModal />} />
           <Route path="verificar" element={<Verificar />} />
           <Route path="anunciar" element={<ModalBanner />} />
@@ -81,7 +84,7 @@ export default function App() {
           <Route path="acessar" element={<LoginModal />} />
           <Route path="arquivo" element={<UploadVideo />} />
           <Route path="finalizada" element={<ContaCriada />} />
-          {/*<Route path="/acompanhantes/:id" element={<Profile />} />*/}
+          <Route path="maps" element={<Maps />} />
           <Route path="/acompanhante/:id" element={<Nova />} />
           <Route path="*" element={<Error404 />} />
         </Route>

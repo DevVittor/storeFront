@@ -18,7 +18,7 @@ export default function HeaderBar() {
     } else {
       setLogado(false)
     }
-  }, [userId])
+  }, [userId]);
 
   useEffect(() => {
     setRotaActive(location.pathname);
@@ -71,26 +71,30 @@ export default function HeaderBar() {
                     Inicio
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to={`/destacar`}
-                    className={
-                      rotaActive === "/destacar" ? styles.selected : styles.url
-                    }
-                  >
-                    Destacar
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to={`/verificar`}
-                    className={
-                      rotaActive === "/verificar" ? styles.selected : styles.url
-                    }
-                  >
-                    Verificar
-                  </Link>
-                </li>
+                {logado && (
+                  <>
+                    <li>
+                      <Link
+                        to={`/destacar`}
+                        className={
+                          rotaActive === "/destacar" ? styles.selected : styles.url
+                        }
+                      >
+                        Destacar
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to={`/verificar`}
+                        className={
+                          rotaActive === "/verificar" ? styles.selected : styles.url
+                        }
+                      >
+                        Verificar
+                      </Link>
+                    </li>
+                  </>
+                )}
                 <li>
                   <Link
                     to={`/conta`}
