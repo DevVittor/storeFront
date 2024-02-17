@@ -8,10 +8,9 @@ import { BsFillPatchCheckFill } from "react-icons/bs";
 import { RiFireFill } from "react-icons/ri";
 
 export const Inicio = () => {
+
   const ImgProfile =
     "https://images.pexels.com/photos/2479883/pexels-photo-2479883.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
-
-  document.title = "ABRIME";
 
   const [genero, setGenero] = useState("Mulher");
   const [contadorMulher, setContadorMulher] = useState(0);
@@ -113,6 +112,7 @@ export const Inicio = () => {
       )
       .then((res) => {
         const response = res.data.dados;
+        console.log(response)
         const ListGen = response.filter((item) => item.genero === `${genero}`);
         setResult(ListGen);
       })
@@ -148,10 +148,7 @@ export const Inicio = () => {
       // O usuário chegou perto do final da página, você pode carregar mais itens aqui
       if (!loading) {
         setLoading(true);
-        axios
-          .get(
-            `http://localhost:8080/v1/api/acompanhantes?page=${page}&genero=${genero}&limit=6`
-          )
+        axios.get(`http://localhost:8080/v1/api/acompanhantes?page=${page}&genero=${genero}&limit=6`)
           .then(() => {
             setLoading(false);
             setPage((prevResult) => prevResult + 1);
@@ -239,7 +236,7 @@ export const Inicio = () => {
           ) : (
             result.map((item, index) => (
               <Link
-                to={`/acompanhante/${item.nome}`}
+                to={`/perfil/${item.nome_tag.toLowerCase().replace(/\s+/g, '')}`}
                 key={`${item._id}_${index}`}
               >
                 <div className={styles.card_profile}>
@@ -251,16 +248,8 @@ export const Inicio = () => {
                     />
                     <div className={styles.selos_profile}>
                       <div className={styles.selos_list}>
-                        <nav>
-                          <ul>
-                            <li>
-                              <BsFillPatchCheckFill className={styles.icon_Verificado} />
-                            </li>
-                            <li>
-                              <RiFireFill className={styles.icon_Destaque} />
-                            </li>
-                          </ul>
-                        </nav>
+                        <BsFillPatchCheckFill className={styles.icon_Verificado} />
+                        <RiFireFill className={styles.icon_Destaque} />
                       </div>
                       <div className={styles.gen_price}>
                         <nav>

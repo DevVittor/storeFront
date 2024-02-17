@@ -1,4 +1,5 @@
 import AgeRange from './AgeRange';
+import Altura from './Altura';
 import Cache from './Cache';
 import CorOlhos from './CorOlhos';
 import Corpo from './Corpo';
@@ -6,6 +7,7 @@ import Etnia from './Etnia';
 import FormasPagamentos from './FormasPagamentos';
 import Generos from './Generos';
 import styles from './Maps.module.css';
+import Peso from './Peso';
 import SelectService from './SelectService';
 import Tons from './Tons';
 import UploadImages from './UploadImages';
@@ -41,6 +43,12 @@ export default function Maps() {
                         <div className={styles.age}>
                             <AgeRange />
                         </div>
+                        <div className={styles.age}>
+                            <Altura />
+                        </div>
+                        <div className={styles.age}>
+                            <Peso />
+                        </div>
                     </div>
                     <div className={styles.estado_sigla_cidade}>
                         <div className="">
@@ -67,10 +75,15 @@ export default function Maps() {
                             <input type="text" name="" id="" placeholder='Bairro' />
                         </div>
                     </div>
-                    <div className={styles.pagamentos}>
-                        <FormasPagamentos />
-                        <Cache />
+                    <div>
+                        <div>
+                            <FormasPagamentos />
+                        </div>
+                        <div>
+                            <Cache />
+                        </div>
                     </div>
+
                     <div className={styles.cache_etnia_gen}>
                         <Etnia />
                         <CorOlhos />

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
-import { FcSearch } from "react-icons/fc";
+import { IoMdSearch } from "react-icons/io";
 import styles from "./SearchProfile.module.css";
 export default function SearchProfile({
   acomp,
@@ -46,7 +46,7 @@ export default function SearchProfile({
   }, [acomp, genero, limit, setResult, setLoading]);
   return (
     <div className={styles.box_search}>
-      <FcSearch />
+      <IoMdSearch />
       <input
         type="search"
         name="nome"

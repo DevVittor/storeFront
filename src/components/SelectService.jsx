@@ -2,19 +2,19 @@ import { Flex, Select } from 'antd';
 
 export default function SelectService() {
 
-    const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
-        { value: 'chocolate2', label: 'Chocolate' },
-        { value: 'strawberry2', label: 'Strawberry' },
-        { value: 'vanilla2', label: 'Vanilla' },
-        { value: 'chocolate3', label: 'Chocolate' },
-        { value: 'strawberry3', label: 'Strawberry' },
-        { value: 'vanilla3', label: 'Vanilla' },
-        { value: 'chocolate4', label: 'Chocolate' },
-        { value: 'strawberry4', label: 'Strawberry' },
-        { value: 'vanilla4', label: 'Vanilla' }
+    const services = [
+        { value: 'Anal', label: 'Anal' },
+        { value: 'Beijo na Boca', label: 'Beijo na Boca' },
+        { value: 'Casal', label: 'Casal' },
+        { value: 'Namoradinha', label: 'Namoradinha' },
+        { value: 'Fantasias', label: 'Fantasias' },
+        { value: 'Massagem erótica', label: 'Massagem erótica' },
+        { value: 'Chuva Dourada', label: 'Chuva Dourada' },
+        { value: 'Chuva Negra', label: 'Chuva Negra' },
+        { value: 'Festas', label: 'Festas' },
+        { value: 'Eventos', label: 'Eventos' },
+        { value: 'Viagens', label: 'Viagens' },
+        { value: 'Anal Giratório', label: 'Anal Giratório' }
     ];
     return (
         <Flex gap={8}>
@@ -24,7 +24,7 @@ export default function SelectService() {
                 style={{
                     flex: 1,
                 }}
-                options={options}
+                options={services}
             />
         </Flex>
     )

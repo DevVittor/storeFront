@@ -1,3 +1,4 @@
+
 import { Flex, Select } from 'antd';
 
 export default function FormasPagamentos() {
@@ -7,12 +8,14 @@ export default function FormasPagamentos() {
         { value: 'Pix', label: 'Pix' },
         { value: 'Cartão de crédito', label: 'Cartão de crédito' },
         { value: 'Cartão de débito', label: 'Cartão de débito' },
+        { value: 'Transferência bancária', label: 'Transferência bancária' },
+        { value: 'Cheque', label: 'Cheque' },
     ];
     return (
         <Flex gap={8}>
             <Select
                 mode="multiple"
-                placeholder="Formas de pagamento"
+                placeholder="Formas de pagamentos aceitas"
                 style={{
                     flex: 1,
                 }}
@@ -21,3 +24,4 @@ export default function FormasPagamentos() {
         </Flex>
     )
 }
+

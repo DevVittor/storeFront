@@ -14,18 +14,6 @@ export default function EtapaTwo({ ...props }) {
   const [heightValue, setHeightValue] = useState("");
   const [pesoValue, setPesoValue] = useState(null);
 
-  useEffect(() => {
-    // Seu código aqui, usando apenas as propriedades específicas desestruturadas
-  }, [
-    payments,
-    numberZap,
-    priceHour,
-    genValue,
-    etniaValue,
-    bodyValue,
-    heightValue,
-    pesoValue,
-  ]);
 
   useEffect(() => {
     console.log("Etnia", etniaValue);

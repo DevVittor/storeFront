@@ -128,7 +128,7 @@ export default function HeaderBar() {
               id="cadastrar"
               onClick={() => setModalCadastrar(!modalCadastrar)}
             >
-              Cadastrar
+              Cadastro Gratuito
             </button>
           </div>
         )}

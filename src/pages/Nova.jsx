@@ -7,9 +7,10 @@ import { GrContact } from "react-icons/gr";
 
 import WindowSize from "../components/WindowSize";
 import styles from "./Nova.module.css";
-import Maps from "../components/Maps";
 export const Nova = () => {
   const alturaDiv = WindowSize();
+
+  document.title = "AcompX";
 
   const description =
     "Todos os dias são uma chance para aprender, crescer e abraçar as oportunidades que nos levam a novos horizontes e conquistas.conquistas.conquistas.con";
@@ -104,9 +105,7 @@ export const Nova = () => {
             <div className={styles.container_details}>
               <div className={styles.video}></div>
               <div className={styles.anuncio}></div>
-              <div className={styles.map}>
-                <Maps />
-              </div>
+              <div className={styles.map}></div>
             </div>
           </div>
         </div>

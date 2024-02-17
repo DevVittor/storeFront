@@ -3,7 +3,7 @@ header {
     top: 0;
     z-index: 9999;
     width: 100%;
-    background: var(--bg-320);
+    background: var(--bg-330);
     border-bottom: 1px solid var(--bg-400);
 }
 
@@ -87,6 +87,7 @@ header {
 
 .url_cadastro:hover {
     cursor: pointer;
+    transition: all ease-in .3s;
 }
 
 @media screen and (max-width:770px) {

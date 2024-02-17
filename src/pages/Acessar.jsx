@@ -3,9 +3,7 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { useState } from "react";
 import axios from "axios";
-import WindowSize from "../components/WindowSize";
 export default function Acessar() {
-  const alturaHeight = WindowSize();
 
   const [view, setView] = useState(false);
   const [email, setEmail] = useState("");
@@ -38,51 +36,46 @@ export default function Acessar() {
   }
 
   return (
-    <div
-      className={styles.container}
-      style={{ minHeight: `${alturaHeight}px` }}
-    >
-      <div className={styles.one} id="container_acessar">
-        <div className={styles.title}>
-          <h2>Acessar Conta</h2>
-        </div>
-        <form onSubmit={handleSubmit} className={styles.input_form}>
-          <div className={styles.inputs}>
-            <MdOutlineAlternateEmail className={styles.icon} />
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className={styles.inputs}>
-            <RiLockPasswordFill className={styles.icon} />
-            <input
-              type={view ? "text" : "password"}
-              value={password}
-              placeholder="*****"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <i
-              onClick={() => setView(!view)}
-              className={view ? "ri-eye-fill" : "ri-eye-off-fill"}
-            ></i>
-          </div>
-          <div className={styles.lembrar_esquecer}>
-            <div className={styles.lembrar}>
-              <input type="checkbox" name="" id="" />
-              <span>Lembrar de mim</span>
-            </div>
-            <div className={styles.esqueceu}>
-              <a href="#">Esqueceu a senha ?</a>
-            </div>
-          </div>
-          <div className={styles.input_submit}>
-            <input type="submit" value="Acessar" />
-          </div>
-        </form>
+    <div className={styles.one} id="container_acessar">
+      <div className={styles.title}>
+        <h2>Acessar Conta</h2>
       </div>
+      <form onSubmit={handleSubmit} className={styles.input_form}>
+        <div className={styles.inputs}>
+          <MdOutlineAlternateEmail className={styles.icon} />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className={styles.inputs}>
+          <RiLockPasswordFill className={styles.icon} />
+          <input
+            type={view ? "text" : "password"}
+            value={password}
+            placeholder="*****"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <i
+            onClick={() => setView(!view)}
+            className={view ? "ri-eye-fill" : "ri-eye-off-fill"}
+          ></i>
+        </div>
+        <div className={styles.lembrar_esquecer}>
+          <div className={styles.lembrar}>
+            <input type="checkbox" name="" id="" />
+            <span>Lembrar de mim</span>
+          </div>
+          <div className={styles.esqueceu}>
+            <a href="#">Esqueceu a senha ?</a>
+          </div>
+        </div>
+        <div className={styles.input_submit}>
+          <input type="submit" value="Acessar" />
+        </div>
+      </form>
     </div>
   );
 }

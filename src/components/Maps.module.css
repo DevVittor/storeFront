@@ -12,7 +12,7 @@
     gap: 10px;
     height: auto;
     width: auto;
-    background: var(--bg-310);
+    background: var(--text-300);
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
@@ -79,33 +79,15 @@
     max-width: 740px;
 }
 
-input {
+.inputs_one input {
     padding: 4px 12px;
     border-radius: 3px;
-    background: var(--bg-320);
     border: none;
     outline: none;
     font-size: 14px;
     font-weight: 500;
-    color: var(--text-300);
+    color: var(--bg-310);
     width: 100%;
-}
-
-select {
-    padding: 3px 10px;
-    outline: none;
-    border: none;
-    background: var(--bg-320);
-    color: var(--text-300);
-    font-size: 14px;
-    font-weight: 500;
-}
-
-option {
-    padding: 3px 10px;
-    border-radius: 3px;
-    font-size: 14px;
-    font-weight: 500;
 }
 
 .inputs_one {
@@ -117,8 +99,9 @@ option {
 
 .idade_altura_peso {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .idade_altura_peso input {
@@ -133,7 +116,7 @@ option {
 }
 
 .sigla {
-    background: var(--bg-320);
+    background: white;
     padding: 3px 10px;
     border-radius: 3px;
 }
@@ -142,10 +125,11 @@ option {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
     width: 100%;
+    max-width: 740px;
 }
-
 
 .cache {
     width: 100%;
@@ -155,16 +139,10 @@ option {
     width: 100%;
 }
 
-.formas {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
 .sigla span {
     font-size: 14px;
     font-weight: 500;
-    color: var(--text-300);
+    color: var(--bg-310);
 }
 
 .rua_bairro_cep {
@@ -181,7 +159,7 @@ option {
 }
 
 .age {
-    width: 100%;
+    width: 33%;
 }
 
 .sobre {
@@ -189,8 +167,7 @@ option {
 }
 
 .sobre textarea {
-    background: var(--bg-320);
-    color: var(--text-300);
+    color: var(--bg-310);
     height: 200px;
     padding: 10px;
     width: 100%;

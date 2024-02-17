@@ -85,7 +85,7 @@ export default function App() {
           <Route path="arquivo" element={<UploadVideo />} />
           <Route path="finalizada" element={<ContaCriada />} />
           <Route path="maps" element={<Maps />} />
-          <Route path="/acompanhante/:id" element={<Nova />} />
+          <Route path="/perfil/:id" element={<Nova />} />
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>
