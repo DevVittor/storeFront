@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
-import ProfileBanner from "../components/ProfileBanner";
+//import ProfileBanner from "../components/ProfileBanner";
+import Demo from './Demo';
 import styles from "./Inicio.module.css";
 import SearchProfile from "../components/SearchProfile";
 import { BsFillPatchCheckFill } from "react-icons/bs";
 import { RiFireFill } from "react-icons/ri";
+import ModalProfile from "./ModalProfile";
 
 export const Inicio = () => {
 
   const ImgProfile =
     "https://images.pexels.com/photos/2479883/pexels-photo-2479883.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
+  const [profile, setProfile] = useState(false);
+  const [item, setItem] = useState(null);
   const [genero, setGenero] = useState("Mulher");
   const [contadorMulher, setContadorMulher] = useState(0);
   const [contadorHomem, setContadorHomem] = useState(0);
@@ -179,12 +182,18 @@ export const Inicio = () => {
     height: "auto",
   };
 
+  function handleProfileData(item) {
+    setProfile(!profile);
+    setItem(item)
+  }
+
   return (
     <main>
-      <ProfileBanner
+      {/*<ProfileBanner
         banner="https://images.pexels.com/photos/18896754/pexels-photo-18896754/free-photo-of-fotografia-animal-fotografia-de-animais-chimpanze-mamifero.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         alt="Banner"
-      />
+      />*/}
+      <Demo />
       <section>
         <div className={styles.container_filter_search}>
           <div className={styles.box_gen}>
@@ -235,45 +244,43 @@ export const Inicio = () => {
             </div>
           ) : (
             result.map((item, index) => (
-              <Link
-                to={`/perfil/${item.nome_tag.toLowerCase().replace(/\s+/g, '')}`}
-                key={`${item._id}_${index}`}
-              >
-                <div className={styles.card_profile}>
-                  <div className={styles.avatar_profile}>
-                    <img
-                      loading="lazy"
-                      src={ImgProfile}
-                      alt={`picture_${item._id}`}
-                    />
-                    <div className={styles.selos_profile}>
-                      <div className={styles.selos_list}>
-                        <BsFillPatchCheckFill className={styles.icon_Verificado} />
-                        <RiFireFill className={styles.icon_Destaque} />
-                      </div>
-                      <div className={styles.gen_price}>
-                        <nav>
-                          <ul>
-                            <li>{item.genero}</li>
-                            <li>|</li>
-                            <li>R$ {item.caches}/H</li>
-                          </ul>
-                        </nav>
-                      </div>
+              <div className={styles.card_profile} key={`${item._id}_${index}`} onClick={() => handleProfileData(item)} >
+                <div className={styles.avatar_profile}>
+                  <img
+                    loading="lazy"
+                    src={ImgProfile}
+                    alt={`picture_${item._id}`}
+                  />
+                  <div className={styles.selos_profile}>
+                    <div className={styles.selos_list}>
+                      <BsFillPatchCheckFill className={styles.icon_Verificado} />
+                      <RiFireFill className={styles.icon_Destaque} />
                     </div>
-                  </div>
-                  <div className={styles.name_profile}>
-                    <div className={styles.name_age_profile}>
-                      <h2>{item.nome}</h2>
-                      <h3>, {item.idade}</h3>
+                    <div className={styles.gen_price}>
+                      <nav>
+                        <ul>
+                          <li>{item.genero}</li>
+                          <li>|</li>
+                          <li>R$ {item.caches}/H</li>
+                        </ul>
+                      </nav>
                     </div>
-                    <span>Itaboraí, RJ</span>
                   </div>
                 </div>
-              </Link>
+                <div className={styles.name_profile}>
+                  <div className={styles.name_age_profile}>
+                    <h2>{item.nome}</h2>
+                    <h3>, {item.idade}</h3>
+                  </div>
+                  <span>Itaboraí, RJ</span>
+                </div>
+              </div>
             ))
           )}
         </div>
+      </section>
+      <section>
+        {profile && <ModalProfile item={item} />}
       </section>
     </main>
   );

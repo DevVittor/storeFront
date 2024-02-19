@@ -48,7 +48,7 @@
   font-size: 14px;
   font-weight: 500;
   border-radius: 50px;
-  transition: linear .3s;
+  transition: linear 0.3s;
 }
 
 .box_gen .selected:hover {
@@ -58,7 +58,7 @@
   background: var(--color-orange);
   color: var(--text-300);
   border-radius: 50px;
-  transition: linear .3s;
+  transition: linear 0.3s;
 }
 
 .box_search {
@@ -118,7 +118,9 @@
   flex-direction: column;
   height: auto;
   width: 300px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
 .avatar_profile {
@@ -126,7 +128,6 @@
   justify-content: center;
   height: 450px;
   width: 300px;
-
 }
 
 .avatar_profile img {
@@ -143,10 +144,11 @@
   gap: 10px;
   width: auto;
   max-width: 285px;
-  background: var(--text-300);
+  background: white;
   margin-top: 10px;
   padding: 5px 10px;
   border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .selos_list {
@@ -173,6 +175,7 @@
   padding: 5px 15px;
   background: var(--bg-330);
   border-radius: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .gen_price ul {

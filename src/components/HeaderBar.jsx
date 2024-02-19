@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import styles from "./HeaderBar.module.css";
 import Acessar from "../pages/Acessar";
 import Cadastrar from "../pages/Cadastrar";
-export default function HeaderBar() {
+import Menu from "./Menu";
+function HeaderBar() {
 
   const location = useLocation();
   const [rotaActive, setRotaActive] = useState("");
@@ -40,7 +41,7 @@ export default function HeaderBar() {
       if (
         modalAcessar &&
         !e.target.closest("#acessar") &&
-        !e.target.closest("#container_acessar")
+        !e.target.closest("#container_acessar") && !e.target.closest("#view") && !e.target.closest("#notview")
       ) {
         setModalAcessar(false);
       }
@@ -110,9 +111,7 @@ export default function HeaderBar() {
           </div>
         </div>
         {logado ? (
-          <div>
-            <h2>Logado</h2>
-          </div>
+          <Menu />
         ) : (
           <div className={styles.acesso_register}>
             <button
@@ -139,3 +138,4 @@ export default function HeaderBar() {
     </header>
   );
 }
+export default HeaderBar;

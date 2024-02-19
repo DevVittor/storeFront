@@ -1,102 +1,102 @@
 header {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    width: 100%;
-    background: var(--bg-330);
-    border-bottom: 1px solid var(--bg-400);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  background: var(--bg-320);
+  border-bottom: 2px solid var(--bg-330);
 }
 
 .container_header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 10px 30px;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 30px;
+  width: 100%;
 }
 
 .logo_menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .logo b {
-    color: var(--text-red);
+  color: var(--text-red);
 }
 
 .logo a {
-    color: var(--text-300);
-    font-size: 18px;
-    font-weight: 400;
+  color: var(--text-300);
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .menu ul {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .url {
-    color: var(--text-300);
-    font-size: 16px;
-    font-weight: 500;
+  color: var(--text-300);
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .selected {
-    color: var(--text-300);
-    border-bottom: 2px solid var(--color-orange);
-    font-size: 16px;
-    font-weight: 500;
-    padding-bottom: 5px;
+  color: var(--text-300);
+  border-bottom: 2px solid var(--color-orange);
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 5px;
 }
 
 .acesso_register {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .url_acesso {
-    color: var(--bg-320);
-    font-size: 16px;
-    font-weight: 500;
-    padding: 3px 12px;
-    background: var(--text-300);
-    border-radius: 3px;
-    border: none;
+  color: var(--bg-320);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 3px 12px;
+  background: var(--text-300);
+  border-radius: 3px;
+  border: none;
 }
 
 .url_acesso:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .url_cadastro {
-    color: var(--text-300);
-    font-size: 16px;
-    font-weight: 500;
-    padding: 3px 12px;
-    border-radius: 3px;
-    background: var(--color-orange);
-    border: none;
-    outline: none;
+  color: var(--text-300);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 3px 12px;
+  border-radius: 3px;
+  background: var(--color-orange);
+  border: none;
+  outline: none;
 }
 
 .url_cadastro:hover {
-    cursor: pointer;
-    transition: all ease-in .3s;
+  cursor: pointer;
+  transition: all ease-in 0.3s;
 }
 
-@media screen and (max-width:770px) {
-    .container_header {
-        justify-content: center;
-        gap: 10px;
-    }
+@media screen and (max-width: 770px) {
+  .container_header {
+    justify-content: center;
+    gap: 10px;
+  }
 
-    .logo_menu {
-        gap: 5px;
-    }
+  .logo_menu {
+    gap: 5px;
+  }
 }

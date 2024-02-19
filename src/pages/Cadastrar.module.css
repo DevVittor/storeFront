@@ -1,131 +1,128 @@
 .one {
-    position: absolute;
-    right: 20px;
-    top: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
-    height: auto;
-    width: 300px;
-    padding: 20px;
-    z-index: 9999;
-    background: var(--bg-330);
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  position: absolute;
+  right: 25px;
+  top: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  height: auto;
+  width: 300px;
+  padding: 20px;
+  z-index: 9999;
+  background: var(--bg-320);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
 .title {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text-300);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-300);
 }
 
 .input_form {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .inputs {
-    background: var(--text-300);
-    display: flex;
-    align-items: center;
-    border-radius: 3px;
-    padding: 5px 10px;
+  background: var(--text-300);
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  padding: 5px 10px;
 }
 
 .inputs i:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
+.inputs input[type="text"],
 .inputs input[type="email"],
 .inputs input[type="password"] {
-    padding: 0 10px;
-    outline: none;
-    border: none;
-    background: var(--text-300);
-    font-size: 16px;
-    font-weight: 500;
-    width: 100%;
+  padding: 0 10px;
+  outline: none;
+  border: none;
+  background: var(--text-300);
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
 }
 
 .input_submit input[type="submit"] {
-    padding: 8px 10px;
-    font-size: 16px;
-    font-weight: 600;
-    background: var(--color-orange);
-    color: var(--text-300);
-    border-radius: 3px;
-    outline: none;
-    width: 100%;
-    border-top: 1px solid var(--color-orange2);
-    border-left: 1px solid var(--color-orange2);
-    border-right: 2px solid var(--color-orange2);
-    border-bottom: 5px solid var(--color-orange2);
-    transition: all ease-out .3s;
+  padding: 8px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--color-orange);
+  color: var(--text-300);
+  border-radius: 3px;
+  outline: none;
+  width: 100%;
+  border-top: 1px solid var(--color-orange2);
+  border-left: 1px solid var(--color-orange2);
+  border-right: 2px solid var(--color-orange2);
+  border-bottom: 5px solid var(--color-orange2);
 }
 
 .input_submit input[type="submit"]:hover {
-    cursor: pointer;
-    border-top: 1px solid var(--color-orange2);
-    border-left: 1px solid var(--color-orange2);
-    border-right: none;
-    border-bottom: none;
+  cursor: pointer;
 }
 
 .icon {
-    background: var(--text-300);
-    outline: none;
-    border: none;
-    font-size: 18px;
+  background: var(--text-300);
+  outline: none;
+  border: none;
+  font-size: 18px;
 }
 
 .input_checkbox,
 .termos {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .input_checkbox span,
 .termos span {
-    color: var(--text-300);
-    font-size: 16px;
-    font-weight: 400;
+  color: var(--text-300);
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .input_checkbox input[type="checkbox"]:checked,
 .termos input[type="checkbox"]:checked {
-    accent-color: var(--color-orange);
+  accent-color: var(--color-orange);
 }
 
 .password_icon:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .termos a {
-    color: var(--color-orange);
+  color: var(--color-orange);
 }
 
 .termos a:hover {
-    text-decoration: underline;
-    transition: all ease .3s;
+  text-decoration: underline;
+  transition: all ease 0.3s;
 }
 
 @media screen and (width < 700px) {
+  .box {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+  }
 
-    .box {
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        width: 100%;
-        gap: 10px;
-    }
-
-    .termos {
-        align-items: flex-start;
-        justify-content: center;
-    }
+  .termos {
+    align-items: flex-start;
+    justify-content: center;
+  }
 }

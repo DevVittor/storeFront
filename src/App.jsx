@@ -12,6 +12,7 @@ import { ContaCriada } from "./components/ContaCriada";
 import { Categoria } from "./pages/Categoria";
 import { Nova } from "./pages/Nova";
 import { UploadVideo } from "./components/uploadVideo";
+import Demo from './pages/Demo';
 
 import ModalBanner from "./components/ModalBanner";
 //Modals
@@ -33,16 +34,17 @@ import Conta from "./pages/Conta";
 import { useEffect } from "react";
 import Maps from "./components/Maps";
 
-export default function App() {
+function App() {
 
   useEffect(() => {
+    const milissegundos = 3 * 24 * 60 * 60 * 1000;
     const temToken = localStorage.getItem("Token");
     const intervalId = setInterval(() => {
       if (temToken) {
         //localStorage.removeItem('Token');
         localStorage.clear();
       }
-    }, 10000);
+    }, milissegundos);
     return () => {
       clearInterval(intervalId);
     }
@@ -75,6 +77,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="demo" element={<Demo />} />
           <Route path="conta" element={<Conta />} />
           <Route path="destacar" element={<DestaquesModal />} />
           <Route path="verificar" element={<Verificar />} />
@@ -92,3 +95,4 @@ export default function App() {
     </BrowserRouter>
   );
 }
+export default App;

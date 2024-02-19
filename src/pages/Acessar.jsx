@@ -1,6 +1,9 @@
 import styles from "./Acessar.module.css";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
+import { FaRegArrowAltCircleRight } from "react-icons/fa";
+import { IoMdEye } from "react-icons/io";
+import { IoIosEyeOff } from "react-icons/io";
 import { useState } from "react";
 import axios from "axios";
 export default function Acessar() {
@@ -8,6 +11,10 @@ export default function Acessar() {
   const [view, setView] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  function alterView() {
+    setView(!view)
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -58,10 +65,11 @@ export default function Acessar() {
             placeholder="*****"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <i
-            onClick={() => setView(!view)}
-            className={view ? "ri-eye-fill" : "ri-eye-off-fill"}
-          ></i>
+          {view ? (
+            <IoMdEye onClick={alterView} id="view" className={styles.viewIcon} />
+          ) : (
+            <IoIosEyeOff onClick={alterView} id="notview" className={styles.viewIcon} />
+          )}
         </div>
         <div className={styles.lembrar_esquecer}>
           <div className={styles.lembrar}>
@@ -73,7 +81,7 @@ export default function Acessar() {
           </div>
         </div>
         <div className={styles.input_submit}>
-          <input type="submit" value="Acessar" />
+          <button type="submit"><FaRegArrowAltCircleRight />Acessar</button>
         </div>
       </form>
     </div>

@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 20px;
+}
+
+.box {
+    height: 600px;
+    width: 100%;
+}
+
+.box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.destaque {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 600px;
+    width: auto;
+}
+
+.cards {
+    height: 100%;
+    width: 350px;
+}
+
+.cards img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
