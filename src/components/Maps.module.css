@@ -2,7 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--bg-320);
+    flex-direction: column;
+    gap: 20px;
+    backdrop-filter: blur(15px);
+    position: fixed;
+    z-index: 9999;
+    height: auto;
+    width: 100%;
+    left: 0;
+    bottom: 0;
 }
 
 .box {
@@ -17,12 +25,23 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: auto;
+    padding: 20px;
+    background: var(--text-300);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
 .img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 600px;
+    height: auto;
     width: 300px;
     gap: 8px;
 }
@@ -67,16 +86,6 @@
 
 .upload_foto label:hover {
     cursor: pointer;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 8px;
-    height: 600px;
-    width: auto;
-    max-width: 740px;
 }
 
 .inputs_one input {

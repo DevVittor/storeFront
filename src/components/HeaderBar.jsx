@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "./HeaderBar.module.css";
 import Acessar from "../pages/Acessar";
@@ -6,8 +6,6 @@ import Cadastrar from "../pages/Cadastrar";
 import Menu from "./Menu";
 function HeaderBar() {
 
-  const location = useLocation();
-  const [rotaActive, setRotaActive] = useState("");
   const [modalAcessar, setModalAcessar] = useState(false);
   const [modalCadastrar, setModalCadastrar] = useState(false);
   const userId = localStorage.getItem("userId");
@@ -21,9 +19,6 @@ function HeaderBar() {
     }
   }, [userId]);
 
-  useEffect(() => {
-    setRotaActive(location.pathname);
-  }, [location.pathname]);
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
@@ -51,64 +46,12 @@ function HeaderBar() {
   return (
     <header>
       <div className={styles.container_header}>
-        <div className={styles.logo_menu}>
-          <div className={styles.logo}>
-            <Link to="/">
-              <h1>
-                Acomp<b>X</b>
-              </h1>
-            </Link>
-          </div>
-          <div className={styles.menu}>
-            <nav>
-              <ul>
-                <li>
-                  <Link
-                    to={`/`}
-                    className={
-                      rotaActive === "/" ? styles.selected : styles.url
-                    }
-                  >
-                    Inicio
-                  </Link>
-                </li>
-                {logado && (
-                  <>
-                    <li>
-                      <Link
-                        to={`/destacar`}
-                        className={
-                          rotaActive === "/destacar" ? styles.selected : styles.url
-                        }
-                      >
-                        Destacar
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to={`/verificar`}
-                        className={
-                          rotaActive === "/verificar" ? styles.selected : styles.url
-                        }
-                      >
-                        Verificar
-                      </Link>
-                    </li>
-                  </>
-                )}
-                <li>
-                  <Link
-                    to={`/conta`}
-                    className={
-                      rotaActive === "/conta" ? styles.selected : styles.url
-                    }
-                  >
-                    Conta
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
+        <div className={styles.logo}>
+          <Link to="/">
+            <h1>
+              Acomp<b>X</b>
+            </h1>
+          </Link>
         </div>
         {logado ? (
           <Menu />

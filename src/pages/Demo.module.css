@@ -1,13 +1,14 @@
 .container {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 5px;
-    padding: 20px;
+    padding: 10px 30px;
 }
 
 .box {
-    height: 600px;
-    width: 100%;
+    height: 450px;
+    width: 930px;
 }
 
 .box img {
@@ -16,18 +17,26 @@
     object-fit: cover;
 }
 
+.profiles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
 .destaque {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
-    height: 600px;
+    height: 450px;
     width: auto;
 }
 
 .cards {
     height: 100%;
-    width: 350px;
+    width: 300px;
 }
 
 .cards img {

@@ -216,13 +216,7 @@ export const Inicio = () => {
               <i className="bi bi-gender-trans"></i> Trans | {contadorTrans}
             </button>
           </div>
-          <SearchProfile
-            acomp={acomp}
-            genero={genero}
-            setResult={setResult}
-            setLoading={setLoading}
-            limit={limit}
-            setAcomp={setAcomp}
+          <SearchProfile {...{ acomp, genero, setResult, setLoading, limit, setAcomp }}
           />
         </div>
       </section>
