@@ -1,7 +1,7 @@
 //import {Redirect}from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export const ProtectedRoute=({ children })=> {
+export const ProtectedRoute = ({ children }) => {
   const userToken = localStorage.getItem("Token");
 
   if (userToken) {

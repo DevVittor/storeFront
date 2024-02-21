@@ -1,0 +1,80 @@
+.card_profile {
+    height: 350px;
+    width: auto;
+}
+
+.card_profile img {
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+    object-fit: cover;
+    transition: all ease-out .3s;
+}
+
+.card_profile img:hover {
+    cursor: zoom-in;
+}
+
+.card_modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    backdrop-filter: blur(15px);
+}
+
+.card_modal:hover {
+    cursor: zoom-out;
+}
+
+.card_modal i {
+    font-size: 32px;
+    color: var(--text-red);
+}
+
+.card_modal i:hover {
+    cursor: pointer;
+}
+
+.modal {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal img {
+    max-height: 800px;
+    height: auto;
+    width: 100%;
+    transition: all ease-in .3s;
+    border-radius: 5px;
+}
+
+.modal img:hover {
+    cursor: auto;
+}
+
+@media screen and (max-width:640px) {
+    .card_profile {
+        height: auto;
+        width: 100%;
+    }
+
+    .modal {
+        justify-content: center;
+        align-items: flex-end;
+        padding: 10px;
+    }
+
+    .modal img {
+        max-height: 600px;
+        height: auto;
+        max-width: 600px;
+    }
+}
