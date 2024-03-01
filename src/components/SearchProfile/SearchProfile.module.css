@@ -18,6 +18,10 @@
     background: white;
 }
 
+.filter_modal {
+    position: relative;
+}
+
 .icon_search,
 .icon_filter {
     font-size: 18px;
@@ -32,13 +36,13 @@
     flex-direction: column;
     gap: 5px;
     position: absolute;
-    top: 590px;
-    right: 30px;
+    top: 30px;
+    right: -10px;
     height: auto;
     max-height: 320px;
     overflow: auto;
-    width: auto;
-    border-radius: 5px;
+    width: 300px;
+    border-radius: 3px;
     padding: 20px;
     background: white;
     z-index: 1;

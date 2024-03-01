@@ -1,84 +1,53 @@
-import { Altura } from '../Altura/Altura';
-import { Cache } from '../Cache/Cache';
-import { CorOlhos } from '../CorOlhos/CorOlhos';
-import { Corpo } from '../Corpo/Corpo';
-import { Etnia } from '../Etnia/Etnia';
-import { FormasPagamentos } from '../FormasPagamentos/FormasPagamentos';
-import { Generos } from '../Generos/Generos';
-import styles from './Maps.module.css';
-import { Peso } from '../Peso/Peso';
-import { SelectService } from '../SelectService/SelectService';
-import { UploadImages } from '../UploadsImages/UploadImages';
-import { WindowSize } from '../WindowSize/WindowSize';
+import WindowSize from "../../components/WindowSize/WindowSize"
+import styles from '../Maps/Maps.module.css'
+import { useState } from "react";
 export const Maps = () => {
-    const alturaHeight = WindowSize();
+    const altura = WindowSize();
+    const [selectedOption, setSelectedOption] = useState(null);
 
+    const handleOptionChange = (event) => {
+        setSelectedOption(event.target.value);
+    };
     return (
-        <div className={styles.container} style={{ minHeight: `${alturaHeight}px` }}>
-            <div className={styles.content} id='create_profile'>
-                <div>
-                    <SelectService />
+        <main>
+            <section>
+                <div className={styles.container} style={{ height: `${altura}px` }}>
+                    <form className={styles.box_form}>
+                        <div className={styles.title_form}>
+                            <h2>Criando um Perfil</h2>
+                        </div>
+                        <div className={styles.name_lastname}>
+                            <input type="text" name="" id="" placeholder="Nome" />
+                            <input type="text" name="" id="" placeholder="Sobrenome" />
+                        </div>
+                        <div className="flex items-center justify-center gap-2">
+                            <div className={styles.gen}>
+                                <input className="" type="radio" name="" id="gen_woman"
+                                    value="Mulher" checked={selectedOption === "Mulher"} onChange={handleOptionChange} />
+                                <label className="" htmlFor="gen_woman">Mulher</label>
+                            </div>
+                            <div className={styles.gen}>
+                                <input className="" type="radio" name="" id="gen_homem"
+                                    value="Homem" checked={selectedOption === "Homem"} onChange={handleOptionChange} />
+                                <label className="" htmlFor="gen_homem">Homem</label>
+                            </div>
+                            <div className={styles.gen}>
+                                <input className="" type="radio" name="" id="gen_trans"
+                                    value="Trans" checked={selectedOption === "Trans"} onChange={handleOptionChange} />
+                                <label className="" htmlFor="gen_trans">Trans</label>
+                            </div>
+                        </div>
+                        <div className="flex items-center justify-center gap-2 w-full">
+                            <input className="w-auto" type="date" name="" id="" />
+                        </div>
+                        <div className={styles.cache_altura_peso}>
+                            <input type="number" name="" id="" placeholder="Cache" />
+                            <input type="number" name="" id="" placeholder="Altura" />
+                            <input type="number" name="" id="" placeholder="Peso" />
+                        </div>
+                    </form>
                 </div>
-                <div className={styles.inputs_one}>
-                    <input type="text" name="" id="" placeholder='Nome' />
-                    <input type="text" name="" id="" placeholder='Sobrenome' />
-                    <input type="text" name="" id="" placeholder='Celular/Whatsapp' />
-                </div>
-                <div className={styles.idade_altura_peso}>
-                    <div className={styles.age}>
-                        <Altura />
-                    </div>
-                    <div className={styles.age}>
-                        <Peso />
-                    </div>
-                </div>
-                <div className={styles.estado_sigla_cidade}>
-                    <div className="">
-                        <select name="" id="">
-                            <option value="">Rio de Janeiro</option>
-                            <option value="">Rio de Janeiro</option>
-                            <option value="">Rio de Janeiro</option>
-                        </select>
-                    </div>
-                    <div className={styles.sigla}>
-                        <span>RJ</span>
-                    </div>
-                    <div className="">
-                        <select name="" id="">
-                            <option value="">Rio de Janeiro</option>
-                            <option value="">Rio de Janeiro</option>
-                            <option value="">Rio de Janeiro</option>
-                        </select>
-                    </div>
-                    <div className="">
-                        <input type="text" name="" id="" placeholder='Rua' />
-                    </div>
-                    <div className="">
-                        <input type="text" name="" id="" placeholder='Bairro' />
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <FormasPagamentos />
-                    </div>
-                    <div>
-                        <Cache />
-                    </div>
-                </div>
-
-                <div className={styles.cache_etnia_gen}>
-                    <Etnia />
-                    <CorOlhos />
-                    <Generos />
-                    <Corpo />
-                </div>
-                <div className={styles.sobre}>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Fale sobre você"></textarea>
-                </div>
-                <div>
-                    <UploadImages />
-                </div>
-            </div>
-        </div>
-    );
+            </section >
+        </main >
+    )
 }

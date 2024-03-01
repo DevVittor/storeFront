@@ -60,6 +60,10 @@ header {
   gap: 10px;
 }
 
+.acesso {
+  position: relative;
+}
+
 .url_acesso {
   color: var(--bg-320);
   font-size: 16px;

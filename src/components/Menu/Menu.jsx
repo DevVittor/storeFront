@@ -1,14 +1,14 @@
 import { MdMenu } from "react-icons/md";
 import { MdMenuOpen } from "react-icons/md";
-import { RiFireFill } from "react-icons/ri";
-import { BsFillPatchCheckFill } from "react-icons/bs";
 import { FaPowerOff } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
 import { IoMegaphone } from "react-icons/io5";
+import { MdOutlineRocketLaunch } from "react-icons/md";
 import styles from './Menu.module.css';
 import { Maps } from '../Maps/Maps';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { UserCircleIcon } from "lucide-react";
 export const Menu = () => {
     const [createProfile, setCreateProfile] = useState(false);
     const [menu, setMenu] = useState(false);
@@ -40,36 +40,31 @@ export const Menu = () => {
         })
     }, [menu])
 
-    function openModal() {
-        setCreateProfile(!createProfile);
-    }
-
     return (
         <div className={styles.container} id="menu">
-            <div>
-                <button className={styles.create} onClick={openModal} id="criar_anuncio">Criar Anúncio</button>
-            </div>
-            <div>
+            <>
                 {menu ? (
-                    <MdMenuOpen className={styles.icon} onClick={openMenu} id="iconOpen" />
+                    <div className={styles.menu_hover}>
+                        <MdMenuOpen className={styles.icon} onClick={openMenu} id="iconOpen" />
+                        {menu && (
+                            <div className={styles.modal}>
+                                <nav>
+                                    <ul>
+                                        <li><Link to="/perfil/novo"><UserCircleIcon />Criar Perfil</Link></li>
+                                        <li><Link to="/Impulsionar"><MdOutlineRocketLaunch />Impulsionar Perfil</Link></li>
+                                        <li><Link to="/#"><IoMegaphone className={styles.icone} />Divulgar Marca</Link></li>
+                                        <li><Link to={`/`}><IoMdSettings className={styles.icone} />Editar Conta</Link></li>
+                                        <li><Link to="/#"><FaPowerOff className={styles.icone} />Sair</Link></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        )}
+                    </div>
                 ) : (
                     <MdMenu className={styles.icon} onClick={openMenu} id="iconClose" />
                 )}
-            </div>
+            </>
             {createProfile && <Maps />}
-            {menu && (
-                <div className={styles.modal}>
-                    <nav>
-                        <ul>
-                            <li><Link to="/#"><RiFireFill className={styles.icone} />Destacar</Link></li>
-                            <li><Link to="/#"><BsFillPatchCheckFill className={styles.icone} />Verificar</Link></li>
-                            <li><Link to="/#"><IoMegaphone className={styles.icone} />Divulgar Marca</Link></li>
-                            <li><Link to={`/`}><IoMdSettings className={styles.icone} />Editar Conta</Link></li>
-                            <li><Link to="/#"><FaPowerOff className={styles.icone} />Sair</Link></li>
-                        </ul>
-                    </nav>
-                </div>
-            )}
         </div>
     )
 }

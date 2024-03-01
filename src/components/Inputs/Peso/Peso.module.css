@@ -1,0 +1,20 @@
+.title {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--bg-320);
+    padding-bottom: 5px;
+}
+
+.peso {
+    height: 25px;
+    max-width: 70px;
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--bg-320);
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    background: white;
+}

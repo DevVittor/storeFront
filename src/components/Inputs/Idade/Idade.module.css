@@ -1,0 +1,46 @@
+.datas {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: white;
+    padding: 10px;
+}
+
+.selects {
+    display: inline-flex;
+    border-radius: 5px;
+    gap: 5px;
+}
+
+.data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.data label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--bg-320);
+}
+
+.data select {
+    width: 70px;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+.data option {
+    height: auto;
+    text-align: center;
+    padding: 5px 20px;
+    background-color: white;
+    cursor: pointer;
+}

@@ -45,11 +45,11 @@ export const HeaderBar = () => {
 
   return (
     <header>
-      <div className={styles.container_header}>
+      <div className="flex items-center justify-between px-[30px] py-[10px]">
         <div className={styles.logo}>
           <Link to="/">
-            <h1>
-              Acomp<b>X</b>
+            <h1 className="text-white font-bold text-3xl">
+              Acomp<b className="text-red-600 font-bold text-3xl">X</b>
             </h1>
           </Link>
         </div>
@@ -57,13 +57,16 @@ export const HeaderBar = () => {
           <Menu />
         ) : (
           <div className={styles.acesso_register}>
-            <button
-              className={styles.url_acesso}
-              id="acessar"
-              onClick={() => setModalAcessar(!modalAcessar)}
-            >
-              Acessar
-            </button>
+            <div className={styles.acesso}>
+              <button
+                className={styles.url_acesso}
+                id="acessar"
+                onClick={() => setModalAcessar(!modalAcessar)}
+              >
+                Acessar
+              </button>
+              {modalAcessar && <Acessar />}
+            </div>
 
             <button
               className={styles.url_cadastro}
@@ -75,7 +78,7 @@ export const HeaderBar = () => {
           </div>
         )}
 
-        {modalAcessar && <Acessar />}
+
         {modalCadastrar && <Cadastrar />}
       </div>
     </header>
