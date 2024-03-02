@@ -172,7 +172,7 @@ export const Inicio = () => {
           <div className="flex items-center gap-2 w-auto dark:bg-zinc-900 bg-zinc-200 p-[5px] rounded-full">
             <button
               className={genero === "Mulher"
-                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-red-600 bg-zinc-900 text-white font-bold text-[14px]"
+                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-laranja bg-zinc-900 text-white font-bold text-[14px]"
                 : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-zinc-400 text-white font-bold text-[14px] w-auto rounded-full"}
               onClick={() => setGenero("Mulher")}
             >
@@ -180,7 +180,7 @@ export const Inicio = () => {
             </button>
             <button
               className={genero === "Homem"
-                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-red-600 bg-zinc-900 text-white font-bold text-[14px]"
+                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-laranja bg-zinc-900 text-white font-bold text-[14px]"
                 : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-zinc-600 text-white font-bold text-[14px] w-auto rounded-full"}
               onClick={() => setGenero("Homem")}
             >
@@ -188,7 +188,7 @@ export const Inicio = () => {
             </button>
             <button
               className={genero === "Trans"
-                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-red-600 bg-zinc-900 text-white font-bold text-[14px]"
+                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-laranja bg-zinc-900 text-white font-bold text-[14px]"
                 : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-zinc-600 text-white font-bold text-[14px] w-auto rounded-full"}
               onClick={() => setGenero("Trans")}
             >
@@ -200,12 +200,12 @@ export const Inicio = () => {
         </div>
       </section>
       <section>
-        <div className="flex items-start justify-center flex-wrap gap-1 h-auto px-1 pb-1 pt-0 dark:bg-dark " style={{ minHeight: `${alturaDiv}px` }}>
+        <div className="relative flex items-start justify-center flex-wrap gap-1 h-auto px-1 pb-1 pt-0 dark:bg-dark " style={{ minHeight: `${alturaDiv}px` }}>
           {result.length === 0 ? (
-            <div className="flex justify-center items-center flex-col absolute inset-0 gap-2 w-full ">
-              <h1 className="dark:text-white font-medium text-base flex items-center justify-center flex-col"><b className="font-bold text-3xl">Sem resultados:</b> {acomp} </h1>
+            <div className="flex justify-center items-center flex-col h-auto bg-red-500 gap-2 w-full absolute inset-0">
+              <h1 className="text-white font-medium text-base flex items-center justify-center flex-col"><b className="font-bold text-3xl">Sem resultados:</b> {acomp} </h1>
               <button
-                className="dark:bg-white dark:text-black bg-dark text-white px-3 py-1 rounded-sm"
+                className="bg-white text-black  px-3 py-1 rounded-sm"
                 onClick={() => setAcomp("")}
               >
                 Tente novamente!
