@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "./Inicio.module.css";
 import { SearchProfile } from "../../components/SearchProfile/SearchProfile";
 import { BsFillPatchCheckFill } from "react-icons/bs";
 import { RiFireFill } from "react-icons/ri";
@@ -201,7 +200,7 @@ export const Inicio = () => {
         </div>
       </section>
       <section>
-        <div className="flex items-start justify-center flex-wrap gap-2.5 h-auto px-5 pb-5 pt-0 dark:bg-dark bg-white" style={{ minHeight: `${alturaDiv}px` }}>
+        <div className="flex items-start justify-center flex-wrap gap-1 h-auto px-1 pb-1 pt-0 dark:bg-dark bg-red-500" style={{ minHeight: `${alturaDiv}px` }}>
           {result.length === 0 ? (
             <div>
               <h1 style={{ color: "white" }}>Sem resultados {acomp} </h1>
@@ -218,8 +217,8 @@ export const Inicio = () => {
             </div>
           ) : (
             result.map((item, index) => (
-              <Link to={`/${item.nome_tag}`} key={`${item._id}_${index}`}>
-                <div className={styles.card_profile}  id="card_profile">
+              <Link className="rounded-md" to={`/${item.nome_tag}`} key={`${item._id}_${index}`}>
+                <div className="relative flex justify-end items-center flex-col h-auto 2xl:w-[312px] hover:cursor-pointer"  id="card_profile">
                 <div className="grid-cols-6 contents">
                   <div className="absolute top-0 mt-[10px] flex justify-between items-center gap-2 bg-white pr-1 pl-3 py-1 rounded-full">
                     <div className="flex items-center justify-center gap-1">
@@ -237,11 +236,11 @@ export const Inicio = () => {
                     </div>
                   </div>
                   <img
-                    className=""
+                    className="rounded-md h-full w-full object-cover"
                     src={ImgProfile}
                     alt={`picture_${item._id}`}
                   />
-                  <div className="absolute bottom-0 leading-4 flex justify-center flex-col h-auto max-h-[80px] w-full py-2 px-2.5  z-50 backdrop-blur-xl">
+                  <div className="absolute bottom-0 leading-4 flex justify-center flex-col rounded-b-md h-auto max-h-[80px] w-full py-2 px-2.5 backdrop-blur-xl">
                     <div className="flex items-center w-full ">
                       <h2 className="font-semibold text-lg text-white">{item.nome}</h2>
                       <h3 className="font-medium text-base text-white">, {item.idade} anos</h3>

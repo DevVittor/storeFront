@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import styles from "./HeaderBar.module.css";
 import { Acessar } from "../../pages/Acessar/Acessar";
 import { Cadastrar } from "../../pages/Cadastrar/Cadastrar";
 import { Menu } from "../Menu/Menu";
+import { FaMoon } from "react-icons/fa";
+import { IoIosSunny } from "react-icons/io";
 export const HeaderBar = () => {
 
   const [modalAcessar, setModalAcessar] = useState(false);
@@ -75,10 +76,10 @@ export const HeaderBar = () => {
         {logado ? (
           <Menu mode={handleDarkMode} atual={theme}/>
         ) : (
-          <div className={styles.acesso_register}>
-            <div className={styles.acesso}>
+          <div className="flex items-center gap-2.5">
+            <div className="">
               <button
-                className={styles.url_acesso}
+                className="font-medium px-3 py-1 rounded-sm dark:bg-white bg-dark dark:text-black text-white border dark:border-white border-zinc-200"
                 id="acessar"
                 onClick={() => setModalAcessar(!modalAcessar)}
               >
@@ -87,13 +88,13 @@ export const HeaderBar = () => {
               {modalAcessar && <Acessar />}
             </div>
             <button
-              className={styles.url_cadastro}
+              className="px-3 py-1 border border-vermelhoIcon bg-vermelhoIcon text-white font-semibold rounded-sm"
               id="cadastrar"
               onClick={() => setModalCadastrar(!modalCadastrar)}
             >
               Cadastro Gratuito
             </button>
-            <button className="dark:text-white" onClick={handleDarkMode}>Dark Mode</button>
+            <button className="dark:text-white flex items-center gap-2 px-3 py-1 border dark:border-white border-zinc-200" onClick={handleDarkMode}>{theme === "dark" ? <FaMoon/> : <IoIosSunny/>}Tema {theme === "dark" ? 'Escuro' : "Claro"}</button>
           </div>
         )}
         
