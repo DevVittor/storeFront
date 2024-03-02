@@ -200,7 +200,7 @@ export const Inicio = () => {
         </div>
       </section>
       <section>
-        <div className="flex items-start justify-center flex-wrap gap-1 h-auto px-1 pb-1 pt-0 dark:bg-dark bg-red-500" style={{ minHeight: `${alturaDiv}px` }}>
+        <div className="flex items-start justify-center flex-wrap gap-1 h-auto px-1 pb-1 pt-0 dark:bg-dark " style={{ minHeight: `${alturaDiv}px` }}>
           {result.length === 0 ? (
             <div>
               <h1 style={{ color: "white" }}>Sem resultados {acomp} </h1>
