@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { SearchProfile } from "../../components/SearchProfile/SearchProfile";
-import { BsFillPatchCheckFill } from "react-icons/bs";
+import Verificado from '../../assets/icons/Verificado.svg'
 import { RiFireFill } from "react-icons/ri";
 import { PiGenderFemale } from "react-icons/pi";
 import { BsGenderMale } from "react-icons/bs";
@@ -169,27 +169,27 @@ export const Inicio = () => {
       </Helmet>
       <section>
         <div className="flex items-center justify-between w-full flex-wrap px-[30px] py-[20px] dark:bg-dark bg-white">
-          <div className="flex items-center gap-2 w-auto dark:bg-zinc-900 bg-zinc-200 p-[5px] rounded-full">
+          <div className="flex items-center gap-2 w-auto dark:bg-zinc-900 bg-zinc-50 p-[4px] rounded-full">
             <button
               className={genero === "Mulher"
-                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-laranja bg-zinc-900 text-white font-bold text-[14px]"
-                : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-zinc-400 text-white font-bold text-[14px] w-auto rounded-full"}
+                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none bg-laranja text-white font-bold text-[14px]"
+                : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-light text-zinc-500 font-bold text-[14px] w-auto rounded-full"}
               onClick={() => setGenero("Mulher")}
             >
               <PiGenderFemale /> Mulher | {contadorMulher}
             </button>
             <button
               className={genero === "Homem"
-                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-laranja bg-zinc-900 text-white font-bold text-[14px]"
-                : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-zinc-600 text-white font-bold text-[14px] w-auto rounded-full"}
+                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none bg-laranja  text-white font-bold text-[14px]"
+                : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-light text-zinc-500 font-bold text-[14px] w-auto rounded-full"}
               onClick={() => setGenero("Homem")}
             >
               <BsGenderMale /> Homem | {contadorHomem}
             </button>
             <button
               className={genero === "Trans"
-                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-laranja bg-zinc-900 text-white font-bold text-[14px]"
-                : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-zinc-600 text-white font-bold text-[14px] w-auto rounded-full"}
+                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none bg-laranja text-white font-bold text-[14px]"
+                : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-light text-zinc-500 font-bold text-[14px] w-auto rounded-full"}
               onClick={() => setGenero("Trans")}
             >
               <BsGenderTrans /> Trans | {contadorTrans}
@@ -200,12 +200,12 @@ export const Inicio = () => {
         </div>
       </section>
       <section>
-        <div className="relative flex items-start justify-center flex-wrap gap-1 h-auto px-1 pb-1 pt-0 dark:bg-dark " style={{ minHeight: `${alturaDiv}px` }}>
+        <div className="relative flex items-start justify-center flex-wrap gap-1 h-auto px-1 pb-1 pt-0 dark:bg-dark " style={{minHeight: `${alturaDiv}px` }}>
           {result.length === 0 ? (
-            <div className="flex justify-center items-center flex-col h-auto bg-red-500 gap-2 w-full absolute inset-0">
-              <h1 className="text-white font-medium text-base flex items-center justify-center flex-col"><b className="font-bold text-3xl">Sem resultados:</b> {acomp} </h1>
+            <div className="flex justify-center items-center flex-col h-auto px-5 py-2.5 rounded-md gap-2">
+              <h1 className="dark:text-white font-medium text-base flex items-center justify-center flex-col "><b className="font-bold text-3xl">Sem resultados:</b> {acomp} </h1>
               <button
-                className="bg-white text-black  px-3 py-1 rounded-sm"
+                className="dark:bg-white bg-dark dark:text-black text-white  px-3 py-1 rounded-sm"
                 onClick={() => setAcomp("")}
               >
                 Tente novamente!
@@ -216,32 +216,27 @@ export const Inicio = () => {
               <Link className="rounded-md" to={`/${item.nome_tag}`} key={`${item._id}_${index}`}>
                 <div className="relative flex justify-end items-center flex-col h-auto 2xl:w-[312px] hover:cursor-pointer"  id="card_profile">
                 <div className="grid-cols-6 contents">
-                  <div className="absolute top-0 mt-[10px] flex justify-between items-center bg-white rounded-[3px]">
-                    <div className="flex items-center justify-center gap-1 px-2">
-                      <BsFillPatchCheckFill className="text-blue-500 text-xl" />
-                      <RiFireFill className="text-red-500 text-xl" />
-                    </div>
-                    <div>
-                      <nav>
-                        <ul className="flex justify-between gap-1 items-center bg-black text-sm text-white pl-4 pr-2.5 py-1.5 font-light rounded-l-3xl rounded-r-[3px]">
-                          <li>{item.genero}</li>
-                          <li>|</li>
-                          <li>R$ {item.caches}/H</li>
-                        </ul>
-                      </nav>
-                    </div>
+                  <div className="absolute top-5 w-auto px-1 rounded-r-md py-[3px] left-0 flex justify-between items-center gap-1 dark:bg-dark bg-white">
+                    <img className="h-[23px] w-[23px]" src={Verificado} alt="Verificado" />
+                    <RiFireFill className="text-laranja text-[23px]" />
                   </div>
                   <img
                     className="rounded-md h-full w-full object-cover"
                     src={ImgProfile}
                     alt={`picture_${item._id}`}
                   />
-                  <div className="absolute bottom-0 leading-4 flex justify-center flex-col rounded-b-md h-auto max-h-[80px] w-full py-2 px-2.5 backdrop-blur-xl">
-                    <div className="flex items-center w-full ">
-                      <h2 className="font-semibold text-lg text-white">{item.nome}</h2>
-                      <h3 className="font-medium text-base text-white">, {item.idade} anos</h3>
+                  <div className="absolute bottom-0 leading-4 flex justify-between items-center rounded-b-md h-auto max-h-[120px] w-full p-2 backdrop-blur-xl">
+                    <div className="flex flex-col">
+                      <div className="flex items-center w-full">
+                        <h2 className="font-semibold text-lg text-white">{item.nome}</h2>
+                        <h3 className="font-medium text-base text-white">, {item.idade} anos</h3> 
+                      </div>
+                      <span className="font-light text-zinc-100">Itaboraí, RJ</span>
                     </div>
-                    <span className="font-light text-zinc-100">Itaboraí, RJ</span>
+                    <div className=" flex justify-between flex-col gap-1 items-end">
+                      <span className="bg-zinc-100 px-3 py-1 font-light text-zinc-800 text-[14px] rounded-[3px]">{item.genero}</span>
+                      <span className="bg-laranja px-3 py-1 font-light text-white text-[14px] rounded-[3px]">R$ {item.caches}/H</span>
+                    </div>
                   </div>
                 </div>
               </div>

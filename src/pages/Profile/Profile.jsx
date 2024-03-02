@@ -1,4 +1,5 @@
-import {Flame, ShieldCheck, PhoneCall, ShieldAlert,PlayCircle} from 'lucide-react';
+import { PhoneCall, ShieldAlert,PlayCircle} from 'lucide-react';
+import { RiFireFill } from "react-icons/ri";
 import Marquee from "react-fast-marquee";
 import { Helmet } from 'react-helmet';
 import WindowSize from '../../components/WindowSize/WindowSize';
@@ -9,6 +10,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/effect-fade';
 import './swiper.css';
+import Verificado from '../../assets/icons/Verificado.svg'
 export default function Profile(){
     const alturaHeight = WindowSize();
     return(
@@ -23,13 +25,13 @@ export default function Profile(){
                     className="h-full w-[20%] dark:bg-dark border-r-2 gap-1.5 dark:border-zinc-800 border-zinc-100 flex justify-between p-3 flex-col">
                     <div className="flex items-center justify-between flex-wrap  w-full gap-2">
                         <div
-                            className="py-1 px-3 rounded-[3px] text-sm font-normal flex items-center gap-1 dark:text-white dark:bg-zinc-800 dark:border-none border border-zinc-200">
-                            <Flame className="text-red-500" />
+                            className="py-1 px-3 rounded-[3px] text-sm font-normal flex justify-center items-center gap-1 dark:text-white dark:bg-zinc-800 dark:border-none border border-zinc-200">
+                            <RiFireFill className="text-laranja text-[25px]" />
                             <span>Perfil Destacado</span>
                         </div>
                         <div
-                            className="dark:bg-zinc-800 dark:border-none border border-zinc-200 dark:text-white py-1 px-3 rounded-[3px] text-sm font-normal flex items-center gap-1">
-                            <ShieldCheck className="text-blue-500" />
+                            className="dark:bg-zinc-800 dark:border-none border border-zinc-200 dark:text-white py-1 px-3 rounded-[3px] text-sm font-normal flex justify-start items-center gap-1">
+                            <img className="h-[25px] w-[25px]" src={Verificado} alt="Verificado" />
                             <span>Perfil Verificado</span>
                         </div>
                     </div>

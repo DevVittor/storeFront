@@ -69,7 +69,7 @@ export const HeaderBar = () => {
         <div className="">
           <Link to="/">
             <h1 className="dark:text-white font-bold text-3xl">
-              Acomp<b className="text-red-600 font-bold text-3xl">X</b>
+              Acomp<b className="text-laranja font-bold text-3xl">X</b>
             </h1>
           </Link>
         </div>
@@ -88,7 +88,7 @@ export const HeaderBar = () => {
               {modalAcessar && <Acessar />}
             </div>
             <button
-              className="px-3 py-1 border border-vermelhoIcon bg-vermelhoIcon text-white font-semibold rounded-sm"
+              className="px-3 py-1 border border-laranja bg-laranja text-white font-semibold rounded-sm"
               id="cadastrar"
               onClick={() => setModalCadastrar(!modalCadastrar)}
             >
