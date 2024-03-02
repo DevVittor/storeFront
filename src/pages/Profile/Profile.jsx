@@ -1,7 +1,14 @@
-import {Flame, ShieldCheck, PhoneCall, Fullscreen, ShieldAlert} from 'lucide-react';
+import {Flame, ShieldCheck, PhoneCall, ShieldAlert,PlayCircle} from 'lucide-react';
 import Marquee from "react-fast-marquee";
 import { Helmet } from 'react-helmet';
 import WindowSize from '../../components/WindowSize/WindowSize';
+import {Swiper,SwiperSlide} from 'swiper/react';
+import { Pagination, Scrollbar, A11y,Autoplay,EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/effect-fade';
+import './swiper.css';
 export default function Profile(){
     const alturaHeight = WindowSize();
     return(
@@ -13,7 +20,7 @@ export default function Profile(){
         <section>
             <div className="flex justify-center items-center flex-wrap w-[100%] dark:bg-dark" style={{height:`${alturaHeight}px`}}>
                 <div
-                    className="h-full w-[20%] dark:bg-dark border-r-2 gap-1.5 dark:border-zinc-800 border-zinc-200 flex justify-between p-3 flex-col">
+                    className="h-full w-[20%] dark:bg-dark border-r-2 gap-1.5 dark:border-zinc-800 border-zinc-100 flex justify-between p-3 flex-col">
                     <div className="flex items-center justify-between flex-wrap  w-full gap-2">
                         <div
                             className="py-1 px-3 rounded-[3px] text-sm font-normal flex items-center gap-1 dark:text-white dark:bg-zinc-800 dark:border-none border border-zinc-200">
@@ -123,9 +130,9 @@ export default function Profile(){
                         </div>
                         <div className="">
                             <button 
-                            className="hover:bg-red-500 hover:transition-all border border-zinc-700 hover:delay-200 py-1 px-5 bg-red text-white rounded-sm flex items-center gap-2">
+                            className="group hover:bg-red-500 hover:transition-colors  hover:dark:text-white hover:text-white border-2 hover:border-transparent dark:border-zinc-700 border-zinc-200  py-1 px-5 bg-red dark:text-white rounded-sm flex items-center gap-2">
                                 Denunciar
-                                <ShieldAlert />
+                                <ShieldAlert className='animate-pulse h-[25px] w-[25px] group-hover:animate-none group-hover:text-white text-red-500 '/>
                             </button>
                         </div>
                     </div>
@@ -133,22 +140,33 @@ export default function Profile(){
 
                 <div className="flex flex-col items-center justify-between gap-2.5 h-full w-[80%] p-2.5">
                     <div className="grid  gap-2 grid-cols-3 bg-red-blue-500 w-full">
-                        <div className="relative flex justify-center items-center h-[270px] w-full bg-red-500 rounded-xl group">
-                            <img className=" h-full w-full object-cover rounded-xl"
-                                src="https://images.pexels.com/photos/3794248/pexels-photo-3794248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt=""/>
-                            <Fullscreen
-                                className="absolute h-[50px] w-[50px] text-zinc-100 border border-zinc-200 rounded-xl cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="flex justify-center items-center h-[270px] w-full bg-red-500 rounded-md group">
+                            <Swiper
+                                className='h-full w-full'
+                                modules={[Pagination, Scrollbar, A11y,Autoplay,EffectFade]}
+                                slidesPerView={1}
+                                autoplay={true}
+                                effect='fade'
+                                pagination={{ clickable: true }}
+                                scrollbar={{ draggable: true }}
+                                >
+
+                                    {Array.from({length:5}).map((_,index)=>(
+                                        <SwiperSlide key={index} className=' w-full'>
+                                            <img className='h-full w-full object-cover rounded-md' src="https://images.pexels.com/photos/20396000/pexels-photo-20396000/free-photo-of-mar-alvorecer-amanhecer-aurora.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="foto" />
+                                        </SwiperSlide>
+                                    ))}
+                            </Swiper>
                         </div>
-                        <div className="relative flex justify-center items-center h-[270px] w-full bg-red-500 rounded-xl group">
-                            <img className=" h-full w-full object-cover rounded-xl"
+                        <div className="relative flex justify-center items-center h-[270px] w-full bg-red-500 rounded-md ">
+                            <img className=" h-full w-full object-cover rounded-md"
                                 src="https://images.pexels.com/photos/3813345/pexels-photo-3813345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                                 alt=""/>
-                            <Fullscreen
-                                className="absolute h-[50px] w-[50px] text-zinc-100 border border-zinc-200 rounded-xl cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <PlayCircle
+                                className="absolute h-[70px] w-[70px] text-zinc-100 cursor-pointer " />
                         </div>
-                        <div className="relative flex justify-start items-end h-[270px] w-full bg-red-500">
-                            <img className=" h-full w-full object-cover "
+                        <div className="relative flex justify-start items-end h-[270px] rounded-md w-full bg-red-500">
+                            <img className=" h-full w-full object-cover rounded-md"
                                 src="https://t2.tudocdn.net/603541?w=1920"
                                 alt=""/>
                             <div className='absolute m-1 h-auto w-auto p-2 rounded-[3px] shadow-md bg-black'>
@@ -166,18 +184,18 @@ export default function Profile(){
                             {Array.from({length:53}).map((_,index)=>(
                                 <span
                                 key={index}
-                                className="mx-1 px-3 border dark:border-zinc-700 dark:text-white border-zinc-400 py-1 hover:cursor-pointer">
+                                className="mx-1 px-3 border dark:border-zinc-700 dark:text-white border-zinc-200 py-1 hover:cursor-pointer">
                                     serviços{ index }
                                 </span>
                             ))}
                         </Marquee>
                     </div>
                     <div className='h-[550px] w-full flex items-center gap-1.5'>
-                        <div className="h-full w-[23%] ">
-                            <img className=' h-full object-cover' src='https://images.pexels.com/photos/11101209/pexels-photo-11101209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='foto'/>
+                        <div className="h-full w-[24%] rounded-md">
+                            <img className=' h-full object-cover rounded-md' src='https://images.pexels.com/photos/11101209/pexels-photo-11101209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='foto'/>
                         </div>
-                        <div className="w-[77%]  h-full">
-                            <img className=' h-full w-full object-fit' src='https://images.pexels.com/photos/4050385/pexels-photo-4050385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='foto'/>
+                        <div className="w-[76%] h-full rounded-md">
+                            <img className=' h-full w-full object-fit rounded-md' src='https://images.pexels.com/photos/4050385/pexels-photo-4050385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='foto'/>
                         </div>
                     </div>
                     {/*<div className="flex justify-center items-center h-full w-full">

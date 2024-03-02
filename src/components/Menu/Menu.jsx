@@ -3,13 +3,14 @@ import { MdMenuOpen } from "react-icons/md";
 import { FaPowerOff } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
 import { IoMegaphone } from "react-icons/io5";
-import { MdOutlineRocketLaunch } from "react-icons/md";
-import styles from './Menu.module.css';
+import { IoIosRocket } from "react-icons/io";
+import { IoIosSunny } from "react-icons/io";
+import { FaMoon } from "react-icons/fa";
 import { Maps } from '../Maps/Maps';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { UserCircleIcon } from "lucide-react";
-export const Menu = () => {
+import { FaUserEdit } from "react-icons/fa";
+export const Menu = ({mode,atual}) => {
     const [createProfile, setCreateProfile] = useState(false);
     const [menu, setMenu] = useState(false);
 
@@ -41,27 +42,28 @@ export const Menu = () => {
     }, [menu])
 
     return (
-        <div className={styles.container} id="menu">
+        <div className="" id="menu">
             <>
                 {menu ? (
-                    <div className={styles.menu_hover}>
-                        <MdMenuOpen className={styles.icon} onClick={openMenu} id="iconOpen" />
+                    <div className="relative flex items-center justify-center">
+                        <MdMenuOpen className="dark:text-white text-2xl cursor-pointer" onClick={openMenu} id="iconOpen" />
                         {menu && (
-                            <div className={styles.modal}>
+                            <div className="dark:bg-dark dark:shadow-md shadow-md bg-white p-3 rounded-md absolute top-8 right-0">
                                 <nav>
-                                    <ul>
-                                        <li><Link to="/perfil/novo"><UserCircleIcon />Criar Perfil</Link></li>
-                                        <li><Link to="/Impulsionar"><MdOutlineRocketLaunch />Impulsionar Perfil</Link></li>
-                                        <li><Link to="/#"><IoMegaphone className={styles.icone} />Divulgar Marca</Link></li>
-                                        <li><Link to={`/`}><IoMdSettings className={styles.icone} />Editar Conta</Link></li>
-                                        <li><Link to="/#"><FaPowerOff className={styles.icone} />Sair</Link></li>
+                                    <ul className="flex flex-col gap-1 dark:text-zinc-200 w-[180px]">
+                                        <li><Link className="flex items-center gap-2 w-full" to="/perfil/novo"><FaUserEdit />Criar Perfil</Link></li>
+                                        <li><Link className="flex items-center gap-2 w-full" to="/Impulsionar"><IoIosRocket />Impulsionar Perfil</Link></li>
+                                        <li><Link className="flex items-center gap-2 w-full" to="/#"><IoMegaphone  />Divulgar Marca</Link></li>
+                                        <li><Link className="flex items-center gap-2 w-full" to={`/`}><IoMdSettings />Editar Conta</Link></li>
+                                        <li><span className="flex items-center gap-2 w-full cursor-pointer" onClick={mode}>{atual === 'dark' ? <IoIosSunny /> : <FaMoon/>}Dark Mode: {atual === 'dark'? 'Light' : 'Dark'}</span></li>
+                                        <li><Link className="flex items-center gap-2 w-full" to="/#"><FaPowerOff />Sair</Link></li>
                                     </ul>
                                 </nav>
                             </div>
                         )}
                     </div>
                 ) : (
-                    <MdMenu className={styles.icon} onClick={openMenu} id="iconClose" />
+                    <MdMenu className="dark:text-white text-2xl cursor-pointer" onClick={openMenu} id="iconClose" />
                 )}
             </>
             {createProfile && <Maps />}

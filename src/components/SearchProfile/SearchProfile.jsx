@@ -98,9 +98,10 @@ export const SearchProfile = ({
   }
 
   return (
-    <div className={styles.box_search}>
-      <IoMdSearch className={styles.icon_search} />
+    <div className="bg-white flex items-center gap-2 px-3 py-1 border border-zinc-200 rounded-sm">
+      <IoMdSearch className="bg-white" />
       <input
+      className="outline-none border-none"
         type="search"
         name="nome"
         value={acomp}

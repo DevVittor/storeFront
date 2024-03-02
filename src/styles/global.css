@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Inter';
-  src: url('../assets/fonts/Inter-Regular.woff2') format('woff2');
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -12,12 +12,11 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 html,
 body {
-  background: var(--bg-320);
   scroll-behavior: smooth;
 }
 

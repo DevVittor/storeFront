@@ -169,28 +169,28 @@ export const Inicio = () => {
         <meta name="description" content="Inicio da página que mostras o perfil dos usuários presente da plataforma" />
       </Helmet>
       <section>
-        <div className="flex items-center justify-between w-full flex-wrap px-[30px] py-[20px]">
-          <div className="flex items-center gap-2 w-auto bg-zinc-900 p-[5px] rounded-full">
+        <div className="flex items-center justify-between w-full flex-wrap px-[30px] py-[20px] dark:bg-dark bg-white">
+          <div className="flex items-center gap-2 w-auto dark:bg-zinc-900 bg-zinc-200 p-[5px] rounded-full">
             <button
               className={genero === "Mulher"
-                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none bg-red-600 text-white font-bold text-[14px]"
-                : "flex items-center justify-center gap-2 px-[12px] py-[3px] bg-zinc-800 text-white font-bold text-[14px] w-auto rounded-full"}
+                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-red-600 bg-zinc-900 text-white font-bold text-[14px]"
+                : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-zinc-400 text-white font-bold text-[14px] w-auto rounded-full"}
               onClick={() => setGenero("Mulher")}
             >
               <PiGenderFemale /> Mulher | {contadorMulher}
             </button>
             <button
               className={genero === "Homem"
-                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none bg-red-600 text-white font-bold text-[14px]"
-                : "flex items-center justify-center gap-2 px-[12px] py-[3px] bg-zinc-800 text-white font-bold text-[14px] w-auto rounded-full"}
+                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-red-600 bg-zinc-900 text-white font-bold text-[14px]"
+                : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-zinc-600 text-white font-bold text-[14px] w-auto rounded-full"}
               onClick={() => setGenero("Homem")}
             >
               <BsGenderMale /> Homem | {contadorHomem}
             </button>
             <button
               className={genero === "Trans"
-                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none bg-red-600 text-white font-bold text-[14px]"
-                : "flex items-center justify-center gap-2 px-[12px] py-[3px] bg-zinc-800 text-white font-bold text-[14px] w-auto rounded-full"}
+                ? "flex items-center justify-center gap-2 px-[12px] py-[3px] rounded-full outline-none dark:bg-red-600 bg-zinc-900 text-white font-bold text-[14px]"
+                : "flex items-center justify-center gap-2 px-[12px] py-[3px] dark:bg-zinc-800 bg-zinc-600 text-white font-bold text-[14px] w-auto rounded-full"}
               onClick={() => setGenero("Trans")}
             >
               <BsGenderTrans /> Trans | {contadorTrans}
@@ -201,7 +201,7 @@ export const Inicio = () => {
         </div>
       </section>
       <section>
-        <div className={styles.container_cards} style={{ minHeight: `${alturaDiv}px` }}>
+        <div className="flex items-start justify-center flex-wrap gap-2.5 h-auto px-5 pb-5 pt-0 dark:bg-dark bg-white" style={{ minHeight: `${alturaDiv}px` }}>
           {result.length === 0 ? (
             <div>
               <h1 style={{ color: "white" }}>Sem resultados {acomp} </h1>
@@ -220,7 +220,7 @@ export const Inicio = () => {
             result.map((item, index) => (
               <Link to={`/${item.nome_tag}`} key={`${item._id}_${index}`}>
                 <div className={styles.card_profile}  id="card_profile">
-                <div className="grid-cols-6  contents">
+                <div className="grid-cols-6 contents">
                   <div className="absolute top-0 mt-[10px] flex justify-between items-center gap-2 bg-white pr-1 pl-3 py-1 rounded-full">
                     <div className="flex items-center justify-center gap-1">
                       <BsFillPatchCheckFill className="text-blue-500 text-xl" />
@@ -241,12 +241,12 @@ export const Inicio = () => {
                     src={ImgProfile}
                     alt={`picture_${item._id}`}
                   />
-                  <div className={styles.name_profile}>
-                    <div className={styles.name_age_profile}>
-                      <h2>{item.nome}</h2>
-                      <h3>, {item.idade}</h3>
+                  <div className="absolute bottom-0 leading-4 flex justify-center flex-col h-auto max-h-[80px] w-full py-2 px-2.5  z-50 backdrop-blur-xl">
+                    <div className="flex items-center w-full ">
+                      <h2 className="font-semibold text-lg text-white">{item.nome}</h2>
+                      <h3 className="font-medium text-base text-white">, {item.idade} anos</h3>
                     </div>
-                    <span>Itaboraí, RJ</span>
+                    <span className="font-light text-zinc-100">Itaboraí, RJ</span>
                   </div>
                 </div>
               </div>

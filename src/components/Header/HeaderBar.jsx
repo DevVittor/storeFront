@@ -10,6 +10,25 @@ export const HeaderBar = () => {
   const [modalCadastrar, setModalCadastrar] = useState(false);
   const userId = localStorage.getItem("userId");
   const [logado, setLogado] = useState(false);
+  const [theme,setTheme] = useState(null);
+
+
+  useEffect(()=>{
+    if(window.matchMedia('(prefers-color-scheme:dark)').matches){
+      setTheme('dark')
+    }
+  },[])
+  useEffect(()=>{
+    if(theme === "dark"){
+      document.documentElement.classList.add("dark");
+    }else{
+      document.documentElement.classList.remove("dark");
+    }
+  },[theme])
+
+  const handleDarkMode = ()=>{
+    setTheme(theme === "dark" ? "light" : "dark");
+  }
 
   useEffect(() => {
     if (userId != null) {
@@ -44,17 +63,17 @@ export const HeaderBar = () => {
   }, [modalAcessar]);
 
   return (
-    <header>
-      <div className="flex items-center justify-between px-[30px] py-[10px]">
-        <div className={styles.logo}>
+    <header className="sticky top-0 z-50 dark:bg-dark bg-white" >
+      <div className="flex items-center justify-between px-[30px] py-[10px] border-b-2 dark:border-zinc-800 border-zinc-100">
+        <div className="">
           <Link to="/">
-            <h1 className="text-white font-bold text-3xl">
+            <h1 className="dark:text-white font-bold text-3xl">
               Acomp<b className="text-red-600 font-bold text-3xl">X</b>
             </h1>
           </Link>
         </div>
         {logado ? (
-          <Menu />
+          <Menu mode={handleDarkMode} atual={theme}/>
         ) : (
           <div className={styles.acesso_register}>
             <div className={styles.acesso}>
@@ -67,7 +86,6 @@ export const HeaderBar = () => {
               </button>
               {modalAcessar && <Acessar />}
             </div>
-
             <button
               className={styles.url_cadastro}
               id="cadastrar"
@@ -75,10 +93,10 @@ export const HeaderBar = () => {
             >
               Cadastro Gratuito
             </button>
+            <button className="dark:text-white" onClick={handleDarkMode}>Dark Mode</button>
           </div>
         )}
-
-
+        
         {modalCadastrar && <Cadastrar />}
       </div>
     </header>
