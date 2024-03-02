@@ -202,14 +202,10 @@ export const Inicio = () => {
       <section>
         <div className="flex items-start justify-center flex-wrap gap-1 h-auto px-1 pb-1 pt-0 dark:bg-dark " style={{ minHeight: `${alturaDiv}px` }}>
           {result.length === 0 ? (
-            <div>
-              <h1 style={{ color: "white" }}>Sem resultados {acomp} </h1>
+            <div className="flex justify-center items-center flex-col absolute inset-0 gap-2 w-full ">
+              <h1 className="dark:text-white font-medium text-base flex items-center justify-center flex-col"><b className="font-bold text-3xl">Sem resultados:</b> {acomp} </h1>
               <button
-                style={{
-                  background: "white",
-                  outline: "none",
-                  border: "1px solid white",
-                }}
+                className="dark:bg-white dark:text-black bg-dark text-white px-3 py-1 rounded-sm"
                 onClick={() => setAcomp("")}
               >
                 Tente novamente!
@@ -220,14 +216,14 @@ export const Inicio = () => {
               <Link className="rounded-md" to={`/${item.nome_tag}`} key={`${item._id}_${index}`}>
                 <div className="relative flex justify-end items-center flex-col h-auto 2xl:w-[312px] hover:cursor-pointer"  id="card_profile">
                 <div className="grid-cols-6 contents">
-                  <div className="absolute top-0 mt-[10px] flex justify-between items-center gap-2 bg-white pr-1 pl-3 py-1 rounded-full">
-                    <div className="flex items-center justify-center gap-1">
+                  <div className="absolute top-0 mt-[10px] flex justify-between items-center bg-white rounded-[3px]">
+                    <div className="flex items-center justify-center gap-1 px-2">
                       <BsFillPatchCheckFill className="text-blue-500 text-xl" />
                       <RiFireFill className="text-red-500 text-xl" />
                     </div>
                     <div>
                       <nav>
-                        <ul className="flex justify-between gap-1 items-center text-sm bg-black text-white px-2.5 py-1 rounded-full font-light">
+                        <ul className="flex justify-between gap-1 items-center bg-black text-sm text-white pl-4 pr-2.5 py-1.5 font-light rounded-l-3xl rounded-r-[3px]">
                           <li>{item.genero}</li>
                           <li>|</li>
                           <li>R$ {item.caches}/H</li>
