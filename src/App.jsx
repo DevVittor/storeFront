@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes,useParams } from "react-router-dom"
 import { NavBar } from "./components/NavBar/NavBar"
 import { Inicio } from "./pages/Inicio/Inicio"
 import Painel from "./pages/Painel/Painel"
@@ -8,11 +8,11 @@ import { Success } from "./pages/Success/Success"
 import { Cancel } from "./pages/Cancel/Cancel"
 import Impulsionar from './pages/Impulsionar'
 
-import { useEffect } from "react"
+import { useEffect,useState} from "react"
 import Profile from "./pages/Profile/Profile"
+import axios from 'axios';
 
 export const App = () => {
-
   useEffect(() => {
     const milissegundos = 3 * 24 * 60 * 60 * 1000;
     const temToken = localStorage.getItem("Token");
@@ -30,7 +30,7 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<NavBar />}>
+        <Route exact path="/" element={<NavBar />}>
           <Route index element={<Inicio />} />
           <Route
             path="success"
@@ -48,12 +48,42 @@ export const App = () => {
               </ProtectedRoute>
             }
           />
-          <Route path="/:username" element={<Profile/>}/>
-          <Route path="painel" element={<Painel />} />
-          <Route path="impulsionar" element={<Impulsionar />} />
+          <Route exact path="/:id" element={<ProfileRoute/>}/>
+          <Route exact path="painel" element={<Painel />} />
+          <Route exact path="impulsionar" element={<Impulsionar />} />
           <Route path="*" element={<Error404 />} />
         </Route>
       </Routes>
     </BrowserRouter >
   );
 }
+
+const ProfileRoute = () => {
+  
+  const [userExists, setUserExists] = useState(false);
+
+  const {id} = useParams();
+  console.log("userId React:",id);
+
+  useEffect(() => {
+      try {
+        axios.get(`http://localhost:8080/v1/api/acompanhantes/${id}`)
+        .then(()=>{
+          console.log(`O usuario foi encontrado!`);
+          setUserExists(true);
+        }).catch((error)=>{
+          console.log(`Nada de usuário encontrado ${error}`);
+          setUserExists(false);
+        })
+      } catch (error) {
+        console.error("Erro ao buscar usuário:", error);
+        setUserExists(false);
+      }
+  }, [id]);
+
+  if (userExists) {
+    return <Profile />;
+  } else {
+    return <Error404 />;
+  }
+};

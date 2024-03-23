@@ -13,7 +13,7 @@ export const SearchProfile = ({
   limit,
   setAcomp,
 }) => {
-  const [modalFilter, setModalFilter] = useState(false);
+  const [modalFilter, setModalFilter] = useState(true);
   const servicos = [
     "Anal",
     "Beijo na Boca",
@@ -98,7 +98,7 @@ export const SearchProfile = ({
   }
 
   return (
-    <div className="bg-white flex items-center gap-2 px-3 py-1 border border-zinc-200 rounded-sm">
+    <div className="bg-white flex items-center gap-2 px-3 py-1 border border-zinc-200 rounded-sm relative">
       <IoMdSearch className="bg-white" />
       <input
       className="outline-none border-none"
@@ -109,10 +109,10 @@ export const SearchProfile = ({
         placeholder="Digite um nome"
       />
       {modalFilter ? (
-        <div className={styles.filter_modal}>
+        <div className="relative top-0">
           <MdFilterListOff className={styles.icon_filter} onClick={openFilter} />
           {modalFilter && (
-            <div className={styles.filter}>
+            <div className="bg-red-500 fixed flex flex-col right-0 max-h-[80%] overflow-y-auto px-5 py-5 m-5 z-10">
               <div className={styles.number_filter}>
                 <input type="range" name="" id="" />
                 <label htmlFor="">Preço</label>
